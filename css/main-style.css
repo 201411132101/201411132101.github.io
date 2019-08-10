@@ -65,13 +65,10 @@
     border: none;
     cursor: pointer;
     display: block;
-    background: url(../images/blue.png);
+    background: url(../search.png);
     margin: 0;
     padding: 0;
     outline: none;
-}
-#search-button:hover {
-    background: url(../images/pink.png);
 }
 
 
