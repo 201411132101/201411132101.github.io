@@ -48,6 +48,9 @@
     outline: none;
     float: left;
 }
+#search-form {
+    display: inline;
+}
 #search-input {
     position: relative;
     float: left;
