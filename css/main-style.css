@@ -48,7 +48,7 @@
     outline: none;
     float: left;
 }
-#q {
+#search-input {
     position: relative;
     float: left;
     height: 30px;
@@ -58,7 +58,7 @@
     border: none;
     outline: none;
 }
-#btnG {
+#search-button {
     position: relative;
     width: 32px;
     height: 32px;
