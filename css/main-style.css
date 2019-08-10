@@ -64,6 +64,7 @@
     height: 32px;
     border: none;
     cursor: pointer;
+    display: block;
     background: url(../search.png);
     margin: 0;
     padding: 0;
