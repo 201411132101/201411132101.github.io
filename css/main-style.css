@@ -48,9 +48,6 @@
     outline: none;
     float: left;
 }
-#search-form {
-    display: inline;
-}
 #search-input {
     position: relative;
     float: left;
@@ -67,7 +64,6 @@
     height: 32px;
     border: none;
     cursor: pointer;
-    display: block;
     background: url(../search.png);
     margin: 0;
     padding: 0;
