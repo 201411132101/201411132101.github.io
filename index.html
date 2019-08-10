@@ -75,25 +75,7 @@
 </body>
 
 <script>
-    // 连接服务器
-    Bmob.initialize("df3de0c5024b1c1dd78fe5ba6cbddbb5", "5aa98c4263b103739a33b06fae7aac27");
-</script>
-<script src="javascript/load-article-list.js"></script>
-<script src="javascript/load-article.js"></script>
-<script src="javascript/load-rightbar.js"></script>
-<script src="javascript/search.js"></script>
-
-<script>
-    var loc = location.href;
-    var index = loc.indexOf("=");
-    if (index != -1)
-        load_article(loc.substr(index+1));
-    else
-        load_list("NULL", "NULL", 1);
-</script>
-
-<script>
-    //回车事件
+    // 回车绑定搜索
     $("#search-input").bind('keydown', function(event){
         if (event.keyCode == "13")
             $("#search-button").click();
