@@ -1,0 +1,80 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{case}{Case}
+
+
+% 基本信息
+\title{Lebesgue's number lemma}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+In \cite[Lemma 7.2]{m75}, Munkres proof the following Lebesgue's number lemma.
+
+\begin{theorem}
+    If the metric space $ (X, d) $ is compact and an open cover of $ X $ is given, 
+    then there exists $ \delta \in (0, \infty) $ such that every subset of $ X $ 
+    having diameter less than $ \delta $ is contained in some member of the cover.
+    Such a number $ \delta $ is called a Lebesgue number of this cover. 
+\end{theorem}
+
+\begin{proof}
+    Let $ \mathcal{U} $ be an open cover of $ X $. Since $ X $ is compact 
+    we can extract a finite subcover $ \{A_{1},\dots ,A_{n}\} \subseteq \mathcal{U} $. 
+    If there exists $ k_0 \in \{1, \ldots, n\} $ such that $ A_{k_0} = X $, 
+    then any $ \delta \in (0, \infty) $ will serve as a Lebesgue number. 
+    Otherwise for any $ k \in \{1, \dots, n\} $, let $ C_k := X \setminus A_k $, 
+    note that $ C_k $ is not empty closed set, and define a function
+    $$
+        f: X \rightarrow \mathbb{R}, x \mapsto \frac{1}{n} \sum_{k = 1}^n d(x, C_k).
+    $$
+    Since $ f $ is continuous on a compact set, let $ f $ attains a minimum $ \delta $ at $ x_0 \in X $. 
+    From this and $ \{A_1, \dots, A_n\} $ is an open cover of $ X $, there exists $ k \in \{1, \ldots, n\} $ 
+    such that $ x_0 \in A_k $, then $ x_0 \notin C_k $ so that
+    $$
+        \delta = f(x_0) \geq \frac{1}{n} d(x_0, C_k) > 0.
+    $$
+    Now we can verify that this $ \delta $ is the desired Lebesgue number. 
+    In fact, for any $ Y \subset X $ of diameter less than $ \delta $, let $ y \in Y $, we have 
+    \begin{equation} \label{equ}
+        Y \subseteq B(y, \delta).
+    \end{equation} 
+    Since $ f(y) \geq \delta $, there exist $ k \in \{1, \ldots, n\} $ 
+    such that $ d(y, C_k) \geq \delta $. It means that $ B(y, \delta) \subset X \setminus C_k $,
+    then $ B(y, \delta) \subseteq A_k $. From this and \eqref{equ}, $ Y \subseteq A_k $. 
+    So $ \delta $ is a Lebesgue number of cover $ \mathcal{U} $.
+\end{proof}
+
+\begin{thebibliography}{99}
+
+    \bibitem{m75} J. R. Munkres, Topology: a first course, Prentice-Hall, Inc., Englewood Cliffs, N.J.,  1975.
+    
+\end{thebibliography}
+
+\end{document} 
+
+
+
+
+
+

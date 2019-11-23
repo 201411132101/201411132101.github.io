@@ -6,7 +6,7 @@
 
     <title> bufan 的博客 </title>
 
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="../favicon.ico">
 
     <!-- css -->
     <link href="../css/public-style.css" rel="stylesheet" type="text/css" />
@@ -14,9 +14,7 @@
     <link href="../css/github-markdown.css" rel="stylesheet" type="text/css">
 
     <!-- javascript -->
-    <script id="MathJax-script" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
@@ -43,57 +41,18 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-            <h1>Latex 特殊符号</h1>
-            <p align="center">最后更新: 2019-11-20 22:36</p>
-            <p align="center">发布时间: 2019-11-19 22:36</p>
+# 兰斯8攻略
+<p align="center">最后更新: 2019-11-23</p>
+<p align="center">发布时间: 2018-05-22</p>
 
-            <hr>
-            <table align="center">
-                <tr>
-                    <th width="200px">代码</th>
-                    <th width="100px">符号</th>
-                    <th width="200px">代码</th>
-                    <th width="100px">符号</th>
-                    <th width="200px">代码</th>
-                    <th width="100px">符号</th>
-                </tr>
+---
 
-                <tr>
-                    <td>\lesssim</td>
-                    <td>\[ \lesssim \]</td>
-                    <td>\wedge</td>
-                    <td>\[ \wedge \]</td>
-                    <td>\vec{f}</td>
-                    <td>\[ \vec{f} \]</td>
-                </tr>
+非常可惜, 直到最后都没能把坑全部填上, 在肉眼可见的未来是不打算补完了, 人生哪有那么多的圆满呢.
 
-                <tr>
-                    <td>\rightharpoonup</td>
-                    <td>\[ \rightharpoonup \]</td>
-                    <td>\vee</td>
-                    <td>\[ \vee \]</td>
-                    <td>\mathring{A}</td>
-                    <td>\[ \mathring{A} \]</td>
-                </tr>
+兰斯8的攻略在贴吧里面有很多, 但是有的攻略不详细, 有的有错误, 有的被迷之和谐了, 这对我刷任务造成了不小的影响.
+故在攻略二周目的过程中, 自制一份攻略, 供三周目时使用.
 
-                <tr>
-                    <td>\mapsto</td>
-                    <td>\[ \mapsto \]</td>
-                    <td>\gtrsim</td>
-                    <td>\[ \gtrsim \]</td>
-                    <td>\dot{A}</td>
-                    <td>\[ \dot{A} \]</td>
-                </tr>
-
-                <tr>
-                    <td>\ni</td>
-                    <td>\[ \ni \]</td>
-                    <td>\subsetneqq</td>
-                    <td>\[ \subsetneqq \]</td>
-                    <td> \mathscr{X} </td>
-                    <td> \[ \mathscr{X} \] </td>
-                </tr>
-            </table>
+[攻略链接](https://bufan.xyz/gaming-strategy)
         </div>
 
         <div id="rightbar">
@@ -101,18 +60,21 @@
                 <h3> 标签 </h3>
                 <hr/>
                 <div class="clearfix">
-                    <a href=""> 数学 </a>
+                    <div style="float:left;"><a href="../tag/math.html"> 数学 </a></div>
+                    <div style="float:right;">1 篇</div>
                 </div>
                 <div class="clearfix">
-                    <a href=""> Latex </a>
+                    <div style="float:left;"><a href="../tag/latex.html"> Latex </a></div>
+                    <div style="float:right;">0 篇</div>
                 </div>
                 <div class="clearfix">
-                    <a href=""> 折纸 </a>
+                    <div style="float:left;"><a href="../tag/origami.html"> 折纸 </a></div>
+                    <div style="float:right;">0 篇</div>
                 </div>
                 <div class="clearfix">
-                    <a href=""> 杂谈 </a>
+                    <div style="float:left;"><a href="../tag/various.html"> 杂谈 </a></div>
+                    <div style="float:right;">0 篇</div>
                 </div>
-                <div id="tags" class="clearfix"> loading </div>
             </div>
             <div class="rightbar-list">
                 <h3> 归档 </h3>
@@ -143,5 +105,10 @@
 </div>
 
 </body>
+
+<script>
+    document.getElementById('article').innerHTML =
+        marked(document.getElementById('article').innerHTML);
+</script>
 
 </html>
