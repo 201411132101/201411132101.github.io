@@ -16,6 +16,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1TnHSJz11gNj9KqLgCPJt8Kybmh" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -24,12 +27,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bufan\OneDrive\博客" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bufan\OneDrive\201411132101.github.io\article" />
       <recent name="C:\Users\bufan\OneDrive\博客\article" />
       <recent name="C:\Users\bufan\OneDrive\博客\tag" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bufan\OneDrive\博客" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -63,10 +67,26 @@
       <workItem from="1574430976917" duration="2424000" />
       <workItem from="1574509990268" duration="1702000" />
       <workItem from="1574519454306" duration="1658000" />
+      <workItem from="1574753704201" duration="603000" />
+      <workItem from="1574758738018" duration="1110000" />
+      <workItem from="1574843594973" duration="2792000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

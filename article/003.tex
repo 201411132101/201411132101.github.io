@@ -1,0 +1,82 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{fontspec}
+
+\setmainfont{Times New Roman}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{case}{Case}
+\newtheorem{corollary}{Corollary}
+
+
+% 基本信息
+\title{Equidistributed}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+The content is from \cite[Chapter 4, Section 2]{ss11}.
+
+\begin{definition}
+    A sequence of number $ \{ \xi_n \}_{n \in \mathbb{N}} \subset [0, 1) $ is said to be equidistributed 
+    if for any interval $ (a, b) \subset [0, 1) $, 
+    $$ 
+        \lim_{N \to \infty} \frac{ \# \{1 \leq n \leq N: \, \xi_n \in (a, b) \}}{N} = b - a. 
+    $$
+where the $ \# A $ denotes the cardinality of the finite set $ A $.
+\end{definition}
+
+\begin{definition}
+    Let $ [x] $ denote the greatest integer less than or equal to x and call $ [x] $ the integer part of $ x $.
+    Let $ \langle x \rangle := x - [x] $ and call $ \langle x \rangle $ the fractional part of $ x $.
+\end{definition}
+
+\begin{theorem}[Weyl's criterion]
+    A sequence of number $ \{ \xi_n \}_{n \in \mathbb{N}} \subset [0, 1) $ is equidistributed 
+    if and only if for any $ k \in \mathbb{Z} \setminus \{0\} $,
+    $$ 
+        \frac{1}{N}\sum_{n=1}^N e^{2 \pi i k \xi_{n}} \to 0, \quad as \ N \to \infty. 
+    $$
+\end{theorem}
+
+From Weyl's criterion, we have following corollaries.
+
+\begin{corollary}
+    Let $ P(n) := c_n x^n + \cdots + c_0 $, for any $ k \in \{0, \ldots, n\} $, $ c_n \in \mathbb{R} $
+    and one of them is irrational number. Then $ \{ \langle P(n) \rangle \}_{n \in \mathbb{N}} \subset [0, 1) $ is equidistributed.
+\end{corollary}
+
+\begin{corollary}
+    $ \{ \sin n \}_{n \in \mathbb{N}} $ is dense in $ [0, 1] $.
+\end{corollary}
+
+\begin{thebibliography}{99}
+
+    \bibitem{ss11} E. M. Stein, and R. Shakarchi, Fourier Analysis: An Introduction, Princeton University Press, 2011.
+    
+\end{thebibliography}
+
+\end{document} 
+
+
+
+
+
+
