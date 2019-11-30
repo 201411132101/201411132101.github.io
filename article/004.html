@@ -44,18 +44,25 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# 兰斯8攻略
-<p align="center">最后更新: 2019-11-23</p>
-<p align="center">发布时间: 2018-05-22</p>
+# Equidistribution
+<p align="center">最后更新: 2018-07-09</p>
+<p align="center">发布时间: 2018-06-07</p>
 
 ---
 
-非常可惜, 直到最后都没能把坑全部填上, 在肉眼可见的未来是不打算补完了, 人生哪有那么多的圆满呢.
+## Abstract
 
-兰斯8的攻略在贴吧里面有很多, 但是有的攻略不详细, 有的有错误, 有的被迷之和谐了, 这对我刷任务造成了不小的影响.
-故在攻略二周目的过程中, 自制一份攻略, 供三周目时使用.
+称 \\([0, 1)\\) 上的数列 \\(\\{ \xi_n \\}_{n = 1}^{\infty} \\) 在 \\( [0, 1) \\) 上是 equidistributed 的是指,
+对 \\( \forall \\, a, b \in [0, 1) \\) 且 \\(a < b\\), 有
 
-[攻略链接](https://bufan.xyz/gaming-strategy)
+$$ \lim_{N \to \infty} \frac{\\#\\{1 \leq n \leq N: \ \xi_n \in (a, b) \\}}{N} = b - a. $$
+
+Weyl's criterion 是 equidistributed 数列的判别法, 由它可以得到一些有意思结论, 比如:
+数列 \\( \\{ \sin n \\}_{n = 1}^{\infty} \\) 在 \\( [0, 1] \\) 中稠密.
+
+[PDF](004.pdf)
+<span style="margin-right:24px;"></span>
+[TEX](004.tex)
         </div>
 
         <div id="rightbar">
@@ -96,8 +103,7 @@
 
     <div id="footer">
         <p>
-            联系方式: &nbsp; <a href="javascript:alert('291817591')"> QQ </a>
-                     &nbsp; <a href="javascript:alert('fox_bufan')"> 微信 </a>
+            联系方式: &nbsp; <a href="javascript:alert('291817591@qq.com')"> Email </a>
             <span style="margin-right:50px;"></span>
             数据存储: &nbsp; <a href="https://github.com/201411132101/201411132101.github.io"> github </a>
         </p>
