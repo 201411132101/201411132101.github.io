@@ -14,8 +14,13 @@ html, body {
 /*             超链接             */
 a:link, a:visited, a:hover, a:active {
     text-decoration:none;
-    color: hotpink;
+    color: #ee82ee ;
 }
+/*a:hover {
+    text-decoration: none;
+    box-shadow: 0 2px;
+    color: black;
+}*/
 
 /*             表格             */
 table {

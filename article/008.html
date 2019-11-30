@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cmn-Hans">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -14,7 +14,10 @@
     <link href="../css/github-markdown.css" rel="stylesheet" type="text/css">
 
     <!-- javascript -->
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script><script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 
 <body>
@@ -23,7 +26,7 @@
     <div id="header" onselectstart="return false;">
         <div id="header-left">
             <h1 style="cursor:default"> bufan 的博客 </h1>
-            <p style="cursor:default"> 一个普通的人, 做着普通的事, 过着普通的生活. </p>
+            <p style="cursor:default; color:#586069"> 一个普通的人, 做着普通的事, 过着普通的生活. </p>
         </div>
         <div id="header-right">
             <div class="header-link">
@@ -41,30 +44,30 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-            <h1>硕士毕业离校有感</h1>
-            <p align="center">最后更新: 2018-06-29 00:51</p>
-            <p align="center">发布时间: 2018-06-29 00:43</p>
+# \\( L^p(\mathbb{R}^n), p \in (0, \infty) \\) 空间的稠子空间
 
-            <hr>
+<div style="text-align: center;">
+    <p>最后更新: 2019-11-30</p>
+    <p>发布时间: 2018-09-23</p>
+</div>
 
-            <p> 离校前一个月, 感慨自己只有一个月就要毕业了, 叹时光飞逝, 其实心中无波无澜.
-                照常偶尔和邦哥自习, 累了回寝室躺尸, 兴致勃发就去操场运动运动, 晚上和室友洗澡. 普通地过着这段其实不普通的日子.</p>
+---
 
-            <p> 离校前一周, 各种东西开始需要处理, 离寝, 学生证注销, 购票证明, 等等一大堆东西.
-                每天忙得不可开交, 有很多东西没有时间想, 或者我不愿意去想, 奎霖说我是回避型人格, 我觉得是的.</p>
+## Abstract
 
-            <p> 离校前几天, 室友慢慢离开了, 邦哥先走, 临行前凑巧偶遇邦哥, 可能这就是缘吧, 跟邦哥涂涂吃了顿午饭, 离别,
-                似乎只是平常的回家, 每年都有两次的假期回家而已. 很快, 乔也回家了, 乔一直想跟我们大家一起拍照,
-                我其实有一点点不愿, 我总想等我开学, 大家继续一个个回来, 然后说我回来了. 我继续在寝室等着他们,
-                开心地跟他们说, 你回来了, 然后来个快乐的拥抱.</p>
+很自然的, 我们希望找到 \\( L^p(\mathbb{R}^n), p \in (0, \infty) \\) 的尽量小的稠子空间.
+目前我所知道的最好结果是:
 
-            <p> 奎霖要走了, 错过了航班, 回到寝室他很开心地打招呼说, 我回来了. 我也很开心地回应, 欢迎回来.
-                奎霖说, 错过航班, 不亏, 能再看看我们, 值! 奎霖说了很多, 我不愿面对的事实被奎霖给说出来了.
-                室友们不会再回来, 离开的人们再聚已经很难了.
-                我在本校跟大春, 邦哥, 鑫队和路奕去了美国, 奎霖回家工作, 后年回北师, 乔回家备战, 明年回北师.
-                希望如我所愿, 那么大家能在北京每年都能好好聚一聚.</p>
+<div style="text-align: center;">
+    \( C_c^{\infty}(\mathbb{R}^n) \) 是 \( L^p(\mathbb{R}^n), p \in (0, \infty) \) 的稠子空间.
+</div>
 
-            <p> 愿 223 的伙伴们天天开心!</p>
+证明以后补.
+
+<!--
+[PDF](007/007.pdf)
+<span style="margin-right:24px;"></span>
+[TEX](007/007.tex)-->
         </div>
 
         <div id="rightbar">
@@ -113,5 +116,10 @@
 </div>
 
 </body>
+
+<script>
+    document.getElementById('article').innerHTML =
+        marked(document.getElementById('article').innerHTML);
+</script>
 
 </html>
