@@ -6,7 +6,7 @@
 
     <title> bufan 的博客 </title>
 
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="../favicon.ico">
 
     <!-- css -->
     <link href="../css/public-style.css" rel="stylesheet" type="text/css" />
@@ -44,25 +44,83 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# Equidistribution
-<p align="center">最后更新: 2018-07-09</p>
-<p align="center">发布时间: 2018-06-07</p>
+#  Convergent, Ces&#224;ro summable and Abel summable
+<p align="center">最后更新: 2018-08-20</p>
+<p align="center">发布时间: 2018-06-09</p>
 
 ---
 
-## Abstract
+有空再调整内容.
 
-称 \\([0, 1)\\) 上的数列 \\(\\{ \xi_n \\}_{n = 1}^{\infty} \\) 在 \\( [0, 1) \\) 上是 equidistributed 的是指,
-对 \\( \forall \\, a, b \in [0, 1) \\) 且 \\(a < b\\), 有
+## 定义
 
-$$ \lim_{N \to \infty} \frac{\\#\\{1 \leq n \leq N: \ \xi_n \in (a, b) \\}}{N} = b - a. $$
+### \\( Ces\'{a}ro \ summable \\)
 
-Weyl's criterion 是 equidistributed 数列的判别法, 由它可以得到一些有意思结论, 比如:
-数列 \\( \\{ \sin n \\}_{n = 1}^{\infty} \\) 在 \\( [0, 1] \\) 中稠密.
+级数 \\( \sum_{n = 1}^{\infty} c_n \\) 被称为 \\(  Ces\grave{a}ro \ summable \\) 是指 \\(  \sigma_n \\) 收敛, 其中
 
-[PDF](004/004.pdf)
+$$ s_N := \sum_{n = 1}^N c_n, \hspace{0.5cm} \sigma_n := \frac{s_1 + s_2 + \cdots + s_n}{n}. $$
+
+### Abel summable
+
+级数 \\( \sum_{n = 1}^{\infty} c_n \\) 被称为  \\(  Abel \ summable \\) 是指 \\(  lim_{r \to 1^-} A_r \\) 存在, 其中
+
+$$ A_r := \sum_{n = 1}^{\infty} c_n r^n. $$
+
+## 定理
+
+**定理 1**  $ convergent \Rightarrow Ces&#224;ro \ summable \Rightarrow Abel \ summable $, 且它们收敛到同一个数.
+
+**定理 1 的证明** 下证 $ convergent \Rightarrow Ces\grave{a}ro \ summable $.
+
+不妨设级数 $ \sum_{n = 1}^{\infty} c_n $收敛到 $ 0 $, 即 $ \lim_{n \to \infty} s_n = 0 $, 故
+
+$$ \lim_{n \to \infty} \sigma_n = \lim_{n \to \infty} \frac{s_1 + s_2 + \cdots + s_n}{n} = 0. $$
+
+因此 $ \sum_{n = 1}^{\infty} c_n $ 是 $ Ces\grave{a}ro \ summable $ 的级数.
+
+下证 $ Ces\grave{a}ro \ summable \Rightarrow Abel \ summable $.
+
+不妨设级数 $ \sum_{n = 1}^{\infty} c_n $ 满足 $ \sigma_n $ 收敛到 $ 0 $. $ \forall \ r \in (0, 1) $, 由 $ \sum_{n=1}^{\infty} n \sigma_n r^n $ 收敛可知
+
+$$ A_r = (1 - r) \sum_{n=1}^{\infty} s_n r^n = (1 - r)^2 \sum_{n=1}^{\infty} n \sigma_n r^n. $$
+
+$ \forall \ \varepsilon > 0  $, 存在 $ N \in \mathbb{N} $ 使得 $ \forall \ n > N $, 有 $ |\sigma_n| < \varepsilon $, 因此 $ \forall \ r \in (0, 1) $, 有
+
+$$
+\begin{align}
+|A_r|
+&\leq (1 - r)^2 \sum_{n=1}^N n |\sigma_n| r^n + (1 - r)^2 \sum_{n=N+1}^{\infty} n |\sigma_n| r^n \\\\
+&< (1 - r)^2 \sum_{n=1}^N n |\sigma_n| r^n + \varepsilon (1 - r)^2 \sum_{n=N+1}^{\infty} n  r^n \\\\
+&< (1 - r)^2 \sum_{n=1}^N n |\sigma_n| r^n + \varepsilon.
+\end{align}
+$$
+
+令 $ r \to 1^- $ 得
+
+$$ \limsup_{r \to 1^-} |A_r| < \varepsilon. $$
+
+由上式及 $ \varepsilon $ 的任意性可知
+
+$$ \lim_{r \to 1^-} A_r = 0, $$
+
+因此 $ \sum_{k = 1}^{\infty} c_k $ 是 $ Ces\grave{a}ro \ summable $ 的级数.
+
+**定理 2**  $ convergent \nLeftarrow Ces\grave{a}ro \ summable \nLeftarrow Abel \ summable. $
+
+**定理 2 的证明** $ \sum_{k = 1}^{\infty} (-1)^n $ 是 $ Ces\grave{a}ro \ summable $ 的级数, 但它不收敛.
+
+$ \sum_{k = 1}^{\infty} (-1)^n n $ 是 $ Abel \ summable $ 的级数, 但它不是 $ Ces\grave{a}ro \ summable $ 的级数.
+
+**定理 3** 若 $ \lbrace n c_n \rbrace_{n=1}^{\infty} $ 有下界, 则 $ Abel \ summable \Rightarrow convergent $,
+且它们收敛到同一个数, 即
+$$ convergent \Leftrightarrow Ces\grave{a}ro \ summable \Leftrightarrow Abel \ summable. $$
+
+
+非常谢谢邦哥给我下载论文, 学校没买版权我也很无奈啊.
+
+<!-- [PDF](003.pdf)
 <span style="margin-right:24px;"></span>
-[TEX](004/004.tex)
+[TEX](003.tex) -->
         </div>
 
         <div id="rightbar">
@@ -84,13 +142,45 @@ Weyl's criterion 是 equidistributed 数列的判别法, 由它可以得到一�
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/tag/various.html"> 杂谈 </a></div>
                     <div style="float:right;">3 篇</div>
-                </div>"
-                <div id="tags" class="clearfix"> loading </div>
+                </div>
             </div>
             <div class="rightbar-list">
                 <h3> 归档 </h3>
                 <hr/>
-                <div id="time" class="clearfix"> loading </div>
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2019-11.html"> 2019-11 </a></div>
+                    <div style="float:right;">2 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2019-10.html"> 2019-10 </a></div>
+                    <div style="float:right;">1 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-12.html"> 2018-12 </a></div>
+                    <div style="float:right;">1 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-09.html"> 2018-09 </a></div>
+                    <div style="float:right;">2 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-08.html"> 2018-08 </a></div>
+                    <div style="float:right;">1 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-06.html"> 2018-06 </a></div>
+                    <div style="float:right;">3 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-05.html"> 2018-05 </a></div>
+                    <div style="float:right;">2 篇</div>
+                </div>
             </div>
             <div class="rightbar-list">
                 <h3> 朋友的博客 </h3>

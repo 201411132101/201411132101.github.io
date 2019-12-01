@@ -44,30 +44,56 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# \\( L^p(\mathbb{R}^n), p \in (0, \infty) \\) 空间的稠子空间
+# 多行公式对齐规则
 
 <div style="text-align: center;">
-    <p>最后更新: 2019-11-30</p>
-    <p>发布时间: 2018-09-23</p>
+    <p>最后更新: 2019-12-01</p>
+    <p>发布时间: 2018-09-29</p>
 </div>
 
 ---
+### 代码
+<pre><code>$$
+    f(x) := \left\{
+    \begin{aligned}
+        &10, & & x \in E,   \\
+        &0,  & & x \in \mathbb{R}^n \setminus E.
+    \end{aligned} \right.
+$$
+</code></pre>
 
-## Abstract
+### 效果
+$$
+f(x) := \left\\{
+\begin{aligned}
+&10, & & x \in E,   \\\\
+&0,  & & x \in \mathbb{R}^n \setminus E.
+\end{aligned} \right.
+$$
 
-很自然的, 我们希望找到 \\( L^p(\mathbb{R}^n), p \in (0, \infty) \\) 的尽量小的稠子空间.
-目前我所知道的最好结果是:
+### 代码
+<pre><code>$$
+    f(x) := \left\{
+    \begin{aligned}
+        &10, & x \in E,   \\
+        &0,  & x \in \mathbb{R}^n \setminus E.
+    \end{aligned} \right.
+$$
+</code></pre>
 
-<div style="text-align: center;">
-    \( C_c^{\infty}(\mathbb{R}^n) \) 是 \( L^p(\mathbb{R}^n), p \in (0, \infty) \) 的稠子空间.
-</div>
+### 效果
+$$
+f(x) := \left\\{
+\begin{aligned}
+&10,  & x \in E,   \\\\
+&0,  & x \in \mathbb{R}^n \setminus E.
+\end{aligned} \right.
+$$
 
-证明以后补.
-
-<!--
-[PDF](007/007.pdf)
-<span style="margin-right:24px;"></span>
-[TEX](007/007.tex)-->
+### 原理
+对于 aligned 环境来说(其他的对齐环境应该是一样的), &amp; 是分割符号, 将区域分割成若干块, 每一块内部的对齐规则是
+$$ 右 \\& 左 \\& 右 \\& 左 \\& 右 \cdots $$
+如果想全部左对齐, 空一些块不填就行, 比如第一个例子.
         </div>
 
         <div id="rightbar">
@@ -89,13 +115,45 @@
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/tag/various.html"> 杂谈 </a></div>
                     <div style="float:right;">3 篇</div>
-                </div>"
-                <div id="tags" class="clearfix"> loading </div>
+                </div>
             </div>
             <div class="rightbar-list">
                 <h3> 归档 </h3>
                 <hr/>
-                <div id="time" class="clearfix"> loading </div>
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2019-11.html"> 2019-11 </a></div>
+                    <div style="float:right;">2 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2019-10.html"> 2019-10 </a></div>
+                    <div style="float:right;">1 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-12.html"> 2018-12 </a></div>
+                    <div style="float:right;">1 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-09.html"> 2018-09 </a></div>
+                    <div style="float:right;">2 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-08.html"> 2018-08 </a></div>
+                    <div style="float:right;">1 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-06.html"> 2018-06 </a></div>
+                    <div style="float:right;">3 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-05.html"> 2018-05 </a></div>
+                    <div style="float:right;">2 篇</div>
+                </div>
             </div>
             <div class="rightbar-list">
                 <h3> 朋友的博客 </h3>

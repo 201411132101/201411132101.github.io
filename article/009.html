@@ -14,9 +14,10 @@
     <link href="../css/github-markdown.css" rel="stylesheet" type="text/css">
 
     <!-- javascript -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script><script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
 </head>
 
@@ -34,8 +35,8 @@
             </div>
             <div id="search">
                 <form id="search-form" method="get" action="https://www.google.com/search" target="_blank">
-                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" /> 
-                    <input name="sitesearch" value="bufan.xyz" type="hidden" />  
+                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" />
+                    <input name="sitesearch" value="bufan.xyz" type="hidden" />
                     <button id="search-button" type="submit"></button>
                 </form>
             </div>
@@ -44,56 +45,75 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# 多行公式对齐规则
+            <h1>Latex 特殊符号</h1>
+            <p align="center">最后更新: 2019-11-20 22:36</p>
+            <p align="center">发布时间: 2019-11-19 22:36</p>
 
-<div style="text-align: center;">
-    <p>最后更新: 2019-12-01</p>
-    <p>发布时间: 2018-09-29</p>
-</div>
+            <hr>
+            <table align="center">
+                <tr>
+                    <th width="200px">代码</th>
+                    <th width="100px">符号</th>
+                    <th width="200px">代码</th>
+                    <th width="100px">符号</th>
+                    <th width="200px">代码</th>
+                    <th width="100px">符号</th>
+                </tr>
 
----
-### 代码
-<pre><code>$$
-    f(x) := \left\{
-    \begin{aligned}
-        &10, & & x \in E,   \\
-        &0,  & & x \in \mathbb{R}^n \setminus E.
-    \end{aligned} \right.
-$$
-</code></pre>
+                <tr>
+                    <td>\lesssim</td>
+                    <td>\( \lesssim \)</td>
+                    <td>\wedge</td>
+                    <td>\( \wedge \)</td>
+                    <td>\vec{f}</td>
+                    <td>\( \vec{f} \)</td>
+                </tr>
 
-### 效果
-$$
-f(x) := \left\\{
-\begin{aligned}
-&10, & & x \in E,   \\\\
-&0,  & & x \in \mathbb{R}^n \setminus E.
-\end{aligned} \right.
-$$
+                <tr>
+                    <td>\rightharpoonup</td>
+                    <td>\( \rightharpoonup \)</td>
+                    <td>\vee</td>
+                    <td>\( \vee \)</td>
+                    <td>\mathring{A}</td>
+                    <td>\( \mathring{A} \)</td>
+                </tr>
 
-### 代码
-<pre><code>$$
-    f(x) := \left\{
-    \begin{aligned}
-        &10, & x \in E,   \\
-        &0,  & x \in \mathbb{R}^n \setminus E.
-    \end{aligned} \right.
-$$
-</code></pre>
+                <tr>
+                    <td>\mapsto</td>
+                    <td>\( \mapsto \)</td>
+                    <td>\gtrsim</td>
+                    <td>\( \gtrsim \)</td>
+                    <td>\dot{A}</td>
+                    <td>\( \dot{A} \)</td>
+                </tr>
 
-### 效果
-$$
-f(x) := \left\\{
-\begin{aligned}
-&10,  & x \in E,   \\\\
-&0,  & x \in \mathbb{R}^n \setminus E.
-\end{aligned} \right.
-$$
+                <tr>
+                    <td>\ni</td>
+                    <td>\( \ni \)</td>
+                    <td>\subsetneqq</td>
+                    <td>\( \subsetneqq \)</td>
+                    <td> \mathscr{X} </td>
+                    <td> \( \mathscr{X} \) </td>
+                </tr>
 
-### 原理
-对于 aligned 环境来说(其他的对齐环境应该是一样的), &amp; 是分割符号, 将区域分割成若干块, 每一块内部的对齐规则是
-$$ 右 \\& 左 \\& 右 \\& 左 \\& 右 \cdots $$
-如果想全部左对齐, 空一些块不填就行, 比如第一个例子.
+                <tr>
+                    <td>\langle</td>
+                    <td>\( \langle \)</td>
+                    <td>\rangle</td>
+                    <td>\( \rangle \)</td>
+                    <td> \mathfrak{M} </td>
+                    <td>\( \mathfrak{M} \)</td>
+                </tr>
+
+                <tr>
+                    <td>\circ</td>
+                    <td>\( \circ \)</td>
+                    <td>\vec{f}</td>
+                    <td>\( \vec{f} \)</td>
+                    <td> \ </td>
+                    <td>\( \ \)</td>
+                </tr>
+            </table>
         </div>
 
         <div id="rightbar">
@@ -115,13 +135,45 @@ $$ 右 \\& 左 \\& 右 \\& 左 \\& 右 \cdots $$
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/tag/various.html"> 杂谈 </a></div>
                     <div style="float:right;">3 篇</div>
-                </div>"
-                <div id="tags" class="clearfix"> loading </div>
+                </div>
             </div>
             <div class="rightbar-list">
                 <h3> 归档 </h3>
                 <hr/>
-                <div id="time" class="clearfix"> loading </div>
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2019-11.html"> 2019-11 </a></div>
+                    <div style="float:right;">2 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2019-10.html"> 2019-10 </a></div>
+                    <div style="float:right;">1 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-12.html"> 2018-12 </a></div>
+                    <div style="float:right;">1 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-09.html"> 2018-09 </a></div>
+                    <div style="float:right;">2 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-08.html"> 2018-08 </a></div>
+                    <div style="float:right;">1 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-06.html"> 2018-06 </a></div>
+                    <div style="float:right;">3 篇</div>
+                </div>
+
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2018-05.html"> 2018-05 </a></div>
+                    <div style="float:right;">2 篇</div>
+                </div>
             </div>
             <div class="rightbar-list">
                 <h3> 朋友的博客 </h3>
@@ -146,10 +198,5 @@ $$ 右 \\& 左 \\& 右 \\& 左 \\& 右 \cdots $$
 </div>
 
 </body>
-
-<script>
-    document.getElementById('article').innerHTML =
-        marked(document.getElementById('article').innerHTML);
-</script>
 
 </html>
