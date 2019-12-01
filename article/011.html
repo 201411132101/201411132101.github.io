@@ -11,14 +11,15 @@
     <!-- css -->
     <link href="../css/public-style.css" rel="stylesheet" type="text/css" />
     <link href="../css/main-style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/github-markdown.css" rel="stylesheet" type="text/css">
 
     <!-- javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
 
 <div id="container">
-    <!-- 头部：标题和搜索 -->
     <div id="header" onselectstart="return false;">
         <div id="header-left">
             <h1 style="cursor:default"> bufan 的博客 </h1>
@@ -26,35 +27,39 @@
         </div>
         <div id="header-right">
             <div class="header-link">
-                <a href="../index.html"> 首页 </a>
+                <a href="../"> 首页 </a>
             </div>
             <div id="search">
                 <form id="search-form" method="get" action="https://www.google.com/search" target="_blank">
-                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" />
-                    <input name="sitesearch" value="bufan.xyz" type="hidden" />
+                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" /> 
+                    <input name="sitesearch" value="bufan.xyz" type="hidden" />  
                     <button id="search-button" type="submit"></button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- 中部：左边内容，右边导航 -->
     <div id="middle" class="clearfix">
-        <div id="article">
-            <div class="article-list">
-                <a href="../article/001.html">收藏的网站</a>
-                <p>最后更新: 2018-08-30 <span style="margin-right:24px;"></span> 发布时间: 2018-05-22</p>
-            </div>
+        <div id="article" class="markdown-body">
+# Latex 画图
 
-            <div class="article-list">
-                <a href="../article/006.html">硕士毕业离校有感</a>
-                <p>最后更新: 2018-06-29 <span style="margin-right:24px;"></span> 发布时间: 2018-06-29</p>
-            </div>
+<div style="text-align: center;">
+    <p>最后更新: 2019-11-05</p>
+    <p>发布时间: 2019-11-05</p>
+</div>
 
-            <div class="article-list">
-                <a href="../article/002.html">兰斯8攻略</a>
-                <p>最后更新: 2019-11-23 <span style="margin-right:24px;"></span> 发布时间: 2018-05-22</p>
-            </div>
+---
+
+# 介绍
+第一次正式用latex画图，讲道理代码挺粗糙的，估计有简化的方法，然而我不会啊。
+
+暂时有两个改进点
+- 如何批量修改图中字体大小
+- 如何批量修改线段大小
+
+[PDF](011/main.pdf)
+<span style="margin-right:24px;"></span>
+[TEX](011/main.tex)
         </div>
 
         <div id="rightbar">
@@ -62,53 +67,51 @@
                 <h3> 标签 </h3>
                 <hr/>
                 <div class="clearfix">
-                    <div style="float:left;"><a href="math.html"> 数学 </a></div>
-                    <div style="float:right;">5 篇</div>
+                    <a href=""> 数学 </a>
                 </div>
                 <div class="clearfix">
-                    <div style="float:left;"><a href="latex.html"> Latex </a></div>
-                    <div style="float:right;">4 篇</div>
+                    <a href=""> Latex </a>
                 </div>
                 <div class="clearfix">
-                    <div style="float:left;"><a href="origami.html"> 折纸 </a></div>
-                    <div style="float:right;">0 篇</div>
+                    <a href=""> 折纸 </a>
                 </div>
                 <div class="clearfix">
-                    <div style="float:left;"><a href="various.html"> 杂谈 </a></div>
-                    <div style="float:right;">3 篇</div>
+                    <a href=""> 杂谈 </a>
                 </div>
+                <div id="tags" class="clearfix"> loading </div>
             </div>
-
+            <div class="rightbar-list">
+                <h3> 归档 </h3>
+                <hr/>
+                <div id="time" class="clearfix"> loading </div>
+            </div>
             <div class="rightbar-list">
                 <h3> 朋友的博客 </h3>
                 <hr/>
                 <div class="clearfix">
                     <a href="https://lizebang.com"> 邦哥 </a>
                 </div>
-
                 <div class="clearfix">
                     <a href="https://www.lizhechen.com"> lzcwr </a>
                 </div>
             </div>
-
-            <div class="rightbar-list">
-                <h3> 归档 </h3>
-                <hr/>
-                <div id="time" class="clearfix"> loading </div>
-            </div>
         </div>
     </div>
 
-    <!-- 尾部：联系方式 -->
     <div id="footer">
         <p>
             联系方式: &nbsp; <a href="javascript:alert('291817591@qq.com')"> Email </a>
-            <span style="margin-right:50px;"></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             数据存储: &nbsp; <a href="https://github.com/201411132101/201411132101.github.io"> github </a>
         </p>
     </div>
 </div>
 
 </body>
+
+<script>
+    document.getElementById('article').innerHTML =
+        marked(document.getElementById('article').innerHTML);
+</script>
 
 </html>
