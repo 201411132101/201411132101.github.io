@@ -15,6 +15,9 @@
 
     <!-- javascript -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 
 <body>
@@ -41,25 +44,28 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# Latex 画图
+# Cauchy–Schwarz inequality
 
 <div style="text-align: center;">
-    <p>最后更新: 2019-11-05</p>
-    <p>发布时间: 2019-11-05</p>
+    <p>最后更新: 2019-12-02</p>
+    <p>发布时间: 2019-12-02</p>
 </div>
 
 ---
 
-# 介绍
-第一次正式用latex画图，讲道理代码挺粗糙的，估计有简化的方法，然而我不会啊。
+## Abstract
 
-暂时有两个改进点
-- 如何批量修改图中字体大小
-- 如何批量修改线段大小
+一般的书上都是 Hilbert 空间中的 Cauchy–Schwarz inequality, 张恭庆书上的有个更一般的.
+最近我发现了一个更一般的 Cauchy–Schwarz inequality, 条件减弱了很多.
 
-[PDF](011/main.pdf)
+**Cauchy–Schwarz inequality** 设 \\( a(\cdot, \cdot) \\) 是线性空间 \\( X \\) 上的共轭双线性函数且对 \\(\forall \\, x\in X\\),
+$$ a(x, x) \geq 0. $$
+则对 \\(\forall \\, x, y \in X\\),
+$$ |a(x, y)|^2 \leq a(x, x) a(y, y). $$
+
+[PDF](013/main.pdf)
 <span style="margin-right:24px;"></span>
-[TEX](011/main.tex)
+[TEX](013/main.tex)
         </div>
 
         <div id="rightbar">
