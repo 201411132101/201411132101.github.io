@@ -27,14 +27,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bufan\OneDrive\博客" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bufan\OneDrive\201411132101.github.io\article" />
       <recent name="C:\Users\bufan\OneDrive\201411132101.github.io\time" />
       <recent name="C:\Users\bufan\OneDrive\博客\article" />
       <recent name="C:\Users\bufan\OneDrive\博客\tag" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bufan\OneDrive\博客" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -81,6 +81,7 @@
       <workItem from="1575281700113" duration="387000" />
       <workItem from="1575282171960" duration="40000" />
       <workItem from="1575467286642" duration="2388000" />
+      <workItem from="1575620907989" duration="1587000" />
     </task>
     <servers />
   </component>
