@@ -11,14 +11,15 @@
     <!-- css -->
     <link href="../css/public-style.css" rel="stylesheet" type="text/css" />
     <link href="../css/main-style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/github-markdown.css" rel="stylesheet" type="text/css">
 
     <!-- javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
 
 <div id="container">
-    <!-- 头部：标题和搜索 -->
     <div id="header" onselectstart="return false;">
         <div id="header-left">
             <h1 style="cursor:default"> bufan 的博客 </h1>
@@ -26,40 +27,49 @@
         </div>
         <div id="header-right">
             <div class="header-link">
-                <a href="../index.html"> 首页 </a>
+                <a href="../"> 首页 </a>
             </div>
             <div id="search">
                 <form id="search-form" method="get" action="https://www.google.com/search" target="_blank">
-                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" />
-                    <input name="sitesearch" value="bufan.xyz" type="hidden" />
+                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" /> 
+                    <input name="sitesearch" value="bufan.xyz" type="hidden" />  
                     <button id="search-button" type="submit"></button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- 中部：左边内容，右边导航 -->
     <div id="middle" class="clearfix">
-        <div id="article">
-            <div class="article-list">
-                <a href="../article/011.html">Latex 画图</a>
-                <p>发布时间: 2019-11-05</p>
-            </div>
+        <div id="article" class="markdown-body">
+# 电子产品的选择
 
-            <div class="article-list">
-                <a href="../article/010.html">多行公式编号居中</a>
-                <p>发布时间: 2019-10-18</p>
-            </div>
+<div style="text-align: center;">
+    <p>发布时间: 2019-12-16</p>
+</div>
 
-            <div class="article-list">
-                <a href="../article/009.html">Latex 特殊符号</a>
-                <p>发布时间: 2018-12-22</p>
-            </div>
+---
 
-            <div class="article-list">
-                <a href="../article/008.html">多行公式对齐规则</a>
-                <p>发布时间: 2018-09-29</p>
-            </div>
+电子产品的第一原则就是同等条件下越贵越好, 有钱无脑买顶配就行.
+如果买的不是顶配的话, 贵的电子产品的部分功能可能还不如一些便宜的产品.
+
+## 笔记本电脑
+
+固态硬盘当然是首选, 不过固态硬盘的话, 重要文件必须及时备份, 否则一旦硬盘出问题就是文件全部丢失.
+
+另外注意一点, 不是越大的电脑越贵, 我买完电脑后就发现, 有个同样型号同样价格却拥有更大屏幕的电脑
+当时真的是心态有点崩, 后来想了想, 小的方便携带, 不亏好吧. 如果没有频繁移动电脑的需求, 无条件买更大的电脑.
+
+## 耳机
+
+没啥好评价的, 我耳朵没有那么金贵, 我觉得被有些人吐槽的小米铁圈 pro 就已经非常好用了.
+
+## 鼠标
+
+好吧, 这个我是自己把自己坑了, 买了个很小的按键声挺大的鼠标. 买鼠标前一定一定要测量好自己手的大小,
+小手买大鼠标, 大手买小鼠标, 都是非常难受的体验.
+此外一定要看是不是无声鼠标, 我看评论有人说声音很小就信了, 到手一试才发现按键声不小, 那评论不是水军就是听力障碍.
+事实上按键声大小不代表质量, 甚至无声鼠标的点击感会差一点, 如果一个人在家里用感觉有声的更好.
+
         </div>
 
         <div id="rightbar">
@@ -83,19 +93,16 @@
                     <div style="float:right;">5 篇</div>
                 </div>
             </div>
-
             <div class="rightbar-list">
                 <h3> 朋友的博客 </h3>
                 <hr/>
                 <div class="clearfix">
                     <a href="https://lizebang.com"> 邦哥 </a>
                 </div>
-
                 <div class="clearfix">
                     <a href="https://www.lizhechen.com"> lzcwr </a>
                 </div>
             </div>
-
             <div class="rightbar-list">
                 <h3> 归档 </h3>
                 <hr/>
@@ -142,16 +149,20 @@
         </div>
     </div>
 
-    <!-- 尾部：联系方式 -->
     <div id="footer">
         <p>
             联系方式: &nbsp; <a href="javascript:alert('291817591@qq.com')"> Email </a>
-            <span style="margin-right:50px;"></span>
+            <span style="margin-right:50px;"></span>&nbsp;&nbsp;
             数据存储: &nbsp; <a href="https://github.com/201411132101/201411132101.github.io"> github </a>
         </p>
     </div>
 </div>
 
 </body>
+
+<script>
+    document.getElementById('article').innerHTML =
+        marked(document.getElementById('article').innerHTML);
+</script>
 
 </html>
