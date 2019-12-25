@@ -11,14 +11,15 @@
     <!-- css -->
     <link href="../css/public-style.css" rel="stylesheet" type="text/css" />
     <link href="../css/main-style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/github-markdown.css" rel="stylesheet" type="text/css">
 
     <!-- javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
 
 <div id="container">
-    <!-- 头部：标题和搜索 -->
     <div id="header" onselectstart="return false;">
         <div id="header-left">
             <h1 style="cursor:default"> bufan 的博客 </h1>
@@ -26,30 +27,35 @@
         </div>
         <div id="header-right">
             <div class="header-link">
-                <a href="../index.html"> 首页 </a>
+                <a href="../"> 首页 </a>
             </div>
             <div id="search">
                 <form id="search-form" method="get" action="https://www.google.com/search" target="_blank">
-                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" />
-                    <input name="sitesearch" value="bufan.xyz" type="hidden" />
+                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" /> 
+                    <input name="sitesearch" value="bufan.xyz" type="hidden" />  
                     <button id="search-button" type="submit"></button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- 中部：左边内容，右边导航 -->
     <div id="middle" class="clearfix">
-        <div id="article">
-            <div class="article-list">
-                <a href="../article/012.html">John Ellipsoid</a>
-                <p>发布时间: 2019-11-07</p>
-            </div>
+        <div id="article" class="markdown-body">
+# [折纸展示] Alex Ratner, 北斋之波
 
-            <div class="article-list">
-                <a href="../article/011.html">Latex 画图</a>
-                <p>发布时间: 2019-11-05</p>
-            </div>
+<div style="text-align: center;">
+    <p>发布时间: 2019-12-25</p>
+</div>
+
+---
+
+![ps的图](018/new.jpg)
+
+## 真正的图
+<div align="center">
+    <img src="018/origin.jpg" width="50%" height="50%">
+</div>
+
         </div>
 
         <div id="rightbar">
@@ -73,19 +79,16 @@
                     <div style="float:right;">5 篇</div>
                 </div>
             </div>
-
             <div class="rightbar-list">
                 <h3> 朋友的博客 </h3>
                 <hr/>
                 <div class="clearfix">
                     <a href="https://lizebang.com"> 邦哥 </a>
                 </div>
-
                 <div class="clearfix">
                     <a href="https://www.lizhechen.com"> lzcwr </a>
                 </div>
             </div>
-
             <div class="rightbar-list">
                 <h3> 归档 </h3>
                 <hr/>
@@ -132,16 +135,20 @@
         </div>
     </div>
 
-    <!-- 尾部：联系方式 -->
     <div id="footer">
         <p>
             联系方式: &nbsp; <a href="javascript:alert('291817591@qq.com')"> Email </a>
-            <span style="margin-right:50px;"></span>
+            <span style="margin-right:50px;"></span>&nbsp;&nbsp;
             数据存储: &nbsp; <a href="https://github.com/201411132101/201411132101.github.io"> github </a>
         </p>
     </div>
 </div>
 
 </body>
+
+<script>
+    document.getElementById('article').innerHTML =
+        marked(document.getElementById('article').innerHTML);
+</script>
 
 </html>
