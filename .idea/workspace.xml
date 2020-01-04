@@ -22,19 +22,19 @@
   <component name="ProjectId" id="1TnHSJz11gNj9KqLgCPJt8Kybmh" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/article" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/time" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bufan\OneDrive\博客" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\bufan\OneDrive\201411132101.github.io\article" />
       <recent name="C:\Users\bufan\OneDrive\201411132101.github.io\time" />
+      <recent name="C:\Users\bufan\OneDrive\201411132101.github.io\article" />
       <recent name="C:\Users\bufan\OneDrive\博客\article" />
       <recent name="C:\Users\bufan\OneDrive\博客\tag" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bufan\OneDrive\博客" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -86,6 +86,7 @@
       <workItem from="1576806809843" duration="1119000" />
       <workItem from="1577265882584" duration="1000" />
       <workItem from="1577266242379" duration="519000" />
+      <workItem from="1578139473652" duration="3385000" />
     </task>
     <servers />
   </component>
