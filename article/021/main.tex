@@ -14,8 +14,6 @@
 \usepackage{enumerate}
 \usepackage{mathrsfs}
 
-% 页边距
-\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
 
 % 定义各种环境
 \newtheorem{theorem}{Theorem}[section]
@@ -33,54 +31,45 @@
 % \renewcommand{\proofname}{\emph{Proof}}
 
 % 基本信息
-\title{The relationships between I-AB and I-BA}
+\title{Schwartz Space and Tempered Distributions}
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
 
 \maketitle
 
-\begin{theorem} \label{thm1}
-    Let $ A, B \in M_n(\mathbb{C}) $.
-    $$
-        I_n-AB \text{ is invertible} \Longleftrightarrow I_n-BA \text{ is invertible},
-    $$
-    where $ I_n \in M_n(\mathbb{C}) $ is identity matrix.
-\end{theorem}
+在本文中, 
+$$ 
+    \mathbb{Z}_+ := \{0, 1, 2, \ldots\}.
+$$
+对 $ \forall \alpha := (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}_+^n $,
+$$
+    |\alpha| := \sum_{k = 1}^n |\alpha_k|.
+$$
+对 $ \forall \alpha := (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}_+^n $ 
+和 $ \forall x := (x_1, \ldots, x_n) \in \mathbb{R}^n $,
+$$
+    x^\alpha := \prod_{k = 1}^n x_k^{\alpha_k}.
+$$ 
 
-The key of the proof of above theorem is the following equation:
-\begin{equation} \label{equ1}
-    (I_n - BA)(I + B (I - AB)^{-1} A) = I.
-\end{equation}
-Now a problem is coming, how can we find \eqref{equ1}. Next I will show a intersting idea from StackExchange.
+\subsection{Space of Tempered Distributions Modulo Polynomials}
 
-Absolutely, our goal is using $ I_n-AB $ and $ (I_n-AB)^{-1} $ to construct $ {I_n - BA}^{-1} $.
-We assume $ (I_n - AB)^{-1} $ and $ (I_n - BA)^{-1} $ are exist and can be expand series, then
-\begin{align*}
-    (I_n - AB)^{-1} &= I_n + AB + (AB)^2 + \cdots, \\
-    (I_n - BA)^{-1} &= I_n + BA + (BA)^2 + \cdots.
-\end{align*}
-Then
-\begin{align*}
-    B(I_n - AB)^{-1}A &= BA + (BA)^2 + (BA)^3 + \cdots, \\
-                      &= (I_n - BA)^{-1} - I_n.
-\end{align*}
-From this we get \eqref{equ1}. Of course, this isn't a proof, but the argument is heuristic. Next is a strict proof.
+本 section 的内容来自 \cite[1.1.1]{g14}
 
-\begin{proof}[Proof of Theorem \ref{thm1}]
-    We should only proof, if $ I_n-AB $ is invertible, then $ I_n-BA $ is invertible.
-    In fact, assume $ I_n-AB $ is invertible, then
-    \begin{align*}
-        &(I_n - BA)[I_n + B (I_n - AB)^{-1} A] \\
-            &\quad= I_n + B (I_n - AB)^{-1} A - BA - BAB (I_n - AB)^{-1} A \\
-            &\quad= I_n - BA + B (I_n - AB) (I_n - AB)^{-1} A = I_n.
-    \end{align*}
-    Similar we have
-    $$
-        [I_n + B (I_n - AB)^{-1} A](I_n - BA) = I_n.
-    $$
-    So $ I_n-BA $ is invertible. This complete the proof of Theorem \ref{thm1}.
-\end{proof}
+首先介绍多项式空间 $ \mathcal{P}(\mathbb{R}^n) $. 
+$$
+    \mathcal{P}(\mathbb{R}^n) 
+        := \left\{ \sum_{\alpha \in \mathbb{Z}_+^n, |\alpha| \leq m} c_\alpha x^{\alpha} :\,
+             m \in \mathbb{Z}_+, \text{ for any } \alpha \in \mathbb{Z}_+^n \text{ and } |\alpha| \leq m, c_\alpha \in \mathbb{C} \right\}.
+$$
+
+
+\begin{thebibliography}{99}
+    
+    \bibitem{g14} L. Grafakos, Modern Fourier Analysis, Third edition, 
+    Graduate Texts in Mathematics, 249, Springer, New York, 2014.
+    
+\end{thebibliography}
 
 \end{CJK*}
 \end{document} 

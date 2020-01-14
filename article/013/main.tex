@@ -5,6 +5,7 @@
 \usepackage{framed}
 \usepackage{lipsum}
 \usepackage{color}
+\usepackage{CJKutf8}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -12,42 +13,48 @@
 \usepackage{titlesec}
 \usepackage{enumerate}
 \usepackage{mathrsfs}
-\usepackage{fontspec}
-\usepackage{ctex}
 
-\setCJKmainfont{SimSun}
-\setmainfont{Times New Roman}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\newtheorem{definition}{Definition}
-\newtheorem{case}{Case}
-\newtheorem{corollary}{Corollary}
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
 
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
 
 % 基本信息
-\title{Cauchy-Schwarz inequality}
-\author{}
+\title{Cauchy-Schwarz Inequality}
 
 \begin{document}
+\begin{CJK*}{UTF8}{gbsn}
 
 \maketitle
 
-一般的书上都是 Hilbert 空间中的 Cauchy–Schwarz inequality, 张恭庆的书上讲了个更一般的. 
+一般书上讲的都是 Hilbert 空间中的 Cauchy–Schwarz inequality, 张恭庆的书上讲了个更一般的[p.55]. 
 而下面的 Cauchy–Schwarz inequality, 是我见过的条件最弱的, 暂时还没找到该定理的出处.
 
+本文中的 $ X $ 均为线性空间.
+
 \begin{definition}
-    If bilinear function $ a: X \times X \to \mathbb{C} $ satisfied: 
+    若二元函数 $ a: X \times X \to \mathbb{C} $ 满足: 
     for any $ \alpha \in \mathbb{C} $ and $ x, y \in X $,
     \begin{enumerate}[(i)]
         \item $ a(\alpha x, y) = \alpha a(x, y) $;
         \item $ a(x, \alpha y) = \overline{\alpha} a(x, y) $.
     \end{enumerate}
-    We call $ a(\cdot, \cdot) $ is a conjugate bilinear function on linear space $ X $.
+    我们称 $ a(\cdot, \cdot) $ 为 $ X $ 上的共轭双线性函数.
 \end{definition}
 
 \begin{theorem}[Cauchy–Schwarz inequality]
-    Let $ a(\cdot, \cdot) $ be a conjugate bilinear function on linear space $ X $ and for any $ x \in X $,
+    设 $ a(\cdot, \cdot) $ 为 $ X $ 上的共轭双线性函数且 for any $ x \in X $,
     $$ 
         a(x, x) \geq 0,
     $$
@@ -82,9 +89,8 @@
     The proof of Cauchy-Schwarz inequality is finished.
 \end{proof}
 
+\end{CJK*}
 \end{document} 
-
-
 
 
 
