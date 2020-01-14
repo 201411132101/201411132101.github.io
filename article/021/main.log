@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  14 JAN 2020 16:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  14 JAN 2020 17:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -525,11 +525,11 @@ File: c70gbsn.fdx 2015/04/18 4.8.4
 
 {c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5073 strings out of 492649
- 64003 string characters out of 6133383
- 240736 words of memory out of 5000000
- 8776 multiletter control sequences out of 15000+600000
- 17522 words of font info for 69 fonts, out of 8000000 for 9000
+ 5082 strings out of 492649
+ 64125 string characters out of 6133383
+ 241736 words of memory out of 5000000
+ 8783 multiletter control sequences out of 15000+600000
+ 18123 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,6n,31p,271b,795s stack positions out of 5000i,500n,10000p,200000b,80000s
 <
@@ -554,13 +554,14 @@ b><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu76.pfb><c:/texlive/
 2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7a.pfb><c:/texlive/2018/texmf-dis
 t/fonts/type1/arphic/gbsnu/gbsnu7e.pfb><c:/texlive/2018/texmf-dist/fonts/type1/
 arphic/gbsnu/gbsnu81.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/g
-bsnu95.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu98.pfb><c:
-/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu99.pfb><c:/texlive/2018/
-texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (1 page, 149871 bytes).
+bsnu88.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu95.pfb><c:
+/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu98.pfb><c:/texlive/2018/
+texmf-dist/fonts/type1/arphic/gbsnu/gbsnu99.pfb><c:/texlive/2018/texmf-dist/fon
+ts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (1 page, 156456 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
+ 141 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 65 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

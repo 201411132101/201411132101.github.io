@@ -51,18 +51,35 @@ $$
 $$
     x^\alpha := \prod_{k = 1}^n x_k^{\alpha_k}.
 $$ 
+$ \mathcal{S} $ 代表 Schwartz 空间.
 
 \subsection{Space of Tempered Distributions Modulo Polynomials}
 
 本 section 的内容来自 \cite[1.1.1]{g14}
 
-首先介绍多项式空间 $ \mathcal{P}(\mathbb{R}^n) $. 
-$$
-    \mathcal{P}(\mathbb{R}^n) 
-        := \left\{ \sum_{\alpha \in \mathbb{Z}_+^n, |\alpha| \leq m} c_\alpha x^{\alpha} :\,
-             m \in \mathbb{Z}_+, \text{ for any } \alpha \in \mathbb{Z}_+^n \text{ and } |\alpha| \leq m, c_\alpha \in \mathbb{C} \right\}.
-$$
+首先介绍多项式空间 $ \mathcal{P}(\mathbb{R}^n) $.
+\begin{definition}
+    $$
+        \mathcal{P}(\mathbb{R}^n) 
+            := \left\{ \sum_{\alpha \in \mathbb{Z}_+^n, |\alpha| \leq m} c_\alpha x^{\alpha} :\,
+                 m \in \mathbb{Z}_+, \text{ for any } \alpha \in \mathbb{Z}_+^n \text{ and } |\alpha| \leq m, c_\alpha \in \mathbb{C} \right\}.
+    $$
+\end{definition} 
 
+\begin{definition}
+    $$
+        \mathcal{S}_0(\mathbb{R}^n) 
+            := \left\{ \varphi \in \mathcal{S} :\,
+                 \text{ for any } \alpha \in \mathbb{Z}_+^n, \int_{\mathbb{R}^n} x^\alpha \varphi(x) dx = 0 \right\}.
+    $$
+\end{definition} 
+
+\begin{lemma}
+    对 $ \forall \alpha \in \mathbb{Z}_+^n, $, $ \partial $ if and only if
+    $$
+        \int_{\mathbb{R}^n} x^\alpha \varphi(x) dx = 0
+    $$
+\end{lemma}
 
 \begin{thebibliography}{99}
     
