@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,11pt]{article}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{geometry}
@@ -44,7 +44,12 @@ $$
 $$
 对 $ \forall \alpha := (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}_+^n $,
 $$
-    |\alpha| := \sum_{k = 1}^n |\alpha_k|.
+    |\alpha| := \sum_{k = 1}^n \alpha_k.
+$$
+对 $ \forall \alpha := (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}_+^n $ 
+和 $ \forall f \in \mathcal{S} $,
+$$
+    \partial^\alpha f = \frac{\partial^{|\alpha|}}{\partial^{\alpha_1} x_1 \cdots \partial^{\alpha_n} x_n} f.
 $$
 对 $ \forall \alpha := (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}_+^n $ 
 和 $ \forall x := (x_1, \ldots, x_n) \in \mathbb{R}^n $,
@@ -52,6 +57,37 @@ $$
     x^\alpha := \prod_{k = 1}^n x_k^{\alpha_k}.
 $$ 
 $ \mathcal{S} $ 代表 Schwartz 空间.
+
+\subsection{Schwartz Space}
+
+\begin{proposition}
+    设 $ f, g \in \mathcal{S}(\mathbb{R}^n) $, 则 $ f g, f * g \in \mathcal{S}(\mathbb{R}^n) $ 且
+    对 $ \forall \alpha \in \mathbb{Z}_+^n $,
+    $$
+        \partial^\alpha (f * g) =  (\partial^\alpha f) * g = f * (\partial^\alpha g).
+    $$
+\end{proposition}
+
+\subsection{The Space of Tempered Distributions}
+
+\begin{definition}
+    设 $ T \in \mathcal{S}'(\mathbb{R}^n) $, 对 $ \forall f \in \mathcal{S}(\mathbb{R}^n) $, 定义
+    $$
+        \widehat{T}(f) := T(\hat{f}).
+    $$
+\end{definition}
+
+\begin{remark}
+     $ \widehat{T} \in \mathcal{S}'(\mathbb{R}^n) $.
+\end{remark}
+
+\begin{definition}
+    设 $ T \in \mathcal{S}'(\mathbb{R}^n) $. 称 $ T $ 在分布意义下与 $ \mathbb{R}^n $ 上的可测函数 $ h $ 是一致的, 
+    若对 $ \forall f \in \mathcal{S}(\mathbb{R}^n) $, 有
+    $$
+        T(f) = \int_{\mathbb{R}^n} h(x) f(x) dx.
+    $$
+\end{definition}
 
 \subsection{Space of Tempered Distributions Modulo Polynomials}
 
@@ -66,20 +102,36 @@ $ \mathcal{S} $ 代表 Schwartz 空间.
     $$
 \end{definition} 
 
+
+设 $ T_1, T_2 \in \mathcal{S}'(\mathbb{R}^n) $. 称 $ T_1 \equiv T_2 $, 
+若存在 $ p \in \mathcal{P}(\mathbb{R}^n) $, 使得 $ T_1 - T_2 $ 在分布意义下与 $ p $ 一致,
+则 $ \equiv $ 是个等价关系, 记 $ \mathcal{S}'(\mathbb{R}^n)/ \mathcal{P}(\mathbb{R}^n) $ 为该等价关系诱导的商空间.
+
+
 \begin{definition}
     $$
         \mathcal{S}_0(\mathbb{R}^n) 
-            := \left\{ \varphi \in \mathcal{S} :\,
-                 \text{ for any } \alpha \in \mathbb{Z}_+^n, \int_{\mathbb{R}^n} x^\alpha \varphi(x) dx = 0 \right\}.
+            := \left\{ f \in \mathcal{S} :
+                 \text{ for any } \alpha \in \mathbb{Z}_+^n, \int_{\mathbb{R}^n} x^\alpha f(x) dx = 0 \right\}.
     $$
+    $ \mathcal{S}_0(\mathbb{R}^n) $ 是 $ \mathcal{S}(\mathbb{R}^n) $ 的子空间.
 \end{definition} 
 
-\begin{lemma}
-    对 $ \forall \alpha \in \mathbb{Z}_+^n, $, $ \partial $ if and only if
-    $$
-        \int_{\mathbb{R}^n} x^\alpha \varphi(x) dx = 0
-    $$
-\end{lemma}
+
+对 $ \forall \alpha \in \mathbb{Z}_+^n $ 和 $ f \in \mathcal{S} $, 由 
+$$  
+    \partial^\alpha (\hat{f}) = ((-2 \pi i x)^\alpha f) \, \hat{}
+$$
+知 $ \partial^\alpha (\hat{f}) (0) = 0 $ if and only if
+$$
+    \int_{\mathbb{R}^n} x^\alpha f(x) dx = 0.
+$$
+故
+$$
+    \mathcal{S}_0(\mathbb{R}^n) 
+        = \left\{ f \in \mathcal{S} :
+             \text{ for any } \alpha \in \mathbb{Z}_+^n, \partial^\alpha (\hat{f}) (0) = 0 \right\}.
+$$
 
 \begin{thebibliography}{99}
     

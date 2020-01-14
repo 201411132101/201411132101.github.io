@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  14 JAN 2020 17:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  14 JAN 2020 22:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (c:/texlive/2018/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(c:/texlive/2018/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(c:/texlive/2018/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count80
 \c@section=\count81
@@ -472,12 +472,12 @@ e
 * \topmargin=-7.86334pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=12.0pt
+* \topskip=11.0pt
 * \footskip=30.0pt
-* \marginparwidth=35.0pt
+* \marginparwidth=50.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -521,47 +521,71 @@ File: c70gbsn.fd 2015/04/18 4.8.4
 )
 (c:/texlive/2018/texmf-dist/tex/latex/cjk/texinput/UTF8/c70gbsn.fdx
 File: c70gbsn.fdx 2015/04/18 4.8.4
-) [1
+)
 
-{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./main.aux) ) 
+LaTeX Font Warning: Font shape `C70/gbsn/m/it' undefined
+(Font)              using `C70/gbsn/m/n' instead on input line 64.
+
+[1
+
+{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+(./main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 5082 strings out of 492649
- 64125 string characters out of 6133383
- 241736 words of memory out of 5000000
- 8783 multiletter control sequences out of 15000+600000
- 18123 words of font info for 71 fonts, out of 8000000 for 9000
+ 5234 strings out of 492649
+ 66349 string characters out of 6133383
+ 242738 words of memory out of 5000000
+ 8897 multiletter control sequences out of 15000+600000
+ 21512 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,31p,271b,795s stack positions out of 5000i,500n,10000p,200000b,80000s
-<
-c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texliv
-e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2018/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2018/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2018/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr17.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
-<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive
-/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fo
-nts/type1/arphic/gbsnu/gbsnu4e.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arph
-ic/gbsnu/gbsnu51.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu
-54.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu57.pfb><c:/tex
-live/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu59.pfb><c:/texlive/2018/texm
-f-dist/fonts/type1/arphic/gbsnu/gbsnu5b.pfb><c:/texlive/2018/texmf-dist/fonts/t
-ype1/arphic/gbsnu/gbsnu5f.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gb
-snu/gbsnu65.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu67.pf
-b><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu76.pfb><c:/texlive/
-2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7a.pfb><c:/texlive/2018/texmf-dis
-t/fonts/type1/arphic/gbsnu/gbsnu7e.pfb><c:/texlive/2018/texmf-dist/fonts/type1/
-arphic/gbsnu/gbsnu81.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/g
-bsnu88.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu95.pfb><c:
-/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu98.pfb><c:/texlive/2018/
-texmf-dist/fonts/type1/arphic/gbsnu/gbsnu99.pfb><c:/texlive/2018/texmf-dist/fon
-ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (1 page, 156456 bytes).
+ 41i,6n,31p,271b,866s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2018/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
+.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2018
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gb
+snu4e.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu4f.pfb><c:/
+texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu51.pfb><c:/texlive/2018/t
+exmf-dist/fonts/type1/arphic/gbsnu/gbsnu52.pfb><c:/texlive/2018/texmf-dist/font
+s/type1/arphic/gbsnu/gbsnu53.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic
+/gbsnu/gbsnu54.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu55
+.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu57.pfb><c:/texli
+ve/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu59.pfb><c:/texlive/2018/texmf-
+dist/fonts/type1/arphic/gbsnu/gbsnu5b.pfb><c:/texlive/2018/texmf-dist/fonts/typ
+e1/arphic/gbsnu/gbsnu5e.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsn
+u/gbsnu5f.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu61.pfb>
+<c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu65.pfb><c:/texlive/20
+18/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu66.pfb><c:/texlive/2018/texmf-dist/
+fonts/type1/arphic/gbsnu/gbsnu67.pfb><c:/texlive/2018/texmf-dist/fonts/type1/ar
+phic/gbsnu/gbsnu6d.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbs
+nu75.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu76.pfb><c:/t
+exlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu77.pfb><c:/texlive/2018/te
+xmf-dist/fonts/type1/arphic/gbsnu/gbsnu79.pfb><c:/texlive/2018/texmf-dist/fonts
+/type1/arphic/gbsnu/gbsnu7a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/
+gbsnu/gbsnu7b.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7c.
+pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7e.pfb><c:/texliv
+e/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu81.pfb><c:/texlive/2018/texmf-d
+ist/fonts/type1/arphic/gbsnu/gbsnu82.pfb><c:/texlive/2018/texmf-dist/fonts/type
+1/arphic/gbsnu/gbsnu88.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu
+/gbsnu8b.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu95.pfb><
+c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu98.pfb><c:/texlive/201
+8/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu99.pfb><c:/texlive/2018/texmf-dist/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (2 pages, 244083 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
+ 232 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 69 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 129 words of extra memory for PDF output out of 10000 (max. 10000000)
 
