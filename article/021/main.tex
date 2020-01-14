@@ -1,0 +1,87 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+% 页边距
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{The relationships between I-AB and I-BA}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+\begin{theorem} \label{thm1}
+    Let $ A, B \in M_n(\mathbb{C}) $.
+    $$
+        I_n-AB \text{ is invertible} \Longleftrightarrow I_n-BA \text{ is invertible},
+    $$
+    where $ I_n \in M_n(\mathbb{C}) $ is identity matrix.
+\end{theorem}
+
+The key of the proof of above theorem is the following equation:
+\begin{equation} \label{equ1}
+    (I_n - BA)(I + B (I - AB)^{-1} A) = I.
+\end{equation}
+Now a problem is coming, how can we find \eqref{equ1}. Next I will show a intersting idea from StackExchange.
+
+Absolutely, our goal is using $ I_n-AB $ and $ (I_n-AB)^{-1} $ to construct $ {I_n - BA}^{-1} $.
+We assume $ (I_n - AB)^{-1} $ and $ (I_n - BA)^{-1} $ are exist and can be expand series, then
+\begin{align*}
+    (I_n - AB)^{-1} &= I_n + AB + (AB)^2 + \cdots, \\
+    (I_n - BA)^{-1} &= I_n + BA + (BA)^2 + \cdots.
+\end{align*}
+Then
+\begin{align*}
+    B(I_n - AB)^{-1}A &= BA + (BA)^2 + (BA)^3 + \cdots, \\
+                      &= (I_n - BA)^{-1} - I_n.
+\end{align*}
+From this we get \eqref{equ1}. Of course, this isn't a proof, but the argument is heuristic. Next is a strict proof.
+
+\begin{proof}[Proof of Theorem \ref{thm1}]
+    We should only proof, if $ I_n-AB $ is invertible, then $ I_n-BA $ is invertible.
+    In fact, assume $ I_n-AB $ is invertible, then
+    \begin{align*}
+        &(I_n - BA)[I_n + B (I_n - AB)^{-1} A] \\
+            &\quad= I_n + B (I_n - AB)^{-1} A - BA - BAB (I_n - AB)^{-1} A \\
+            &\quad= I_n - BA + B (I_n - AB) (I_n - AB)^{-1} A = I_n.
+    \end{align*}
+    Similar we have
+    $$
+        [I_n + B (I_n - AB)^{-1} A](I_n - BA) = I_n.
+    $$
+    So $ I_n-BA $ is invertible. This complete the proof of Theorem \ref{thm1}.
+\end{proof}
+
+\end{CJK*}
+\end{document} 
+
