@@ -1,0 +1,125 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{Cartesian Product and Product Space}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+
+
+\section{Cartesian product}
+
+\subsection{Definition}
+
+以下定义来自论文\cite[p.113]{m75}.
+
+集合 $ \mathcal{X}, \mathcal{Y} $ 的笛卡尔积, 记为 $ \mathcal{X} \times \mathcal{Y} $, 是
+$$ 
+    \mathcal{X} \times \mathcal{Y}
+        := \{(x, y) : x \in \mathcal{X}, y \in \mathcal{Y} \}.
+$$
+这种定义通俗易懂但不利于推广. 
+$ \mathcal{X} \times \mathcal{Y} $ 的另一种定义是
+$$
+    \mathcal{X} \times \mathcal{Y}
+        := \{ f: \{0, 1\} \to \mathcal{X} \cup \mathcal{Y} : f(0) \in \mathcal{X}, f(1) \in \mathcal{Y} \}.
+$$
+这种定义能自然地推广到无穷维乘积空间.
+
+设 $ I $ 是指标集, $ \{\mathcal{X}_i\}_{i \in I} $ 是集合列.
+定义
+$$
+    \prod_{i \in I} \mathcal{X}_i
+        := \left\{ f: I \to \bigcup_{i \in I} \mathcal{X}_i 
+            : \text{ for any } i \in I, f(i) \in \mathcal{X}_i \right\}.
+$$
+
+\subsection{Example}
+
+取值为 $ \mathbb{R} $ 的数列就是一个常见的笛卡尔积, 我们通常将其简写成 $ \{a_k\}_{k = 1}^\infty $,
+但事实上它的定义是
+$$
+    \left\{ f: \mathbb{N} \to \mathbb{R}
+        : \text{ for any } i \in \mathbb{N}, f(i) \in \mathbb{R} \right\}.
+$$
+
+以下是我自己瞎写的.
+单纯的集合操作空间太小了, 我们需要尝试定义集合 $ \mathcal{X} \times \mathcal{Y} $ 上的结构.
+集合 $ \mathcal{X}, \mathcal{Y} $ 上一般会有拓扑结构 $ \tau_x, \tau_y $, 集合+结构=空间,
+如果我们能由 $ \tau_x, \tau_y $ 诱导出 $ \mathcal{X} \times \mathcal{Y} $ 上的拓扑 $ \tau $,
+那我们就能得到乘积空间 $ (\mathcal{X} \times \mathcal{Y}, \tau) $.
+
+\section{Product Space}
+
+\subsection{Definition}
+
+以下定义来自\cite[p.114]{m75}.
+
+乘积空间在集合意义下就是笛卡尔积, 关键是拓扑结构的诱导.
+
+设 $ I $ 是指标集, $ \{\mathcal{X}_i\}_{i \in I} $ 是一列拓扑空间.
+定义
+$$
+    \mathcal{B}
+        := \left\{ \prod_{i \in I} U_i
+            : \text{ for any } i \in I, U_i \text{ is open set in } \mathcal{X}_i \right\}.
+$$
+为笛卡尔积 $ \prod_{i \in I} \mathcal{X}_i $ 的拓扑基. 令 $ \tau $ 为拓扑基 $ \mathcal{B} $ 诱导的拓扑, i.e.
+$$
+    \tau := \left\{ \bigcup_{j \in J} U_j
+        : \text{ for any } j \in J, U_j \in \mathcal{B} \right\}.
+$$
+称 $ (\prod_{i \in I} \mathcal{X}_i, \tau) $ 为乘积空间.
+
+\subsection{Example}
+
+取值为 $ \mathbb{R} $ 的数列也是一个常见的乘积空间, 它上面的拓扑是
+$$
+    \left\{\prod_{k = 1}^\infty U_k 
+        : \text{ for any } k \in \mathbb{N}, U_k \text{ is open set in } \mathbb{R} \right\}.
+$$
+
+
+\begin{thebibliography}{99}
+    \bibitem{m75} J. R. Munkres, Topology, Second edition, 
+    Prentice-Hall Inc., Englewood Cliffs, 1975.
+    
+\end{thebibliography}
+
+\end{CJK*}
+\end{document} 
+

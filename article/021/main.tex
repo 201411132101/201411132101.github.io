@@ -26,6 +26,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{assumption}[theorem]{Assumption}
 
+\def \supp {\mathop\mathrm{\,supp\,}}
 
 % 设置 proof 的格式
 % \renewcommand{\proofname}{\emph{Proof}}
@@ -39,9 +40,10 @@
 \maketitle
 
 在本文中, 
-$$ 
-    \mathbb{Z}_+ := \{0, 1, 2, \ldots\}.
-$$
+\begin{align*}
+    \mathbb{N} &:= \{1, 2, \ldots\}, \\
+    \mathbb{Z}_+ &:= \{0, 1, 2, \ldots\}.
+\end{align*}
 对 $ \forall \alpha := (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}_+^n $,
 $$
     |\alpha| := \sum_{k = 1}^n \alpha_k.
@@ -56,9 +58,11 @@ $$
 $$
     x^\alpha := \prod_{k = 1}^n x_k^{\alpha_k}.
 $$ 
-$ \mathcal{S} $ 代表 Schwartz 空间.
+$ \mathcal{S}(\mathbb{R}^n) $ 代表 Schwartz Space.
 
 \subsection{Schwartz Space}
+
+本 section 的内容来自 \cite[2.2]{g14c}.
 
 \begin{proposition}
     设 $ f, g \in \mathcal{S}(\mathbb{R}^n) $, 则 $ f g, f * g \in \mathcal{S}(\mathbb{R}^n) $ 且
@@ -70,15 +74,39 @@ $ \mathcal{S} $ 代表 Schwartz 空间.
 
 \subsection{The Space of Tempered Distributions}
 
-\begin{definition}
+本 section 的内容来自 \cite[2.3]{g14c}.
+
+$ \mathcal{S}'(\mathbb{R}^n) $ 中的傅里叶变换, 导数, 支集.
+
+\begin{definition}[傅里叶变换]
     设 $ T \in \mathcal{S}'(\mathbb{R}^n) $, 对 $ \forall f \in \mathcal{S}(\mathbb{R}^n) $, 定义
     $$
         \widehat{T}(f) := T(\hat{f}).
     $$
 \end{definition}
 
+\begin{definition}[导数]
+    设 $ T \in \mathcal{S}'(\mathbb{R}^n) $, 对 $ \forall f \in \mathcal{S}(\mathbb{R}^n) $ 和 $ \alpha \in \mathbb{Z}_+^n $, 定义
+    $$
+        (\partial^\alpha T) (f) := (-1)^{|\alpha|} T (\partial^\alpha f).
+    $$
+\end{definition}
+
 \begin{remark}
      $ \widehat{T} \in \mathcal{S}'(\mathbb{R}^n) $.
+\end{remark}
+
+\begin{definition}[支集]
+    设 $ T \in \mathcal{S}'(\mathbb{R}^n) $, 定义 
+    $$ 
+        \supp T := \bigcap \left\{ K: \text{ for any } f \in \mathcal{S}(\mathbb{R}^n) \text{ and } \supp f \subset \mathbb{R}^n \setminus K, 
+            T(f) = 0 \right\}.
+    $$
+\end{definition}
+
+\begin{remark}
+     称 $ T $ is support in $ K $, 
+     若对 $ \forall f \in \mathcal{S}(\mathbb{R}^n) $ 且 $ \supp f \subset \mathbb{R}^n \setminus K $, $ T(f) = 0 $.
 \end{remark}
 
 \begin{definition}
@@ -88,6 +116,14 @@ $ \mathcal{S} $ 代表 Schwartz 空间.
         T(f) = \int_{\mathbb{R}^n} h(x) f(x) dx.
     $$
 \end{definition}
+
+\begin{proposition}[Proposition 2.4.1]
+    设 $ T \in \mathcal{S}'(\mathbb{R}^n) $. 若 $ T $ 支在单点集 $ \{x_0\} $ 上, 则存在
+    $ m \in \mathbb{Z}_+ $, $ \{c_\alpha\}_{|\alpha| \leq m} \subset \mathbb{C} $, 使得
+    $$
+        u = \sum_{\alpha \in \mathbb{Z}_+^n, |\alpha| \leq m} c_\alpha \partial^\alpha \delta_{x_0}.
+    $$
+\end{proposition}
 
 \subsection{Space of Tempered Distributions Modulo Polynomials}
 
@@ -111,18 +147,17 @@ $ \mathcal{S} $ 代表 Schwartz 空间.
 \begin{definition}
     $$
         \mathcal{S}_0(\mathbb{R}^n) 
-            := \left\{ f \in \mathcal{S} :
+            := \left\{ f \in \mathcal{S}(\mathbb{R}^n) :
                  \text{ for any } \alpha \in \mathbb{Z}_+^n, \int_{\mathbb{R}^n} x^\alpha f(x) dx = 0 \right\}.
     $$
     $ \mathcal{S}_0(\mathbb{R}^n) $ 是 $ \mathcal{S}(\mathbb{R}^n) $ 的子空间.
 \end{definition} 
 
 
-对 $ \forall \alpha \in \mathbb{Z}_+^n $ 和 $ f \in \mathcal{S} $, 由 
-$$  
-    \partial^\alpha (\hat{f}) = ((-2 \pi i x)^\alpha f) \, \hat{}
-$$
-知 $ \partial^\alpha (\hat{f}) (0) = 0 $ if and only if
+
+对 $ \forall \alpha \in \mathbb{Z}_+^n $ 和 $ f \in \mathcal{S}(\mathbb{R}^n) $,
+由 $ \partial^\alpha (\hat{f}) = ((-2 \pi i x)^\alpha f)^\wedge $ 知, 
+$ \partial^\alpha (\hat{f}) (0) = 0 $ 当且仅当
 $$
     \int_{\mathbb{R}^n} x^\alpha f(x) dx = 0.
 $$
@@ -133,10 +168,74 @@ $$
              \text{ for any } \alpha \in \mathbb{Z}_+^n, \partial^\alpha (\hat{f}) (0) = 0 \right\}.
 $$
 
-\begin{thebibliography}{99}
+\begin{theorem}[Proposition 1.1.3]
+    $$
+        \mathcal{S}_0'(\mathbb{R}^n) = \mathcal{S}'(\mathbb{R}^n) / \mathcal{P}(\mathbb{R}^n).
+    $$
+\end{theorem}
+
+\begin{proof}
+    先证 $ \mathcal{S}_0'(\mathbb{R}^n) \subset \mathcal{S}'(\mathbb{R}^n) / \mathcal{P}(\mathbb{R}^n) $. 
+    对 $ \forall \, T \in \mathcal{S}'(\mathbb{R}^n) $, 定义
+    $$
+        J(T) := T \big|_{\mathcal{S}_0(\mathbb{R}^n)}.
+    $$
+    则 $ J $ 是 $ \mathcal{S}'(\mathbb{R}^n) $ 到 $ \mathcal{S}_0'(\mathbb{R}^n) $ 的线性映射. 
     
-    \bibitem{g14} L. Grafakos, Modern Fourier Analysis, Third edition, 
+    断言1: $ \ker J = \mathcal{P}(\mathbb{R}^n) $. 事实上, 
+    对 $ \forall p := \sum_{\alpha \in \mathbb{Z}_+^n, |\alpha| \leq m} c_\alpha x^{\alpha} \in  \mathcal{P}(\mathbb{R}^n) $
+    和 $ \forall f \in \mathcal{S}_0(\mathbb{R}^n) $,
+    $$
+        \langle p, f \rangle
+            = \int_{\mathbb{R}^n} p(x) f(x) dx
+            = \sum_{\alpha \in \mathbb{Z}_+^n, |\alpha| \leq m} c_\alpha \int_{\mathbb{R}^n} x^{\alpha} f(x) dx
+            = 0.
+    $$
+    故 $ p = \theta $ 在 $ \mathcal{S}_0'(\mathbb{R}^n) $ 中成立, 即 $ p \in \ker J $. 因此 
+    $$
+        \mathcal{P}(\mathbb{R}^n) \subset \ker J.
+    $$
+    另一方面, 对 $ \forall T \in \ker J $, $ T|_{\mathcal{S}_0(\mathbb{R}^n)} = 0 $, 即
+    对 $ \forall f \in \mathcal{S}_0(\mathbb{R}^n) $,
+    $$
+        \langle T, f \rangle = 0. \eqno{(*)}
+    $$
+    对 $ \forall g \in C_c^{\infty}(\mathbb{R}^n) $, $\supp g \subset \mathbb{R}^n \setminus \{\vec{0} _n\} $,
+    且 $ \alpha \in \mathbb{Z}_+^n $, 
+    $$ 
+        \partial^\alpha [(\tilde{g}^\vee)^\wedge] (0) = \partial^\alpha (\tilde{g}) (0) = 0, 
+    $$
+    故 $ \tilde{g}^\vee \in \mathcal{S}_0(\mathbb{R}^n) $, 由此及 $ (*) $ 知,
+    $$
+        \langle \widehat{T}, g \rangle 
+            = \langle \widehat{T}, \tilde{\tilde{g}} \rangle 
+            = \langle \widehat{T}, \tilde{g}^{\wedge\wedge} \rangle 
+            = \langle T, \tilde{g}^{\wedge\wedge\wedge} \rangle
+            = \langle T, \tilde{g}^\vee \rangle 
+            = 0,
+    $$
+    则 $ \widehat{T} $ 支在 $ \{\vec{0}_n\} $ 上. 
+    由此及 Proposition 2.4.1 知, $ T \in \mathcal{P}(\mathbb{R}^n) $. 因此
+    $$
+        \ker J \subset \mathcal{P}(\mathbb{R}^n).
+    $$
+    从而断言1成立. 
+    
+    断言2: $ R(J) = \mathcal{S}_0'(\mathbb{R}^n) $.
+    事实上, ...
+    
+    由断言1和断言2知,
+    $$
+        \mathcal{S}_0'(\mathbb{R}^n) = \mathcal{S}'(\mathbb{R}^n) / \mathcal{P}(\mathbb{R}^n).
+    $$
+\end{proof}
+
+\begin{thebibliography}{99}
+    \bibitem{g14c} L. Grafakos, Classical Fourier Analysis, Third edition, 
     Graduate Texts in Mathematics, 249, Springer, New York, 2014.
+        
+    \bibitem{g14} L. Grafakos, Modern Fourier Analysis, Third edition, 
+    Graduate Texts in Mathematics, 250, Springer, New York, 2014.
     
 \end{thebibliography}
 
