@@ -11,15 +11,14 @@
     <!-- css -->
     <link href="../css/public-style.css" rel="stylesheet" type="text/css" />
     <link href="../css/main-style.css" rel="stylesheet" type="text/css" />
-    <link href="../css/github-markdown.css" rel="stylesheet" type="text/css">
 
     <!-- javascript -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
 
 <div id="container">
+    <!-- 头部：标题和搜索 -->
     <div id="header" onselectstart="return false;">
         <div id="header-left">
             <h1 style="cursor:default"> bufan 的博客 </h1>
@@ -27,41 +26,25 @@
         </div>
         <div id="header-right">
             <div class="header-link">
-                <a href="../"> 首页 </a>
+                <a href="../index.html"> 首页 </a>
             </div>
             <div id="search">
                 <form id="search-form" method="get" action="https://www.google.com/search" target="_blank">
-                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" /> 
-                    <input name="sitesearch" value="bufan.xyz" type="hidden" />  
+                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" />
+                    <input name="sitesearch" value="bufan.xyz" type="hidden" />
                     <button id="search-button" type="submit"></button>
                 </form>
             </div>
         </div>
     </div>
 
+    <!-- 中部：左边内容，右边导航 -->
     <div id="middle" class="clearfix">
-        <div id="article" class="markdown-body">
-# 一些值得记忆的事
-
-<div style="text-align: center;">
-    <p>发布时间: 2020-01-04</p>
-</div>
-
----
-
-## 2016, ACM获奖
-
-北京赛区夺银后, 我就此退出 ACM, 正式放弃攻读计算机学科的打算, 开始了我的数学考研之旅.
-很可惜, 没能拿金牌. 我们有拿金的实力, 然而我们三其实对拿金牌缺乏动力, 训练也是划水居多, 拿银牌很正常.
-
-放弃计算机这件事无所谓对错, 我发现自己更喜欢数学, 于是选择了数学, 仅此而已.
-当然, 我没有完全放弃计算机方面的东西, 至少, 这个博客我还一直在维护着.
-
-有时候, 帮同学 debug, 我能很快找到错误所在, 都是多亏了 ACM 的锻炼, 可惜我的专业跟计算机差太远了.
-希望以后有机会把我的专业和计算机领域相结合, 这样即能玩得开心, 又能做出很多成果, 岂不美哉.
-
-话说, 其实我拿过两次银牌来着, 只不过获奖证书只能找到一份了---[获奖证书](020/acm.pdf).
-
+        <div id="article">
+            <div class="article-list">
+                <a href="../article/023.html">蒸蛋教程</a>
+                <p>发布时间: 2020-02-05</p>
+            </div>
         </div>
 
         <div id="rightbar">
@@ -89,16 +72,19 @@
                     <div style="float:right;">6 篇</div>
                 </div>
             </div>
+
             <div class="rightbar-list">
                 <h3> 朋友的博客 </h3>
                 <hr/>
                 <div class="clearfix">
                     <a href="https://lizebang.com"> 邦哥 </a>
                 </div>
+
                 <div class="clearfix">
                     <a href="https://www.lizhechen.com"> lzcwr </a>
                 </div>
             </div>
+
             <div class="rightbar-list">
                 <h3> 归档 </h3>
                 <hr/>
@@ -155,20 +141,16 @@
         </div>
     </div>
 
+    <!-- 尾部：联系方式 -->
     <div id="footer">
         <p>
             联系方式: &nbsp; <a href="javascript:alert('291817591@qq.com')"> Email </a>
-            <span style="margin-right:50px;"></span>&nbsp;&nbsp;
+            <span style="margin-right:50px;"></span>
             数据存储: &nbsp; <a href="https://github.com/201411132101/201411132101.github.io"> github </a>
         </p>
     </div>
 </div>
 
 </body>
-
-<script>
-    document.getElementById('article').innerHTML =
-        marked(document.getElementById('article').innerHTML);
-</script>
 
 </html>

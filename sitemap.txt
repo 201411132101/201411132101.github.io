@@ -1,3 +1,4 @@
+https://bufan.xyz/article/023.html
 https://bufan.xyz/article/022.html
 https://bufan.xyz/article/021.html
 https://bufan.xyz/article/020.html
@@ -20,6 +21,7 @@ https://bufan.xyz/article/004.html
 https://bufan.xyz/article/003.html
 https://bufan.xyz/article/002.html
 https://bufan.xyz/article/001.html
+https://bufan.xyz/time/2020-02.html
 https://bufan.xyz/time/2020-01.html
 https://bufan.xyz/time/2019-12.html
 https://bufan.xyz/time/2019-11.html
@@ -32,4 +34,5 @@ https://bufan.xyz/time/2018-05.html
 https://bufan.xyz/tag/math.html
 https://bufan.xyz/tag/latex.html
 https://bufan.xyz/tag/origami.html
+https://bufan.xyz/tag/cooking.html
 https://bufan.xyz/tag/various.html
