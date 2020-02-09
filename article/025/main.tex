@@ -1,0 +1,132 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{Calder\'on-Zygmund Decomposition}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+Calder\'on-Zygmund Decomposition 由 Calderon 和 Zygmund 在 \cite{cz52} 中引入.
+
+\section{Calder\'on-Zygmund Lemma}
+
+\begin{theorem}[Calder\'on-Zygmund Lemma] \label{C-Z lecomposition}
+    设 $ f $ 是非负可积函数, 则对任意给定的正常数 $ \lambda $, 存在两两不交的二进方体序列 $ \{Q_j\}_{j \in J} $ 
+    使得
+    \begin{enumerate}[{\rm(i)}]
+        \item 对 a.e. $ x \notin \bigcup_{j \in J} Q_j $, $ f(x) < \lambda $;
+        \item $ | \bigcup_{j \in J} Q_j | \leq \frac{1}{\lambda} \| f \|_{L^1(\mathbb{R}^n)} $;
+        \item 对 $ \forall j \in J $, 
+            $$
+                \lambda < \frac{1}{|Q_j|} \int_{Q_j} f(x) dx < 2^n \lambda.
+            $$
+    \end{enumerate}
+\end{theorem}
+
+\subsection{本人觉得很自然的证明}
+
+此证明来自 \cite[Lemma 1.2]{kk13}. 
+在证明 Calder\'on-Zygmund Lemma 之前, 首先回顾一下经典的 Lebesgue differentiation theorem.
+
+\begin{theorem}[Lebesgue differentiation theorem]
+    设 $ f \in L^1_{loc}(\mathbb{R}^n) $, 则对 a.e. $ x \in \mathbb{R}^n $, 
+    $$
+        \lim_{r \to 0^+} \frac{1}{|B(x, r)|} \int_{B(x, r)} |f(t) - f(x)| dt = 0.
+    $$
+\end{theorem}
+
+\begin{remark}
+    显然对 a.e. $ x \in \mathbb{R}^n $,
+    $$
+        \lim_{r \to 0^+} \frac{1}{|B(x, r)|} \int_{B(x, r)} f(t) dt = f(x).
+    $$
+\end{remark}
+
+\begin{proof}[Proof of Theorem \ref{C-Z lecomposition}]
+    设 $ \mathcal{D} $ 为二进方体全体, 
+\end{proof}
+
+\subsection{一种挺奇怪的证明}
+
+该证明来自\cite[Theorem 2.11]{d01}.
+首先交代一下符号. $ \mathcal{D} $ 是二进方体全体, $ \mathcal{D}_k $ 是第 $ k $ 层二进方体. 
+对 $ \forall \, k \in \mathbb{Z}, f \in L^1_{loc}(\mathbb{R}^n) $, 定义
+$$
+    E_k f (x) := \sum_{Q \in \mathcal{D}_k} \left[ \frac{1}{|Q|} \int_{Q} f(t) dt \right] \mathrm{1}_Q (x).
+$$
+$ E_k $ 算子是连续函数的离散化. 由此可以定义二进极大函数
+$$
+    M_d f(x) := \sup_{k \in \mathbb{Z}} |E_k f (x)|.
+$$
+
+\begin{theorem} \label{thm} 
+    对于 $ E_k $ 和 $ M_d $, 有如下两个结论:
+    \begin{enumerate}[{\rm(i)}]
+        \item $ M_d $ 是弱 $ (1, 1) $ 型算子;
+        \item 若 $ f \in L^1_{loc}(\mathbb{R}^n) $, 则对 a.e. $ x \in \mathbb{R}^n $,
+        $$
+            \lim_{k \to \infty} E_k f (x) = f(x).
+        $$
+    \end{enumerate}
+\end{theorem}
+
+证明的关键是利用二进极大算子, 好吧, 还是有点不懂怎么想到的.
+
+\begin{proof}[Proof of Theorem \ref{C-Z lecomposition}]
+    略.
+\end{proof}
+
+\section{Calder\'on-Zygmund Decomposition}
+
+暂时没有用到, 鸽!
+
+\begin{thebibliography}{99}
+
+    \bibitem{cz52} A. Calderon and A. Zygmund, On the existence of certain singular integrals, 
+        Acta Math. 88 (1952), 85--139.
+        
+    \bibitem{kk13} S. Kislyakov, N. Kruglyak,
+    Extremal Problems in Interpolation Theory, Whitney-Besicovitch Coverings, and Singular Integrals,
+    Birkh\"{a}user/Springer Basel AG, Basel, 2013.
+    
+    \bibitem{d01} J. Duoandikoetxea, Fourier analysis, American Mathematical Soc., 2001.
+    
+\end{thebibliography}
+
+\end{CJK*}
+\end{document} 
+
+
