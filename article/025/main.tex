@@ -43,7 +43,7 @@ Calder\'on-Zygmund Decomposition 由 Calderon 和 Zygmund 在 \cite{cz52} 中引
 
 \section{Calder\'on-Zygmund Lemma}
 
-\begin{theorem}[Calder\'on-Zygmund Lemma] \label{C-Z lecomposition}
+\begin{theorem}[Calder\'on-Zygmund Lemma] \label{C-Z lemma}
     设 $ f $ 是非负可积函数, 则对任意给定的正常数 $ \lambda $, 存在两两不交的二进方体序列 $ \{Q_j\}_{j \in J} $ 
     使得
     \begin{enumerate}[{\rm(i)}]
@@ -51,7 +51,7 @@ Calder\'on-Zygmund Decomposition 由 Calderon 和 Zygmund 在 \cite{cz52} 中引
         \item $ | \bigcup_{j \in J} Q_j | \leq \frac{1}{\lambda} \| f \|_{L^1(\mathbb{R}^n)} $;
         \item 对 $ \forall j \in J $, 
             $$
-                \lambda < \frac{1}{|Q_j|} \int_{Q_j} f(x) dx < 2^n \lambda.
+                \lambda < \frac{1}{|Q_j|} \int_{Q_j} f(t) dt < 2^n \lambda.
             $$
     \end{enumerate}
 \end{theorem}
@@ -73,10 +73,53 @@ Calder\'on-Zygmund Decomposition 由 Calderon 和 Zygmund 在 \cite{cz52} 中引
     $$
         \lim_{r \to 0^+} \frac{1}{|B(x, r)|} \int_{B(x, r)} f(t) dt = f(x).
     $$
+    事实上, 里面的 $ B(x, r) $ 可以换成 $ B \ni x $, 球也可以换成方体.
 \end{remark}
 
-\begin{proof}[Proof of Theorem \ref{C-Z lecomposition}]
-    设 $ \mathcal{D} $ 为二进方体全体, 
+\begin{proof}[Proof of Theorem \ref{C-Z lemma}]
+    设 $ \mathcal{D} $ 为二进方体全体, 考虑 $ \mathcal{D} $ 的子集
+    $$
+        D_{f, \lambda} := \left\{ Q \in \mathcal{D} : \frac{1}{|Q|} \int_{Q} f(t) dt > \lambda \right\}.
+    $$
+    称 $ Q_0 $ 是 $ D_{f, \lambda} $ 中的极大方体, 若对 $ \forall Q \in D_{f, \lambda} \setminus \{Q_0\} $, 
+    $ Q_0 \not\subset Q $. 将 $ D_{f, \lambda} $ 中的全体极大方体记为 $ \{Q_j\}_{j \in J} $. 
+    下证 $ \{Q_j\}_{j \in J} $ 满足 (i), (ii), (iii). 
+    先证 (iii),
+    对 $ \forall j \in J $, 设 $ \widetilde{Q}_j \in \mathcal{D} $ 满足 $ Q_j \subset \widetilde{Q}_j $
+    且 $ |\widetilde{Q}_j| = 2^n |Q_j| $. 由此及 $ Q_j $ 是 $ D_{f, \lambda} $ 中的极大方体知
+    $$
+        \frac{1}{|Q_j|} \int_{Q_j} f(t) dt 
+            \leq \frac{|\widetilde{Q}_j|}{|Q_j|} \frac{1}{|\widetilde{Q}_j|} \int_{|\widetilde{Q}_j|} f(t) dt 
+            \leq 2^n \lambda.
+    $$
+    由此及 $ Q_j \in D_{f, \lambda} $ 知, (iii) 成立. 
+    再证 (ii), 
+    由 (iii) 知, 对 $ \forall j \in J $, 
+    \begin{equation} \label{equ1}
+        |Q_j| < \frac{1}{\lambda} \int_{Q_j} f(t) dt.
+    \end{equation}
+    断言, $ \{Q_j\}_{j \in J} $ 两两不交. 事实上, 对 $ \forall i, j \in J $ 且 $ i \neq j $, 
+    $ Q_i, Q_j $ 是 $ D_{f, \lambda} $ 中的极大方体, 故 $ Q_i \not\subset Q_j $ 且 $ Q_j \not\subset Q_i $.
+    由此及 $ Q_i, Q_j \in \mathcal{D} $ 知, $ Q_i \cap Q_j = \emptyset $, 断言成立. 
+    由断言及 \eqref{equ1} 知,
+    $$
+         \left| \bigcup_{j \in J} Q_j \right| 
+            =  \sum_{j \in J} |Q_j|
+            < \sum_{j \in J} \frac{1}{\lambda} \int_{Q_j} f(t) dt
+            =\frac{1}{\lambda} \int_{\bigcup_{j \in J} Q_j} f(t) dt
+            \leq \frac{1}{\lambda} \| f \|_{L^1(\mathbb{R}^n)},
+    $$
+    (ii) 成立. 最后证 (i) 成立, 对 $ \forall x \notin \bigcup_{j \in J} Q_j $,
+    由 $ \{Q_j\}_{j \in J} $ 的构造知, 对 $ \forall Q \in \mathcal{D} $ 且 $ Q \ni x $, 
+    \begin{equation} \label{equ2}
+        \frac{1}{|Q|} \int_{Q} f(t) dt \leq \lambda.
+    \end{equation}
+    否则 $ Q \in D_{f, \lambda}$, 从而 $ x \in \bigcup_{j \in J} Q_j $, 矛盾.
+    由 Lebesgue differentiation theorem 及 \eqref{equ2} 知, 对 a.e. $ x \in \mathbb{R}^n $,
+    $$
+        f(x) = \lim_{Q \ni x, |Q| \to 0^+} \frac{1}{|Q|} \int_{Q} f(t) dt \leq \lambda.
+    $$
+    (i) 成立. 综上, Theorem \ref{C-Z lemma} 证毕.
 \end{proof}
 
 \subsection{一种挺奇怪的证明}
@@ -105,7 +148,7 @@ $$
 
 证明的关键是利用二进极大算子, 好吧, 还是有点不懂怎么想到的.
 
-\begin{proof}[Proof of Theorem \ref{C-Z lecomposition}]
+\begin{proof}[Proof of Theorem \ref{C-Z lemma}]
     略.
 \end{proof}
 

@@ -14,7 +14,7 @@ html, body {
 /*             超链接             */
 a:link, a:visited, a:hover, a:active {
     text-decoration:none;
-    color: #ee82ee ;
+    color: hotpink;
 }
 /*a:hover {
     text-decoration: none;
