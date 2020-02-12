@@ -15,6 +15,9 @@
 
     <!-- javascript -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 
 <body>
@@ -41,26 +44,30 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# 一些值得记忆的事
+# Calder&#243;n-Zygmund Decomposition
 
 <div style="text-align: center;">
-    <p>发布时间: 2020-01-04</p>
+    <p>发布时间: 2020-02-12</p>
 </div>
 
 ---
 
-## 2016, ACM获奖
+**Calder\'on-Zygmund Lemma.**
+设 \\( f \\) 是非负可积函数, 则对任意给定的正常数 \\( \lambda \\),
+存在两两不交的二进方体序列 \\( \{Q_j\}_{j \in J} \\) 使得
 
-北京赛区夺银后, 我就此退出 ACM, 正式放弃攻读计算机学科的打算, 开始了我的数学考研之旅.
-很可惜, 没能拿金牌. 我们有拿金的实力, 然而我们三其实对拿金牌缺乏动力, 训练也是划水居多, 拿银牌很正常.
+1. 对 a.e. \\( x \notin \bigcup_{j \in J} Q_j \\), \\( f(x) < \lambda \\);
+2. \\\( | \bigcup_{j \in J} Q_j | \leq \frac{1}{\lambda} \| f \|_{L^1(\mathbb{R}^n)} \\);
+3. 对 \\( \forall j \in J \\),
+$$
+\lambda < \frac{1}{|Q_j|} \int_{Q_j} f(t) dt < 2^n \lambda.
+$$
 
-放弃计算机这件事无所谓对错, 我发现自己更喜欢数学, 于是选择了数学, 仅此而已.
-当然, 我没有完全放弃计算机方面的东西, 至少, 这个博客我还一直在维护着.
+这一个很有用的结论, 具体应用忘了, 不过我记得有不少经典定理的证明需要它.
 
-有时候, 帮同学 debug, 我能很快找到错误所在, 都是多亏了 ACM 的锻炼, 可惜我的专业跟计算机差太远了.
-希望以后有机会把我的专业和计算机领域相结合, 这样即能玩得开心, 又能做出很多成果, 岂不美哉.
-
-话说, 其实我拿过两次银牌来着, 只不过获奖证书只能找到一份了---[获奖证书](020/acm.pdf).
+[PDF](025/main.pdf)
+<span style="margin-right:24px;"></span>
+[TEX](025/main.tex)
 
         </div>
 
