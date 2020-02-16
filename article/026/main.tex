@@ -1,0 +1,187 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{Muckenhoupt Weights}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+如下内容来自 \cite{g14}.
+
+\begin{definition}[Definition 7.1.1]
+    设函数 $ w: \mathbb{R}^n \to [0, \infty) $ 满足对 a.e. $ x \in \mathbb{R}^n $, $ w(x) > 0 $.
+    称 $ w \in A_1(\mathbb{R}^n) $, 若对 a.e. $ x \in \mathbb{R}^n $,
+    $$
+        M(w)(x) \leq C w(x).
+    $$
+    对于 $ w \in A_1(\mathbb{R}^n) $, 称
+    $$
+        [w]_{A_1} := \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+            \left[ \frac{1}{|Q|} \int_Q w(t) dt \right] \| w^{-1} \|_{L^\infty (Q)}
+    $$
+    为 $ w $ 的 $ A_1 $ Muckenhoupt 特征常数.
+\end{definition}
+
+\begin{definition}[Definition 7.1.3]
+    设 $ p \in (1, \infty) $, $ w: \mathbb{R}^n \to [0, \infty) $ 是局部可积函数 
+    且对 a.e. $ x \in \mathbb{R}^n $, $ w(x) > 0 $.
+    称 $ w \in A_p(\mathbb{R}^n) $, 若存在正常数 $ C $ 使得对任意方体 $ Q \in \mathbb{R}^n $,
+    $$
+        \left[ \frac{1}{|Q|} \int_Q w(t) dt \right] 
+            \left\{ \frac{1}{|Q|} \int_Q [w(t)]^{-\frac{1}{p-1}}dt \right\}^{p-1} \leq C.
+    $$
+    对于 $ w \in A_p(\mathbb{R}^n) $, 称
+    $$
+        [w]_{A_p} := \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+            \left[ \frac{1}{|Q|} \int_Q w(t) dt \right] 
+            \left\{ \frac{1}{|Q|} \int_Q [w(t)]^{-\frac{1}{p-1}}dt \right\}^{p-1}
+    $$
+    为 $ w $ 的 $ A_p $ Muckenhoupt 特征常数.
+\end{definition}
+
+\begin{lemma} \label{lemma}
+    设 $ f \in L^1_{loc}(\mathbb{R}^n) $ 且 $ \alpha \in [1, \infty) $.
+    对任意方体 $ Q \subset \mathbb{R}^n $,
+    $$
+        \frac{1}{|Q|} \int_Q |f(t)| dt 
+            \leq \left\{ \frac{1}{|Q|} \int_Q |f(t)|^\alpha dt \right\}^{\frac{1}{\alpha}}.
+    $$
+\end{lemma}
+
+\begin{proof}
+    对任意方体 $ Q \subset \mathbb{R}^n $, 由 H\"older 不等式知
+    \begin{align*}
+        \frac{1}{|Q|} \int_Q |f(t)| dt 
+            &\leq \frac{1}{|Q|} \left[ \int_Q |f(t)|^\alpha dt \right]^{\frac{1}{\alpha}}
+                \left( \int_Q 1^{\alpha'} dt \right)^{\frac{1}{\alpha'}}  \\
+            &= \left[ \int_Q |f(t)|^\alpha dt \right]^{\frac{1}{\alpha}} |Q|^{\frac{1}{\alpha'} - 1} 
+            = \left\{ \frac{1}{|Q|} \int_Q |f(t)|^\alpha dt \right\}^{\frac{1}{\alpha}}.
+    \end{align*}
+\end{proof}
+
+\begin{theorem}[习题 7.1.10]
+    设 $ p_1, p_2 \in [1, \infty) $ 且 $ w_1 \in A_{p_1}(\mathbb{R}^n), w_2 \in A_{p_2}(\mathbb{R}^n) $, 则
+    $$
+        [w_1 + w_2]_{A_p} \leq [w_1]_{A_{p_1}} + [w_2]_{A_{p_2}}.
+    $$
+    其中 $ p = \max(p_1, p_2) $.
+\end{theorem}
+
+\begin{proof}
+    Case 1), $ p_1 = p_2 = 1 $. 此时 $ p = \max(p_1, p_2) = 1 $,
+    \begin{align*}
+        [w_1 + w_2]_{A_1} 
+            &= \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                \left\{ \frac{1}{|Q|} \int_Q [w_1(t) + w_2(t)] dt \right\} 
+                \left\| [w_1(t) + w_2(t)]^{-1} \right\|_{L^\infty (Q)} \\
+            &\leq \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                \left[ \frac{1}{|Q|} \int_Q w_1(t) dt \right]
+                \left\| [w_1(t) + w_2(t)]^{-1} \right\|_{L^\infty (Q)} \\
+                &\quad+ \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                    \left[ \frac{1}{|Q|} \int_Q w_2(t) dt \right]
+                    \left\| [w_1(t) + w_2(t)]^{-1} \right\|_{L^\infty (Q)} \\
+            &\leq \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                \left[ \frac{1}{|Q|} \int_Q w_1(t) dt \right]
+                \left\| [w_1(t)]^{-1} \right\|_{L^\infty (Q)} \\
+                &\quad+ \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                    \left[ \frac{1}{|Q|} \int_Q w_2(t) dt \right]
+                    \left\| [w_2(t)]^{-1} \right\|_{L^\infty (Q)} \\
+            &= [w_1]_{A_1} + [w_2]_{A_1}.
+    \end{align*}
+    
+    Case 2), $ p_1 = 1 $, $ p_2 \in (1, \infty) $. 此时 $ p = \max(p_1, p_2) = p_2 $,
+    \begin{align*}
+        [w_1 + w_2]_{A_{p_2}} 
+            &= \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                \left\{ \frac{1}{|Q|} \int_Q [w_1(t) + w_2(t)] dt \right\}
+                \left\{ \frac{1}{|Q|} \int_Q [w_1(t) + w_2(t)]^{-\frac{1}{p_2 - 1}}dt \right\}^{p_2 - 1} \\
+            &\leq \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                \left[ \frac{1}{|Q|} \int_Q w_1(t)  dt \right]
+                \left\{ \frac{1}{|Q|} \int_Q [w_1(t) + w_2(t)]^{-\frac{1}{p_2 - 1}}dt \right\}^{p_2 - 1} \\
+                &\quad+ \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                    \left[ \frac{1}{|Q|} \int_Q w_2(t)  dt \right] 
+                    \left\{ \frac{1}{|Q|} \int_Q [w_1(t) + w_2(t)]^{-\frac{1}{p_2 - 1}}dt \right\}^{p_2 - 1} \\
+            &\leq \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                \left[ \frac{1}{|Q|} \int_Q w_1(t)  dt \right]
+                \left\| [w_1(t)]^{-1} \right\|_{L^\infty (Q)} \\
+                &\quad+ \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                    \left[ \frac{1}{|Q|} \int_Q w_2(t)  dt \right] 
+                    \left\{ \frac{1}{|Q|} \int_Q [w_2(t)]^{-\frac{1}{p_2 - 1}}dt \right\}^{p_2 - 1} \\
+            &= [w_1]_{A_1} + [w_2]_{A_{p_2}}.
+    \end{align*}
+    
+    Case 3), $ p_1 \in (1, \infty) $, $ p_2 = 1 $. 类似 Case 2) 可证.
+    
+    Case 4), $ p_1, p_2 \in (1, \infty) $. 由 Lemma \ref{lemma} 知,
+    \begin{align*}
+        [w_1 + w_2]_{A_p} 
+            &= \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                \left\{ \frac{1}{|Q|} \int_Q [w_1(t) + w_2(t)] dt \right\}
+                \left\{ \frac{1}{|Q|} \int_Q [w_1(t) + w_2(t)]^{-\frac{1}{p - 1}}dt \right\}^{p - 1} \\
+            &\leq \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                \left[ \frac{1}{|Q|} \int_Q w_1(t)  dt \right]
+                \left\{ \frac{1}{|Q|} \int_Q [w_1(t) + w_2(t)]^{-\frac{1}{p - 1}}dt \right\}^{p - 1} \\
+                &\quad+ \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                    \left[ \frac{1}{|Q|} \int_Q w_2(t)  dt \right] 
+                    \left\{ \frac{1}{|Q|} \int_Q [w_1(t) + w_2(t)]^{-\frac{1}{p - 1}}dt \right\}^{p - 1} \\
+            &\leq \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                \left[ \frac{1}{|Q|} \int_Q w_1(t)  dt \right]
+                \left\{ \frac{1}{|Q|} \int_Q [w_1(t)]^{-\frac{1}{p - 1}}dt \right\}^{p - 1} \\
+                &\quad+ \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                    \left[ \frac{1}{|Q|} \int_Q w_2(t)  dt \right] 
+                    \left\{ \frac{1}{|Q|} \int_Q [w_2(t)]^{-\frac{1}{p - 1}}dt \right\}^{p - 1} \\
+            &\leq \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                \left[ \frac{1}{|Q|} \int_Q w_1(t)  dt \right]
+                \left\{ \frac{1}{|Q|} \int_Q [w_1(t)]^{-\frac{1}{p_1 - 1}}dt \right\}^{p_1 - 1} \\
+                &\quad+ \sup_{\text{ cube } Q \subset \mathbb{R}^n} 
+                    \left[ \frac{1}{|Q|} \int_Q w_2(t)  dt \right] 
+                    \left\{ \frac{1}{|Q|} \int_Q [w_2(t)]^{-\frac{1}{p_2 - 1}}dt \right\}^{p_2 - 1} \\
+            &= [w_1]_{A_{p_1}} + [w_2]_{A_{p_2}}.
+    \end{align*}
+\end{proof}
+
+
+\begin{thebibliography}{99}
+
+    \bibitem{g14}  L. Grafakos, Classical Fourier Analysis, Third edition, Graduate Texts in Mathe-
+    matics, 249, Springer, New York, 2014.
+    
+\end{thebibliography}
+
+\end{CJK*}
+\end{document} 
+
+
