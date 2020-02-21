@@ -1,0 +1,94 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{Bump Function, Test Function, $C_c^\infty(\mathbb{R}^n)$}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+Bump function, 或者说 test function, 是指 $ \mathbb{R}^n $ 上具有紧支集的光滑函数(无穷阶可微). 
+将全体 bump function 记为 $ C_c^\infty(\mathbb{R}^n) $.
+
+注: 应该有推广的情况, 暂时不关心这个.
+
+\begin{example} \label{ex1}
+    定义 $ \phi : \mathbb{R}^n \to \mathbb{R}^n $,
+    $$
+        \phi(x) := \left\{
+        \begin{aligned}
+            &\exp \left( \frac{1}{1-|x|^2} \right), && |x| < 1, \\
+            &0, & & \text{otherwise}.
+        \end{aligned} \right. 
+    $$
+    $ \phi $ 是 bump function.
+\end{example}
+
+Example \ref{ex1} 中 $ \phi $ 是 bump function 的证明有点麻烦, 暂且略去. 
+下面给出赫赫有名的 Urysohn 引理.
+
+\begin{theorem}
+    设 $ F \subset \mathbb{R}^n $ 是紧集, $ G \subset \mathbb{R}^n $ 是开集且 $ F \subset G $.
+    存在 $ f \in C_c^\infty(\mathbb{R}^n) $, 使得
+    $ f $ 的值域为 $ [0, 1] $ 且 $ f $ 在 $ F $ 中恒等于 $ 1 $, 在 $ G^c $ 中恒等于 $ 0 $.
+\end{theorem}
+
+\begin{proof}
+    设 $ \delta := d(F, G^c) $, 不难证明 $ \delta > 0 $. 
+    定义 $ U := \{x \in \mathbb{R}^n : d(x, F) < \frac{\delta}{2} \} $.
+    用 Example \ref{ex1} 中的 $ \phi $ 来构造卷积核 $ \varphi $, 
+    对 $ \forall x \in \mathbb{R}^n $, $ \forall \varepsilon \in (0, \infty) $, 
+    $$ 
+        \varphi(x) := \frac{1}{\varepsilon^n} \phi \left(\frac{x}{\varepsilon}\right) / \|\phi\|_{L^1(\mathbb{R}^n)}.
+    $$
+    则 $ \varphi \in C_c^\infty(\mathbb{R}^n) $ 是非负函数, $ \|\varphi\|_{L^1(\mathbb{R}^n)} = 1 $.
+    取 $ \varepsilon \in (0, \frac{\delta}{2}) $, 
+    此时对 $ \forall x \in \mathbb{R}^n $ 且 $ |x| \geq \frac{\delta}{2} $,
+    $ \varphi(x) = 0 $.
+    
+    取 $ f := \mathrm{1}_{U} * \varphi $, 则 $ \varphi \in C_c^\infty(\mathbb{R}^n) $.
+    注意到对 $ \forall x \in \mathbb{R}^n $,
+    $$
+        f(x) = (\mathrm{1}_{U} * \varphi) (x) 
+             =  \int_{\mathbb{R}^n} \mathrm{1}_{U}(x - y) \varphi(y) dy.
+             =  \int_{|y| < \frac{\delta}{2}} \mathrm{1}_{U}(x - y) \varphi(y) dy.
+    $$
+    因此 $ f $ 的值域为 $ [0, 1] $ 且 $ f $ 在 $ F $ 中恒等于 $ 1 $, 在 $ G^c $ 中恒等于 $ 0 $.
+\end{proof}
+
+\end{CJK*}
+\end{document} 
+
+

@@ -15,6 +15,9 @@
 
     <!-- javascript -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 
 <body>
@@ -41,22 +44,25 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# [折纸展示] 萩原元, 小提琴
+# Bump Function, Test Function, \\(C_c^\infty(\mathbb{R}^n)\\)
 
 <div style="text-align: center;">
-    <p>发布时间: 2020-01-04</p>
+    <p>发布时间: 2020-02-21</p>
 </div>
 
 ---
-<div style="text-align: center;">
-    <a href="019/violin-origin.jpg" target="_blank">
-        <img src="019/violin.jpg" width=50% alt="小提琴">
-    </a>
-</div>
 
-## 教程
-我是看 Malinda 的 <a href="https://www.bilibili.com/video/av25321839"> 视频</a> 折的, 
-表示没有二折的打算, 太复杂了.
+Bump function, 或者说 test function, 是指 \\( \mathbb{R}^n \\) 上具有紧支集的光滑函数(无穷阶可微).
+将全体 bump function 记为 \\( C_c^\infty(\mathbb{R}^n) \\).
+
+**Urysohn 引理.**
+设 \\( F \subset \mathbb{R}^n \\) 是紧集, \\( G \subset \mathbb{R}^n \\) 是开集且 \\( F \subset G \\).
+存在 \\( f \in C_c^\infty(\mathbb{R}^n) \\), 使得
+\\( f \\) 的值域为 \\( [0, 1] \\) 且 \\( f \\) 在 \\( F \\) 中恒等于 \\( 1 \\), 在 \\( G^c \\) 中恒等于 \\( 0 \\).
+
+[PDF](027/main.pdf)
+<span style="margin-right:24px;"></span>
+[TEX](027/main.tex)
 
         </div>
 
