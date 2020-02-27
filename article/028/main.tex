@@ -1,0 +1,83 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{Simple Connectivity and Jordan Curve Theorem}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+以下所有内容均源自 \cite{ss10}. 首先回顾一下复分析中的一些基本定义.
+
+\begin{definition}[p.7]
+    开集 $ \Omega \subset \mathbb{C} $ 被称为连通的, 若不存在两个不交的非空开集 $ \Omega_1 $ 和 $ \Omega_2 $ 使得
+    $$
+        \Omega = \Omega_1 \cup \Omega_2.
+    $$
+    $ \mathbb{C} $ 中的连通开集被称为区域.
+\end{definition}
+
+\begin{definition}[p.93]
+    粗略地讲, 
+    称区域 $ \Omega $ 中拥有相同端点的两条曲线是同伦的, 若这其中一条能不离开区域 $ \Omega $ 连续的变换成另一条曲线.
+\end{definition}
+
+\begin{definition}[p.96]
+    称区域 $ \Omega $ 是单连通的, 若 $ \Omega $ 中拥有相同端点的任意两条曲线是同伦的.
+\end{definition}
+
+
+\begin{definition}[p.20]
+    粗略地讲, 
+    一个光滑或者分段光滑曲线被称为是闭的, 若曲线首尾相连.    
+    一个光滑或者分段光滑曲线被称为是简单的, 若曲线不自交.
+\end{definition}
+
+\begin{theorem}[Theorem 2.2, p.351]
+    设 $ \Gamma $ 是一段简单的, 闭的, 分段光滑的曲线. 则 $ \Gamma^c $ 等于两个不交区域的并. 
+    特别的, 这两个区域一个是有界单连通区域, 称它为 $ \Gamma $ 的内部;
+    另一个是无界单连通区域, 称它为 $ \Gamma $ 的外部.
+\end{theorem}
+
+\begin{thebibliography}{99}
+
+    \bibitem{ss10}  E. M. Stein and R. Shakarchi, Complex Analysis, Princeton University Press, 2010.
+    
+\end{thebibliography}
+
+\end{CJK*}
+\end{document} 
+
+
