@@ -11,17 +11,15 @@
     <!-- css -->
     <link href="../css/public-style.css" rel="stylesheet" type="text/css" />
     <link href="../css/main-style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/github-markdown.css" rel="stylesheet" type="text/css">
 
     <!-- javascript -->
-    <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
 
 <div id="container">
-    <!-- 头部：标题和搜索 -->
     <div id="header" onselectstart="return false;">
         <div id="header-left">
             <h1 style="cursor:default"> bufan 的博客 </h1>
@@ -29,45 +27,34 @@
         </div>
         <div id="header-right">
             <div class="header-link">
-                <a href="../index.html"> 首页 </a>
+                <a href="../"> 首页 </a>
             </div>
             <div id="search">
                 <form id="search-form" method="get" action="https://www.google.com/search" target="_blank">
-                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" />
-                    <input name="sitesearch" value="bufan.xyz" type="hidden" />
+                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" /> 
+                    <input name="sitesearch" value="bufan.xyz" type="hidden" />  
                     <button id="search-button" type="submit"></button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- 中部：左边内容，右边导航 -->
     <div id="middle" class="clearfix">
-        <div id="article">
-            <div class="article-list">
-                <a href="../article/027.html">Bump Function, Test Function, \(C_c^\infty(\mathbb{R}^n)\)</a>
-                <p>发布时间: 2020-02-21</p>
-            </div>
+        <div id="article" class="markdown-body">
+# Simple Connectivity and Jordan Curve Theorem
 
-            <div class="article-list">
-                <a href="../article/026.html">Muckenhoupt Weights</a>
-                <p>发布时间: 2020-02-15</p>
-            </div>
+<div style="text-align: center;">
+    <p>发布时间: 2020-03-06</p>
+</div>
 
-            <div class="article-list">
-                <a href="../article/025.html">Calder&#243;n-Zygmund Decomposition</a>
-                <p>发布时间: 2020-02-12</p>
-            </div>
+---
 
-            <div class="article-list">
-                <a href="../article/024.html">[厨艺教程] 青椒肉丝</a>
-                <p>发布时间: 2020-02-09</p>
-            </div>
+梳理一下单连通以及 Jordan Curve Theorem.
 
-            <div class="article-list">
-                <a href="../article/023.html">[厨艺教程] 蒸蛋</a>
-                <p>发布时间: 2020-02-05</p>
-            </div>
+[PDF](028/main.pdf)
+<span style="margin-right:24px;"></span>
+[TEX](028/main.tex)
+
         </div>
 
         <div id="rightbar">
@@ -95,19 +82,16 @@
                     <div style="float:right;">6 篇</div>
                 </div>
             </div>
-
             <div class="rightbar-list">
                 <h3> 朋友的博客 </h3>
                 <hr/>
                 <div class="clearfix">
                     <a href="https://lizebang.com"> 邦哥 </a>
                 </div>
-
                 <div class="clearfix">
                     <a href="https://www.lizhechen.com"> lzcwr </a>
                 </div>
             </div>
-
             <div class="rightbar-list">
                 <h3> 归档 </h3>
                 <hr/>
@@ -169,16 +153,20 @@
         </div>
     </div>
 
-    <!-- 尾部：联系方式 -->
     <div id="footer">
         <p>
             联系方式: &nbsp; <a href="javascript:alert('291817591@qq.com')"> Email </a>
-            <span style="margin-right:50px;"></span>
+            <span style="margin-right:50px;"></span>&nbsp;&nbsp;
             数据存储: &nbsp; <a href="https://github.com/201411132101/201411132101.github.io"> GitHub </a>
         </p>
     </div>
 </div>
 
 </body>
+
+<script>
+    document.getElementById('article').innerHTML =
+        marked(document.getElementById('article').innerHTML);
+</script>
 
 </html>
