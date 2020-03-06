@@ -32,48 +32,54 @@
 % \renewcommand{\proofname}{\emph{Proof}}
 
 % 基本信息
-\title{Simple Connectivity and Jordan Curve Theorem}
+\title{齐型空间上的拓扑}
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
 
 \maketitle
 
-以下所有内容均源自 \cite{ss10}. 首先回顾一下复分析中的一些基本定义.
-
-\begin{definition}[p.7]
-    开集 $ \Omega \subset \mathbb{C} $ 被称为连通的, 若不存在两个不交的非空开集 $ \Omega_1 $ 和 $ \Omega_2 $ 使得
-    $$
-        \Omega = \Omega_1 \cup \Omega_2.
-    $$
-    $ \mathbb{C} $ 中的连通开集被称为区域.
+\begin{definition} \label{10.21.1}
+A \emph{quasi-metric space} $ (\mathcal{X}, d) $ is a non-empty set $ \mathcal{X} $ equipped with a \emph{quasi-metric} $ d $,
+namely, a non-negative function defined on $ \mathcal{X} \times \mathcal{X} $, satisfying that, for any $ x, y, z \in \mathcal{X} $,
+    \begin{enumerate}[{\rm(i)}]
+        \item $ d(x, y) = 0 $ if and only if $ x = y $;
+        \item $ d(x, y) = d(y, x) $;
+        \item there exists a constant $ A_0 \in [1, \infty) $, independent of $ x $, $ y $,
+            and $ z $, such that $ d(x, z) \leq A_0 [d(x, y) + d(y, z)] $.
+    \end{enumerate}
 \end{definition}
 
-\begin{definition}[p.93]
-    粗略地讲, 
-    称区域 $ \Omega $ 中拥有相同端点的两条曲线是同伦的, 若这其中一条能不离开区域 $ \Omega $ 连续的变换成另一条曲线.
+The \emph{ball} $ B $ on $ \mathcal{X} $, centered at $ x_0 \in \mathcal{X} $ with radius $ r \in (0, \infty) $, 
+is defined by setting
+$$
+    B := \left\{x \in \mathcal{X} :\ d(x, x_0) < r \right\} =: B \left( x_0, r \right).
+$$
+
+构造齐型空间 $ \mathcal{X} $ 中的拓扑有两种定义方法, 一种是用球来定义开集, 一种是用收敛性来定义闭集.
+
+\begin{definition} \label{def1}
+    称 $ E \subset \mathcal{X} $ 是开集, 若对 $ \forall x \in E $, 
+    存在 $ \delta \in (0, \infty) $ 使得 $ B(x, \delta) \subset E $.
+    称 $ E \subset \mathcal{X} $ 是闭集, 若 $ \mathcal{X} \setminus E $ 是开集.
 \end{definition}
 
-\begin{definition}[p.96]
-    称区域 $ \Omega $ 是单连通的, 若 $ \Omega $ 中拥有相同端点的任意两条曲线是同伦的.
+\begin{definition} \label{def2}
+    称 $ E \subset \mathcal{X} $ 是闭集, 若对 $ \forall x \in E $, 
+    存在 $ \{x_k\}_{k \in \mathbb{N}} \subset E $ 使得 $ \lim_{k \to \infty} d(x, x_k) \subset E $.
+    称 $ E \subset \mathcal{X} $ 是开集, 若 $ \mathcal{X} \setminus E $ 是闭集.
 \end{definition}
 
+\begin{remark}
+    Definition \ref{def1} 和 Definition \ref{def2} 是等价的.
+\end{remark}
 
-\begin{definition}[p.20]
-    粗略地讲, 
-    一个光滑或者分段光滑曲线被称为是闭的, 若曲线首尾相连.    
-    一个光滑或者分段光滑曲线被称为是简单的, 若曲线不自交.
-\end{definition}
-
-\begin{theorem}[Theorem 2.2, p.351]
-    设 $ \Gamma $ 是一段简单的, 闭的, 分段光滑的曲线. 则 $ \Gamma^c $ 等于两个不交区域的并. 
-    特别的, 这两个区域一个是有界单连通区域, 称它为 $ \Gamma $ 的内部;
-    另一个是无界单连通区域, 称它为 $ \Gamma $ 的外部.
-\end{theorem}
+等价性的证明来自 \cite[Theorem 3.1]{rb13}, 但不确定他证明的原创性.
 
 \begin{thebibliography}{99}
 
-    \bibitem{ss10}  E. M. Stein and R. Shakarchi, Complex Analysis, Princeton University Press, 2010.
+    \bibitem{rb13}  G. Rano, and T. Bag. Quasi-metric space and fixed point theorems, 
+        International Journal of Mathematics and scientific Computing 3 (2013), 27--31.
     
 \end{thebibliography}
 
