@@ -39,7 +39,9 @@
 
 \maketitle
 
-以下所有内容均源自 \cite{ss10}. 首先回顾一下复分析中的一些基本定义.
+\section{解析函数基本性质}
+
+以下均源自 \cite{ss10}.
 
 \begin{definition}[p.7]
     开集 $ \Omega \subset \mathbb{C} $ 被称为连通的, 若不存在两个不交的非空开集 $ \Omega_1 $ 和 $ \Omega_2 $ 使得
@@ -70,6 +72,191 @@
     特别的, 这两个区域一个是有界单连通区域, 称它为 $ \Gamma $ 的内部;
     另一个是无界单连通区域, 称它为 $ \Gamma $ 的外部.
 \end{theorem}
+
+铁爷书中区域的定义太乱了, 我觉得按他的意思, 如果明确指出是区域, 那就是连通开集.
+
+\begin{theorem}[命题1.2.2]
+    设 $ f $ 定义在开集 $ \Omega \subset \mathbb{C} $ 上的复值函数, $ a \in \Omega $. 
+    若 $ f $ 在点 $ a \in \Omega $ 处实可微, 
+    则 $ f $ 在点 $ a \in \Omega $ 处复可微当且仅当 $ \frac{\partial f}{\partial \overline{z}}|_a = 0 $.
+    若 $ f $ 在点 $ a \in \Omega $ 处复可微, 
+    则 $ f $ 在点 $ a \in \Omega $ 处实可微且 $ \frac{\partial f}{\partial z}|_a = f'(a) $.
+\end{theorem}
+
+\begin{remark}
+    $ \frac{\partial f}{\partial \overline{z}} $ 是复可微与否的关键.
+    $ \frac{\partial f}{\partial z} $ 就是导数.
+\end{remark}
+
+\begin{theorem}[定理1.2.3]
+    设 $ \omega $ 是有界开集且 $ f \in H(\omega) \cap C^1(\overline{\omega}) $, 则
+    $$
+        \int_{\partial \omega} f(z) dz = 0.
+    $$
+\end{theorem}
+
+\begin{remark}
+    上面这个是柯西定理很一般的形式, 比较抽象, 下面是一个更直观的版本.
+    
+    设 $ \Omega $ 改为单连通开集, 由柯西定理及定理2.1.8 $ H(\Omega) = H(\Omega) \cap C^1(\Omega) $ 知, 
+    对任意简单的, 闭的, 分段光滑曲线 $ \Gamma \subset \Omega $,
+    $$
+        \int_{\partial \Gamma} f(z) dz = 0.
+    $$
+    大致是这个意思, 曲线的条件可能有偏差.
+\end{remark}
+
+\begin{theorem}[定理1.2.4] \label{1.2.4}
+    设 $ \omega $ 是有界开集且 $ z \in \omega $. 若 $ f \in C^1(\overline{\omega}) $, 则
+    $$
+        f(z) = \frac{1}{2 \pi i} \int_{\partial \omega} \frac{f(\zeta)}{ \zeta - z} d\zeta
+                + \frac{1}{\pi} \int_{\omega} \frac{\partial f}{\partial \overline{\zeta}} 
+                    \frac{1}{ \zeta - z} d\lambda(\zeta).
+    $$
+    若 $ f \in H(\omega) \cap C^1(\overline{\omega}) $, 则
+    $$
+        f(z) = \frac{1}{2 \pi i} \int_{\partial \omega} \frac{f(\zeta)}{ \zeta - z} d\zeta.
+    $$
+\end{theorem}
+
+\begin{remark}
+    上面这个是柯西公式很一般的形式, 比较抽象, 下面是一个更直观的版本.
+        
+    设 $ \Omega $ 改为单连通开集, 由柯西公式及定理2.1.8 $ H(\Omega) = H(\Omega) \cap C^1(\Omega) $ 知, 
+    对任意简单的, 闭的, 分段光滑曲线 $ \Gamma \subset \Omega $,
+    $$
+        f(z) = \frac{1}{2 \pi i} \int_{\Gamma} \frac{f(\zeta)}{ \zeta - z} d\zeta.
+    $$
+    大致是这个意思, 曲线的条件可能有偏差.
+\end{remark}
+
+\begin{theorem}[定理2.1.8] \label{2.1.8}
+    设 $ \Omega \subset \mathbb{R}^n $ 是开集, 则
+    $$
+        H(\Omega) = H(\Omega) \cap C^1(\Omega).
+    $$
+\end{theorem}
+
+\begin{remark}
+    设 $ \Omega $ 是区域, 则 
+    $$ 
+        H(\Omega) = H(\Omega) \cap C^1(\Omega) \cap \{\text{无穷可微函数}\},
+    $$
+    即全纯函数无穷可微且一阶偏导连续.
+\end{remark}
+
+\begin{proof}
+    由定理2.1.8 知, $ H(\Omega) = H(\Omega) \cap C^1(\Omega) $, 即全纯函数一阶偏导连续.
+    由此及定理1.2.6 知,
+    $$
+        H(\Omega) = H(\Omega) \cap C^1(\Omega) \subset \{\text{无穷可微函数}\}.
+    $$
+    因此全纯函数无穷可微且一阶偏导连续.
+\end{proof}
+
+\begin{theorem}[定理 1.1.12]
+    设 $ X $ 是连通空间且 $ E \subset X $ 既开又闭, 则 $ E \in \{\emptyset, X\} $.
+\end{theorem}
+
+\begin{remark}
+    定理 1.1.12 是更一般的结论, 不过没有这个直观. 此结论可用于证明超级有用的最大模定理.
+\end{remark}
+
+
+\begin{theorem}[定理 1.2.10]
+    设 $ \Omega $ 是有界开集且 $ f \in H(\Omega) \cap C(\overline{\Omega}) $, 
+    则存在 $ z_0 \in \partial \Omega $ 使得
+    $
+        f(z_0) = \sup_{z \in \overline{\Omega}} f(z).
+    $
+\end{theorem}
+
+\begin{remark}
+    记
+    $
+        M := \sup_{z \in \overline{\Omega}} f(z).
+    $
+    则 $ f $ 有两种可能. (i) $ f \equiv M $; (ii) 对 $ \forall z \in \Omega $, $ f(z) < M $.
+\end{remark}
+
+\begin{theorem}[Hadamard, p.11]
+    设 $ \{c_n\}_{n \in \mathbb{N}} \subset \mathbb{C} $, 幂级数
+    $$
+        \sum_{n=0}^\infty c_n (z - a)^n
+    $$
+    的收敛半径 $ R $ 满足
+    $$
+        \frac{1}{R} = \limsup_{n \to \infty} \sqrt[n]{|c_n|}.
+    $$
+    若 $ R \in (0, \infty] $, 则级数在 $ D(a, R) $ 中内闭一致收敛.
+    若 $ R \in [0, \infty) $, 则级数在 $ \{z \in \mathbb{C} :\ |z - a| > R\} $ 中发散.
+\end{theorem}
+
+\begin{theorem}[定理 1.2.11 和定理 1.2.14]
+    设 $ \Omega $ 是有界开集. 
+    $ f \in H(\Omega) $ 当且仅当 $ f $ 可以写成形如
+    $$
+        \sum_{n=0}^\infty c_n (z - a)^n
+    $$
+    的幂级数.
+\end{theorem}
+
+\begin{remark}
+    有这个定理也能看出来全纯函数无穷可微, 多角度理解方便记忆.
+    注意, 导数是能算出来的, 直接对积分内部求导即可.
+\end{remark}
+
+\begin{theorem}[定理 1.2.16]
+    设 $ f \in H(\mathbb{C}) $ 且有界, 则 $ f $ 是常值函数.
+\end{theorem}
+
+\begin{remark}
+    著名的 Liouville 定理, 必须牢记. 
+    称 $ f $ 是整函数, 若 $ f \in H(\mathbb{C}) $.
+\end{remark}
+
+\begin{theorem}[定理 1.2.18]
+    (零点的孤立性). 设 $ \Omega $ 是开集, $ f \in H(\Omega) $ 且 $ f $ 不恒等于 $ 0 $.
+    记 $ Z(f) := \{z \in \Omega :\ f(z) = 0\} $, 则 $ Z(f) $ 在 $ \Omega $ 中没有极限点.
+    
+    (零点处函数的分解). 设 $ a \in Z(f) $, 则存在唯一正整数 $ m \in \mathbb{N} $ 
+    和非 $ 0 $ 函数 $ g \in H(\Omega) $, 使得对 $ \forall z \in \Omega $,
+    $$
+        f(z) = (z - a)^m g(z).
+    $$
+\end{theorem}
+
+\begin{theorem}[Theorem 4.8]
+    看待零点的孤立性的另一个角度, 来自 stein.
+    若存在点 $ z_0 \in \Omega $ 和序列 $ \{z_n\}_{n \in \mathbb{N}} $ 使得
+    $$
+        z_0 = \lim_{n \to \infty} z_n
+    $$
+    且对 $ \forall \in \mathbb{N} $, $ f(z_n) = 0 $, 则 $ f \equiv 0 $.
+\end{theorem}
+
+\begin{remark}
+    零点的孤立性, 非常有用. 由零点的孤立性, 容易看出 $ Z(f) $ 至多可数.
+\end{remark}
+
+\begin{theorem}[Theorem 1.2.20]
+    设 $ a \in \mathbb{C} $, $ 0 \leq r < R < \infty $, 
+    $$ \Omega := \{z \in \mathbb{C} :\ r < |z - a| < R \}. $$
+    若 $ f \in H(\Omega) $, 则存在序列 $ \{c_n\}_{n \in \mathbb{Z}} \subset \mathbb{C} $ 使得, 
+    对 $ \forall z \in \Omega $,
+    $$
+        f(z) = \sum_{n=-\infty}^\infty c_n (z - a).
+    $$
+    其中对 $ \forall n \in \mathbb{Z} $,
+    $$
+        c_n = \frac{1}{2 \pi i} \int_{\partial D(a, \rho)} \frac{f(\zeta)}{(\zeta - a)^{n+1}} d\zeta,
+    $$
+    其中 $ \rho \in (r, R) $, 由柯西公式, 上式右边的积分与 $ \rho $ 的选取无关.
+\end{theorem}
+
+\begin{remark}
+    Laurent 展开, 非常有用. 没有坏点, 就用泰勒, 有坏点, 就只能用 Laurent 展开了.
+\end{remark}
 
 \begin{thebibliography}{99}
 
