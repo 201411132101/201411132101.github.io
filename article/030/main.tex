@@ -1,0 +1,131 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{齐型空间上的拓扑}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+\begin{definition} \label{10.21.1}
+A \emph{quasi-metric space} $ (\mathcal{X}, d) $ is a non-empty set $ \mathcal{X} $ equipped with a \emph{quasi-metric} $ d $,
+namely, a non-negative function defined on $ \mathcal{X} \times \mathcal{X} $, satisfying that, for any $ x, y, z \in \mathcal{X} $,
+    \begin{enumerate}[{\rm(i)}]
+        \item $ d(x, y) = 0 $ if and only if $ x = y $;
+        \item $ d(x, y) = d(y, x) $;
+        \item there exists a constant $ A_0 \in [1, \infty) $, independent of $ x $, $ y $,
+            and $ z $, such that $ d(x, z) \leq A_0 [d(x, y) + d(y, z)] $.
+    \end{enumerate}
+\end{definition}
+
+The \emph{ball} $ B $ on $ \mathcal{X} $, centered at $ x_0 \in \mathcal{X} $ with radius $ r \in (0, \infty) $, 
+is defined by setting
+$$
+    B := \left\{x \in \mathcal{X} :\ d(x, x_0) < r \right\} =: B \left( x_0, r \right).
+$$
+
+构造齐型空间 $ \mathcal{X} $ 中的拓扑有两种方法, 一种是用球来定义开集, 一种是用收敛性来定义闭集.
+
+
+\begin{definition} \label{def1}
+    称 $ E \subset \mathcal{X} $ 是闭集, 若 $ \{x_k\}_{k \in \mathbb{N}} \subset E $ 在 $ \mathcal{X} $ 中收敛到 $ x $ 
+    能推出 $ x \in E $.
+    称 $ E \subset \mathcal{X} $ 是开集, 若 $ \mathcal{X} \setminus E $ 是闭集.
+\end{definition}
+
+\begin{theorem}
+    设 $ E \subset \mathcal{X} $, 则 $ E $ 是开集当且仅当对 $ \forall x \in E $, 
+    存在 $ \delta \in (0, \infty) $ 使得 $ B(x, \delta) \subset E $.
+\end{theorem}
+
+\begin{proof}
+    先证 $ "\Rightarrow" $. 设 $ E $ 是开集, 则 $ E^c $ 是闭集.
+    反设对 $ \forall \delta \in (0, \infty) $, 存在 $ x_\delta \in B(x, \delta) $ 使得 $ x_\delta \notin E $. 
+    则存在序列 $ \{x_k\}_{k \in \mathbb{N}} \subset E^c $ 使得
+    $$
+        \lim_{k \to \infty} x_k = x.
+    $$
+    进一步由 $ E^c $ 是闭集知, $ x \in E^c $, 矛盾. 
+    从而存在 $ \delta \in (0, \infty) $ 使得 $ B(x, \delta) \subset E $.
+    
+    再证 $ "\Leftarrow" $. 设存在 $ \delta \in (0, \infty) $ 使得 $ B(x, \delta) \subset E $.
+    反设 $ E^c $ 不是闭集, 则存在 $ x \in E $ 和 $ \{x_k\}_{k \in \mathbb{N}} \subset E^c $ 使得 
+    $$
+        \lim_{k \to \infty} x_k = x.
+    $$
+    因此存在 $ k_0 \in \mathbb{N} $ 使得 $ d(x_{k_0}, x) < \delta $, 故 $ x_{k_0} \in B(x, \delta) \cap E^c $, 矛盾.
+    从而 $ E^c $ 不是闭集, 故 $ E $ 是开集, 定理证毕.
+\end{proof}
+
+由上述定理, 可得到如下等价定义.
+
+\begin{definition} \label{def2}
+    称 $ E \subset \mathcal{X} $ 是开集, 若对 $ \forall x \in E $, 
+    存在 $ \delta \in (0, \infty) $ 使得 $ B(x, \delta) \subset E $.
+    称 $ E \subset \mathcal{X} $ 是闭集, 若 $ \mathcal{X} \setminus E $ 是开集.
+\end{definition}
+
+从这个定义出发来证明等价性也一样的.
+
+\begin{theorem}
+    设 $ E \subset \mathcal{X} $. $ E $ 是闭集当且仅当 
+    $ \{x_k\}_{k \in \mathbb{N}} \subset E $ 在 $ \mathcal{X} $ 中收敛到 $ x $ 能推出 $ x \in E $.
+\end{theorem}
+
+\begin{proof}
+    先证 $ "\Rightarrow" $. 设 $ E $ 是闭集, 则 $ E^c $ 是开集.
+    若 $ \{x_k\}_{k \in \mathbb{N}} \subset E $ 在 $ \mathcal{X} $ 中收敛到 $ x $, 可断言 $ x \in E $.
+    事实上, 反设 $ x \notin E $, 则 $ x \in E^c $, 由此及 $ E^c $ 是开集知,
+    存在 $ \delta \in (0, \infty) $ 使得 $ B(x, \delta) \subset E^c $.
+    这与 $ \{x_k\}_{k \in \mathbb{N}} \subset E $ 收敛到 $ x $ 相矛盾, 故断言成立.
+    
+    再证 $ "\Leftarrow" $. 
+    设 $ \{x_k\}_{k \in \mathbb{N}} \subset E $ 在 $ \mathcal{X} $ 中收敛到 $ x $ 能推出 $ x \in E $.
+    下证 $ E^c $ 是开集. 事实上, 对 $ \forall x \in E^c $, 
+    反设对 $ \forall \delta \in (0, \infty) $, 存在 $ x_\delta \in B(x, \delta) $ 使得 $ x_\delta \in E $. 
+    则存在序列 $ \{x_k\}_{k \in \mathbb{N}} \subset E $ 使得
+    $$
+        \lim_{k \to \infty} x_k = x.
+    $$
+    进一步由条件知, $ x \in E $, 与 $ x \in E^c $ 相矛盾. 
+    从而存在 $ \delta \in (0, \infty) $ 使得 $ B(x, \delta) \subset E^c $.
+    由 $ x \in E^c $ 的任意性知, $ E^c $ 是开集. 故 $ E $ 是闭集, 定理证毕.
+\end{proof}
+
+
+\end{CJK*}
+\end{document} 
+
+
