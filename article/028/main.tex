@@ -39,6 +39,8 @@
 
 \maketitle
 
+标注来源的时候, 英文表示 Stein 的复分析, 如: Theorem 2.2. 中文表示铁爷的书, 如: 命题1.2.2.
+
 \section{解析函数基本性质}
 
 以下均源自 \cite{ss10}.
@@ -167,19 +169,19 @@
     设 $ \Omega $ 是有界开集且 $ f \in H(\Omega) \cap C(\overline{\Omega}) $, 
     则存在 $ z_0 \in \partial \Omega $ 使得
     $
-        f(z_0) = \sup_{z \in \overline{\Omega}} f(z).
+        |f(z_0)| = \sup_{z \in \overline{\Omega}} |f(z)|.
     $
 \end{theorem}
 
 \begin{remark}
     记
     $
-        M := \sup_{z \in \overline{\Omega}} f(z).
+        M := \sup_{z \in \overline{\Omega}} |f(z)|.
     $
-    则 $ f $ 有两种可能. (i) $ f \equiv M $; (ii) 对 $ \forall z \in \Omega $, $ f(z) < M $.
+    则 $ f $ 有两种可能. (i) $ |f| \equiv M $; (ii) 对 $ \forall z \in \Omega $, $ |f(z)| < M $.
 \end{remark}
 
-\begin{theorem}[Hadamard, p.11]
+\begin{theorem}[Hadamard, 铁爷 p.11]
     设 $ \{c_n\}_{n \in \mathbb{N}} \subset \mathbb{C} $, 幂级数
     $$
         \sum_{n=0}^\infty c_n (z - a)^n
@@ -194,19 +196,20 @@
 
 \begin{theorem}[定理 1.2.11 和定理 1.2.14]
     设 $ \Omega $ 是有界开集. 
-    $ f \in H(\Omega) $ 当且仅当 $ f $ 可以写成形如
+    $ f \in H(\Omega) $ 当且仅当对 $ \forall a \in \Omega $, 存在一个圆盘 $ D(a, r) \subset \Omega $ 
+    使得对 $ \forall z \in \Omega $,
     $$
-        \sum_{n=0}^\infty c_n (z - a)^n
+        f(z) = \sum_{n=0}^\infty c_n (z - a)^n
     $$
     的幂级数.
 \end{theorem}
 
 \begin{remark}
-    有这个定理也能看出来全纯函数无穷可微, 多角度理解方便记忆.
+    由这个定理也能看出来全纯函数无穷可微.
     注意, 导数是能算出来的, 直接对积分内部求导即可.
 \end{remark}
 
-\begin{theorem}[定理 1.2.16]
+\begin{theorem}[定理 1.2.16, Corollary 4.5]
     设 $ f \in H(\mathbb{C}) $ 且有界, 则 $ f $ 是常值函数.
 \end{theorem}
 
@@ -216,7 +219,7 @@
 \end{remark}
 
 \begin{theorem}[定理 1.2.18]
-    (零点的孤立性). 设 $ \Omega $ 是开集, $ f \in H(\Omega) $ 且 $ f $ 不恒等于 $ 0 $.
+    (零点的孤立性). 设 $ \Omega $ 是区域(连通开集), $ f \in H(\Omega) $ 且 $ f $ 不恒等于 $ 0 $.
     记 $ Z(f) := \{z \in \Omega :\ f(z) = 0\} $, 则 $ Z(f) $ 在 $ \Omega $ 中没有极限点.
     
     (零点处函数的分解). 设 $ a \in Z(f) $, 则存在唯一正整数 $ m \in \mathbb{N} $ 
@@ -227,12 +230,13 @@
 \end{theorem}
 
 \begin{theorem}[Theorem 4.8]
-    看待零点的孤立性的另一个角度, 来自 stein.
-    若存在点 $ z_0 \in \Omega $ 和序列 $ \{z_n\}_{n \in \mathbb{N}} $ 使得
+    看待零点的孤立性的另一个角度.
+    设 $ \Omega $ 是区域(连通开集), $ f \in H(\Omega) $.
+    若存在点 $ z_0 \in \Omega $ 和序列 $ \{z_n\}_{n \in \mathbb{N}} \subset Z(f) \setminus \{z_0\} $ 使得
     $$
-        z_0 = \lim_{n \to \infty} z_n
+        z_0 = \lim_{n \to \infty} z_n,
     $$
-    且对 $ \forall \in \mathbb{N} $, $ f(z_n) = 0 $, 则 $ f \equiv 0 $.
+    则 $ f \equiv 0 $.
 \end{theorem}
 
 \begin{remark}
