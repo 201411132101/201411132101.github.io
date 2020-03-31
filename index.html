@@ -46,6 +46,11 @@
         <div id="article">
             <div id="page1">
                 <div class="article-list">
+                    <a href="article/031.html">笔记-J. Duoandikoetxea, Fourier Analysis</a>
+                    <p>发布时间: 2020-03-31</p>
+                </div>
+
+                <div class="article-list">
                     <a href="article/030.html">收敛和弱收敛的一个等价刻画</a>
                     <p>发布时间: 2020-03-19</p>
                 </div>
@@ -114,14 +119,14 @@
                     <a href="article/017.html">Latex 中文字体问题</a>
                     <p>发布时间: 2019-12-20</p>
                 </div>
+            </div>
 
+            <div id="page2" style="display: none">
                 <div class="article-list">
                     <a href="article/016.html">电子产品的选择</a>
                     <p>发布时间: 2019-12-16</p>
                 </div>
-            </div>
 
-            <div id="page2" style="display: none">
                 <div class="article-list">
                     <a href="article/015.html">I-AB 和 I-BA 不得不说的故事</a>
                     <p>发布时间: 2019-12-06</p>
@@ -191,7 +196,8 @@
                     <a href="article/002.html">兰斯8攻略</a>
                     <p>发布时间: 2018-05-22</p>
                 </div>
-
+            </div>
+            <div id="page3" style="display: none">
                 <div class="article-list">
                     <a href="article/001.html">收藏的网站</a>
                     <p>发布时间: 2018-05-22</p>
@@ -205,6 +211,9 @@
                 <div class="header-link">
                     <a href="?page=2">2</a>
                 </div>
+                <div class="header-link">
+                    <a href="?page=3">3</a>
+                </div>
             </div>
         </div>
 
@@ -214,7 +223,7 @@
                 <hr/>
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/tag/math.html"> 数学 </a></div>
-                    <div style="float:right;">15 篇</div>
+                    <div style="float:right;">16 篇</div>
                 </div>
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/tag/latex.html"> Latex </a></div>
@@ -251,7 +260,7 @@
                 <hr/>
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/time/2020-03.html"> 2020-03 </a></div>
-                    <div style="float:right;">3 篇</div>
+                    <div style="float:right;">4 篇</div>
                 </div>
 
                 <div class="clearfix">
@@ -324,10 +333,17 @@
         if (loc.substr(index+1) === "1") {
             document.getElementById("page1").style.display = "block";
             document.getElementById("page2").style.display = "none";
+            document.getElementById("page3").style.display = "none";
         }
         if (loc.substr(index+1) === "2") {
             document.getElementById("page1").style.display = "none";
             document.getElementById("page2").style.display = "block";
+            document.getElementById("page3").style.display = "none";
+        }
+        if (loc.substr(index+1) === "3") {
+            document.getElementById("page1").style.display = "none";
+            document.getElementById("page2").style.display = "none";
+            document.getElementById("page3").style.display = "block";
         }
     }
 </script>

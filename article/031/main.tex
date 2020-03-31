@@ -1,0 +1,113 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{笔记-J. Duoandikoetxea, Fourier Analysis}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+\begin{lemma} \label{lem1}
+    设 $ N \in \mathbb{N} $, 开区间 $ \{I_k\}_{k = 1}^N \subset \mathbb{R} $ 且
+    $$
+        \bigcap_{k = 1}^N I_k \neq \emptyset.
+    $$
+    则存在 $ k_0 \in \{1, \ldots, N\} $ 使得
+    $$
+        \bigcup_{k = 1}^N I_k = I_{k_0},
+    $$
+    或存在 $ k_1, k_2 \in \{1, \ldots, N\} $ 使得
+    $$
+        \bigcup_{k = 1}^N I_k = I_{k_1} \cup I_{k_2}.
+    $$
+\end{lemma}
+
+\begin{proof}
+    若存在 $ k_0 \in \{1, \ldots, N\} $ 使得
+    $$
+        \bigcup_{k = 1}^N I_k = I_{k_0},
+    $$
+    Lemma \ref{lem1} 证毕. 
+    否则由 $ \bigcap_{k = 1}^N I_k \neq \emptyset $ 知, 
+    存在 $ a, b \in \mathbb{R} $, $ a < b $ 使得
+    $$
+        \bigcup_{\alpha \in A} I_k = (a, b).
+    $$
+    存在 $ k_1, k_2 \in \{1, \ldots, N\} $ 使得
+    $$
+        \inf I_{k_1} = a, \quad \text{and} \quad \sup I_{k_2} = b.
+    $$
+    由此及 $ I_{k_1} \cap I_{k_2} \neq \emptyset $ 知
+    $$
+        \bigcup_{k = 1}^N I_k = I_{k_1} \cup I_{k_2}.
+    $$
+\end{proof}
+
+\begin{lemma}[Lemma 2.6]
+    Let $ \{ I_\alpha \}_{\alpha \in A} $ be a collection of open intervals in $ \mathbb{R}^n $ 
+    and let $ K $ be a compact set contained in their union. Then there exists a finite subcollection
+    $ \{ I_j \} $ such that
+    $$
+        K \subset \bigcup_j I_j, \quad \text{and} \quad 
+        \forall x \in \mathbb{R},\ \sum_j \mathrm{1}_{I_j} (x) \leq 2.
+    $$
+\end{lemma}
+
+\begin{proof}
+    由 $ K $ 是紧集知, 存在 $ \{I_k^{(0)}\}_{k = 1}^{N_0} \subset \{ I_\alpha \}_{\alpha \in A} $ 使得
+    $$
+        K \subset \bigcup_{k = 1}^N I_k^{(0)}.
+    $$
+    若存在 $ x_0 \in \mathbb{R} $ 使得 $ \sum_{k = 1}^{N_0} \mathrm{1}_{I_j^{(0)}} (x_0) \geq 3 $, 
+    则由 Lemma \ref{lem1} 知,
+    存在 $ \{I_k^{(1)}\}_{k = 1}^{N_1} \subset \{ I_\alpha \}_{\alpha \in A} $ 使得 $ N_1 \leq N_0 - 1 $ 且
+    $$
+        K \subset \bigcup_{k = 1}^{N_1} I_k^{(1)}.
+    $$
+    若存在 $ x_1 \in \mathbb{R} $ 使得 $ \sum_{k = 1}^{N_1} \mathrm{1}_{I_j^{(1)}} (x_1) \geq 3 $, 重复之前的过程.
+    由于 $ \{N_k\} $ 严格减且大于 $ 0 $,
+    故此过程经过有限次后会停止, 此时存在 $ \{I_k^{(s)}\}_{k = 1}^{N_s} \subset \{ I_\alpha \}_{\alpha \in A} $ 使得
+    $$
+        K \subset \bigcup_{k = 1}^{N_s} I_k^{(s)} \quad \text{and} \quad 
+        \forall x \in \mathbb{R},\ \sum_{k = 1}^{N_s} \mathrm{1}_{I_k^{(s)}} (x) \leq 2.
+    $$
+\end{proof}
+
+
+
+\end{CJK*}
+\end{document} 
+
+
