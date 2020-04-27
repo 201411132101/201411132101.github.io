@@ -44,14 +44,14 @@ Calder\'on-Zygmund Decomposition 由 Calderon 和 Zygmund 在 \cite{cz52} 中引
 \section{Calder\'on-Zygmund Lemma}
 
 \begin{theorem}[Calder\'on-Zygmund Lemma] \label{C-Z lemma}
-    设 $ f $ 是非负可积函数, 则对任意给定的正常数 $ \lambda $, 存在两两不交的二进方体序列 $ \{Q_j\}_{j \in J} $ 
+    设 $ f $ 是非负可积函数, 则对任意给定的正常数 $ \lambda $, 存在两两不交的二进方体族 $ \{Q_j\}_{j \in J} $ 
     使得
     \begin{enumerate}[{\rm(i)}]
         \item 对 a.e. $ x \notin \bigcup_{j \in J} Q_j $, $ f(x) < \lambda $;
         \item $ | \bigcup_{j \in J} Q_j | \leq \frac{1}{\lambda} \| f \|_{L^1(\mathbb{R}^n)} $;
         \item 对 $ \forall j \in J $, 
             $$
-                \lambda < \frac{1}{|Q_j|} \int_{Q_j} f(t) dt < 2^n \lambda.
+                \lambda < \frac{1}{|Q_j|} \int_{Q_j} f(t) dt \leq 2^n \lambda.
             $$
     \end{enumerate}
 \end{theorem}
@@ -146,7 +146,7 @@ $$
     \end{enumerate}
 \end{theorem}
 
-证明的关键是利用二进极大算子, 好吧, 还是有点不懂怎么想到的.
+证明的关键是利用二进极大算子, 二进极大函数也是一个经典的极大函数, 跟正常的方体极大函数有些不一样.
 
 \begin{proof}[Proof of Theorem \ref{C-Z lemma}]
     略.

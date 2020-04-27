@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  10 FEB 2020 20:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  27 APR 2020 09:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -535,11 +535,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5570 strings out of 492649
- 71403 string characters out of 6133383
+ 5559 strings out of 492649
+ 71264 string characters out of 6133383
  248782 words of memory out of 5000000
- 9167 multiletter control sequences out of 15000+600000
- 29970 words of font info for 110 fonts, out of 8000000 for 9000
+ 9157 multiletter control sequences out of 15000+600000
+ 29693 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,8n,40p,271b,903s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
@@ -573,9 +573,9 @@ hic/gbsnu/gbsnu62.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsn
 u63.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu65.pfb><c:/te
 xlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu66.pfb><c:/texlive/2018/tex
 mf-dist/fonts/type1/arphic/gbsnu/gbsnu67.pfb><c:/texlive/2018/texmf-dist/fonts/
-type1/arphic/gbsnu/gbsnu6b.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/g
-bsnu/gbsnu6c.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6e.p
-fb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu70.pfb><c:/texlive
+type1/arphic/gbsnu/gbsnu68.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/g
+bsnu/gbsnu6b.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6c.p
+fb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6e.pfb><c:/texlive
 /2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu71.pfb><c:/texlive/2018/texmf-di
 st/fonts/type1/arphic/gbsnu/gbsnu74.pfb><c:/texlive/2018/texmf-dist/fonts/type1
 /arphic/gbsnu/gbsnu75.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/
@@ -599,7 +599,7 @@ texmf-dist/fonts/type1/arphic/gbsnu/gbsnu98.pfb><c:/texlive/2018/texmf-dist/fon
 ts/type1/arphic/gbsnu/gbsnu99.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphi
 c/gbsnu/gbsnu9e.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb>
-Output written on main.pdf (3 pages, 348858 bytes).
+Output written on main.pdf (3 pages, 346017 bytes).
 PDF statistics:
  334 PDF objects out of 1000 (max. 8388607)
  209 compressed objects within 3 object streams
