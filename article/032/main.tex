@@ -1,0 +1,130 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{Borel Algebra 的平移不变性和伸缩不变性}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+\begin{definition}[W. Rudin, Real and Complex Analysis, p.12]
+    设 $ (X, \tau) $ 是拓扑空间. 称包含 $ \tau $ 的最小 $ \sigma $-algebra 为 $ X $ 中的 Borel algebra. 
+    称 Borel algebra 中的元素为 Borel set.
+\end{definition}
+
+\begin{lemma} \label{lem}
+    设 $ \mathfrak{M} $ 是 $ \mathbb{R}^n $ 中的 $ \sigma $-algebra. 则
+    \begin{enumerate}[{\rm (i)}]
+        \item 对 $ \forall r \in \mathbb{R}^n $, $ \mathfrak{M} + r $ 是 $ \sigma $-algebra;
+        \item 对 $ \forall t \in \mathbb{R} \setminus \{0\} $, $ t\mathfrak{M} $ 是 $ \sigma $-algebra.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    $ \mathfrak{M} $ 是 $ \mathbb{R}^n $ 中的 $ \sigma $-algebra, 因此
+    
+    \begin{enumerate}[{\rm (i)}]
+        \item $ \mathbb{R}^n \in \mathfrak{M} $, 故 $ \mathbb{R}^n = \mathbb{R}^n + r \in \mathfrak{M} + r $;
+        
+        \item 对 $ \forall A \in \mathfrak{M} + r $, 有 $ A - r \in \mathfrak{M} $, 故
+        $ A^c - r = (A - r)^c \in \mathfrak{M} $, 从而 $ A^c \in \mathfrak{M} + r $;
+        
+        \item 若 $ \{A_n\}_{n \in \mathbb{N}} \subset \mathfrak{M} + r $, 则
+        $ \{A_n - r \}_{n \in \mathbb{N}} \subset \mathfrak{M} $, 故
+        $$ 
+            \left( \bigcup_{n \in \mathbb{N}} A_n \right) - r 
+                = \bigcup_{n \in \mathbb{N}} (A_n - r) \in \mathfrak{M},
+        $$
+        从而 $ \cup_{n \in \mathbb{N}} A_n \in \mathfrak{M} + r $.
+    \end{enumerate}
+    
+    综上, $ \mathfrak{M} + r $ 也是 $ \sigma $-algebra, (i) 得证. 
+    (ii) 类似可证.
+\end{proof}
+
+\begin{lemma} \label{lem2}
+    设 $ \mathcal{U} $ 是 $ \mathbb{R}^n $ 中全体开集构成的集合. 则
+    \begin{enumerate}[{\rm (i)}]
+        \item 对 $ \forall r \in \mathbb{R}^n $, $ \mathcal{U} + r = \mathcal{U} $;
+        \item 对 $ \forall t \in \mathbb{R} \setminus \{0\} $, $ t \mathcal{U} = \mathcal{U} $.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    断言: 对 $ \forall A \in \mathcal{U} $, $ \forall r \in \mathbb{R}^n $, $ A + r \in \mathcal{U} $.
+    事实上, 对 $ \forall x \in A + r $, 有 $ x - r \in A $, 因为 $ A $ 是开集, 存在 $ \delta \in (0, \infty) $
+    使得 $ B(x - r, \delta) \subset A $, 从而 $ B(x, \delta) \subset A + r $, 故 $ A + r $ 是开集, 断言成立.
+    由断言易证 $ \mathcal{U} + r = \mathcal{U} $, (i) 得证. 
+    (ii) 类似可证.
+\end{proof}
+
+\begin{theorem} \label{thm1}
+    设 $ \mathscr{B} $ 是 $ \mathbb{R}^n $ 中的 Borel algebra.
+    \begin{enumerate}[{\rm (i)}]
+        \item 对 $ \forall r \in \mathbb{R}^n $, $ \mathscr{B} + r = \mathscr{B} $;
+        \item 对 $ \forall t \in \mathbb{R} \setminus \{0\} $, $ t \mathscr{B} = \mathscr{B} $.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    对 $ \forall r \in \mathbb{R}^n $, 由 Lemma \ref{lem} 和 Lemma \ref{lem2}  知, 
+    $ \mathscr{B} + r $ 是 $ \sigma $-algebra 且包含 $ \mathbb{R}^n $ 中的所有开集.
+    由此及 Borel algebra 定义知, $ \mathscr{B} \subset \mathscr{B} + r $.
+    取 $ r := -r $ 得 $ \mathscr{B} \subset \mathscr{B} - r $,
+    因此 $ \mathscr{B} + r \subset \mathscr{B} $.
+    综上, $ \mathscr{B} + r = \mathscr{B} $, (i) 得证. 
+    (ii) 类似可证.
+\end{proof}
+
+\begin{theorem} \label{thm2}
+    一般拓扑空间的 Borel algebra 没有上述性质. 就算是 $ \mathbb{R}^n $ 也不一定.
+\end{theorem}
+
+\begin{proof}
+    一般拓扑空间可能没有加法和数乘.
+    
+    设 $ \tau := \{ \emptyset, B(0,1), B(0,1)^c, \mathbb{R}^n \} $, 则 $ (\mathbb{R}^n, \tau) $ 是个拓扑空间.
+    此时 $ \mathbb{R}^n $ 中的 Borel algebra $ \mathscr{B} = \tau $ 不满足 
+    $$ 
+        \mathscr{B} + r = \mathscr{B} 
+            \quad \text{and} \quad 
+        t \mathscr{B} = \mathscr{B}.
+    $$
+\end{proof}
+
+\end{CJK*}
+\end{document} 
+
+
