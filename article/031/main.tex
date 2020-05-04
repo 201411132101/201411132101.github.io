@@ -109,23 +109,23 @@ Lemma 2.12 的证明中会用到如下事实.
 
 \begin{theorem}
     设方体 $ Q_1, Q_2 $ 满足 $ Q_1 \subset Q_2 $, 
-    则对 $ \forall \alpha \in [\frac{\ell(Q_2)}{\ell(Q_2) - \ell(Q_1)}, \infty) $, 
+    则对 $ \forall \alpha \in [1, \infty) $, 
     $ \alpha Q_1 \subset \alpha Q_2 $. 其中 $ \alpha Q_1 $ 表示与 $ Q_1 $ 中心相同, 长度为 $ \alpha \ell(Q_1) $ 的方体.
 \end{theorem}
 
 \begin{proof}
-    若 $ Q_1 = Q_2 $, 结论显然成立. 若 $ Q_1 \neq Q_2 $, 则 $ \ell(Q_1) < \ell(Q_2) $.
-    由 $ Q_1 \subset Q_2 $ 知,
+    由 $ Q_1 \subset Q_2 $ 知, $ \ell(Q_1) \leq \ell(Q_2) $, 因此
     对 $ \forall x := (x_1, \ldots, x_n) \in \alpha Q_1 $, $ \forall k \in \{1, \ldots, n\} $,
     \begin{align*}
         |x_k - (x_{Q_2})_k| 
-            &\leq |x_k - (x_{Q_1})_k| + |(x_{Q_1})_k - (x_{Q_2})_k|
-            < \frac{\alpha \ell(Q_1)}{2} + \frac{\ell(Q_2)}{2} \\
-            &= \frac{\alpha \ell(Q_2)}{2} \left[ \frac{\ell(Q_1)}{\ell(Q_2)} + \frac{1}{\alpha} \right]
+            &\leq |x_k - (x_{Q_1})_k| + |(x_{Q_1})_k - (x_{Q_2})_k| \\
+            &\leq \frac{\alpha \ell(Q_1)}{2} + \frac{\ell(Q_2) - \ell(Q_1)}{2} \\
+            &= \frac{(\alpha - 1) \ell(Q_1)}{2} + \frac{\ell(Q_2)}{2}
             \leq \frac{\alpha \ell(Q_2)}{2}.
     \end{align*}
     因此 $ x \in \alpha Q_2 $.
 \end{proof}
+
 
 \end{CJK*}
 \end{document} 
