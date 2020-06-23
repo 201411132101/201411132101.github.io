@@ -47,11 +47,11 @@ Calder\'on-Zygmund Decomposition 由 Calderon 和 Zygmund 在 \cite{cz52} 中引
     设 $ f $ 是非负可积函数, 则对任意给定的正常数 $ \lambda $, 存在两两不交的二进方体序列 $ \{Q_j\}_{j \in J} $ 
     使得
     \begin{enumerate}[{\rm(i)}]
-        \item 对 a.e. $ x \notin \bigcup_{j \in J} Q_j $, $ f(x) < \lambda $;
+        \item 对 a.e. $ x \notin \bigcup_{j \in J} Q_j $, $ f(x) \leq \lambda $;
         \item $ | \bigcup_{j \in J} Q_j | \leq \frac{1}{\lambda} \| f \|_{L^1(\mathbb{R}^n)} $;
         \item 对 $ \forall j \in J $, 
             $$
-                \lambda < \frac{1}{|Q_j|} \int_{Q_j} f(t) dt \leq 2^n \lambda.
+                \lambda < \frac{1}{|Q_j|} \int_{Q_j} f(t) \, dt \leq 2^n \lambda.
             $$
     \end{enumerate}
 \end{theorem}
