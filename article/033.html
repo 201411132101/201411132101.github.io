@@ -15,6 +15,9 @@
 
     <!-- javascript -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 
 <body>
@@ -41,28 +44,27 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# [折纸展示] Alex Ratner, 北斋之波
+# 解决定理注释中 cite 命令出错的问题
 
 <div style="text-align: center;">
-    <p>发布时间: 2019-12-25</p>
+    <p>发布时间: 2020-08-11</p>
 </div>
 
 ---
 
-<a href="018/1-origin.jpg" target="_blank">
-    <img src="018/1.jpg" width=100% alt="北斋之波">
-</a>
+直接用 [Stein, \cite[Theorem 1.2]{s97}] 的话, 无法编译, 需要加上一层大括号.
 
-## 真正的图
-<div style="text-align: center;">
-    <a href="018/2-origin.jpg" target="_blank">
-        <img src="018/2.jpg" width=50% alt="北斋之波原始图">
-    </a>
-</div>
+### 代码
+<pre><code>\begin{lemma} [Stein, {\cite[Theorem 1.2]{s97}}]
+	巴拉巴拉
+\end{lemma}
+</code></pre>
 
-## 教程
-我是看白叔的 <a href="https://www.bilibili.com/video/av71198955"> 视频</a> 折的, 
-这个作品还是挺简单的, 设计很是巧妙.
+### 效果
+![效果图](033/pic1.png)
+
+### 原理
+猜测: 没有那层大括号的话, 外层的中括号和内部的中括号会引起混淆.
 
         </div>
 
