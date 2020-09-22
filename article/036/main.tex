@@ -1,0 +1,182 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{范数和拟范数的连续性}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+范数大家都懂的, 拟范数跟范数差了个三角不等式, 拟范数对应的是拟三角不等式, 即存在正常数 $ K \in (1, \infty) $ 使得
+$$
+    d(x, y) \leq K[d(x, z) + d(z, y)].
+$$
+
+所谓范数和拟范数的连续性, 其实就是想证明范数和拟范数作为算子的连续性.
+
+\begin{theorem}
+    设 $ \| \cdot \| $ 是范数, 则
+    $$
+        \lim_{n \to \infty} \| x_n - x_0 \| = 0 
+            \Longrightarrow \lim_{n \to \infty} \| x_n \| = \| x_0 \|.
+    $$
+\end{theorem}
+
+\begin{proof}
+    由
+    $$ 
+        \left| \| x_n \| - \| x_0 \| \right| \leq  \| x_n - x_0 \|
+    $$
+    可以看出, 这个结论很显然.
+\end{proof}
+
+拟范数跟范数有一定差别, 那么有没有类似的结论呢.
+设 $ \| \cdot \| $ 是拟范数, 则是否也有
+$$
+    \lim_{n \to \infty} \| x_n - x_0 \| = 0 
+        \Longrightarrow \lim_{n \to \infty} \| x_n \| = \| x_0 \|.
+$$
+答案是否定的.
+
+反例: 设 $ K \in (1, \infty) $ 是常数, 且
+$$ 
+    \| \cdot \| :\ \mathbb{R}^2 \to \mathbb{R},\
+        (x, y) \mapsto \left\{\begin{aligned}
+        & K|x|,       && y = 0, \\
+        & |x| + |y|,  && \text{otherwise}.
+        \end{aligned}\right.
+$$
+取 $ x_n := (1, 1/n) $, $ x_0 := (1, 0) $, 则
+$$
+    \| x_n - x_0 \| = \frac{1}{n} \to 0, \quad \text{as} \quad n \to \infty.
+$$
+但是
+$$
+    \| x_n \| = 1 + \frac{1}{n} \to 1, \quad \text{as} \quad n \to \infty.
+$$
+而 $ \|x_0\| = K $.
+
+不过对于部分特殊的拟范数, 还是有连续性的, 比如弱 $ L^1 $ 空间. 类似的, 弱 $ L^p $ 应该也是连续的.
+
+\begin{lemma} \label{weak}
+    设 $ f,\ \{f_k\}_{k \in \mathbb{N}} \subset L^{1, \infty}(\mathbb{R}) $.
+    若
+    $$
+        \lim_{k \to \infty} \| f_k - f \|_{L^{1, \infty}(\mathbb{R})} = 0,
+    $$
+    则
+    $$
+        \lim_{k \to \infty} \| f_k \|_{L^{1, \infty}(\mathbb{R})}
+            = \| f \|_{L^{1, \infty}(\mathbb{R})}.
+    $$
+\end{lemma}
+
+\begin{proof}
+    先证
+    $$
+        \liminf_{k \to \infty} \| f_k \|_{L^{1, \infty}(\mathbb{R})}
+            \geq \| f \|_{L^{1, \infty}(\mathbb{R})}.
+    $$
+    对 $ \forall \lambda \in (0, \infty) $, $ \forall \delta \in (0, 1) $, $ \forall k \in \mathbb{N} $,
+    \begin{align*}
+        \lambda |\{ x \in \mathbb{R} :\ |f(x)| > \lambda \}|
+            &\leq \lambda |\{ x \in \mathbb{R} :\ |f(x) - f_k(x)| > \delta\lambda \}| \\
+                &\quad + \lambda |\{ x \in \mathbb{R} :\ |f_k(x)| > (1 - \delta)\lambda \}| \\
+            &\leq \frac{1}{\delta} \| f - f_k \|_{L^{1, \infty}(\mathbb{R})}
+                + \frac{1}{1 - \delta} \| f_k \|_{L^{1, \infty}(\mathbb{R})},
+    \end{align*}
+    由 $ \lambda \in (0, \infty) $ 的任意性有,
+    $$
+        \| f \|_{L^{1, \infty}(\mathbb{R})}
+            \leq \frac{1}{\delta} \| f - f_k \|_{L^{1, \infty}(\mathbb{R})}
+                + \frac{1}{1 - \delta} \| f_k \|_{L^{1, \infty}(\mathbb{R})},
+    $$
+    令 $ k \to \infty $ 得,
+    $$
+        \| f \|_{L^{1, \infty}(\mathbb{R})}
+            \leq \frac{1}{1 - \delta} \liminf_{k \to \infty} \| f_k \|_{L^{1, \infty}(\mathbb{R})},
+    $$
+    再令 $ \delta \to 0^+ $ 知,
+    $$
+        \| f \|_{L^{1, \infty}(\mathbb{R})}
+            \leq \liminf_{k \to \infty} \| f_k \|_{L^{1, \infty}(\mathbb{R})}.
+    $$
+    再证
+    $$
+        \limsup_{k \to \infty} \| f_k \|_{L^{1, \infty}(\mathbb{R})}
+            \leq \| f \|_{L^{1, \infty}(\mathbb{R})}.
+    $$
+    对 $ \forall \lambda \in (0, \infty) $, $ \forall \delta \in (0, 1) $, $ \forall k \in \mathbb{N} $,
+    \begin{align*}
+        \lambda |\{ x \in \mathbb{R} :\ |f_k(x)| > \lambda \}|
+            &\leq \lambda |\{ x \in \mathbb{R} :\ |f_k(x) - f(x)| > \delta\lambda \}| \\
+                &\quad + \lambda |\{ x \in \mathbb{R} :\ |f(x)| > (1 - \delta)\lambda \}| \\
+            &\leq \frac{1}{\delta} \| f_k - f \|_{L^{1, \infty}(\mathbb{R})}
+                + \frac{1}{1 - \delta} \| f \|_{L^{1, \infty}(\mathbb{R})},
+    \end{align*}
+    由 $ \lambda \in (0, \infty) $ 的任意性有,
+    $$
+        \| f_k \|_{L^{1, \infty}(\mathbb{R})}
+            \leq \frac{1}{\delta} \| f_k - f \|_{L^{1, \infty}(\mathbb{R})}
+                + \frac{1}{1 - \delta} \| f \|_{L^{1, \infty}(\mathbb{R})},
+    $$
+    令 $ k \to \infty $ 得,
+    $$
+        \limsup_{k \to \infty} \| f_k \|_{L^{1, \infty}(\mathbb{R})}
+            \leq \frac{1}{1 - \delta} \| f \|_{L^{1, \infty}(\mathbb{R})},
+    $$
+    再令 $ \delta \to 0^+ $ 知,
+    $$
+        \limsup_{k \to \infty} \| f_k \|_{L^{1, \infty}(\mathbb{R})}
+            \leq \| f \|_{L^{1, \infty}(\mathbb{R})}.
+    $$
+    综上,
+    $$
+        \lim_{k \to \infty} \| f_k \|_{L^{1, \infty}(\mathbb{R})}
+            = \| f \|_{L^{1, \infty}(\mathbb{R})}.
+    $$
+\end{proof}
+
+\end{CJK*}
+\end{document} 
+
+
+
+
+
+
+
+
+
