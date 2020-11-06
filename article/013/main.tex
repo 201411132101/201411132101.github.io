@@ -38,24 +38,26 @@
 
 \maketitle
 
-一般书上讲的都是 Hilbert 空间中的 Cauchy–Schwarz inequality, 张恭庆的书上讲了个更一般的[p.55]. 
+一般书上讲的都是 Hilbert 空间中的 Cauchy–Schwarz inequality, 
 而下面的 Cauchy–Schwarz inequality, 是我见过的条件最弱的, 暂时还没找到该定理的出处.
 
 本文中的 $ X $ 均为线性空间.
 
+\section{复数的 Cauchy–Schwarz inequality}
+
 \begin{definition}
     若二元函数 $ a: X \times X \to \mathbb{C} $ 满足: 
-    for any $ \alpha \in \mathbb{C} $ and $ x, y \in X $,
+    对任意 $ \forall \alpha_1,\ \alpha_2 \in \mathbb{C} $ 和 $ \forall x,\ x_1,\ x_2,\ y,\ y_1,\ y_2 \in X $,
     \begin{enumerate}[(i)]
-        \item $ a(\alpha x, y) = \alpha a(x, y) $;
-        \item $ a(x, \alpha y) = \overline{\alpha} a(x, y) $.
+        \item $ a(\alpha_1 x_1 + \alpha_2 x_2, y) = \alpha_1 a(x_1, y) + \alpha_2 a(x_2, y) $;
+        \item $ a(x, \alpha_1 y_1 + \alpha_2 y_2) = \overline{\alpha_1} a(x, y_1) + \overline{\alpha_2} a(x, y_2) $.
     \end{enumerate}
     我们称 $ a(\cdot, \cdot) $ 为 $ X $ 上的共轭双线性函数.
 \end{definition}
 
 \begin{theorem}[Cauchy–Schwarz inequality]
     设 $ a(\cdot, \cdot) $ 为 $ X $ 上的共轭双线性函数且 for any $ x \in X $,
-    $$ 
+    $$
         a(x, x) \geq 0,
     $$
     then for any $  x, y \in X $,
@@ -63,6 +65,9 @@
         |a(x, y)|^2 \leq a(x, x) a(y, y).
     \end{equation}
 \end{theorem}
+
+注意, $ a(x, x) \geq 0 $ 能推出 $ a(x, y) = \overline{a(y, x)} $, 这个结论在证明中会用到.
+此外, 由于该 Cauchy–Schwarz inequality 减弱了条件, 取等条件变得复杂了许多.
 
 \begin{proof}
     For any $  x, y \in X $, if $ a(x, x) = a(y, y) = 0 $, then
@@ -88,6 +93,32 @@
     $$
     The proof of Cauchy-Schwarz inequality is finished.
 \end{proof}
+
+\section{实数的 Cauchy–Schwarz inequality}
+
+\begin{definition}
+    若二元函数 $ a: X \times X \to \mathbb{R} $ 满足: 
+    对任意 $ \forall \alpha_1,\ \alpha_2 \in \mathbb{R} $ 和 $ \forall x,\ x_1,\ x_2,\ y,\ y_1,\ y_2 \in X $,
+    \begin{enumerate}[(i)]
+        \item $ a(\alpha_1 x_1 + \alpha_2 x_2, y) = \alpha_1 a(x_1, y) + \alpha_2 a(x_2, y) $;
+        \item $ a(x, \alpha_1 y_1 + \alpha_2 y_2) = \alpha_1 a(x, y_1) + \alpha_2 a(x, y_2) $.
+    \end{enumerate}
+    我们称 $ a(\cdot, \cdot) $ 为 $ X $ 上的共轭双线性函数.
+\end{definition}
+
+\begin{theorem}[Cauchy–Schwarz inequality]
+    设 $ a(\cdot, \cdot) $ 为 $ X $ 上的双线性函数, 对 $ \forall x,\ y \in X $,
+    $ a(x, y) = a(y, x) $, 且对 $ \forall x \in X $,
+    $$
+        a(x, x) \geq 0.
+    $$
+    则对 $ \forall x, y \in X $,
+    $$
+        |a(x, y)|^2 \leq a(x, x) a(y, y).
+    $$
+\end{theorem}
+
+证明类似.
 
 \end{CJK*}
 \end{document} 
