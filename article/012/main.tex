@@ -38,31 +38,24 @@
 
 \maketitle
 
-[H. Brezis, Functional Analysis, Sobolev Spaces and Partial Differential Equations] 
-中有提到, Cauchy–Schwarz inequality 不需要
-$$
-    (x, x) = 0 \Longleftrightarrow x = \theta.
-$$
+一般书上讲的都是 Hilbert 空间中的 Cauchy–Schwarz inequality, 
+而下面的 Cauchy–Schwarz inequality, 是我见过的条件最弱的, 暂时还没找到该定理的出处.
 
 本文中的 $ X $ 均为线性空间.
 
 \section{复数的 Cauchy–Schwarz inequality}
 
 \begin{definition}
-    若二元函数 $ a: X \times X \to \mathcal{K} $ 满足: 
-    对任意 $ \forall \alpha_1,\ \alpha_2 \in \mathcal{K} $ 和 $ \forall x,\ x_1,\ x_2 $, $ y,\ y_1,\ y_2 \in X $,
+    若二元函数 $ a: X \times X \to \mathbb{C} $ 满足: 
+    对任意 $ \forall \alpha_1,\ \alpha_2 \in \mathbb{C} $ 和 $ \forall x,\ x_1,\ x_2,\ y,\ y_1,\ y_2 \in X $,
     \begin{enumerate}[(i)]
         \item $ a(\alpha_1 x_1 + \alpha_2 x_2, y) = \alpha_1 a(x_1, y) + \alpha_2 a(x_2, y) $;
         \item $ a(x, \alpha_1 y_1 + \alpha_2 y_2) = \overline{\alpha_1} a(x, y_1) + \overline{\alpha_2} a(x, y_2) $.
     \end{enumerate}
-    我们称 $ a(\cdot, \cdot) $ 为 $ X $ 上的 bilinear form.
+    我们称 $ a(\cdot, \cdot) $ 为 $ X $ 上的共轭双线性函数.
 \end{definition}
 
-\begin{remark}
-    简单来说, bilinear form 就是两个变量都是线性的双变量映射.
-\end{remark}
-
-\begin{theorem}[Cauchy–Schwarz inequality] \label{123}
+\begin{theorem}[Cauchy–Schwarz inequality]
     设 $ a(\cdot, \cdot) $ 为 $ X $ 上的共轭双线性函数且 for any $ x \in X $,
     $$
         a(x, x) \geq 0,
@@ -73,30 +66,10 @@ $$
     \end{equation}
 \end{theorem}
 
-\begin{remark}
-    注意, $ a(x, x) \geq 0 $ 能推出 $ a(x, y) = \overline{a(y, x)} $, 这个结论在证明中会用到.
-    此外, 由于该 Cauchy–Schwarz inequality 减弱了条件, 取等条件变得复杂了许多.
-    令 $ \mathcal{X}_0 := \{ x \in \mathcal{X} :\ a(x, x) = 0 \} $, 则 $ \mathcal{X}_0 $ 是闭线性子空间,
-    故可定义商空间. 对 $ \forall x \in \mathcal{X} $,
-    $$ 
-        [x] := \{y \in \mathcal{X} :\ x - y \in \mathcal{X}_0 \} 
-    $$
-    且
-    $$
-        \mathcal{X} / \mathcal{X}_0 := \{ [x] :\ \forall x \in \mathcal{X} \}.
-    $$
-    此时我们有, 对 $ \forall x \in \mathcal{X} $,
-    $$
-        a(x, x) = 0 \Longleftrightarrow x \in [\theta].
-    $$
-    且对 $ \forall x,\ y \in \mathcal{X} $,
-    $$
-        |a(x, y)|^2 = a(x, x) a(y, y) 
-            \Longleftrightarrow [x] \text{ and } [y] \text{ linearly dependent}.
-    $$
-\end{remark}
+注意, $ a(x, x) \geq 0 $ 能推出 $ a(x, y) = \overline{a(y, x)} $, 这个结论在证明中会用到.
+此外, 由于该 Cauchy–Schwarz inequality 减弱了条件, 取等条件变得复杂了许多.
 
-\begin{proof}[Proof of Theorem \ref{123}]
+\begin{proof}
     For any $  x, y \in X $, if $ a(x, x) = a(y, y) = 0 $, then
     \begin{align*}
         0 &\leq a(x + y, x + y) = a(x, x) + a(y, y) + 2 \text{Re} a(x, y) = 2 \text{Re} a(x, y), \\
@@ -123,8 +96,18 @@ $$
 
 \section{实数的 Cauchy–Schwarz inequality}
 
+\begin{definition}
+    若二元函数 $ a: X \times X \to \mathbb{R} $ 满足: 
+    对任意 $ \forall \alpha_1,\ \alpha_2 \in \mathbb{R} $ 和 $ \forall x,\ x_1,\ x_2,\ y,\ y_1,\ y_2 \in X $,
+    \begin{enumerate}[(i)]
+        \item $ a(\alpha_1 x_1 + \alpha_2 x_2, y) = \alpha_1 a(x_1, y) + \alpha_2 a(x_2, y) $;
+        \item $ a(x, \alpha_1 y_1 + \alpha_2 y_2) = \alpha_1 a(x, y_1) + \alpha_2 a(x, y_2) $.
+    \end{enumerate}
+    我们称 $ a(\cdot, \cdot) $ 为 $ X $ 上的共轭双线性函数.
+\end{definition}
+
 \begin{theorem}[Cauchy–Schwarz inequality]
-    设 $ a(\cdot, \cdot) $ 为 $ X $ 上的双线性函数, 对 $ \forall x $, $ y \in X $,
+    设 $ a(\cdot, \cdot) $ 为 $ X $ 上的双线性函数, 对 $ \forall x,\ y \in X $,
     $ a(x, y) = a(y, x) $, 且对 $ \forall x \in X $,
     $$
         a(x, x) \geq 0.
