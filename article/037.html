@@ -44,29 +44,25 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# \\(L^p(\mathbb{R}^n)\\) 对偶等式的推广
+# 等距同构的那些事
 
 <div style="text-align: center;">
-    <p>发布时间: 2020-09-22</p>
+    <p>发布时间: 2020-11-18</p>
 </div>
 
 ---
 
-设 \\( p \in [1, \infty) \\). 则对 \\( \forall f \in L^p(\mathbb{R}^n) \\),
-$$
-\Vert f \Vert_p = \sup_{g \in L^{p'}, \Vert g \Vert_{p'} \\, = 1} \int_{\mathbb{R}^n} f(x) g(x) \\, dx.
-$$
+等距同构, 等距好理解, 同构就比较麻烦了.
 
-该等式是非常著名的等式, 事实上, 它可以推广到更一般的情况.
+对于度量空间, 只有距离, 只要存在满的等距映射, 就可以说明两空间等距同构.
+然而对于线性赋范空间, 由于要保证线性, 条件要改成存在满的线性等距映射.
 
-设 \\( p \in [1, \infty) \\). 则对 \\( \forall f \in L^1_{loc}(\mathbb{R}^n) \\),
-$$
-\Vert f \Vert_p = \sup_{g \in C_c^\infty, \Vert g \Vert_{p'} \\, = 1} \int_{\mathbb{R}^n} f(x) g(x) \\, dx.
-$$
+对于实线性赋范空间, Mazur-Ulam Theorem 能保证满的等距映射一定是仿射变换, 从而可以得到满的线性等距映射,
+故条件其实不用修改. 实线性赋范空间必须加线性, 否则有反例.
 
-[PDF](036/main.pdf)
+[PDF](037/main.pdf)
 <span style="margin-right:24px;"></span>
-[TEX](036/main.tex)
+[TEX](037/main.tex)
 
         </div>
 

@@ -1,0 +1,298 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{$ L^p(\mathbb{R}^n) $ 对偶等式的推广}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+\section{$ L^p(\mathbb{R}^n) $ 的对偶}
+
+讲到 $ L^p(\mathbb{R}^n) $ 的对偶, 那就会提到如下定理.
+
+\begin{theorem}
+    设 $ p \in [1, \infty) $. 则对 $ \forall f \in L^p(\mathbb{R}^n) $,
+    $$
+        \| f \|_p = \sup_{g \in L^{p'}(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} \, = 1} 
+            \int_{\mathbb{R}^n} f(x) g(x) \\, dx.
+    $$
+\end{theorem}
+
+事实上, 该定理可以推广到更一般的情况.
+
+\begin{theorem} \label{text}
+    设 $ p \in [1, \infty) $. 则对 $ \forall f \in L^1_{loc}(\mathbb{R}^n) $,
+    \begin{equation} \label{haha}
+        \| f \|_p = \sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
+            \int_{\mathbb{R}^n} f(x) g(x) \, dx.
+    \end{equation}
+\end{theorem}
+
+证明思路: $ f \in L^p(\mathbb{R}^n) $ 时, 该定理回到了经典情况, 
+故只需证明 $ \| f \|_p = \infty $ 时, 右边也等于无穷. 
+即证右边小于无穷时, $ f \in L^p(\mathbb{R}^n) $.
+此时先证
+$$
+    \sup_{g \in L^\infty(\mathbb{R}^n), g \text{有紧支集}, \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
+        \int_{\mathbb{R}^n} f(x) g(x) \, dx < \infty.
+$$
+再取一列 $ g_n $ 使得 $ fg_n $ 逼近 $ |f|^p $. 从而证得 $ f \in L^p(\mathbb{R}^n) $.
+
+首先定义卷积核. 对 $ \forall x \in \mathbb{R}^n $,
+$$
+    \rho(x) := \left\{ \begin{aligned}
+        &\exp\left( \frac{1}{|x|^2 - 1} \right), && |x| < 1, \\
+        &0,                             && |x| \geq 1,
+    \end{aligned}\right.
+$$
+则 $ \rho \in C_c^\infty(\mathbb{R}^n) $, $ \supp(\rho) = \overline{B(0, 1)} $ 且 $ \rho \geq 0 $. 
+对 $ \forall k \in \mathbb{N} $ 和 $ \forall x \in \mathbb{R}^n $, 令
+$$
+    \rho_k(x) := \frac{k^n}{\| \rho \|_{L^1(\mathbb{R}^n)}} \rho(kx)
+        = \left\{ \begin{aligned}
+        &\frac{k^n}{\| \rho \|_{L^1(\mathbb{R}^n)}} \exp\left( \frac{1}{|kx|^2 - 1} \right), && |kx| < 1, \\
+        &0,                             && |kx| \geq 1,
+    \end{aligned}\right.
+$$
+则 $ \rho_k \in C_c^\infty(\mathbb{R}^n) $, $ \supp(\rho_k) = \overline{B(0, 1/k)} $, $ \rho_k \geq 0 $
+且 $ \| \rho_k \|_{L^1(\mathbb{R}^n)} = 1 $. 
+
+
+\begin{lemma} \label{924}
+    设 $ A \subset \mathbb{R}^n $ 为有界闭集, $ A \subset \mathbb{R}^n $ 为闭集, 则 $ A+B $ 为闭集.
+\end{lemma}
+
+\begin{proof}
+    设 $ \{x_k\}_{k \in \mathbb{N}} \subset A+B $ 在 $ \mathbb{R}^n $ 中收敛到 $ x_0 $.
+    则存在 $ \{y_k\}_{k \in \mathbb{N}} \subset A $ 和 $ \{z_k\}_{k \in \mathbb{N}} \subset B $
+    使得, 对 $ \forall k \in \mathbb{N} $,
+    $$
+        x_k = y_k + z_k.
+    $$
+    由于 $ A $ 为有界闭集, 故可取 $ \{y_{n_k}\}_{k \in \mathbb{N}} $ 为 $ \{y_k\}_{k \in \mathbb{N}} $ 的收敛子列.
+    记 $ y_0 := \lim_{k \to \infty} y_{n_k} $, 则 $ y_0 \in A $. 又由 $ B $ 是闭集知
+    $$
+        \lim_{k \to \infty} z_{n_k} 
+            = \lim_{k \to \infty} x_{n_k} - \lim_{k \to \infty} y_{n_k} 
+            = x_0 - y_0
+            \in B.
+    $$
+    故
+    $$
+        x_0 = y_0 + (x_0 - y_0) \in A + B.
+    $$
+    因此 $ A + B $ 是闭集.
+\end{proof}
+
+\begin{remark}
+    注意, 两闭集必须有其中之一是有界的, 否则结论不一定成立.
+    取 
+    $$ 
+        A := \left\{ k + \frac{1}{k} \right\}_{k \in \mathbb{N}}, 
+        \quad \text{and} \quad 
+        B := \mathbb{Z},
+    $$ 
+    则
+    $$
+        A + B = \left\{ k + \frac{1}{m}:\ k \in \mathbb{Z},\ m \in \mathbb{N} \right\}
+    $$
+    不是闭集.
+\end{remark}
+
+有了这些准备工作, 现在可以开始证明 Theorem \ref{text} 了.
+
+\begin{proof}[Proof of Theorem \ref{text}]
+    当 $ f \in L^p(\mathbb{R}^n) $ 时, \eqref{haha} 是经典的等式, 证明略.
+    
+    断言, 若
+    $$
+        \sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
+            \int_{\mathbb{R}^n} f(x) g(x) \, dx =: M < \infty.
+    $$
+    则 $ f \in L^p(\mathbb{R}^n) $.
+    事实上, 令 $ g \in L^\infty(\mathbb{R}^n) $, 有紧支集且 $ \| g \|_{L^{p'}(\mathbb{R}^n)} = 1 $.
+    对 $ \forall k \in \mathbb{N} $, 设 $ g_k := \rho_k * g $, 则 $ g_k \in C_c^\infty(\mathbb{R}^n) $,
+    从而
+    $$
+        \int_{\mathbb{R}^n} f(x) g_k(x) \, dx \leq M \| g_k \|_{L^{p'}(\mathbb{R}^n)}.
+    $$
+    因为 $ \lim_{k \to \infty} \| g_k - g \|_{L^1(\mathbb{R}^n)} = 0 $, 由 Riesz 定理知, 
+    存在子列 $ g_{n_k} $ 几乎处处收敛到 $ g $. 又由 $ g_k $ 的定义知, 
+    $ \|g_k\|_{L^\infty(\mathbb{R}^n)} \leq \|g\|_{L^\infty(\mathbb{R}^n)} $ 
+    且由引理 \ref{924} 知,
+    \begin{align*}
+        \supp(g_k) &= \supp(\rho_k * g) 
+                   \subset \overline{\supp(\rho_k) + \supp(g)} \\
+                   &= \overline{\overline{B(0, 1/k)} + \supp(g)} 
+                   = \overline{B(0, 1/k)} + \supp(g)
+                   \subset \overline{B(0, 1)} + \supp(g), 
+    \end{align*}
+    由此及 $ f \in L^1_{loc}(\mathbb{R}^n) $ 知, 
+    对 $ \forall k \in \mathbb{N} $, 在几乎处处意义下
+    $$
+        |f g_k| \leq \|g_k\|_{L^\infty(\mathbb{R}^n)} |f \mathbf{1}_{\supp(g_k)}|
+                \leq \|g\|_{L^\infty(\mathbb{R}^n)} \left|f \mathbf{1}_{\overline{B(0, 1)} + \supp(g)}\right| 
+                \in L^1(\mathbb{R}^n).
+    $$
+    故由控制收敛定理
+    \begin{align*}
+        \int_{\mathbb{R}^n} f(x) g(x) \, dx
+            &= \int_{\mathbb{R}^n} \lim_{k \to \infty} f(x) g_{n_k}(x) \, dx \\
+            &= \lim_{k \to \infty} \int_{\mathbb{R}^n} f(x) g_{n_k}(x) \, dx \\
+            &\leq \lim_{k \to \infty} M \| g_{n_k} \|_{L^{p'}(\mathbb{R}^n)}
+            = M.
+    \end{align*}
+    从而
+    $$
+        \sup_{g \in L^\infty(\mathbb{R}^n), g \text{有紧支集}, \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
+            \int_{\mathbb{R}^n} f(x) g(x) \, dx \leq M.
+    $$
+    
+    若 $ p = 1 $. 对 $ \forall k \in \mathbb{N} $, 令
+    $$
+        g_k := \mathrm{sign} (f) \mathbf{1}_{B(0, k)},
+    $$
+    则 $ g_k \in L^\infty(\mathbb{R}^n) $, $ g_k $ 有紧支集且 $ \|g_k\|_{L^\infty(\mathbb{R}^n)} = 1 $, 从而
+    \begin{align*}
+        \int_{B(0, k)} |f(x)| \, dx
+            = \int_{\mathbb{R}^n} f(x) g_k(x) \, dx
+            \leq M.
+    \end{align*}
+    令 $ k \to \infty $, 由 Levi 定理知
+    $$
+        \| f \|_{L^1(\mathbb{R}^n)} \leq M.
+    $$
+    若 $ p \in (1, \infty) $. 对 $ \forall k \in \mathbb{N} $, 令
+    $$
+        g_k := |f|^{p-1} \mathrm{sign}(f) \mathbf{1}_{\{|f| < k\}} \mathbf{1}_{B(0, k)},
+    $$
+    则 $ g_k \in L^\infty(\mathbb{R}^n) $ 且 $ g_k $ 有紧支集, 从而
+    \begin{align*}
+        \int_{B(0, k) \cap \{|f| < k\}} |f(x)|^p \, dx
+            &= \int_{\mathbb{R}^n} f(x) g_k(x) \, dx
+            \leq M \| g \|_{L^{p'}(\mathbb{R}^n)} \\
+            &= M \left[ \int_{B(0, k) \cap \{|f| < k\}} |f(x)|^p \, dx \right]^{1/p'},
+    \end{align*}
+    故
+    $$
+        \left[ \int_{B(0, k) \cap \{|f| < k\}} |f(x)|^p \, dx \right]^{1/p} \leq M.
+    $$
+    令 $ k \to \infty $, 由 Levi 定理知
+    $$
+        \| f \|_{L^p(\mathbb{R}^n)} \leq M.
+    $$
+    综上, 断言成立.
+    
+    因此, 当 $ f \notin L^p(\mathbb{R}^n) $ 时,
+    $$
+        \sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
+            \int_{\mathbb{R}^n} f(x) g(x) \, dx = \infty
+    $$
+    \eqref{haha} 仍然成立. 至此 Theorem \ref{text} 证毕.
+\end{proof}
+
+\section{证明思路的来源}
+
+Theorem \ref{text} 的证明思路来源于 [H. Brezis, Functional Analysis, Sobolev Spaces and Partial Differential Equations] 
+中 Corollary 4.24 的证明. 同样的思路在张恭庆的泛函分析中也有提到.
+
+\begin{theorem}[Corollary 4.24]
+    设开集 $ \Omega \subset \mathbb{R}^n $ 且 $ f \in L^1_{loc}(\Omega) $ 满足
+    对 $ \forall g \in C_c^\infty(\Omega) $,
+    $$
+        \int_\Omega f(x) g(x) \, dx = 0.
+    $$
+    则 $ f $ 在 $ \Omega $ 上几乎处处为 $ 0 $.
+\end{theorem}
+
+\begin{proof}
+    为了方便, 只证 $ \Omega = \mathbb{R}^n $ 时的情况.
+    令 $ g \in L^\infty(\mathbb{R}^n) $ 且有紧支集.
+    对 $ \forall k \in \mathbb{N} $, 设 $ g_k := \rho_k * g $, 则 $ g_k \in C_c^\infty(\mathbb{R}^n) $,
+    从而
+    $$
+        \int_{\mathbb{R}^n} f(x) g_k(x) \, dx = 0.
+    $$
+    因为 $ \lim_{k \to \infty} \| g_k - g \|_{L^1(\mathbb{R}^n)} = 0 $, 由 Riesz 定理知, 
+    存在子列 $ g_{n_k} $ 几乎处处收敛到 $ g $. 又由 $ g_k $ 的定义知, 
+    $ \|g_k\|_{L^\infty(\mathbb{R}^n)} \leq \|g\|_{L^\infty(\mathbb{R}^n)} $ 
+    且 
+    \begin{align*}
+        \supp(g_k) &= \supp(\rho_k * g) 
+                   \subset \overline{\supp(\rho_k) + \supp(g)} \\
+                   &= \overline{\overline{B(0, 1/k)} + \supp(g)} 
+                   = \overline{B(0, 1/k)} + \supp(g)
+                   \subset \overline{B(0, 1)} + \supp(g), 
+    \end{align*}
+    由此及 $ f \in L^1_{loc}(\mathbb{R}^n) $ 知, 
+    对 $ \forall k \in \mathbb{N} $, 在几乎处处意义下
+    $$
+        |f g_k| \leq \|g_k\|_{L^\infty(\mathbb{R}^n)} |f \mathbf{1}_{\supp(g_k)}|
+                \leq \|g\|_{L^\infty(\mathbb{R}^n)} \left|f \mathbf{1}_{\overline{B(0, 1)} + \supp(g)}\right| 
+                \in L^1(\mathbb{R}^n).
+    $$
+    故由控制收敛定理
+    \begin{align*}
+        \int_{\mathbb{R}^n} f(x) g(x) \, dx
+            &= \int_{\mathbb{R}^n} \lim_{k \to \infty} f(x) g_{n_k}(x) \, dx \\
+            &= \lim_{k \to \infty} \int_{\mathbb{R}^n} f(x) g_{n_k}(x) \, dx = 0.
+    \end{align*}
+    
+    对 $ \forall k \in \mathbb{N} $, 令
+    $$
+        g_k := \mathrm{sign} (f) \mathbf{1}_{B(0, k)},
+    $$
+    则 $ g_k \in L^\infty(\mathbb{R}^n) $ 且有紧支集, 从而
+    $$
+        \int_{B(0, k)} |f(x)| \, dx
+            = \int_{\mathbb{R}^n} f(x) g_k(x) \, dx
+            = 0,
+    $$
+    故对 a.e. $ x \in B(0, k) $, $ f(x) = 0 $.
+    再由 $ k $ 的任意性知, 对 a.e. $ x \in \mathbb{R}^n $, $ f(x) = 0 $.
+\end{proof}
+
+\end{CJK*}
+\end{document} 
+
+
+
+
+
+
+
+
+
