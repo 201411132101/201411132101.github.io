@@ -9,10 +9,15 @@
     <link rel="shortcut icon" href="../favicon.ico">
 
     <!-- css -->
+    <script type="text/javascript" src="https://bufan.xyz/My-website/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://bufan.xyz/My-website/js/snow-plugin.js"></script>
     <link href="../css/public-style.css" rel="stylesheet" type="text/css" />
     <link href="../css/main-style.css" rel="stylesheet" type="text/css" />
 
     <!-- javascript -->
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 
 <body>
@@ -93,7 +98,7 @@
                 <hr/>
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/tag/math.html"> 数学 </a></div>
-                    <div style="float:right;">20 篇</div>
+                    <div style="float:right;">21 篇</div>
                 </div>
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/tag/latex.html"> Latex </a></div>
@@ -130,7 +135,7 @@
                 <hr/>
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/time/2020.html"> 2020 </a></div>
-                    <div style="float:right;">18 篇</div>
+                    <div style="float:right;">19 篇</div>
                 </div>
 
                 <div class="clearfix">
@@ -156,6 +161,18 @@
     </div>
 </div>
 
+<!--snow -->
+<canvas class="snow-canvas" speed="1" interaction="false" size="2" count="80" opacity="0.00001" start-color="rgba(253,252,251,1)"
+        end-color="rgba(251,252,253,0.3)" wind-power="0" image="false" width="1366" height="667"></canvas>
+
+<canvas class="snow-canvas" speed="2" interaction="true" size="6" count="30" start-color="rgba(253,252,251,1)"
+        end-color="rgba(251,252,253,0.3)" opacity="0.00001" wind-power="2" image="false" width="1366" height="667"></canvas>
+
+<canvas class="snow-canvas" speed="3" interaction="true" size="12" count="20" wind-power="-5"
+        image="https://bufan.xyz/My-website/images/snow.png" width="1366" height="667"></canvas>
+<script type="text/javascript">
+    $(".snow-canvas").snow();
+</script>
 </body>
 
 </html>
