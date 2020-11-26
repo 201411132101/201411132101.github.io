@@ -32,92 +32,198 @@
 % \renewcommand{\proofname}{\emph{Proof}}
 
 % 基本信息
-\title{等距同构的那些事}
+\title{投影算子}
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
 
 \maketitle
 
-\section{度量空间的等距同构}
-
-度量空间的等距同构没啥问题.
+\section{投影算子}
 
 \begin{definition}
-    设 $ (\mathscr{X}, d_{\mathscr{X}}),\ (\mathscr{Y}, d_{\mathscr{Y}}) $ 是度量空间.
-    若 $ T :\ \mathscr{X} \to \mathscr{Y} $ 满足对 $ \forall x_1,\ x_2 \in \mathscr{X} $,
+    设 $ \mathcal{X} $ 是 Banach 空间. 线性映射 $ P :\ \mathcal{X} \to \mathcal{X} $ 若满足
     $$
-        d_{\mathscr{Y}} (T(x_1), T(x_2)) = d_{\mathscr{X}} (x_1, x_2),
+        P^2 = P,
     $$
-    则称 $ T $ 是等距映射(isometry).
-\end{definition}
-
-\begin{definition}
-    设 $ (\mathscr{X}, d_{\mathscr{X}}),\ (\mathscr{Y}, d_{\mathscr{Y}}) $ 是度量空间.
-    若存在 $ \mathscr{X} $ 到 $ \mathscr{Y} $ 满的等距映射, 则称 $ \mathscr{X} $ 和 $ \mathscr{Y} $ 等距同构.
-\end{definition}
-
-\section{线性赋范空间的等距同构}
-
-线性赋范空间的等距同构, 问题就来了. 首先, 线性赋范空间一定是度量空间, 
-那么想要等距同构, 一定要满足度量空间等距同构的要求.
-但是, 线性赋范空间有线性结构, 这个也要保持, 所以要求等距映射线性.
-
-\begin{definition}
-    设 $ (\mathscr{X}, \| \cdot \|_\mathscr{X}),\ (\mathscr{Y}, \| \cdot \|_\mathscr{Y}) $ 是线性赋范空间.
-    若存在 $ \mathscr{X} $ 到 $ \mathscr{Y} $ 满的线性等距映射, 则称 $ \mathscr{X} $ 和 $ \mathscr{Y} $ 等距同构.
-\end{definition}
-
-实际上, 对于实线性赋范空间, 定义中的条件可以减弱成度量空间的条件.
-这个是由 Mazur-Ulam Theorem 保证的.
-
-\begin{lemma}  \label{1}
-    设 $ (\mathscr{X}, \| \cdot \|_\mathscr{X}),\ (\mathscr{Y}, \| \cdot \|_\mathscr{Y}) $ 是线性赋范空间.
-    若存在 $ \mathscr{X} $ 到 $ \mathscr{Y} $ 满的等距映射, 则存在 $ \mathscr{X} $ 到 $ \mathscr{Y} $ 满的线性等距映射.
-\end{lemma}
-
-在证明 Lemma \ref{1} 之前, 首先回顾一下 Mazur-Ulam Theorem 及其相关定义.
-
-\begin{definition}
-    设 $ (\mathscr{X}, \| \cdot \|_\mathscr{X}),\ (\mathscr{Y}, \| \cdot \|_\mathscr{Y}) $ 是线性赋范空间.
-    称 $ T :\ \mathscr{X} \to \mathscr{Y} $ 是仿射变换(affine), 若对 $ \forall a,\ b \in \mathcal{X} $
-    和 $ \forall t \in \mathbb{R} $,
+    则称 $ P $ 是 $ \mathcal{X} $ 上的投影算子. 记 
     $$
-        T((1 - t) a + t b) = (1 - t) T(a) + t T(b).
+        \mathcal{R}(P) := \{ P x :\ x \in \mathcal{X}\} 
+        \quad \text{且} \quad
+        \mathcal{N}(P) := \{x \in \mathcal{X} :\ Px = \theta \}.
     $$
 \end{definition}
 
-\begin{theorem}[Mazur-Ulam]
-    设 $ (\mathscr{X}, \| \cdot \|_\mathscr{X}),\ (\mathscr{Y}, \| \cdot \|_\mathscr{Y}) $ 是线性赋范空间.
-    若 $ T :\ \mathscr{X} \to \mathscr{Y} $ 满的等距映射, 则 $ T $ 是仿射变换(affine).
+\begin{definition}
+    设 $ V_1,\ V_2 $ 是线性空间 $ V $ 的两个线性子空间, 若对 $ \forall x \in V_1 + V_2 $,
+    分解 
+    $$  
+        x = x_1 + x_2, \quad \text{其中 } x_1 \in V_1,\ x_2 \in V_2
+    $$
+    是唯一的, 则称 $ V_1 + V_2 $ 是 $ V_1 $ 和 $ V_2 $ 的直和, 记为 $ V_1 \oplus V_2 $.
+\end{definition}
+
+\begin{proposition}
+    设 $ \mathcal{X} $ 是 Banach 空间且 $ P $ 是 $ \mathcal{X} $ 上的投影算子. 则
+    \begin{enumerate}[{\rm(i)}]
+        \item $ P $ 的不动点全体就是 $ \mathcal{R}(P) $, 即对 $ \forall x \in \mathcal{R}(P) $, $ Px = x $;
+        \item $ \mathcal{R}(P) = \mathcal{N}(I - P) $;
+        \item $ \mathcal{R}(P) $ 和 $ \mathcal{N}(P) $ 是 $ \mathcal{X} $ 的两个线性子空间;
+        \item $ \mathcal{X} = \mathcal{R}(P) \oplus \mathcal{N}(P) $.
+    \end{enumerate}
+\end{proposition}
+
+
+\begin{theorem} \label{3}
+    设 $ \mathcal{X} $ 是 Banach 空间且 $ P $ 是 $ \mathcal{X} $ 上的投影算子. 
+    $ P $ 有界当且仅当 $ \mathcal{R}(P) $ 和 $ \mathcal{N}(P) $ 闭.
 \end{theorem}
 
-现在可以开始证明 Lemma \ref{1} 了.
-
-\begin{proof}[Proof of Lemma \ref{1}]
-    若存在 $ \mathscr{X} $ 到 $ \mathscr{Y} $ 满的等距映射 $ T $, 由 Mazur-Ulam Theorem 知,
-    $ T $ 是仿射变换. 令 $ S := T - T(\theta) $, 则对 $ \forall x_1,\ x_2 \in \mathcal{X} $,
-    $$
-        \| S(x_1) - S(x_2) \|_\mathscr{Y} 
-            = \| T(x_1) - T(x_2) \|_\mathscr{Y} 
-            = \| x_1 - x_2 \|_\mathscr{X},
-    $$
-    且对 $ \forall x \in \mathcal{X} $ 和 $ t \in \mathbb{R} $,
-    $$
-        S(t x) = T(t x) - T(\theta)
-                 = T(t x + (1 - t) \theta) - T(\theta)
-                 = t[T(x) - T(\theta)]
-                 = t S(x),
-    $$
-    从而对 $ \forall x_1,\ x_2 \in \mathcal{X} $ 和 $ t \in \mathbb{R} $,
-    \begin{align*}
-        S(x_1 + x_2) &= 2 S \left( \frac{x_1 + x_2}{2} \right) 
-                     = 2 \left[ T \left( \frac{x_1 + x_2}{2} \right) - T(\theta) \right] \\
-                     &= [T(x_1) - T(\theta)] - [T(x_2) - T(\theta)]
-                     = S(x_1) + S(x_2).
-    \end{align*}
-    综上, $ S $ 是 $ \mathscr{X} $ 到 $ \mathscr{Y} $ 满的线性等距映射. Lemma \ref{1} 证毕.
+\begin{proof}
+    https://math.stackexchange.com/questions/664155/operator-theory-textbook-question
 \end{proof}
+
+\begin{remark}
+    Proposition \ref{3} 中 $ \mathcal{X} $ 的完备性是必须的.
+\end{remark}
+
+\begin{proof}
+    设 $ \ell_{finite}^1 := \{ \ell^1 \text{中有限项非 0 的数列} \} $, 范数与 $ \ell^1 $ 一致, 令
+    $$
+        P :\ \ell_{finite}^1 \to \ell_{finite}^1,\ 
+            x:= \{x_k\}_{k \in \mathbb{N}} \to \left( \sum_{k = 1}^\infty x_k, 0, 0, \ldots \right).
+    $$
+    则 $ P $ 是投影算子且 $ \mathcal{R}(P) $ 和 $ \mathcal{N}(P) $ 闭, 但 $ P $ 无界. 
+    
+    下证 $ \mathcal{N}(P) $ 闭, 其余显然.
+    设 $ \{x^{(n)}\}_{n \in \mathbb{N}} \subset \mathcal{N}(P) $ 在 $ \ell_{finite}^1 $ 中收敛到 $ x^{(0)} $.
+    存在 $ N \in \mathbb{N} $ 使得对 $ \forall k > N $, $ x^{(0)}_k = 0 $.
+    对 $ \forall n \in \mathbb{N} $,
+    \begin{align*}
+        \left| \sum_{k = 1}^\infty x^{(0)}_k \right|
+            = \left| \sum_{k = 1}^\infty x^{(0)}_k - \sum_{k = 1}^\infty x^{(n)}_k \right| 
+            \leq \left\| x^{(n)} - x^{(0)} \right\|_{\ell_{finite}^1}
+            \to 0, \quad \text{ as } n \to \infty.
+    \end{align*}
+    故 $ \sum_{k = 1}^\infty x^{(0)}_k = 0 $, 即 $ x^{(0)} \in \mathcal{N}(P) $.
+    从而 $ \mathcal{N}(P) $ 闭.
+\end{proof}
+
+\section{Hilbert 空间上的正交补}
+
+\begin{definition}
+    设 $ \mathcal{H} $ 是 Hilbert 空间且 $ M \subset \mathcal{H} $. 称
+    $$
+        M^\bot := \{ x \in \mathcal{H} :\ \forall y \in M,\ (x, y) = 0 \}
+    $$
+    为 $ M $ 的正交补.
+\end{definition}
+
+\begin{theorem}[正交分解]
+    设 $ \mathcal{H} $ 是 Hilbert 空间且 $ M $ 是 $ \mathcal{H} $ 的闭线性子空间. 则
+    $$
+        \mathcal{H} = M \oplus M^\bot.
+    $$
+\end{theorem}
+
+\begin{proposition} \label{1}
+    设 $ \mathcal{H} $ 是 Hilbert 空间且 $ M \subset \mathcal{H} $. 
+    则 $ M^\bot $ 是闭线性子空间且 $ M^\bot = \overline{M}^\bot $.
+\end{proposition}
+
+\begin{proposition} \label{2}
+    设 $ \mathcal{H} $ 是 Hilbert 空间且 $ M $ 是 $ \mathcal{H} $ 的子集. 则
+    \begin{enumerate}[{\rm(i)}]
+        \item $ M \subset M^{\bot \bot} $;
+        \item 若 $ M $ 是 $ \mathcal{H} $ 的线性子空间, 则 $ \overline{M} = M^{\bot \bot} $.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    先证 (i). 对任意 $ x \in M $, 有 
+    $ x \bot M^\bot $, 从而 $ x \in \overline{M}^{\bot \bot} $,
+    故 $ M \subset \overline{M}^{\bot \bot} $. (i) 证毕.
+    
+    再证 (ii). 直观上来看, 由正交分解有
+    $$
+        \overline{M} \oplus M^\bot = \mathcal{H} = M^\bot \oplus M^{\bot \bot},
+    $$
+    又有 $ \overline{M} \subset M^{\bot \bot} $(这个不能少), 故 $ \overline{M} = M^{\bot \bot} $.
+    
+    另一个证明: 由 (i) 及 $ M^{\bot \bot} $ 闭知, $ \overline{M} \subset M^{\bot \bot} $,
+    故只需证 $ M^{\bot \bot} \subset \overline{M} $. 
+    对任意固定 $ x \in M^{\bot \bot} $,
+    由 Proposition \ref{1} 知, $ x \bot M^\bot = \overline{M}^\bot $. 由正交分解定理,
+    存在 $ x_{\overline{M}} \in \overline{M} $ 和 $ x_{\overline{M}^\bot} \in \overline{M}^\bot $ 
+    使得 
+    $$ 
+        x = x_{\overline{M}} + x_{\overline{M}^\bot}. 
+    $$
+    进一步由 $ x \bot \overline{M}^\bot $ 得
+    $$
+        0 = \left( x, x_{\overline{M}^\bot} \right)  = \left\|  x_{\overline{M}^\bot} \right\|^2
+    $$
+    因此
+    $$
+        x = x_{\overline{M}} \in \overline{M}.
+    $$
+    由 $ x \in M^{\bot \bot} $ 的任意性知, $ M^{\bot \bot} \subset \overline{M} $. (ii) 证毕.
+    至此, Proposition \ref{2} 证毕.
+\end{proof}
+
+\begin{remark}
+    $ A \oplus B = A \oplus C $ 不一定能推出 $ B = C $, 必须加上条件 $ B \subset C $.
+    反例: 设 $ \mathcal{H} := \mathbb{R}^2 $, 
+    $ A := \{ (t, 0) :\ t \in \mathbb{R} \} $,
+    $ B := \{ (0, t) :\ t \in \mathbb{R} \} $,
+    $ C := \{ (t, t) :\ t \in \mathbb{R} \} $.
+    则 $ A \oplus B = A \oplus C $ 但 $ B \neq C $.
+\end{remark}
+
+\section{Hilbert 空间上的投影算子}
+
+\begin{proposition} \label{5}
+    设 $ \mathcal{H} $ 是 Hilbert 空间, $ P $ 是 $ \mathcal{H} $ 上的投影算子且 $ P \in \mathscr{L}(\mathcal{H}) $. 
+    则 $ \mathcal{R}(P) = [\mathcal{N}(P)]^\bot $ 当且仅当 $ P $ 是对称算子.
+\end{proposition}
+
+\begin{proof}
+    先证 $ "\Rightarrow" $. 设 $ \mathcal{R}(P) = [\mathcal{N}(P)]^\bot $, 则
+    \begin{align*}
+        (P x, y) &= (Px, Py + (I - P)y) 
+                 = (Px, Py)  \\
+                 &= (Px + (I - P)x, Py)
+                 = (x, Py).
+    \end{align*}
+    
+    再证 $ "\Leftarrow" $. 设 $ P $ 是对称算子, 则对 $ \forall x \in \mathcal{R}(P) $, $ \forall y \in \mathcal{N}(P) $,
+    存在 $ z \in \mathcal{H} $ 使得 $ x = Pz $, 因此
+    $$
+        (x, y) = (Pz, y) = (z, Py) = 0.
+    $$
+    故 $ \mathcal{R}(P) \subset [\mathcal{N}(P)]^\bot $.
+    又因为由正交分解有
+    $$
+        \mathcal{N}(P) \oplus [\mathcal{N}(P)]^\bot = \mathcal{H} = \mathcal{N}(P) \oplus \mathcal{R}(P),
+    $$
+    因此 $ \mathcal{R}(P) = [\mathcal{N}(P)]^\bot $.
+\end{proof}
+
+\begin{remark}
+    Proposition \ref{5} 中条件 $ P \in \mathscr{L}(\mathcal{H}) $ 应该不能去掉, 反例没想到.
+\end{remark}
+
+\begin{definition}
+    有界对称投影算子被称为正交投影算子(orthogonal projection),
+    有界非对称投影算子被称为斜投影算子(oblique projection).
+\end{definition}
+
+\begin{remark}
+    由正交分解来定义正交投影算子更为直观.
+
+    设 $ \alpha \in \mathbb{R} $ 且 $ P_\alpha :\ \mathbb{R}^2 \to \mathbb{R}^2,\ (x, y) \mapsto (0, \alpha x + y) $.
+    则 $ P_0 $ 是正交投影算子, 对 $ \forall \alpha \in \mathbb{R} \setminus \{0\} $, $ P_\alpha $ 是斜投影算子.
+\end{remark}
 
 \end{CJK*}
 \end{document} 
