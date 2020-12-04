@@ -80,7 +80,23 @@
 \end{theorem}
 
 \begin{proof}
-    https://math.stackexchange.com/questions/664155/operator-theory-textbook-question
+    先证 $ "\Rightarrow" $. $ P $ 有界, 则 $ \mathcal{N}(P) $ 闭.
+    而 $ \mathcal{R}(P) = \mathcal{N}(I-P) $ 也闭, 因为 $ I-P $ 有界.
+    
+    再证 $ "\Leftarrow" $. 
+    断言 $ P $ 是闭算子. 事实上, 设 $ \{x_n\} \subset \mathcal{X} $ 满足 $ x_n \to x_0 \text{ in } \mathcal{X} $ 且 
+    $ P x_n \to y_0 \text{ in } \mathcal{X} $.
+    则 $ (I - P) x_n \to x_0 - y_0 \text{ in } \mathcal{X} $.
+    注意到 $ \{(I - P) x_n\}_{n \in \mathbb{N}} \subset \mathcal{N}(P) $ 且 $ \mathcal{N}(P) $ 闭,
+    因此 $ x_0 - y_0 \in \mathcal{N}(P) $. 
+    又因为 $ \{P x_n\}_{n \in \mathbb{N}} \subset \mathcal{R}(P) $ 且 $ \mathcal{R}(P) $ 闭,
+    从而 $ y_0 \in \mathcal{R}(P) $. 综上有
+    $$
+        y_0 \overset{y \in \mathcal{R}(P)}{=} Py_0
+          \overset{x_0 - y_0 \in \mathcal{N}(P)}{=} Py_0 + P(x_0 - y_0)
+          = Px_0.
+    $$
+    故 $ P $ 是闭算子. 由此及闭图像定理知, $ P \in \mathscr{L}(\mathcal{X}) $. Theorem \ref{3} 证毕.
 \end{proof}
 
 \begin{remark}
@@ -183,7 +199,7 @@
 \section{Hilbert 空间上的投影算子}
 
 \begin{proposition} \label{5}
-    设 $ \mathcal{H} $ 是 Hilbert 空间, $ P $ 是 $ \mathcal{H} $ 上的投影算子且 $ P \in \mathscr{L}(\mathcal{H}) $. 
+    设 $ \mathcal{H} $ 是 Hilbert 空间, $ P $ 是 $ \mathcal{H} $ 上的有界投影算子. 
     则 $ \mathcal{R}(P) = [\mathcal{N}(P)]^\bot $ 当且仅当 $ P $ 是对称算子.
 \end{proposition}
 
@@ -221,7 +237,8 @@
 \begin{remark}
     由正交分解来定义正交投影算子更为直观.
 
-    设 $ \alpha \in \mathbb{R} $ 且 $ P_\alpha :\ \mathbb{R}^2 \to \mathbb{R}^2,\ (x, y) \mapsto (0, \alpha x + y) $.
+    对 $ \forall \alpha \in \mathbb{R} $,
+    定义 $ P_\alpha :\ \mathbb{R}^2 \to \mathbb{R}^2,\ (x, y) \mapsto (0, \alpha x + y) $.
     则 $ P_0 $ 是正交投影算子, 对 $ \forall \alpha \in \mathbb{R} \setminus \{0\} $, $ P_\alpha $ 是斜投影算子.
 \end{remark}
 

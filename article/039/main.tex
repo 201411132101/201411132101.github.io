@@ -1,0 +1,162 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{单调函数的间断点集}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+\section{单调函数的间断点集}
+
+众所周知, 单调函数的间断点集是可数集.
+
+\section{双变量单调函数的间断点集}
+
+首先需要定义什么是 $ \mathbb{R}^2 $ 上的单调函数.
+
+\begin{definition}
+    称 $ (x_1, y_1) \preceq (x_2, y_2) $, 若 $( x_1 \leq x_2 $) 且 $( x_1 \leq x_2 $).
+    若函数 $ f :\ \mathbb{R}^2 \to \mathbb{R} $ 满足, 
+    对任意 $ (x_1, y_1) \preceq (x_2, y_2) $, 有 $ f(x_1, y_1) \leq f(x_2, y_2) $, 则称 $ f $ 单调.
+\end{definition}
+
+\begin{theorem} \label{3}
+    $ \mathbb{R}^2 $ 上单调函数的间断点集是零测度集.
+\end{theorem}
+
+\begin{proof}[证法一]
+    设 $ f $ 是 $ \mathbb{R}^2 $ 上的单增函数. 对任意 $ n \in \mathbb{N} $
+    将 $ [-n, n]^2 $ 均分, 计算达布上下和, 不难看出它们的差趋于 $ 0 $, 故 $ f $ 在 $ [-n, n]^2 $ 上黎曼可积,
+    从而 $ f $ 在 $ [-n, n]^2 $ 上的间断点集 $ D_n(f) $ 是零测度集.
+    因此 $ f $ 在 $ \mathbb{R}^2 $ 上的间断点集 
+    $$
+        D(f) = \bigcup_{n \in \mathbb{N}} D_n(f)
+    $$
+    也是零测度集. Theorem \ref{3} 证毕.
+\end{proof}
+
+另一种证明来自 [https://math.stackexchange.com/questions/
+2338318/bivariate-function-monotone-in-each-variable-rightarrow-continuous-a-e].
+
+\begin{proof}[证法二]
+    设 $ f $ 是 $ \mathbb{R}^2 $ 上的单增函数且 $ D_f $ 为 $ f $ 在 $ \mathbb{R}^2 $ 上的间断点集.
+    则
+    \begin{align*}
+        |D_f| &= \int_\mathbb{R} \int_\mathbb{R} \mathbf{1}_{D_f}(x, y) \, dx \, dy \\
+              &= \frac{1}{2} \int_\mathbb{R} \left[ \int_\mathbb{R} \mathbf{1}_{D_f}(s - t, s + t) \, ds \right] \, dt
+                & (x, y) := (s - t, s + t) \\
+              &= \frac{1}{2} \int_\mathbb{R} |E_t| \, dt
+                & E_t := \left\{ (s - t, s + t) \in D_f :\ s \in \mathbb{R} \right\}.
+    \end{align*}
+    下面计算 $ |E_t| $. 
+    对任意固定 $ t \in \mathbb{R} $, 定义 $ g_t :\ \mathbb{R} \to \mathbb{R},\ s \mapsto f(s - t, s + t) $,
+    由 $ f $ 是 $ \mathbb{R}^2 $ 上的单增函数知 $ g_t $ 在 $ \mathbb{R} $ 上单增.
+    记 $ g_t $ 在 $ \mathbb{R} $ 上的间断点集为 $ D_{g_t} $, 则 $ D_{g_t} $ 是至多可数集. 断言 
+    $$ 
+        E_t \subset D_{g_t}.
+    $$
+    若断言成立, 则 $ |E_t| \leq |D_{g_t}| = 0 $. 从而
+    $$
+        |D_f| = \frac{1}{2} \int_\mathbb{R} |E_t| \, dt = 0.
+    $$
+    
+    下证断言. 事实上, 对 $ \forall s_0 \in E_t $, 若 $ s_0 \notin D_{g_t} $,
+    即 $ g_t $ 在 $ s_0 $ 点连续, 则对 $ \forall \varepsilon \in (0, \infty) $, 存在 $ \delta \in (0, \infty) $
+    使得
+    $$  
+        g_t(s_0 + \delta) - \varepsilon \leq g_t(s_0) \leq g_t(s_0 - \delta) + \varepsilon,
+    $$
+    即
+    \begin{equation}  \label{1}
+        f(s_0 + \delta - t, s_0 + \delta + t) - \varepsilon
+            \leq f(s_0 - t, s_0 + t) \leq f(s_0 - \delta - t, s_0 - \delta + t) + \varepsilon.
+    \end{equation} 
+    对 $ \forall (x, y) \in B((s_0 - t, s_0 + t), \delta) $, 有
+    $$ 
+        s_0 - \delta - t < x < s_0 + \delta - t
+        \quad\text{和}\quad
+        s_0 - \delta + t < y < s_0 + \delta + t,
+    $$
+    由此及 $ f $ 是 $ \mathbb{R}^2 $ 上的单增函数知
+    $$
+        f(s_0 - \delta - t, s_0 - \delta + t) \leq f(x, y) \leq f(s_0 + \delta - t, s_0 + \delta + t)
+    $$
+    结合 \eqref{1}, 我们有
+    $$
+        f(s_0 - t, s_0 + t) - \varepsilon \leq f(x, y) \leq f(s_0 - t, s_0 + t) + \varepsilon,
+    $$
+    即 $ f $ 在点 $ (s_0 - t, s_0 + t) $ 处连续, 从而 $ s_0 \notin E_t $, 矛盾. 因此 $ s_0 \in D_{g_t} $.
+    由 $ s_0 $ 的任意性知, 断言成立. 
+    Theorem \ref{3} 证毕.
+\end{proof}
+
+实际上, 上述证明还差一个重要事实.
+
+\begin{theorem} \label{1}
+    设 $ (\mathcal{X}, d_\mathcal{X}) $ 和 $ (\mathcal{Y}, d_\mathcal{Y}) $ 是度量空间,
+    $ f :\ \mathcal{X} \to \mathcal{Y} $, $ A $ 是 $ f $ 在 $ \mathcal{X} $ 上的连续点集.
+    则 $ A $ 是 $ G_\delta $ 集(可数个开集的交).
+\end{theorem}
+
+\begin{proof}
+    对 $ \forall x \in \mathcal{X} $, 定义 $ f $ 在点 $ x $ 处的振动(oscillation)
+    $$
+        \omega_f(x) := \lim_{\delta \to 0^+} \sup_{y, z \in B_\mathcal{X}(x, \delta)} 
+            d_\mathcal{Y} \left( f(x), f(y) \right) .
+    $$
+    $ f $ 在点 $ x $ 处连续当且仅当 $ \omega_f(x) = 0 $. 因此
+    $$
+        A = \bigcap_{n \in \mathbb{N}} A_n, 
+        \quad\text{其中}\quad A_n := \left\{ x \in \mathcal{X} :\ \omega_f(x) < \frac{1}{n} \right\}.
+    $$
+    容易看出来 $ A_n $ 是开集, 故 $ A $ 是 $ G_\delta $ 集.
+\end{proof}
+
+\begin{remark}
+    对于 Lebesgue 测度来说, $ G_\delta $ 集可测, 至此证明二才算圆满.
+\end{remark}
+
+\end{CJK*}
+\end{document} 
+
+
+
+
+
+
+
+
+

@@ -3,6 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="投影算子,projection">
 
     <title> bufan 的博客 </title>
 
@@ -46,23 +47,29 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# Borel Algebra 的平移不变性和伸缩不变性
+# 单调函数的间断点集
 
 <div style="text-align: center;">
-    <p>发布时间: 2020-05-05</p>
+    <p>发布时间: 2020-12-04</p>
 </div>
 
 ---
 
-设 \\( \mathscr{B} \\) 是 \\( \mathbb{R}^n \\) 中的 Borel Algebra,
-则 \\( \mathscr{B} \\) 具有平移不变性和伸缩不变性, 即
-$$
-\mathscr{B} + r = \mathscr{B} 且 t \mathscr{B} = \mathscr{B}.
-$$
+\\( \mathbb{R} \\) 上单调函数的间断点集是至多可数集, 那么该结论能否推广到高维呢?
+答案是肯定的, 不过需要有一些修改.
 
-[PDF](032/main.pdf)
+首先定义 \\( \mathbb{R}^2 \\) 上的单调函数 .
+称 \\( (x_1, y_1) \preceq (x_2, y_2) \\), 若 \\( x_1 \leq x_2 \\) 且 \\( x_1 \leq x_2 \\).
+若函数 \\( f :\\ \mathbb{R}^2 \to \mathbb{R} \\) 满足, 
+对任意 \\( (x_1, y_1) \preceq (x_2, y_2) \\), 有 \\( f(x_1, y_1) \leq f(x_2, y_2) \\), 则称 \\( f \\) 单调.
+
+**Theorem.** \\( \\ \mathbb{R}^2 \\) 上单调函数的间断点集是零测度集.
+
+此外还证明了一个有意思的结论, 函数的连续点集可以写成可数个开集的交.
+
+[PDF](039/main.pdf)
 <span style="margin-right:24px;"></span>
-[TEX](032/main.tex)
+[TEX](039/main.tex)
 
         </div>
 
