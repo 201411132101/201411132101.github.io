@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  6 NOV 2020 22:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  3 JAN 2021 09:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -308,11 +308,7 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
 )
 \c@theorem=\count109
- (./main.aux
-
-LaTeX Warning: Label `lem1' multiply defined.
-
-)
+ (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
@@ -391,7 +387,8 @@ LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 39.
 LaTeX Font Info:    ... okay on input line 39.
 LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 39.
 LaTeX Font Info:    ... okay on input line 39.
- (c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count110
 \scratchdimen=\dimen134
@@ -543,7 +540,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 468.
  [7] [8]
 [9] [10] [11] [12] [13] [14]
-Overfull \hbox (10.01732pt too wide) detected at line 831
+Overfull \hbox (11.84229pt too wide) detected at line 831
 []
  []
 
@@ -613,15 +610,12 @@ Package pdftex.def Info: picture/dual.PNG  used on input line 1497.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 5931 strings out of 492649
- 76481 string characters out of 6133383
- 256296 words of memory out of 5000000
- 9473 multiletter control sequences out of 15000+600000
+ 5932 strings out of 492649
+ 76485 string characters out of 6133383
+ 256268 words of memory out of 5000000
+ 9474 multiletter control sequences out of 15000+600000
  40872 words of font info for 147 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,16n,40p,271b,979s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -691,7 +685,7 @@ nu/gbsnu97.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu98.pfb
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb><c:/texlive/2018/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2018/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (27 pages, 690099 bytes).
+Output written on main.pdf (27 pages, 689986 bytes).
 PDF statistics:
  472 PDF objects out of 1000 (max. 8388607)
  296 compressed objects within 3 object streams

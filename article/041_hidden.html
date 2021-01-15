@@ -3,6 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="网站">
 
     <title> bufan 的博客 </title>
 
@@ -13,14 +14,15 @@
     <script type="text/javascript" src="https://bufan.xyz/My-website/js/snow-plugin.js"></script>
     <link href="../css/public-style.css" rel="stylesheet" type="text/css" />
     <link href="../css/main-style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/github-markdown.css" rel="stylesheet" type="text/css">
 
     <!-- javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
 
 <div id="container">
-    <!-- 头部：标题和搜索 -->
     <div id="header" onselectstart="return false;">
         <div id="header-left">
             <h1> <a href="https://www.bufan.xyz" style="color: black">bufan 的博客</a> </h1>
@@ -28,50 +30,45 @@
         </div>
         <div id="header-right">
             <div class="header-link">
-                <a href="../index.html"> 首页 </a>
+                <a href="../"> 首页 </a>
             </div>
             <div id="search">
                 <form id="search-form" method="get" action="https://www.google.com/search" target="_blank">
-                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" />
-                    <input name="sitesearch" value="bufan.xyz" type="hidden" />
+                    <input id="search-input" name="q" type="text" placeholder="keyword" autocomplete="off" /> 
+                    <input name="sitesearch" value="bufan.xyz" type="hidden" />  
                     <button id="search-button" type="submit"></button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- 中部：左边内容，右边导航 -->
     <div id="middle" class="clearfix">
-        <div id="article">
-            <div class="article-list">
-                <a href="../article/020.html">一些值得记忆的事</a>
-                <p>发布时间: 2020-01-04</p>
-            </div>
+        <div id="article" class="markdown-body">
+# 鼻骨骨折
+<div style="text-align: center;">
+    <p>发布时间: 2021-01-15</p>
+</div>
 
-            <div class="article-list">
-                <a href="../article/016.html">电子产品的选择</a>
-                <p>发布时间: 2019-12-16</p>
-            </div>
+---
 
-            <div class="article-list">
-                <a href="../article/014.html">翻墙后无法访问 Wiki 的原理和解决办法</a>
-                <p>发布时间: 2019-12-04</p>
-            </div>
+2020.12.23, 我被排球砸到了眼镜, 然后眼镜压到了我的鼻骨, 以至于鼻骨骨折.
+其实不碰鼻子的话不是很疼, 就是感觉鼻子歪了, 有点别扭.
+当天去了北医三院照CT, 发现确实鼻骨骨折, 可能需要手术. 医生说让我预约门诊一周后去看大夫, 然后我就傻傻的信了.
+等我一周后去看医生才发现事情没有我想的那么简单.
 
-            <div class="article-list">
-                <a href="../article/005.html">本科毕业离校有感</a>
-                <p>发布时间: 2018-06-29</p>
-            </div>
+2020.12.30, 我按照第一个医生的指示, 去了北医三院看了医生, 然后医生跟我说准备手术吧, 回去等通知做手术, 术后要住院5-7天.
+我瞬间懵逼了, 我本以为是马上手术的, 以为手术后能回学校的, 结果居然这么麻烦且严重.
+我在网上查过, 骨折后第7天是最佳手术时间, 结果我错过了.
+应该说这是沟通的问题吧, 第一个医生以为可以马上手术, 就让我一周后再看医生, 而事实上, 我最后是骨折后15天做的手术.
+这次吸取教训了, 以后我要有自己的思考, 不能盲从医生.
+我自己应该早点看医生的, 这样我就能早早的排在等待队伍中, 就很有希望在最佳时间做手术了.
 
-            <div class="article-list">
-                <a href="../article/002.html">兰斯8攻略</a>
-                <p>发布时间: 2018-05-22</p>
-            </div>
+2021.01.06, 成功入院, 明天做手术. 全麻手术, 皮卡丘在术后一直陪着我. 手术没感觉, 术后好痛苦, 幸好有皮卡丘陪着我.
+可惜因为疫情, 不让家属久陪, 皮卡丘当天下午就回去了. 当然, 皮卡丘想陪我也不愿意呀, 晚上没地方睡觉, 太委屈皮卡丘了.
 
-            <div class="article-list">
-                <a href="../article/001.html">收藏的网站</a>
-                <p>发布时间: 2018-05-22</p>
-            </div>
+2021.01.15, 现在是术后8天, 恢复得很好, 嗅觉恢复了一点点, 味觉恢复了大部分.
+1.18 去北医三院拆线, 听说同学说不是很疼, 希望是真的.
+
         </div>
 
         <div id="rightbar">
@@ -99,19 +96,16 @@
                     <div style="float:right;">6 篇</div>
                 </div>
             </div>
-
             <div class="rightbar-list">
                 <h3> 朋友的博客 </h3>
                 <hr/>
                 <div class="clearfix">
                     <a href="https://lizebang.com"> 邦哥 </a>
                 </div>
-
                 <div class="clearfix">
                     <a href="https://www.lizhechen.com"> lzcwr </a>
                 </div>
             </div>
-
             <div class="rightbar-list">
                 <h3> 归档 </h3>
                 <hr/>
@@ -138,7 +132,6 @@
         </div>
     </div>
 
-    <!-- 尾部：联系方式 -->
     <div id="footer">
         <p>
             联系方式: &nbsp; <a href="javascript:alert('291817591@qq.com')"> Email </a>
@@ -161,5 +154,10 @@
     $(".snow-canvas").snow();
 </script>
 </body>
+
+<script>
+    document.getElementById('article').innerHTML =
+        marked(document.getElementById('article').innerHTML);
+</script>
 
 </html>

@@ -64,26 +64,22 @@
     故 $ \{x_k\}_{k \in \mathbb{N}} $ 收敛到 $ x_0 $, Theorem \ref{thm1} 证毕.
 \end{proof}
 
-\begin{remark}
-    若数列不收敛, 则存在两个子列收敛到不同的极限.
+\begin{remark} \label{2}
+    若 $ \mathbb{R}^n $ 中的有界数列不收敛, 则存在两个子列收敛到不同的极限.
 \end{remark}
 
 \section{弱收敛的等价刻画}
 
-\begin{definition}
-    设 $ \mathcal{H} $ 是 Hilbert 空间. 称 $ \{x_k\}_{k \in \mathbb{N}} $ 弱收敛到 $ x \in \mathcal{H} $,
-    若对 $ \forall y \in \mathcal{H} $,
-    $$
-        \lim_{k \to \infty} (x_k, y) = (x, y).
-    $$
-\end{definition}
-
-\begin{lemma} \label{lem}
-    Hilbert 空间中的有界数列必有弱收敛子列.
+\begin{lemma} 
+    设 $ E $ 是自反空间 $ \mathcal{X} $ 的子集. 则 $ E $ 有界当且仅当 $ E $ 弱列紧.
 \end{lemma}
 
+\begin{remark} \label{lem}
+    自反空间中的有界数列必有弱收敛子列. 
+\end{remark}
+
 \begin{theorem} \label{thm2}
-    设 $ \{x_k\}_{k \in \mathbb{N}} $ 是 Hilbert 空间 $ \mathcal{H} $ 中的有界数列.
+    设 $ \{x_k\}_{k \in \mathbb{N}} $ 是自反空间 $ \mathcal{X} $ 中的有界数列. 则
     $ \{x_k\}_{k \in \mathbb{N}} $ 弱收敛到 $ x_0 $ 当且仅当 
     $ \{x_k\}_{k \in \mathbb{N}} $ 的任意弱收敛子列均弱收敛到 $ x_0 $.
 \end{theorem}
@@ -92,36 +88,33 @@
     $ "\Rightarrow" $ 显然成立, 下证 $ "\Leftarrow" $. 
     设 $ \{x_k\}_{k \in \mathbb{N}} $ 的任意弱收敛子列均弱收敛到 $ x_0 $.
     反设 $ \{x_k\}_{k \in \mathbb{N}} $ 不弱收敛到 $ x_0 $, 
-    则存在 $ y_0 \in \mathcal{H} $ 使得
+    则存在 $ f \in \mathcal{X}^* $ 使得
     $$
-        (x_k, y_0) \nrightarrow (x, y_0), \quad \text{ as } k \to \infty.
+        f(x_k) \nrightarrow f(x_0), \quad \text{as } k \to \infty.
     $$
-    由此及 Theorem \ref{thm1} 知, 存在子列 $ \{(x_{n_k}, y_0)\}_{k \in \mathbb{N}} $ 
-    和 $ \{(x_{p_k}, y_0)\}_{k \in \mathbb{N}} $ 使得
+    注意到 $ \{x_k\}_{k \in \mathbb{N}} $ 有界, 从而 $ \{f(x_k)\}_{k \in \mathbb{N}} $ 有界. 
+    由此及 Remark \ref{2} 知, 存在收敛子列 $ \{f(x_{n_k})\}_{k \in \mathbb{N}} $ 
+    和 $ \{f(x_{p_k})\}_{k \in \mathbb{N}} $ 使得
     \begin{equation} \label{equ}
-        \lim_{k \to \infty} (x_{n_k}, y_0) \neq \lim_{k \to \infty} (x_{p_k}, y_0).
+        \lim_{k \to \infty} f(x_{n_k}) \neq \lim_{k \to \infty} f(x_{p_k}).
     \end{equation}
-    由 Lemma \ref{lem} 知, $ \{x_{n_k}\}_{k \in \mathbb{N}} $ 和 $ \{x_{p_k}\}_{k \in \mathbb{N}} $
-    均有弱收敛子列, 不妨记为其本身, 并记  
+    又由 Remark \ref{lem} 知, $ \{x_{n_k}\}_{k \in \mathbb{N}} $ 和 $ \{x_{p_k}\}_{k \in \mathbb{N}} $
+    均有弱收敛子列, 不妨记为其本身. 由 $ "\Leftarrow" $ 的假设知
     $$
-        x_{n_k} \rightharpoonup x_1, \quad 
-        x_{p_k} \rightharpoonup x_2, \quad \text{ as } k \to \infty.
+        x_{n_k} \rightharpoonup x_0, \quad 
+        x_{p_k} \rightharpoonup x_0, \quad \text{ as } k \to \infty.
     $$
-    因此
+    则由 \eqref{equ} 知,
     $$
-        \lim_{k \to \infty} (x_{n_k}, y_0) = (x_1, y_0), \quad
-        \lim_{k \to \infty} (x_{p_k}, y_0) = (x_2, y_0).
+        f(x_0) = \lim_{k \to \infty} f(x_{n_k}) 
+               \neq \lim_{k \to \infty} f(x_{p_k}) 
+               = f(x_0).
     $$
-    进一步由 \eqref{equ} 知
-    $$
-        (x_1, y_0) \neq (x_2, y_0),
-    $$
-    故 $ x_1 \neq x_2 $, 这与 $ "\Leftarrow" $ 的假设矛盾. 
-    从而 $ \{x_k\}_{k \in \mathbb{N}} $ 弱收敛到 $ x_0 $, Theorem \ref{thm2} 证毕.
+    矛盾. 从而 $ \{x_k\}_{k \in \mathbb{N}} $ 弱收敛到 $ x_0 $, Theorem \ref{thm2} 证毕.
 \end{proof}
 
 \begin{remark}
-    若数列不弱收敛, 则存在两个子列弱收敛到不同的极限.
+    若自反空间中的有界数列不弱收敛, 则存在两个子列弱收敛到不同的极限.
 \end{remark}
 
 \end{CJK*}

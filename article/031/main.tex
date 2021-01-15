@@ -43,7 +43,7 @@
 
 \section{待整理}
 
-\begin{lemma} \label{lem1}
+\begin{lemma} \label{h2}
     设 $ N \in \mathbb{N} $, 开区间 $ \{I_k\}_{k = 1}^N \subset \mathbb{R} $ 且
     $$
         \bigcap_{k = 1}^N I_k \neq \emptyset.
@@ -63,7 +63,7 @@
     $$
         \bigcup_{k = 1}^N I_k = I_{k_0},
     $$
-    Lemma \ref{lem1} 证毕. 
+    Lemma \ref{h2} 证毕. 
     否则由 $ \bigcap_{k = 1}^N I_k \neq \emptyset $ 知, 
     存在 $ a, b \in \mathbb{R} $, $ a < b $ 使得
     $$
@@ -826,7 +826,7 @@ $$
                 \frac{f(x)}{y} g(x - y) \mathbf{1}_{\{y \in \mathbb{R}^n :\ |y| > \varepsilon\}} \, dx dy  
                 & (x := x + y) \\
             &= - \int_\mathbb{R} f(x) \left[ \frac{1}{\pi} \int_\mathbb{R}
-                \frac{g(x - y)}{y} \mathbf{1}_{\{y \in \mathbb{R}^n :\ |y| > \varepsilon\}} \right] \, dx dy \\
+                \frac{g(x - y)}{y} \mathbf{1}_{\{y \in \mathbb{R}^n :\ |y| > \varepsilon\}} \, dy  \right] \, dx \\
             &= - \int_\mathbb{R} f(x) H_\varepsilon (g)(x) \, dx
     \end{align*}
     由 $ f,\ g $ 的任意性知, 引理 \ref{lem3} 证毕.

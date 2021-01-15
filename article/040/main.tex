@@ -1,0 +1,322 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+
+
+% 定义各种环境
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+% 设置 proof 的格式
+% \renewcommand{\proofname}{\emph{Proof}}
+
+% 基本信息
+\title{共轭空间}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+\maketitle
+
+\section{共轭算子(Adjoint operator)}
+
+共轭算子是个非常有用的工具.
+
+\begin{definition}
+    设 $ \mathcal{X},\ \mathcal{Y} $ 是线性赋范空间, $ T \in \mathscr{L}(\mathcal{X}, \mathcal{Y}) $.
+    若 $ T^* \in \mathscr{L}(\mathcal{Y}^*, \mathcal{X}^*) $ 满足: 
+    对 $ \forall x \in \mathcal{X} $ 和 $ \forall f \in \mathcal{Y}^* $,
+    $$
+        \langle f, Tx \rangle = \langle T^* f, x \rangle,
+    $$
+    则称 $ T^* $ 是 $ T $ 的共轭算子.
+\end{definition}
+
+\begin{remark}
+    注意, 共轭算子是一定存在的, 且 
+    $ \| T^* \|_{\mathscr{L}(\mathcal{Y}^*, \mathcal{X}^*)} = \| T \|_{\mathscr{L}(\mathcal{X}, \mathcal{Y})} $.
+\end{remark}
+
+\begin{proof}
+    先证存在性. 对 $ \forall f \in \mathcal{Y}^* $, 定义
+    $$
+        g_f :\ \mathcal{X} \to \mathbb{K},\ x \mapsto \langle f, Tx \rangle,
+    $$
+    则易证 $ g_f \in \mathcal{X}^* $. 令
+    $$
+        T^* :\ \mathcal{Y}^* \to \mathcal{X}^*,\ f \to g_f,
+    $$
+    则易证 $ T^* \in \mathscr{L}(\mathcal{Y}^*, \mathcal{X}^*) $且
+    对 $ \forall x \in \mathcal{X} $ 和 $ \forall f \in \mathcal{Y}^* $,
+    $$
+        \langle f, Tx \rangle = \langle T^* f, x \rangle.
+    $$
+    
+    再证 $ \| T^* \|_{\mathscr{L}(\mathcal{Y}^*, \mathcal{X}^*)} = \| T \|_{\mathscr{L}(\mathcal{X}, \mathcal{Y})} $.
+    一方面, 
+    \begin{align*}
+        \| T^* \|_{\mathscr{L}(\mathcal{Y}^*, \mathcal{X}^*)}
+            &= \sup_{\| f \|_{\mathcal{Y}^*} = 1}  \| T^* f \|_{\mathcal{X}^*}
+            = \sup_{\| f \|_{\mathcal{Y}^*} = 1} \sup_{\| x \|_\mathcal{X} = 1} |\langle T^* f, x \rangle| \\
+            &= \sup_{\| f \|_{\mathcal{Y}^*} = 1} \sup_{\| x \|_\mathcal{X} = 1} |\langle f, Tx \rangle|
+            \leq \sup_{\| x \|_\mathcal{X} = 1} \| Tx \|_\mathcal{Y}
+            \leq \| T \|_{\mathscr{L}(\mathcal{X}, \mathcal{Y})}.
+    \end{align*}
+    另一方面, 由 Hahn-Banach 定理推论(Corollary \ref{haha})知
+    \begin{align*}
+        \| T \|_{\mathscr{L}(\mathcal{X}, \mathcal{Y})}
+            &= \sup_{\| x \|_\mathcal{X} = 1}  \| T x \|_\mathcal{Y}
+            \overset{Corollary \, \ref{haha}}{=} 
+                \sup_{\| x \|_\mathcal{X} = 1} \max_{\| f \|_{\mathcal{Y}^*} = 1}  f(T x) \\
+            &= \sup_{\| x \|_\mathcal{X} = 1} \max_{\| f \|_{\mathcal{Y}^*} = 1} \langle T^* f, x \rangle
+            \leq \max_{\| f \|_{\mathcal{Y}^*} = 1} \| T^* f \|_{\mathcal{X}^*}
+            \leq \| T^* \|_{\mathscr{L}(\mathcal{Y}^*, \mathcal{X}^*)}.
+    \end{align*}
+    因此 $ \| T^* \|_{\mathscr{L}(\mathcal{Y}^*, \mathcal{X}^*)} = \| T \|_{\mathscr{L}(\mathcal{X}, \mathcal{Y})} $.
+\end{proof}
+
+共轭算子会保持原来算子的性质.
+
+\begin{proposition} \label{1}
+    设 $ \mathcal{X},\ \mathcal{Y} $ 是 Banach 空间, $ T \in \mathscr{L}(\mathcal{X}, \mathcal{Y}) $. 
+    若 $ T $ 是双射, 则 $ T^* $ 也是双射.
+\end{proposition}
+
+\begin{proof} 
+    由开映射定理知, $ T^{-1} \in \mathscr{L}(\mathcal{Y}, \mathcal{X}) $, 因此 $ (T^{-1})^* $ 存在.
+    对 $ \forall x^* \in \mathcal{X}^* $, 令 $ y^* := (T^{-1})^* (x^*) $,
+    则 $ y^* \in \mathcal{Y}^* $ 且对 $ \forall x \in \mathcal{X} $,
+    $$
+        \langle T^* (y^*), x \rangle 
+            = \langle y^*, T x \rangle
+            = \langle (T^{-1})^* (x^*), T x \rangle 
+            = \langle x^*, x \rangle,
+    $$
+    即 $ T^* (y^*) = x^* $. 故 $ T^* $ 是满射.
+    对 $ \forall y_1^*,\ y_2^* \in \mathcal{Y}^* $, 若 $ T^* (y_1^*) = T^* (y_2^*) $, 
+    则对 $ \forall x \in \mathcal{X} $,
+    $$
+        \langle y_1^*, T x \rangle 
+            = \langle T^* (y_1^*), x \rangle 
+            = \langle T^* (y_2^*), x \rangle 
+            = \langle y_2^*, T x \rangle 
+    $$
+    由此及 $ T $ 是满射知, $ y_1^* = y_2^* $. 故 $ T^* $ 是单射.
+\end{proof}
+
+\begin{remark}
+    反过来, 若 $ T^* $ 是双射, 能否推出 $ T $ 是双射? 似乎是对的, Rudin 的书中有零散的结论.
+\end{remark}
+
+\begin{proposition} \label{5}
+    设 $ \mathcal{X},\ \mathcal{Y} $ 是 Banach 空间, $ T \in \mathscr{L}(\mathcal{X}, \mathcal{Y}) $. 
+    若 $ T $ 是线性等距同构映射(满的等距映射), 则 $ T^* $ 也是线性等距同构映射.
+\end{proposition}
+
+\begin{proof}
+     $ T $ 是线性等距同构映射, 故 $ T $ 是双射, 由此及 Proposition \ref{1} 知, $ T^* $ 是双射.
+    又对 $ \forall y^* \in \mathcal{Y}^* $,
+    \begin{align*}
+        \| T^* y^* \|_{\mathcal{X}^*}
+            = \sup_{\| x \|_\mathcal{X} = 1} |\langle T^* y^*, x \rangle|
+            = \sup_{\| x \|_\mathcal{X} = 1} |\langle  y^*, T x \rangle|
+            = \sup_{\| y \|_\mathcal{Y} = 1} |\langle  y^*, y \rangle|
+            = \| y^* \|_{\mathcal{Y}^*}.
+    \end{align*}
+    故 $ T^* $ 也是线性等距同构映射.
+\end{proof}
+
+\section{自反空间(Reflexive Spaces)}
+
+\begin{definition}
+    设 $ \mathcal{X} $ 是线性赋范空间. 
+    称 $ \mathcal{X}^* := \mathscr{L}(\mathcal{X}, \mathbb{K}) $ 为 $ \mathcal{X} $ 的共轭空间, 
+    称 $ \mathcal{X}^{**} := (\mathcal{X}^*)^* $ 为 $ \mathcal{X} $ 的第二共轭空间, 
+\end{definition}
+
+\begin{definition}
+    设 $ \mathcal{X} $ 是线性赋范空间. 
+    对 $ \forall x \in \mathcal{X} $, 
+    $$
+        X :\ \mathcal{X}^* \to \mathbb{K} ,\ f \mapsto \langle f, x \rangle
+    $$
+    是 $ \mathcal{X}^{**} $ 中的元素, 称 
+    $$
+        J_\mathcal{X} :\ \mathcal{X} \to \mathcal{X}^{**} ,\ x \mapsto X
+    $$ 
+    为 $ \mathcal{X} $ 的自然映射.
+\end{definition}
+
+\begin{definition}
+    设 $ \mathcal{X} $ 是线性赋范空间. 
+    称 $ \mathcal{X} $ 是自反空间, 若自然映射 $ J_\mathcal{X} $ 是满射.
+\end{definition}
+
+\begin{corollary}[H. Brezis, Functional Analysis, Corollary 1.4] \label{haha}
+    设 $ \mathcal{X} $ 是线性赋范空间. 则对 $ \forall x \in \mathcal{X} $,
+    $$
+        \| x \|_\mathcal{X} = \sup_{ \| f \|_{\mathcal{X}^*} = 1} |f(x)| 
+                            = \max_{ \| f \|_{\mathcal{X}^*} = 1} |f(x)|.
+    $$
+\end{corollary}
+
+\begin{proposition}
+    $ J_\mathcal{X} $ 是线性等距映射.
+\end{proposition}
+
+\begin{proof}
+    $ J_\mathcal{X} $ 线性显然. 又由 Hahn-Banach 定理推论(Corollary \ref{haha})知
+    $$
+        \| J_\mathcal{X} x \|_{\mathcal{X}^{**}} 
+            = \sup_{ \| f \|_{\mathcal{X}^*} = 1} |\langle J_\mathcal{X} x, f \rangle|
+            = \sup_{ \| f \|_{\mathcal{X}^*} = 1} |f(x)|
+            \overset{Corollary \, \ref{haha}}{=} \| x \|_\mathcal{X}.
+    $$
+    故 $ J_\mathcal{X} $ 是线性等距映射.
+\end{proof}
+
+\begin{remark}
+    若线性赋范空间 $ \mathcal{X} $ 是自反空间, 则 $ J_\mathcal{X} $ 是满的线性等距映射,
+    故 $ \mathcal{X} $ 和 $ \mathcal{X}^{**} $ 等距同构. 
+    注意到, $ \mathcal{X}^{**} $ 是完备的, 因此自反空间必定完备.
+    
+    一个很自然的问题是, 如果 $ \mathcal{X} $ 和 $ \mathcal{X}^{**} $ 等距同构, 
+    能否推出 $ \mathcal{X} $ 自反呢? 答案是否定的, James 在 \cite{j51} 中给出了反例.
+\end{remark}
+
+下面引入另外两种拓扑, 弱收敛和 *-弱收敛.
+
+\begin{definition}
+    设 $ \mathcal{X} $ 是线性赋范空间, $ \{x_n\}_{n = 0}^\infty \subset \mathcal{X} $. 
+    若对 $ \forall f \in \mathcal{X}^* $, 
+    $$ 
+        \lim_{n \to \infty} f(x_n) = f(x_0),
+    $$
+    则称 $ x_n $ 弱收敛到 $ x_0 $, 记为 $ x_n \rightharpoonup x_0 $.
+\end{definition}
+
+\begin{definition}
+    设 $ \mathcal{X} $ 是线性赋范空间, $ \{f_n\}_{n = 0}^\infty \subset \mathcal{X}^* $. 
+    若对 $ \forall x \in \mathcal{X} $, 
+    $$ 
+        \lim_{n \to \infty} f_n(x) = f_0(x),
+    $$
+    则称 $ f_n $ *-弱收敛到 $ f_0 $, 记为 $ w^*-\lim_{n \to \infty} f_n = f_0 $.
+\end{definition}
+
+自反空间有些有意思的性质, 比如:
+
+\begin{theorem}
+    设 $ \mathcal{X} $ 是自反空间, $ E \subset \mathcal{X} $. 则
+    $ E $ 弱列紧当且仅当 $ E $ 有界.
+\end{theorem}
+
+\begin{remark}
+    "$ E $ 弱列紧 $ \Longrightarrow  E $ 有界" 只需要 $ E $ 是线性赋范空间即可.
+\end{remark}
+
+\begin{theorem}[H. Brezis, Functional Analysis, Proposition 3.20] \label{2}
+    自反空间的闭线性子空间也自反.
+\end{theorem}
+
+\begin{lemma} \label{3}
+    等距同构的两线性赋范空间, 自反性相同.
+\end{lemma}
+
+\begin{proof}
+    设 $ \mathcal{X} $ 和 $ \mathcal{Y} $ 是等距同构的线性赋范空间, 
+    则存在 $ \mathcal{X} $ 到 $ \mathcal{Y} $ 的线性等距同构映射 $ \varphi $.
+    由 Proposition \ref{5} 知, $ \varphi^{**} $ 也是线性等距同构映射.
+    
+    设 $ \mathcal{X} $ 自反, 则 $ J_\mathcal{X} $ 是满射, 从而 $ J_\mathcal{X} $ 是双射. 
+    下证 $ \mathcal{Y} $ 自反.
+    事实上, 对 $ \forall y^{**} \in \mathcal{Y}^{**} $, 
+    令 $ y := \varphi( (J_\mathcal{X})^{-1} ( (\varphi^{**})^{-1} (y^{**})) ) $, 
+    则 $ y \in \mathcal{Y} $ 且对 $ \forall y^* \in \mathcal{Y}^* $,
+    \begin{align*}
+        \langle J_\mathcal{Y} y, y^* \rangle
+            &= \langle y^*, y \rangle
+            = \langle y^*, \varphi( (J_\mathcal{X})^{-1} ( (\varphi^{**})^{-1} (y^{**})) ) \rangle \\
+            &= \langle \varphi^* (y^*), (J_\mathcal{X})^{-1} ( (\varphi^{**})^{-1} (y^{**})) \rangle
+            = \langle  (\varphi^{**})^{-1} (y^{**}), \varphi^* (y^*) \rangle 
+            = \langle y^{**}, y^* \rangle,
+    \end{align*}
+    即 $ J_\mathcal{Y} y = y^{**} $. 故 $ J_\mathcal{Y} $ 是满射, 从而 $ \mathcal{Y} $ 自反.
+\end{proof}
+
+下面给出自反的等价特征.
+
+\begin{theorem}
+    设 $ \mathcal{X} $ 是 Banach 空间. 则以下叙述等价:
+    \begin{enumerate}[{\rm(i)}]
+        \item $ \mathcal{X} $ 自反;
+        \item $ \mathcal{X}^* $ 自反;
+        \item 单位球弱列紧.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    先证 "(i) $\Longrightarrow$ (ii)". 对 $ \forall x^{***} \in \mathcal{X}^{***} $,
+    令 $ x^* := (J_\mathcal{X})^* (x^{***}) $, 
+    则 $ x^* \in \mathcal{X}^* $ 且对 $ \forall x^{**} \in \mathcal{X}^{**} $,
+    \begin{align*}
+        \langle J_{\mathcal{X}^*} x^*, x^{**} \rangle
+            &= \langle x^{**}, x^* \rangle
+            = \langle x^{**}, x^* \rangle
+            = \langle J_\mathcal{X} ((J_\mathcal{X})^{-1} x^{**}), x^* \rangle \\
+            &= \langle x^*, (J_\mathcal{X})^{-1} x^{**} \rangle
+            = \langle (J_\mathcal{X})^* (x^{***}), (J_\mathcal{X})^{-1} x^{**} \rangle
+            = \langle x^{***}, x^{**} \rangle,
+    \end{align*}
+    即 $ J_{\mathcal{X}^*} x^* = x^{***} $. 故 $ J_{\mathcal{X}^*} $ 是满射, 从而 $ \mathcal{X}^* $ 自反.
+    
+    再证 "(ii) $\Longrightarrow$ (i)". 
+    因 $ \mathcal{X} $ 完备, 故 $ J_\mathcal{X}(\mathcal{X}) $ 是 $ \mathcal{X}^{**} $ 的闭线性子空间.
+    又因为 $ \mathcal{X}^* $ 自反和 "(i) $\Longrightarrow$ (ii)" 知, $ \mathcal{X}^{**} $ 自反.
+    进一步由 Theorem \ref{2} 知, $ J_\mathcal{X}(\mathcal{X}) $ 自反. 
+    而 $ J_\mathcal{X}(\mathcal{X}) $ 与 $ \mathcal{X} $ 等距同构, 故由 Lemma \ref{3} 知, $ \mathcal{X} $ 自反.
+    
+     "(i) $\Longrightarrow$ (iii)" 是经典结论.
+     下证 "(iii) $\Longrightarrow$ (i)". 
+     证明非常复杂, 需要弄清楚拓扑的构造.
+     思路是证 $ J_\mathcal{X}(B_\mathcal{X}) = B_{\mathcal{X}^{**}} $, 
+     从而有 $ J_\mathcal{X}(\mathcal{X}) = \mathcal{X}^{**} $.
+\end{proof}
+
+\begin{thebibliography}{99}
+    \bibitem{j51} R. C. James, A non-reflexive Banach space isometric with its second conjugate space,
+     Proc. Nat. Acad. Sci. U.S.A. 37 (1951), 174--177.
+\end{thebibliography}
+
+\end{CJK*}
+\end{document} 
+
+
+
+
+
+
+
+
+

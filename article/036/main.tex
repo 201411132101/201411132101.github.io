@@ -46,20 +46,38 @@
 \begin{theorem}
     设 $ p \in [1, \infty) $. 则对 $ \forall f \in L^p(\mathbb{R}^n) $,
     $$
-        \| f \|_p = \sup_{g \in L^{p'}(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} \, = 1} 
-            \int_{\mathbb{R}^n} f(x) g(x) \\, dx.
+        \| f \|_{L^p(\mathbb{R}^n)} = \sup_{g \in L^{p'}(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} \, = 1} 
+            \int_{\mathbb{R}^n} f(x) g(x) \, dx.
     $$
 \end{theorem}
 
-事实上, 该定理可以推广到更一般的情况.
+事实上, 该定理条件中的 $ f \in L^p(\mathbb{R}^n) $ 可减弱为 $ f $ 是 $ \mathbb{R}^n $ 上的可测函数.
+
+\begin{theorem}[H. Brezis, Functional Analysis, Exercise 4.7] 
+    设 $ p \in [1, \infty) $, $ f $ 是 $ \mathbb{R}^n $ 上的可测函数.
+    若 $ \forall g \in L^{p'}(\mathbb{R}^n) $, 有 $ fg \in L^1(\mathbb{R}^n) $,
+    则 $ f \in L^p(\mathbb{R}^n) $.
+\end{theorem}
+
+\begin{corollary}
+    设 $ p \in [1, \infty) $, $ f $ 是 $ \mathbb{R}^n $ 上的可测函数. 则
+    存在 $ g \in L^{p'}(\mathbb{R}^n) $,$ \| g \|_{L^{p'}(\mathbb{R}^n)} = 1 $ 使得
+    $$
+        \| f \|_{L^p(\mathbb{R}^n)} = \int_{\mathbb{R}^n} f(x) g(x) \, dx.
+    $$
+\end{corollary}
+
+另一种推广如下. 要求一致有界, 但可以减弱 $ g $ 的范围.
 
 \begin{theorem} \label{text}
-    设 $ p \in [1, \infty) $. 则对 $ \forall f \in L^1_{loc}(\mathbb{R}^n) $,
+    设 $ p \in [1, \infty) $, $ f $ 是 $ \mathbb{R}^n $ 上的可测函数. 则
     \begin{equation} \label{haha}
-        \| f \|_p = \sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
+        \| f \|_{L^p(\mathbb{R}^n)} = \sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
             \int_{\mathbb{R}^n} f(x) g(x) \, dx.
     \end{equation}
 \end{theorem}
+
+\subsection{实分析角度的证明}
 
 证明思路: $ f \in L^p(\mathbb{R}^n) $ 时, 该定理回到了经典情况, 
 故只需证明 $ \| f \|_p = \infty $ 时, 右边也等于无穷. 
@@ -143,7 +161,8 @@ $$
             \int_{\mathbb{R}^n} f(x) g(x) \, dx =: M < \infty.
     $$
     则 $ f \in L^p(\mathbb{R}^n) $.
-    事实上, 令 $ g \in L^\infty(\mathbb{R}^n) $, 有紧支集且 $ \| g \|_{L^{p'}(\mathbb{R}^n)} = 1 $.
+    事实上, 当 $ M < \infty $ 时, $ f \in L_{loc}^1(\mathbb{R}) $ 是自动的.
+    令 $ g \in L^\infty(\mathbb{R}^n) $, 有紧支集且 $ \| g \|_{L^{p'}(\mathbb{R}^n)} = 1 $.
     对 $ \forall k \in \mathbb{N} $, 设 $ g_k := \rho_k * g $, 则 $ g_k \in C_c^\infty(\mathbb{R}^n) $,
     从而
     $$
@@ -224,12 +243,12 @@ $$
     \eqref{haha} 仍然成立. 至此 Theorem \ref{text} 证毕.
 \end{proof}
 
-\section{证明思路的来源}
+\section{泛函角度的证明}
 
-Theorem \ref{text} 的证明思路来源于 [H. Brezis, Functional Analysis, Sobolev Spaces and Partial Differential Equations] 
-中 Corollary 4.24 的证明. 同样的思路在张恭庆的泛函分析中也有提到.
+Theorem \ref{text} 的第一种证明思路来源于 Brezis 书中 Corollary 4.24 的证明. 同样的思路在张恭庆的泛函分析中也有提到.
+实际上直接利用此结论, 从泛函角度能快速证明 Theorem \ref{text}.
 
-\begin{theorem}[Corollary 4.24]
+\begin{theorem}[H. Brezis, Functional Analysis, Corollary 4.24] \label{h}
     设开集 $ \Omega \subset \mathbb{R}^n $ 且 $ f \in L^1_{loc}(\Omega) $ 满足
     对 $ \forall g \in C_c^\infty(\Omega) $,
     $$
@@ -284,6 +303,37 @@ Theorem \ref{text} 的证明思路来源于 [H. Brezis, Functional Analysis, Sob
     故对 a.e. $ x \in B(0, k) $, $ f(x) = 0 $.
     再由 $ k $ 的任意性知, 对 a.e. $ x \in \mathbb{R}^n $, $ f(x) = 0 $.
 \end{proof}
+
+下面给出 Theorem \ref{text} 的另一种证明.
+
+\begin{proof}[Proof of Theorem \ref{text}]
+    当 $ f \in L^p(\mathbb{R}^n) $ 时, \eqref{haha} 是经典的等式, 证明略.
+    
+    若
+    $$
+        \sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
+            \int_{\mathbb{R}^n} f(x) g(x) \, dx =: M < \infty.
+    $$
+    则可定义算子
+    $$
+        T :\ C_c^\infty(\mathbb{R}^n) \to \mathbb{R},\ g \mapsto \int_{\mathbb{R}^n} f(x) g(x) \, dx.
+    $$
+    该算子是连续线性泛函, 从而可以沿拓为 $ L^{p'}(\mathbb{R}^n) $ 上的连续泛函 $ \widetilde{T} $.
+    对于 $ \widetilde{T} $, 存在 $ \tilde{f} \in L^p(\mathbb{R}^n) $ 使得 
+    $$
+        \widetilde{T}(g) = \int_{\mathbb{R}^n} \tilde{f}(x) g(x) \, dx, \quad \forall g \in L^{p'}(\mathbb{R}^n).
+    $$
+    对 $ \forall g \in C_c^\infty(\mathbb{R}^n) $,
+    $$
+        \int_{\mathbb{R}^n} f(x) g(x) \, dx = T(g) = \widetilde{T}(g) = \int_{\mathbb{R}^n} \tilde{f}(x) g(x) \, dx,
+    $$
+    即
+    $$
+        \int_{\mathbb{R}^n} \left[f(x) - \tilde{f}(x)\right] g(x) \, dx = 0.
+    $$
+    由此及 Theorem \ref{h} 知, $ f $ 和 $ \tilde{f} $ 几乎处处相等, 故 $ f \in L^p(\mathbb{R}^n) $.
+\end{proof}
+
 
 \end{CJK*}
 \end{document} 

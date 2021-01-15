@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  19 MAR 2020 22:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  24 DEC 2020 22:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -527,6 +527,22 @@ LaTeX Warning: No \author given.
 LaTeX Font Warning: Font shape `C70/gbsn/m/it' undefined
 (Font)              using `C70/gbsn/m/n' instead on input line 45.
 
+
+Overfull \hbox (19.79807pt too wide) in paragraph at lines 94--98
+\C70/gbsn/m/n/10.95/6c è \C70/gbsn/m/n/10.95/61 ^^O \C70/gbsn/m/n/10.95/52 0$\O
+MS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 x[]\OMS/cmsy/m/n/10.95 g[]$ \C70/gbsn/m/
+n/10.95/67 	 \C70/gbsn/m/n/10.95/75 L\OT1/cmr/m/n/10.95 , \C70/gbsn/m/n/10.95/4
+e Î \C70/gbsn/m/n/10.95/80 ^^L$\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 f\OT1/c
+mr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 g[
+]$ \C70/gbsn/m/n/10.95/67 	 \C70/gbsn/m/n/10.95/75 L\OT1/cmr/m/n/10.95 . \C70/g
+bsn/m/n/10.95/75 1 \C70/gbsn/m/n/10.95/6b d \C70/gbsn/m/it/10.95/53 Ê\OT1/cmr/m
+/n/10.95 Remark 1.2[] \C70/gbsn/m/n/10.95/77 å\OT1/cmr/m/n/10.95 , \C70/gbsn/m/
+n/10.95/5b X \C70/gbsn/m/n/10.95/57 ( \C70/gbsn/m/n/10.95/65 6 [ \C70/gbsn/m/n/
+10.95/5b P \C70/gbsn/m/n/10.95/52 ^^W$\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 
+f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/1
+0.95 g[]$
+ []
+
 [1
 
 {c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
@@ -536,13 +552,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5337 strings out of 492649
- 68117 string characters out of 6133383
- 246783 words of memory out of 5000000
- 8976 multiletter control sequences out of 15000+600000
- 25741 words of font info for 94 fonts, out of 8000000 for 9000
+ 5340 strings out of 492649
+ 68214 string characters out of 6133383
+ 247793 words of memory out of 5000000
+ 8978 multiletter control sequences out of 15000+600000
+ 25435 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,40p,271b,844s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,6n,40p,271b,853s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-di
@@ -559,32 +575,31 @@ gbsnu50.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu51.pfb><c
 :/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu52.pfb><c:/texlive/2018
 /texmf-dist/fonts/type1/arphic/gbsnu/gbsnu53.pfb><c:/texlive/2018/texmf-dist/fo
 nts/type1/arphic/gbsnu/gbsnu54.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arph
-ic/gbsnu/gbsnu56.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu
-57.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu59.pfb><c:/tex
-live/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5b.pfb><c:/texlive/2018/texm
-f-dist/fonts/type1/arphic/gbsnu/gbsnu5e.pfb><c:/texlive/2018/texmf-dist/fonts/t
-ype1/arphic/gbsnu/gbsnu5f.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gb
-snu/gbsnu61.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu62.pf
-b><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu65.pfb><c:/texlive/
-2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu66.pfb><c:/texlive/2018/texmf-dis
-t/fonts/type1/arphic/gbsnu/gbsnu67.pfb><c:/texlive/2018/texmf-dist/fonts/type1/
-arphic/gbsnu/gbsnu6b.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/g
-bsnu71.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu75.pfb><c:
-/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu76.pfb><c:/texlive/2018/
-texmf-dist/fonts/type1/arphic/gbsnu/gbsnu77.pfb><c:/texlive/2018/texmf-dist/fon
-ts/type1/arphic/gbsnu/gbsnu79.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphi
-c/gbsnu/gbsnu7a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7
-b.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu80.pfb><c:/texl
+ic/gbsnu/gbsnu57.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu
+59.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5b.pfb><c:/tex
+live/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5f.pfb><c:/texlive/2018/texm
+f-dist/fonts/type1/arphic/gbsnu/gbsnu61.pfb><c:/texlive/2018/texmf-dist/fonts/t
+ype1/arphic/gbsnu/gbsnu62.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gb
+snu/gbsnu65.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu66.pf
+b><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu67.pfb><c:/texlive/
+2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6b.pfb><c:/texlive/2018/texmf-dis
+t/fonts/type1/arphic/gbsnu/gbsnu6c.pfb><c:/texlive/2018/texmf-dist/fonts/type1/
+arphic/gbsnu/gbsnu71.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/g
+bsnu75.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu76.pfb><c:
+/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu77.pfb><c:/texlive/2018/
+texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7a.pfb><c:/texlive/2018/texmf-dist/fon
+ts/type1/arphic/gbsnu/gbsnu7b.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphi
+c/gbsnu/gbsnu7d.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu8
+0.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu81.pfb><c:/texl
 ive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu82.pfb><c:/texlive/2018/texmf
 -dist/fonts/type1/arphic/gbsnu/gbsnu8b.pfb><c:/texlive/2018/texmf-dist/fonts/ty
 pe1/arphic/gbsnu/gbsnu8e.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbs
-nu/gbsnu8f.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu95.pfb
-><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu96.pfb><c:/texlive/2
-018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (2 pages, 214270 bytes).
+nu/gbsnu95.pfb><c:/texlive/2018/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu96.pfb
+><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (2 pages, 208708 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 141 compressed objects within 2 object streams
+ 220 PDF objects out of 1000 (max. 8388607)
+ 138 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 129 words of extra memory for PDF output out of 10000 (max. 10000000)
 
