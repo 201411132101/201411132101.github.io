@@ -1,0 +1,164 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{ctex}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+
+% 基本信息
+\title{指数迭代问题}
+
+\begin{document}
+
+\maketitle
+
+\section{提出问题}
+
+导师收到一个有意思的问题. 设 $ b \in (0, \infty) $, 则
+\begin{equation} \label{1}
+    b^{b^{b^{b \cdots}}} = ?
+\end{equation}
+这个问题乍一看很简单, 我都没仔细想, 后来师兄整出来部分结果, 
+我看了看, 发现没有那么平凡, 随即研究了一番,
+发现2000 年, Wassell 在 \cite{w00} 中给出了完整的回答.
+然而他的证明看不懂, 故我用自己的方法证了一遍.
+
+\begin{theorem}[Wassell] \label{2}
+    设 $ b \in (0, \infty) $. 则 \eqref{1} 收敛当且仅当 $ b \in [(1/e)^e, e^{1/e}] $. 并且, 
+    \begin{enumerate}[{\rm (i)}]
+        \item 当 $ b \in (0, (1/e)^e) $ 时, \eqref{1} 在 $ x = b^{b^x} $ 的最大解和次大解之间循环;
+        \item 当 $ b \in [(1/e)^e, 1] $ 时, \eqref{1} 收敛到 $ x = b^x $ 的唯一解;
+        \item 当 $ b \in (1, e^{1/e}) $ 时, \eqref{1} 收敛到 $ x = b^x $ 的较小解;
+        \item 当 $ b = e^{1/e} $ 时, \eqref{1} 收敛到 $ e $;
+        \item 当 $ b \in (e^{1/e}, \infty) $ 时, \eqref{1} 趋于无穷.
+    \end{enumerate}
+\end{theorem}
+
+\section{定理的证明}
+
+令 $ a_1 := b $, 对 $ \forall k \in \mathbb{N} $, $ a_{k + 1} := b^{a_k} $.
+则 \eqref{1} 收敛即 $ \{a_k\}_{k \in \mathbb{N}} $ 收敛.
+
+注意到, 当 $ b \in (1, \infty) $ 时,
+$$
+    b < b^b < b^{b^b} < \cdots,
+$$
+即 $ \{a_k\}_{k \in \mathbb{N}} $ 单调.
+这是因为由数学归纳法可得, 对 $ \forall k \in \mathbb{N} $,
+$$
+    a_{k + 1} = b^{a_k} < b^{a_{k + 1}} = a_{k + 2}.
+$$
+故下面分两种情况证明定理 \ref{2}.
+
+\subsection{$b \in (1, \infty)$}
+
+若 $ \{a_k\}_{k \in \mathbb{N}} $ 有界, 则单调有界必收敛, 记
+$$
+    x := b^{b^{b^{b \cdots}}},
+$$
+从而
+\begin{equation} \label{3}
+    x = b^x.
+\end{equation}
+注意到仅当 $ b \in (1, e^{1/e}] $ 时, \eqref{3} 有解, 
+故当 $ b \in (e^{1/e}, \infty) $ 时, $ \{a_k\}_{k \in \mathbb{N}} $ 趋于无穷.
+
+下证 $ b \in (1, e^{1/e}] $ 时, $ \{a_k\}_{k \in \mathbb{N}} $ 收敛.
+由数学归纳法可证, 对 $ \forall k \in \mathbb{N} $,
+$$
+    a_{k + 1} = b^{a_k} < \left( e^{1/e} \right)^e = e.
+$$
+因此 $ \{a_k\}_{k \in \mathbb{N}} $ 单调有界必收敛. 
+
+当 $ b \in (1, e^{1/e}) $ 时, \eqref{3} 有两解, 一个大于 $ e $, 一个小于 $ e $,
+由此及 $ e $ 是 $ \{a_k\}_{k \in \mathbb{N}} $ 上界知, 
+$ \{a_k\}_{k \in \mathbb{N}} $ 收敛到 \eqref{3} 的较小解.
+当 $ b = e^{1/e} $ 时, \eqref{3} 有唯一解 $ e $, 
+故 $ \{a_k\}_{k \in \mathbb{N}} $ 收敛到 $ e $.
+
+\subsection{$b \in (0, 1]$}
+
+证明思路源自求一个类似 $ a_1 = a $, $ a_{k + 1} = a_k + \frac{b}{a_k} $ 数列的极限,
+那个数列也是震荡的, 但按奇偶单调.
+
+由数学归纳法可得 $ \{a_{2k-1}\}_{k \in \mathbb{N}} $ 单增有上界 $ 1 $, 
+$ \{a_{2k}\}_{k \in \mathbb{N}} $ 单减有下界 $ 0 $.
+故可记 
+$$
+    x_1 := \lim_{k \in \mathbb{N}} a_{2k-1}
+        \quad \text{and} \quad
+    x_2 := \lim_{k \in \mathbb{N}} a_{2k}.
+$$
+注意到 $ x_1,\ x_2 $ 是方程
+\begin{equation} \label{6}
+    x = b^{b^x} 
+\end{equation}
+的解. 注意到 \eqref{6} 的解必属于 $ (0, 1) $, 故\eqref{6} 的解也是
+\begin{equation} \label{7}
+    \log (- \log x) = x \log b +  \log (- \log b)
+\end{equation}
+的解, 其中 $ x \in (0, 1) $.
+
+令 $ f(x) := \log (- \log x) - x \log b - \log (- \log b) $, $ x \in (0, 1) $.
+
+Case 1) $ b \in [(1/e)^e, 1] $. 此时, 由单调性知 \eqref{7} 有唯一解, 故
+$ \{a_k\}_{k \in \mathbb{N}} $ 收敛到 \eqref{6} 的唯一解.
+
+Case 2) $ b \in (0, (1/e)^e) $. 此时, 由单调性及 
+$ f(1) > 0 $, $ f(b) < 0 $, $ f(1/e) > 0 $, $ f(b^b) < 0 $ 知 \eqref{7} 有三解, 且 
+$$ 
+    t_1 < b < t_2 < t_3 < b^b,
+$$
+其中 $ t_1,\ t_2,\ t_3 $ 是 \eqref{7} 的解.
+由此及数学归纳法可证, 对 $ \forall k \in \mathbb{N} $,
+$$
+    a_{2k+1} = b^{b^{a_{2k-1}}} < b^{b^{t_2}} = t_2
+        \quad \text{and} \quad
+    a_{2k+2} = b^{b^{a_{2k}}} > b^{b^{t_3}} = t_3.
+$$
+因此 $ \{a_{2k-1}\}_{k \in \mathbb{N}} $ 收敛到 \eqref{7} 的次大解, 
+$ \{a_{2k}\}_{k \in \mathbb{N}} $ 收敛到 \eqref{7} 的最大解.  
+至此, 定理 \ref{1} 证毕.
+
+\begin{thebibliography}{99}  
+	\bibitem{w00}
+    S. R. Wassell, 
+    Superexponentiation and fixed points of exponential and logarithmic functions,
+    Math. Mag. 73 (2000), 111--119.
+\end{thebibliography}
+
+\end{document} 
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,177 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{ctex}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+
+% 基本信息
+\title{弱拓扑及弱$ * $拓扑}
+
+\begin{document}
+
+\maketitle
+
+\section{算子族生成的拓扑}
+
+首先回顾一个经典的结论.
+
+\begin{theorem}[{\cite[p.55]{b11}}] \label{1}
+    设 $ \mathcal{X} $ 是集合, $ \{\mathcal{Y}_i\}_{i \in I} $ 是一族拓扑空间, $ \{\varphi_i\}_{i \in I} $ 满足,
+    对 $ \forall \, i \in I $, $ \varphi_i : \mathcal{X} \to \mathcal{Y}_i $.
+    则存在 $ \mathcal{X} $ 上最小的拓扑 $ \mathcal{J} $ 使得, 对 $ \forall \, i \in I $, $ \varphi_i $ 连续.
+\end{theorem}
+
+\begin{definition}
+    设记号如定理 \ref{1}, 
+    称 $ \mathcal{J} $ 为与 $ \{\varphi_i\}_{i \in I} $ 相关的拓扑.
+\end{definition}
+
+\begin{proof}[Proof of Theorem \ref{1}]
+    存在性是显然的, 比如可以在 $ \mathcal{X} $ 上定义 discrete topology,
+    $$
+        \mathcal{J} := \{ \mathcal{X} \text{ 的全部子集} \},
+    $$
+    则此拓扑满足定理的条件. 关键是证明最小性.
+    
+    首先注意到, 若要使得, 对 $ \forall \, i \in I $, $ \varphi_i $ 连续, 则
+    $$
+        \Lambda := \{ \varphi_i^{-1}(\Omega_i) :\ i \in I,\ \Omega_i \text{ 是 $ \mathcal{Y}_i $ 中的开集}  \}
+    $$
+    必须是拓扑 $ \mathcal{J} $ 的子集. 注意到 $ \Lambda $ 是 $ \mathcal{X} $ 的基,
+    故令 $ \mathcal{J} $ 为 $ \Lambda $ 生成的拓扑即可: 对 $ \Lambda $ 取任意有限交得到新集合族 $ \Phi $, 
+    再对 $ \Phi $ 取任意并就得到了我们想要的拓扑 $ \mathcal{J} $, 具体证明略.
+    
+    事实上, $ \Lambda $ 的生成拓扑还有两种等价定义:
+    \begin{enumerate}[{\rm(i)}]
+        \item 该定义来自 \cite[p.78]{m00}, 
+            $$
+                \mathcal{J} := \{ U \subset \mathcal{X} :\  
+                    \forall \, x \in U,\ \text{there exists a } B \in \Lambda \text{ such that }
+                    x \in B \subset U \};
+            $$
+        \item $ \mathcal{J} := \bigcap \{ \text{包含 } \Lambda \text{ 的拓扑} \} $.
+    \end{enumerate}
+    定理 \ref{1} 证毕.
+\end{proof}
+
+\begin{remark} \label{2}
+    对 $ \forall x \in \mathcal{X} $, 可以证明
+    $$
+        \left\{ \bigcap_{finite} \varphi_i^{-1}(V_i) :\ i \in I,\ V_i \text{是 } \varphi_i(x) \text{ 的邻域} \right\}
+    $$
+    是 $ x $ 的领域基.
+\end{remark}
+
+\begin{proposition}[{\cite[Proposition 3.1]{b11}}]  \label{3}
+    设记号如定理 \ref{1}, 
+    $ \{x_n\}_{n \in \mathbb{N}} \subset \mathcal{X} $ 且 $ x \in \mathcal{X} $.
+    则 $ x_n \overset{\mathcal{J}}{\to} x $, $ \text{as } n \to \infty $,
+    当且仅当对 $ \forall \, i \in I $, 
+    $ \varphi_i(x_n) \overset{\mathcal{Y}_i}{\to} \varphi_i(x) $, $ \text{as } n \to \infty $.
+\end{proposition}
+
+\begin{proof}
+    $"\Longrightarrow"$ 是显然的, 下证 $"\Longleftarrow"$. 
+    事实上, 对任意 $ x $ 的邻域 $ V $, 存在领域基中的元素 $ U $ 使得 $ U \subset V $. 
+    由 Remark \ref{2} 知, $ U $ 可表示为 $ \bigcap_{finite} \varphi_i^{-1}(V_i) $, 
+    其中 $ V_i $ 是 $ \varphi_i(x) $ 的邻域. 由于是有限交, 
+    故存在 $ N \in \mathbb{N} $ 使得, $ \{x_n\}_{n = N}^\infty \subset U $,
+    即 $ x_n \overset{\mathcal{J}}{\to} x $, $ \text{as } n \to \infty $.
+    Proposition \ref{3} 证毕.
+\end{proof}
+
+\begin{lemma} [{\cite[Proposition 3.1]{b11}}] 
+    设 $ \mathcal{Z} $ 是拓扑空间且 $ \psi :\ \mathcal{Z} \to \mathcal{X} $.
+    则 $ \psi $ 连续当且仅当对 $ \forall \, i \in I $, $ \varphi_i \circ \psi $ 连续.
+\end{lemma}
+
+\section{弱拓扑}
+
+\begin{definition}
+    令 $ \mathcal{X}^* := \mathcal{L}(\mathcal{X}, \mathbb{K}) $.
+    称 $ \mathcal{X}^* $ 生成的拓扑为 $ \mathcal{X} $ 上的弱拓扑.
+\end{definition}
+
+\begin{proposition}
+    设 $ \mathcal{X} $ 是 Banach 空间.
+    \begin{enumerate}[{\rm(i)}]  
+        \item (\cite[Proposition 3.6]{b11}) 若 $ \mathcal{X} $ 是有限维, 则强弱收敛等价;
+        \item (\cite[Exercise 3.8]{b11}) 若 $ \mathcal{X} $ 是无穷维, 则无法赋予距离使得, 
+            由距离生成的拓扑和弱拓扑一致.
+    \end{enumerate}
+\end{proposition}
+
+\begin{remark}
+    对于 $ \ell^1 $, 强弱收敛等价, 然而范数诱导的拓扑和弱拓扑不一致.
+    
+    这与直观不矛盾, 因为两个度量的收敛性等价可推出拓扑一致, 但两个拓扑的收敛性等价推不出拓扑一致.
+\end{remark}
+
+
+\begin{theorem} [{\cite[Theorem 3.7]{b11}}]
+    设 $ C $ 是 $ \mathcal{X} $ 中的凸集. 
+    则 $ C $ 在弱拓扑意义下闭当且仅当 $ C $ 在强拓扑意义下闭.
+\end{theorem}
+
+
+\section{弱$*$拓扑}
+
+设 $ \mathcal{X} $ 为 Banach 空间, 则 $ \mathcal{X}^* $ 上已经有两个拓扑了, 
+一个是由 $ \| \cdot \|_{\mathcal{X}^*} $ 生成的强拓扑,
+另一个是由 $ \mathcal{X}^{**} $ 生成的弱拓扑,
+下面定义第三个拓扑.
+
+\begin{definition}
+    设 $ \mathcal{X} $ 为 Banach 空间. 对 $ \forall \, x \in \mathcal{X} $, 定义
+    $$
+        \varphi_x :\ \mathcal{X}^* \to \mathbb{K},\ f \to f(x).
+    $$
+    称 $ \{ \varphi_x \}_{x \in \mathcal{X}} $ 生成的拓扑为 $ \mathcal{X}^* $ 上的弱 $ * $ 拓扑.
+\end{definition}
+
+
+\begin{thebibliography}{99}  
+	\bibitem{b11}
+    H. Brezis, Functional Analysis, Sobolev Spaces and Partial Differential Equations.
+    Universitext. Springer, New York,  2011.
+    
+    \bibitem{m00}
+    J. Munkres, Topology, Second edition, Prentice Hall, Inc., Upper Saddle River, NJ, 2000.
+\end{thebibliography}
+
+\end{document} 
+
+
+
+
+
+
+
+
+
