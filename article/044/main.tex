@@ -1,0 +1,169 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{ctex}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+
+% 基本信息
+\title{Vitali covering lemma}
+
+\begin{document}
+
+\maketitle
+
+\section{度量空间}
+
+\begin{lemma} 
+    设 $ \mathcal{F} $ 是度量空间 $ (\mathcal{X}, d) $ 中的一族球且
+    $ \sup_{B \in \mathcal{F}} r(B) < \infty $.
+    则存在两两不交的至多可数子球族 $ \mathcal{G} \subset \mathcal{F} $ 使得
+    \begin{equation} \label{1}
+        \bigcup_{B \in \mathcal{F}} B 
+            \subset \bigcup_{B \in \mathcal{G}} 5 B,
+    \end{equation}
+    且对 $ \forall B \in \mathcal{F} $, 存在 $ \widetilde{B} \in \mathcal{G} $ 
+    with $ r(B) \leq 2 r(\widetilde{B}) $
+    使得 $ B \cap \widetilde{B} \neq \emptyset $.
+\end{lemma}
+
+可以利用 Zorn 引理(若非空偏序集的任意全序子集有上界, 则该偏序集存在极大元)来证明这个结论.
+
+\begin{proof}[证明一]
+    定义偏序集
+    \begin{equation} \label{2}
+    \begin{aligned}
+        \Omega :=& \{ \omega \subset \mathcal{F} 
+            :\ \omega \text{ is pairwise disjoint and, for any } B \in \mathcal{F},\
+                \text{if } B \cap \bigcup_{\widetilde{B} \in \omega} \widetilde{B} \neq \emptyset, \\
+            &\quad\text{then there exits a } \widetilde{B} \in \omega 
+                \text{ with } r(\widetilde{B}) \geq r(B)/2
+            \text{ such that } B \cap \widetilde{B} \neq \emptyset  \}. 
+    \end{aligned}
+    \end{equation}
+    易证 $ \Omega $ 非空且满足 Zorn 引理的条件, 
+    因此存在极大元 $ \mathcal{G} \in \Omega $. 
+    
+    下证 $ \mathcal{G} $ 满足条件. 由 \eqref{2} 知, $ \mathcal{G} $ 两两不交. 令
+    $$
+        \mathcal{P} := \left\{ B \in \mathcal{F} :\ 
+            B \cap \bigcup_{\widetilde{B} \in \mathcal{G}} \widetilde{B} = \emptyset \right\}.
+    $$
+    若 $ \mathcal{P} $ 非空, 由 $ \sup_{B \in \mathcal{F}} r(B) < \infty $ 知,
+    可取 $ B_0 \in \mathcal{P} $ 使得 $ r(B_0) \geq \sup_{B \in \mathcal{P}} r(B) / 2 $, 则
+    $ \mathcal{G} \cup \{ B_0 \} \in \omega $, 这与 $ \mathcal{G} $ 的极大性相矛盾.
+    故 $ \mathcal{P} = \emptyset $, 从而
+    对 $ \forall B \in \mathcal{F} $, 
+    存在 $ \widetilde{B} \in \mathcal{G} $ with $ r(\widetilde{B}) \geq r(B)/2 $
+    使得 $ B \cap \widetilde{B} \neq \emptyset $, 从而 $ B \subset 5 \widetilde{B} $.
+    引理证毕.
+\end{proof}
+
+\begin{proof}[证明二]
+    也可以构造性的证明此结论.
+\end{proof}
+
+\begin{remark}
+    \begin{enumerate}[{\rm(i)}]
+        \item 若度量空间是几何双倍度量空间
+            (任意球 $ B $ 可被 $ N $ 个半径为 $ r(B) / 2 $ 的球包住, 其中 $ N $ 与 $ B $ 无关), 
+            则由于 $ \mathcal{G} $ 两两不交, 故至多可数(see, for instance, \cite[Lemma 2.5]{h10});
+        \item 双倍度量空间(赋予双倍测度)是几何双倍度量空间(see, for instance, \cite[p. 67]{cw71}), 
+            则由于 $ \mathcal{G} $ 两两不交, 故至多可数;
+        \item \eqref{1} 中的 $ 5 $ 可以改为任意比 $ 3 $ 大的数, 
+            且当 $ \mathcal{F} $ 是无穷集时, 不可以取 $ 3 $,
+            当 $ \mathcal{F} $ 是有限集时, 可以取 $ 3 $.
+        \item 条件中的半径有上界是必须的, 反例:
+  \end{enumerate}
+\end{remark}
+
+\begin{proof}
+    先证 (i). 取定参考点 $ x_0 \in \mathcal{X} $. 对 $ \forall k \in \mathbb{N} $, 令
+    $$
+        \mathcal{G}_k := \{ B \in \mathcal{G} :\ 
+            B \subset B(x_0, k),\ r(B) \in (1/k, \infty) \}.
+    $$
+    对 $ \forall k \in \mathbb{N} $, 存在有限个圆心属于 $ B(x_0, k) $, 半径为 $ 1/k $ 的球族 
+    $ \mathcal{C} $ 把 $ B(x_0, k) $ 盖住. 因此对 $ \forall B \in \mathcal{G}_k $,
+    存在 $ \widetilde{B} \in \mathcal{C} $ 使得 $ x_B \in \widetilde{B} $.
+    注意到 $ \mathcal{G}_k $ 两两不交, 故 $ B \mapsto \widetilde{B} $ 的映射是单射
+    (否则 $ B_1 \cap B_2 \supset \{ x_{\widetilde{B}} \} $ 非空), 
+    从而 $ \# \mathcal{G}_k \leq \# \mathcal{C}  $ 也是有限集. 从因此
+    $$
+        \mathcal{G} = \bigcup_{k = 1}^\infty \mathcal{G}_k
+    $$
+    至多可数.
+    
+    再证(ii). 对任意球 $ B \subset \mathcal{X} $, 
+    取 $ B $ 中半径为 $ r(B)/4 $ 且两两不交的球族 $ \mathcal{C} $, 则
+    对 $ \forall \widetilde{B} \in \mathcal{C} $,
+    $$
+        \mu(B) \leq \mu \left( 8\widetilde{B} \right) 
+               \leq \left[C_{(\mu)}\right]^3 \mu \left( \widetilde{B} \right) ,
+    $$
+    因此
+    $$
+     \mu(B) = \mu \left( \bigcup_{\widetilde{B} \in \mathcal{C}} \widetilde{B} \right) 
+            = \sum_{\widetilde{B} \in \mathcal{C}} \mu \left( \widetilde{B} \right)
+            \geq \# \mathcal{C} \mu(B) / \left[C_{(\mu)}\right]^3,
+    $$
+    即 $ \# \mathcal{C} \leq \left[C_{(\mu)}\right]^3 $. 
+    设 $ \mathcal{C} $ 是极大的, 则 $ \{ 2\widetilde{B} \}_{\widetilde{B} \in \mathcal{C}} $
+    是半径为 $ r(B) / 2 $ 且能盖住 $ B $ 的球族.
+    故 $ (\mathcal{X}, d, \mu) $ 是几何双倍度量空间.
+    
+    现在证 (iii). 只需证$ \mathcal{F} $ 是无穷集时不能取 $ 3 $.
+    反例: 待补 https://math.stackexchange.com/questions/2880025/why-is-3-a-bad-constant-in-the-vitali-covering-lemma-infinite-version
+    
+    最后证(iv). 反例: $ \mathbb{R}^n $ 中的球族 $ \{ B(\mathbf{0}, k) \}_{k \in \mathbb{N}} $.
+\end{proof}
+
+\section{拟度量空间}
+
+应该是差不多的.
+
+\begin{thebibliography}{99}  
+	\bibitem{h10} T. Hyt\"onen, 
+    A framework for non-homogeneous analysis on metric spaces, and the RBMO space of Tolsa,
+    Publ. Mat. 54 (2010), 485--504.
+    
+    \bibitem{cw71} R. R. Coifman and G. Weiss,
+    Analyse Harmonique Non-commutative sur Certains Espaces Homog\`enes,
+    (French) \'Etude de Certaines Int\'egrales Singuli\`eres,
+    Lecture Notes in Mathematics 242, Springer-Verlag, Berlin-New York, 1971.
+\end{thebibliography}
+
+\end{document} 
+
+
+
+
+
+
+
+
+
