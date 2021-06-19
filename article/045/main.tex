@@ -1,0 +1,97 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{ctex}
+\usepackage{pgfplots}  
+\usepackage{scalefnt}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+
+
+% 基本信息
+\title{凸集分离定理的一个有意思的小应用}
+
+\begin{document}
+
+\maketitle
+
+由凸集分离定理和Riesz表示定理, 可得到下面推论.
+
+\begin{corollary} 
+    设 $ F $ 是 Hilbert 空间 $ \mathcal{H} $ 中的凸集, $ x_0 \notin F $.
+    则存在 $ y_0 \in \mathcal{H} $ 使得
+    $$
+        \sup_{x \in F} |(y_0, x)| \leq |(y_0, x_0)|.
+    $$
+\end{corollary}
+
+这个推论的几何直观有点意思.
+设 $ \mathcal{H} := \mathbb{R}^2 $, 
+$ F := x^2/6 + y^2/3 < 1 $, $ x_0 := (2, 1) $.
+则存在 $ y_0 := (1, 1) $ 使得
+$$
+    \sup_{x \in F} |(y_0, x)| = |(y_0, x_0)|,
+$$
+即 $ F $ 中在 $ y_0 $ 方向上的投影最大的点几乎是 $ x_0 $.
+
+\begin{center}
+\begin{tikzpicture} [fill=blue!20]  
+    % 椭圆
+    \draw[fill] (0,0) ellipse (2.449 and 1.732);
+    
+    \node (F) at (-1, 0.5) [below left] {$F$};
+    \node (O) at (0, 0) [below left] {$O$};
+    \node (x0) at (2, 1) [above right] {$x_0$}; 
+    \node (y0) at (2, 2) [above right] {$y_0$};
+    
+    % x0
+    \draw[line width=1pt, ->] (0, 0) -- (x0);
+    
+    % 切线
+    \draw[line width=1pt, densely dashed] (1, 2) -- (3, 0);
+    
+    % y0
+    \draw[line width=1pt, ->] (0, 0) -- (2, 2);
+    
+    \draw[line width=1pt, red, -] (0, 0) -- (1.5, 1.5);
+\end{tikzpicture}  
+\end{center}
+
+作为应用, 该推论可以证明我们论文中的一个小引理.
+
+\begin{thebibliography}{99}  
+	\bibitem{r91} 
+\end{thebibliography}
+
+\end{document} 
+
+
+
+
+
+
+
+
+

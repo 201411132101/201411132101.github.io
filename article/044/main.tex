@@ -41,19 +41,21 @@
 \begin{lemma} 
     设 $ \mathcal{F} $ 是度量空间 $ (\mathcal{X}, d) $ 中的一族球且
     $ \sup_{B \in \mathcal{F}} r(B) < \infty $.
-    则存在两两不交的至多可数子球族 $ \mathcal{G} \subset \mathcal{F} $ 使得
+    则存在两两不交的子球族 $ \mathcal{G} \subset \mathcal{F} $ 使得
     \begin{equation} \label{1}
         \bigcup_{B \in \mathcal{F}} B 
             \subset \bigcup_{B \in \mathcal{G}} 5 B,
     \end{equation}
     且对 $ \forall B \in \mathcal{F} $, 存在 $ \widetilde{B} \in \mathcal{G} $ 
-    with $ r(B) \leq 2 r(\widetilde{B}) $
+    满足 $ r(B) \leq 2 r(\widetilde{B}) $
     使得 $ B \cap \widetilde{B} \neq \emptyset $.
 \end{lemma}
 
 可以利用 Zorn 引理(若非空偏序集的任意全序子集有上界, 则该偏序集存在极大元)来证明这个结论.
 
 \begin{proof}[证明一]
+    该证明来自 [J. Heinonen, Lectures on Analysis on Metric Space, Theorem 1.2].
+
     定义偏序集
     \begin{equation} \label{2}
     \begin{aligned}
