@@ -99,7 +99,8 @@
         \item \eqref{1} 中的 $ 5 $ 可以改为任意比 $ 3 $ 大的数, 
             且当 $ \mathcal{F} $ 是无穷集时, 不可以取 $ 3 $,
             当 $ \mathcal{F} $ 是有限集时, 可以取 $ 3 $.
-        \item 条件中的半径有上界是必须的, 反例:
+        \item 条件中的半径有上界是必须的, 反例: 
+            $ \mathbb{R}^n $ 中的球族 $ \{ B(\mathbf{0}, k) \}_{k \in \mathbb{N}} $.
   \end{enumerate}
 \end{remark}
 
@@ -109,11 +110,12 @@
         \mathcal{G}_k := \{ B \in \mathcal{G} :\ 
             B \subset B(x_0, k),\ r(B) \in (1/k, \infty) \}.
     $$
-    对 $ \forall k \in \mathbb{N} $, 存在有限个圆心属于 $ B(x_0, k) $, 半径为 $ 1/k $ 的球族 
-    $ \mathcal{C} $ 把 $ B(x_0, k) $ 盖住. 因此对 $ \forall B \in \mathcal{G}_k $,
+    对 $ \forall k \in \mathbb{N} $, 存在有限个圆心属于 $ B(x_0, k) $, 
+    半径为 $ 1/(2k) $ 的球族 $ \mathcal{C} $ 把 $ B(x_0, k) $ 盖住. 
+    因此对 $ \forall B \in \mathcal{G}_k $,
     存在 $ \widetilde{B} \in \mathcal{C} $ 使得 $ x_B \in \widetilde{B} $.
-    注意到 $ \mathcal{G}_k $ 两两不交, 故 $ B \mapsto \widetilde{B} $ 的映射是单射
-    (否则 $ B_1 \cap B_2 \supset \{ x_{\widetilde{B}} \} $ 非空), 
+    注意到 $ \mathcal{G}_k $ 两两不交且 $ \widetilde{B} \subset B $, 
+    故 $ T :\ \mathcal{G}_k \to \mathcal{C}, B \mapsto \widetilde{B} $ 的映射是单射,
     从而 $ \# \mathcal{G}_k \leq \# \mathcal{C}  $ 也是有限集. 从因此
     $$
         \mathcal{G} = \bigcup_{k = 1}^\infty \mathcal{G}_k
@@ -138,10 +140,27 @@
     是半径为 $ r(B) / 2 $ 且能盖住 $ B $ 的球族.
     故 $ (\mathcal{X}, d, \mu) $ 是几何双倍度量空间.
     
-    现在证 (iii). 只需证$ \mathcal{F} $ 是无穷集时不能取 $ 3 $.
-    反例: 待补 https://math.stackexchange.com/questions/2880025/why-is-3-a-bad-constant-in-the-vitali-covering-lemma-infinite-version
-    
-    最后证(iv). 反例: $ \mathbb{R}^n $ 中的球族 $ \{ B(\mathbf{0}, k) \}_{k \in \mathbb{N}} $.
+    现在证 (iii). $ \mathcal{F} $ 是有限集时, 系数能取 $ 3 $ 是显然的.
+    故只需证 $ \mathcal{F} $ 是无穷集时, 系数不能取 $ 3 $.
+    反例: 取 
+    $$ 
+        \mathcal{F} := \left\{ B(x, r) \subset \mathbb{R} :\ 
+            x \in \left( -\frac{1}{2}, \frac{1}{2} \right) ,\ 
+            r \in \left( |x|, \frac{|x| + 1}{3} \right) \right\},
+    $$
+    则 $ \mathcal{F} $ 两两相交(都包含原点), 
+    又对任意 $ B(x, r) \in \mathcal{F} $,
+    $$
+        3 B(x, r) 
+            \subsetneqq B(x, |x| + 1)
+            \subsetneqq (-1, 1)
+            = \bigcup_{B \in \mathcal{F}} B,
+    $$
+    且
+    $$
+        \bigcup_{B \in \mathcal{F}} B
+    $$
+    故系数不能取 $ 3 $.
 \end{proof}
 
 \section{拟度量空间}
