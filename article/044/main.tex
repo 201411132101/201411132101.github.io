@@ -38,6 +38,21 @@
 
 \section{度量空间}
 
+\begin{definition} 
+    设 $ \mathcal{X} $ 是非空集合,
+    $ d:\ \mathcal{X} \times \mathcal{X} $ 满足,
+    对任意 $ x $, $ y $, $ z \in \mathcal{X} $,
+    \begin{enumerate}[{\rm(i)}]
+        \item $ d(x, y) = 0 $ 当且仅当 $ x = y $;
+        \item $ d(x, y) = d(y, x) $;
+        \item 
+            $$
+                d(x, z) \leq d(x, y) + d(y, z).
+            $$
+    \end{enumerate}
+    则称 $ (\mathcal{X}, d) $ 为度量空间.
+\end{definition}
+
 \begin{lemma} 
     设 $ \mathcal{F} $ 是度量空间 $ (\mathcal{X}, d) $ 中的一族球且
     $ \sup_{B \in \mathcal{F}} r(B) < \infty $.
@@ -78,9 +93,9 @@
     若 $ \mathcal{P} $ 非空, 由 $ \sup_{B \in \mathcal{F}} r(B) < \infty $ 知,
     可取 $ B_0 \in \mathcal{P} $ 使得 $ r(B_0) \geq \sup_{B \in \mathcal{P}} r(B) / 2 $, 则
     $ \mathcal{G} \cup \{ B_0 \} \in \omega $, 这与 $ \mathcal{G} $ 的极大性相矛盾.
-    故 $ \mathcal{P} = \emptyset $, 从而
+    故 $ \mathcal{P} = \emptyset $, 因此
     对 $ \forall B \in \mathcal{F} $, 
-    存在 $ \widetilde{B} \in \mathcal{G} $ with $ r(\widetilde{B}) \geq r(B)/2 $
+    存在 $ \widetilde{B} \in \mathcal{G} $ 满足 $ r(\widetilde{B}) \geq r(B)/2 $
     使得 $ B \cap \widetilde{B} \neq \emptyset $, 从而 $ B \subset 5 \widetilde{B} $.
     引理证毕.
 \end{proof}
@@ -91,13 +106,20 @@
 
 \begin{remark}
     \begin{enumerate}[{\rm(i)}]
+        \item 对于一般的度量空间, 子球族 $ \mathcal{G} $ 不一定可数, 例子:
+            在不可数集 $ \mathcal{X} $ 上赋予离散拓扑(不同点之间距离恒为 $ 1 $), 
+            则球族 $ \mathcal{F} := \{ B(x, 1) :\ x \in \mathcal{X} \} $
+            没有满足条件的可数子球族.
         \item 若度量空间是几何双倍度量空间
-            (任意球 $ B $ 可被 $ N $ 个半径为 $ r(B) / 2 $ 的球包住, 其中 $ N $ 与 $ B $ 无关), 
-            则由于 $ \mathcal{G} $ 两两不交, 故至多可数(see, for instance, \cite[Lemma 2.5]{h10});
-        \item 双倍度量空间(赋予双倍测度)是几何双倍度量空间(see, for instance, \cite[p. 67]{cw71}), 
-            则由于 $ \mathcal{G} $ 两两不交, 故至多可数;
-        \item \eqref{1} 中的 $ 5 $ 可以改为任意比 $ 3 $ 大的数, 
-            且当 $ \mathcal{F} $ 是无穷集时, 不可以取 $ 3 $,
+            (存在 $ N \in \mathbb{N} $ 使得, 
+            任意球 $ B $ 可被 $ N $ 个半径为 $ r(B) / 2 $ 的球包住), 
+            则由于 $ \mathcal{G} $ 两两不交, 故至多可数
+            (see, for instance, \cite[Lemma 2.5]{h10});
+        \item 双倍度量空间(赋予双倍测度)是几何双倍度量空间
+            (see, for instance, \cite[p. 67]{cw71}), 
+            由此及 $ \mathcal{G} $ 两两不交知, $ \mathcal{G} $ 至多可数;
+        \item 当 $ \mathcal{F} $ 是无穷集时, \eqref{1} 中的 $ 5 $ 
+            可以改为任意比 $ 3 $ 大的数,
             当 $ \mathcal{F} $ 是有限集时, 可以取 $ 3 $.
         \item 条件中的半径有上界是必须的, 反例: 
             $ \mathbb{R}^n $ 中的球族 $ \{ B(\mathbf{0}, k) \}_{k \in \mathbb{N}} $.
@@ -123,22 +145,26 @@
     至多可数.
     
     再证(ii). 对任意球 $ B \subset \mathcal{X} $, 
-    取 $ B $ 中半径为 $ r(B)/4 $ 且两两不交的球族 $ \mathcal{C} $, 则
+    取 $ B $ 中半径为 $ r(B)/4 $ 且两两不交的极大球族 $ \mathcal{C} $, 则
     对 $ \forall \widetilde{B} \in \mathcal{C} $,
     $$
         \mu(B) \leq \mu \left( 8\widetilde{B} \right) 
-               \leq \left[C_{(\mu)}\right]^3 \mu \left( \widetilde{B} \right) ,
+               \leq C_{(\mu)}^3 \mu \left( \widetilde{B} \right).
     $$
-    因此
+    反设 $ \# \mathcal{C} > C_{(\mu)}^3 $, 则可取
+    $ \widetilde{\mathcal{C}} \subset \mathcal{C} $ 满足 
+    $ \# \widetilde{\mathcal{C}} = \lfloor C_{(\mu)}^3 \rfloor + 1 $,
+    从而
     $$
-     \mu(B) = \mu \left( \bigcup_{\widetilde{B} \in \mathcal{C}} \widetilde{B} \right) 
-            = \sum_{\widetilde{B} \in \mathcal{C}} \mu \left( \widetilde{B} \right)
-            \geq \# \mathcal{C} \mu(B) / \left[C_{(\mu)}\right]^3,
+     \mu(B) \geq \mu \left( \bigcup_{\widetilde{B} \in \widetilde{\mathcal{C}}} \widetilde{B} \right)
+            = \sum_{\widetilde{B} \in \widetilde{\mathcal{C}}} \mu \left( \widetilde{B} \right)
+            \geq \# \mathcal{C} \mu(B) / \left[C_{(\mu)}\right]^3
+            > \mu(B),
     $$
-    即 $ \# \mathcal{C} \leq \left[C_{(\mu)}\right]^3 $. 
-    设 $ \mathcal{C} $ 是极大的, 则 $ \{ 2\widetilde{B} \}_{\widetilde{B} \in \mathcal{C}} $
+    矛盾. 因此 $ \# \mathcal{C} \leq \left[C_{(\mu)}\right]^3 $. 
+    由于 $ \mathcal{C} $ 是极大的, 故 $ \{ 2\widetilde{B} \}_{\widetilde{B} \in \mathcal{C}} $
     是半径为 $ r(B) / 2 $ 且能盖住 $ B $ 的球族.
-    故 $ (\mathcal{X}, d, \mu) $ 是几何双倍度量空间.
+    从而 $ (\mathcal{X}, d, \mu) $ 是几何双倍度量空间.
     
     现在证 (iii). $ \mathcal{F} $ 是有限集时, 系数能取 $ 3 $ 是显然的.
     故只需证 $ \mathcal{F} $ 是无穷集时, 系数不能取 $ 3 $.
@@ -151,21 +177,135 @@
     则 $ \mathcal{F} $ 两两相交(都包含原点), 
     又对任意 $ B(x, r) \in \mathcal{F} $,
     $$
-        3 B(x, r) 
-            \subsetneqq B(x, |x| + 1)
-            \subsetneqq (-1, 1)
-            = \bigcup_{B \in \mathcal{F}} B,
+        3 B(x, r) \subsetneqq B(x, |x| + 1),
     $$
     且
     $$
-        \bigcup_{B \in \mathcal{F}} B
+        \bigcup_{B \in \mathcal{F}} B 
+            = (-1, 1)
+            \not\subset B(x, |x| + 1),
     $$
-    故系数不能取 $ 3 $.
+    故
+    $$
+        \bigcup_{B \in \mathcal{F}} B 
+            \not\subset 3 B(x, r),
+    $$
+    从而系数不能取 $ 3 $.
 \end{proof}
+
+\newpage
 
 \section{拟度量空间}
 
-应该是差不多的.
+\begin{definition} 
+    设 $ \mathcal{X} $ 是非空集合,
+    $ d:\ \mathcal{X} \times \mathcal{X} $ 满足,
+    对任意 $ x $, $ y $, $ z \in \mathcal{X} $,
+    \begin{enumerate}[{\rm(i)}]
+        \item $ d(x, y) = 0 $ 当且仅当 $ x = y $;
+        \item $ d(x, y) = d(y, x) $;
+        \item 存在与 $ x $, $ y $, 和 $ z $ 无关的常数 $ A_0 \in [1, \infty) $ 使得
+            $$
+                d(x, z) \leq A_0 [d(x, y) + d(y, z)].
+            $$
+    \end{enumerate}
+    则称 $ (\mathcal{X}, d) $ 为拟度量空间.
+\end{definition}
+
+用类似度量空间的证明, 可以得到如下引理.
+
+\begin{lemma} 
+    设 $ \mathcal{F} $ 是拟度量空间 $ (\mathcal{X}, d) $ 中的一族球且
+    $ \sup_{B \in \mathcal{F}} r(B) < \infty $.
+    则存在两两不交的子球族 $ \mathcal{G} \subset \mathcal{F} $ 使得
+    \begin{equation} \label{4}
+        \bigcup_{B \in \mathcal{F}} B 
+            \subset \bigcup_{B \in \mathcal{G}} 5 A_0^2 B,
+    \end{equation}
+    且对 $ \forall B \in \mathcal{F} $, 存在 $ \widetilde{B} \in \mathcal{G} $ 
+    满足 $ r(B) \leq 2 r(\widetilde{B}) $
+    使得 $ B \cap \widetilde{B} \neq \emptyset $.
+\end{lemma}
+
+\begin{remark}
+    同样的, 当 $ \mathcal{F} $ 是无穷集时, \eqref{4} 中的 $ 5 $ 
+    可以改为任意比 $ 3 $ 大的数,
+    当 $ \mathcal{F} $ 是有限集时, 可以取 $ 3 $.
+    对于齐型空间来说, 由于空间满足几何双倍性质, 故子球族是可数的.
+\end{remark}
+
+Coifman 和 Weiss 给出了以下的变形 
+(\cite[Theorem 1.2]{cw71} or \cite[Theorem 3.1]{cw77}),
+区别在于加强了条件, 优化了系数.
+
+\begin{lemma} [Vitali--Wiener type covering lemma]
+    设 $ E $ 是几何双倍度量空间 $ (\mathcal{X}, d) $ 中的有界集.
+    则对任意球族 $ \mathcal{F} := \{ B(x, r_x) \}_{x \in E} $,
+    存在两两不交的子球族 $ \mathcal{G} \subset \mathcal{F} $ 使得
+    \begin{equation} \label{5}
+        E \subset \bigcup_{B \in \mathcal{G}} 4 A_0 B,
+    \end{equation}
+    且对 $ \forall B \in \mathcal{F} $, 存在 $ \widetilde{B} \in \mathcal{G} $ 
+    满足 $ r(B) \leq 2 r(\widetilde{B}) $
+    使得 $ B \cap \widetilde{B} \neq \emptyset $.
+\end{lemma}
+
+
+\begin{proof}
+    取 $ x_1 \in E $ 使得
+    $$
+        r_{x_1} > \frac{1}{2} \sup_{x \in E} r_x.
+    $$
+    令 $ E_2 := E \setminus B(x_1, 4A_0 r_{x_1}) $, 
+    取 $ x_2 \in E_2 $ 使得
+    $$
+        r_{x_2} > \frac{1}{2} \sup_{x \in E_2} r_x.
+    $$
+    令 $ E_3 := E \setminus \bigcup_{i = 1}^2 B(x_i, 4A_0 r_{x_i}) $, 
+    取 $ x_3 \in E_3 $ 使得
+    $$
+        r_{x_3} > \frac{1}{2} \sup_{x \in E_3} r_x.
+    $$
+    $$ \cdots $$
+    若上述过程在有限次结束, 引理证毕.
+    否则, 断言 $ \{ B(x_i, r_{x_i}) \}_{i \in \mathbb{N}} $ 
+    两两不交且 
+    \begin{equation} \label{r}
+        \lim_{i \to \infty} r_{x_i} = 0.
+    \end{equation} 
+    
+    下证断言, 先证两两不交. 
+    事实上, 如果存在 $ i $, $ j \in \mathbb{N} $, $ (i < j) $ 使得
+    $ B(x_i, r_{x_i}) $ 和 $ B(x_j, r_{x_j}) $ 相交, 
+    由于 $ 2 r_{x_i} > r_{x_j} $, 故
+    $$
+        d(x_i, x_j) < A_0 ( r_{x_i} + r_{x_j} ) < 3 A_0 r_{x_i}
+    $$
+    从而 $ x_j \in B(x_i, 4 A_0 r_{x_i}) $, 与 $ x_j \in E_j $ 矛盾.
+    因此球族两两不交. 
+    再证 \eqref{r}. 
+    事实上, 对任意 $ \varepsilon \in (0, \infty) $,
+    由几何双倍性质知, 存在 $ N_{(\varepsilon)} \in \mathbb{N} $ 使得,
+    半径大于 $ \varepsilon / 2 $ 的两两不交子球族个数小于 $ N_{(\varepsilon)} $.
+    对任意 $ i > N_{(\varepsilon)} $, 若 $ r_{{x_i}} \geq \varepsilon $,
+    则由球族的构造知, 对任意 $ j \in \{1, \ldots, N_{(\varepsilon)}\} $,
+    $ r_{{x_j}} > \frac{1}{2} r_{{x_i}} > \varepsilon / 2 $, 
+    与个数小于 $ N_{(\varepsilon)} $ 矛盾. 
+    故对任意 $ i > N_{(\varepsilon)} $, $ r_{{x_i}} < \varepsilon $.
+    \eqref{r} 证毕. 综上, 断言证毕.
+    
+    最后证 $ E \subset \bigcup_{i \in \mathbb{N}} B(x_i, 4 A_0 r_{x_i}) $.
+    假设存在 $ x_0 \in E \setminus \bigcup_{i \in \mathbb{N}} B(x_i, 4 A_0 r_{x_i}) $.
+    由断言知, 存在 $ i \in \mathbb{N} $ 使得 $ r_{x_i} < \frac{1}{2} r_{x_0} $.
+    这与
+    $$ 
+        r_{x_i}  
+    $$
+    相矛盾, 故 $ E \setminus \bigcup_{i \in \mathbb{N}} B(x_i, 4 A_0 r_{x_i}) = \ $
+\end{proof}
+
+\noindent\textbf{Acknowledgements}.
+之前的证明有点问题, 感谢 xs 的指正.
 
 \begin{thebibliography}{99}  
 	\bibitem{h10} T. Hyt\"onen, 
@@ -176,6 +316,10 @@
     Analyse Harmonique Non-commutative sur Certains Espaces Homog\`enes,
     (French) \'Etude de Certaines Int\'egrales Singuli\`eres,
     Lecture Notes in Mathematics 242, Springer-Verlag, Berlin-New York, 1971.
+
+    \bibitem{cw77} R. R. Coifman and G. Weiss,
+    Extensions of Hardy spaces and their use in analysis,
+    Bull. Amer. Math. Soc. 83 (1977), 569-645.
 \end{thebibliography}
 
 \end{document} 
