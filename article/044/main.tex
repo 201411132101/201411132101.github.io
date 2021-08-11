@@ -16,11 +16,13 @@
 
 
 \theoremstyle{definition}
-\newtheorem{theorem}{Theorem}
+
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{example}[theorem]{Example}
+\theoremstyle{definition}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{assumption}[theorem]{Assumption}
@@ -119,7 +121,8 @@
             (see, for instance, \cite[p. 67]{cw71}), 
             由此及 $ \mathcal{G} $ 两两不交知, $ \mathcal{G} $ 至多可数;
         \item 当 $ \mathcal{F} $ 是无穷集时, \eqref{1} 中的 $ 5 $ 
-            可以改为任意比 $ 3 $ 大的数,
+            可以改为任意比 $ 3 $ 大的数 (证明: 只需将 \eqref{2} 中的 
+            $ r(B)/2 $ 改成 $ r(B)/ c $, $ c \in (1, 2) $ 即可),
             当 $ \mathcal{F} $ 是有限集时, 可以取 $ 3 $.
         \item 条件中的半径有上界是必须的, 反例: 
             $ \mathbb{R}^n $ 中的球族 $ \{ B(\mathbf{0}, k) \}_{k \in \mathbb{N}} $.
@@ -153,18 +156,25 @@
     $$
     反设 $ \# \mathcal{C} > C_{(\mu)}^3 $, 则可取
     $ \widetilde{\mathcal{C}} \subset \mathcal{C} $ 满足 
-    $ \# \widetilde{\mathcal{C}} = \lfloor C_{(\mu)}^3 \rfloor + 1 $,
+    $ \# \widetilde{\mathcal{C}} = \lfloor C_{(\mu)}^3 \rfloor + 1
+    \in (C_{(\mu)}^3, \infty) $,
     从而
     $$
-     \mu(B) \geq \mu \left( \bigcup_{\widetilde{B} \in \widetilde{\mathcal{C}}} \widetilde{B} \right)
-            = \sum_{\widetilde{B} \in \widetilde{\mathcal{C}}} \mu \left( \widetilde{B} \right)
-            \geq \# \mathcal{C} \mu(B) / \left[C_{(\mu)}\right]^3
+        \mu(B) 
+            \geq \mu \left( \bigcup_{\widetilde{B} 
+                \in \widetilde{\mathcal{C}}} \widetilde{B} \right)
+            = \sum_{\widetilde{B} \in \widetilde{\mathcal{C}}} 
+                \mu \left( \widetilde{B} \right)
+            \geq \# \mathcal{C} \mu(B) / C_{(\mu)}^3
             > \mu(B),
     $$
     矛盾. 因此 $ \# \mathcal{C} \leq \left[C_{(\mu)}\right]^3 $. 
-    由于 $ \mathcal{C} $ 是极大的, 故 $ \{ 2\widetilde{B} \}_{\widetilde{B} \in \mathcal{C}} $
+    由于 $ \mathcal{C} $ 是极大的, 故对 $ \forall x \in \mathcal{X} $,
+    $ B(x, r(B) / 4) $ 与 $ \mathcal{C} $ 中某个球 $ \widetilde{B} $ 相交, 从而
+    $ x \in 2 \widetilde{B} $,
+    因此 $ \{ 2\widetilde{B} \}_{\widetilde{B} \in \mathcal{C}} $
     是半径为 $ r(B) / 2 $ 且能盖住 $ B $ 的球族.
-    从而 $ (\mathcal{X}, d, \mu) $ 是几何双倍度量空间.
+    综上, $ (\mathcal{X}, d, \mu) $ 是几何双倍度量空间.
     
     现在证 (iii). $ \mathcal{F} $ 是有限集时, 系数能取 $ 3 $ 是显然的.
     故只需证 $ \mathcal{F} $ 是无穷集时, 系数不能取 $ 3 $.
@@ -239,15 +249,12 @@ Coifman 和 Weiss 给出了以下的变形
 区别在于加强了条件, 优化了系数.
 
 \begin{lemma} [Vitali--Wiener type covering lemma]
-    设 $ E $ 是几何双倍度量空间 $ (\mathcal{X}, d) $ 中的有界集.
+    设 $ E $ 是几何双倍度量空间 $ (\mathcal{X}, d) $ 中的非空有界集.
     则对任意球族 $ \mathcal{F} := \{ B(x, r_x) \}_{x \in E} $,
     存在两两不交的子球族 $ \mathcal{G} \subset \mathcal{F} $ 使得
     \begin{equation} \label{5}
-        E \subset \bigcup_{B \in \mathcal{G}} 4 A_0 B,
+        E \subset \bigcup_{B \in \mathcal{G}} 4 A_0 B.
     \end{equation}
-    且对 $ \forall B \in \mathcal{F} $, 存在 $ \widetilde{B} \in \mathcal{G} $ 
-    满足 $ r(B) \leq 2 r(\widetilde{B}) $
-    使得 $ B \cap \widetilde{B} \neq \emptyset $.
 \end{lemma}
 
 
@@ -256,18 +263,18 @@ Coifman 和 Weiss 给出了以下的变形
     $$
         r_{x_1} > \frac{1}{2} \sup_{x \in E} r_x.
     $$
-    令 $ E_2 := E \setminus B(x_1, 4A_0 r_{x_1}) $, 
-    取 $ x_2 \in E_2 $ 使得
+    令 $ E_2 := E \setminus B(x_1, 4A_0 r_{x_1}) $. 
+    若 $ E_2 \neq \emptyset $, 取 $ x_2 \in E_2 $ 使得
     $$
         r_{x_2} > \frac{1}{2} \sup_{x \in E_2} r_x.
     $$
-    令 $ E_3 := E \setminus \bigcup_{i = 1}^2 B(x_i, 4A_0 r_{x_i}) $, 
-    取 $ x_3 \in E_3 $ 使得
+    令 $ E_3 := E \setminus \bigcup_{i = 1}^2 B(x_i, 4A_0 r_{x_i}) $.
+    若 $ E_3 \neq \emptyset $, 取 $ x_3 \in E_3 $ 使得
     $$
         r_{x_3} > \frac{1}{2} \sup_{x \in E_3} r_x.
     $$
     $$ \cdots $$
-    若上述过程在有限次结束, 引理证毕.
+    若上述过程在有限次结束, 引理证毕 (两两不交的证明见后面).
     否则, 断言 $ \{ B(x_i, r_{x_i}) \}_{i \in \mathbb{N}} $ 
     两两不交且 
     \begin{equation} \label{r}
@@ -295,13 +302,15 @@ Coifman 和 Weiss 给出了以下的变形
     \eqref{r} 证毕. 综上, 断言证毕.
     
     最后证 $ E \subset \bigcup_{i \in \mathbb{N}} B(x_i, 4 A_0 r_{x_i}) $.
-    假设存在 $ x_0 \in E \setminus \bigcup_{i \in \mathbb{N}} B(x_i, 4 A_0 r_{x_i}) $.
+    假设 $ E \setminus \bigcup_{i \in \mathbb{N}} B(x_i, 4 A_0 r_{x_i}) $ 非空.
+    取 $ x_0 \in E \setminus \bigcup_{i \in \mathbb{N}} B(x_i, 4 A_0 r_{x_i}) $.
     由断言知, 存在 $ i \in \mathbb{N} $ 使得 $ r_{x_i} < \frac{1}{2} r_{x_0} $.
     这与
     $$ 
-        r_{x_i}  
+        r_{x_i} > \frac{1}{2} \sup_{x \in E_i} r_x
     $$
-    相矛盾, 故 $ E \setminus \bigcup_{i \in \mathbb{N}} B(x_i, 4 A_0 r_{x_i}) = \ $
+    相矛盾, 故 $ E \setminus \bigcup_{i \in \mathbb{N}} 
+    B(x_i, 4 A_0 r_{x_i}) = \emptyset $.
 \end{proof}
 
 \noindent\textbf{Acknowledgements}.
