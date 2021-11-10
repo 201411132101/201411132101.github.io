@@ -106,7 +106,7 @@
     也可以构造性的证明此结论.
 \end{proof}
 
-\begin{remark}
+\begin{remark} \label{3}
     \begin{enumerate}[{\rm(i)}]
         \item 对于一般的度量空间, 子球族 $ \mathcal{G} $ 不一定可数, 例子:
             在不可数集 $ \mathcal{X} $ 上赋予离散拓扑(不同点之间距离恒为 $ 1 $), 
@@ -241,7 +241,8 @@
     同样的, 当 $ \mathcal{F} $ 是无穷集时, \eqref{4} 中的 $ 5 $ 
     可以改为任意比 $ 3 $ 大的数,
     当 $ \mathcal{F} $ 是有限集时, 可以取 $ 3 $.
-    对于齐型空间来说, 由于空间满足几何双倍性质, 故子球族是可数的.
+    若 $ \mathcal{X} $ 是齐型空间, 由于空间具有几何双倍性质, 故子球族是可数的
+    (证明见 Remark \ref{3}(iii)).
 \end{remark}
 
 Coifman 和 Weiss 给出了以下的变形 
@@ -253,12 +254,13 @@ Coifman 和 Weiss 给出了以下的变形
     则对任意球族 $ \mathcal{F} := \{ B(x, r_x) \}_{x \in E} $,
     存在两两不交的子球族 $ \mathcal{G} \subset \mathcal{F} $ 使得
     \begin{equation} \label{5}
-        E \subset \bigcup_{B \in \mathcal{G}} 4 A_0 B.
+        E \subset \bigcup_{B \in \mathcal{G}} 3 A_0 B.
     \end{equation}
 \end{lemma}
 
 
 \begin{proof}
+    不妨设 $ \sup_{x \in E} r_x < \infty $.
     取 $ x_1 \in E $ 使得
     $$
         r_{x_1} > \frac{1}{2} \sup_{x \in E} r_x.
@@ -274,23 +276,21 @@ Coifman 和 Weiss 给出了以下的变形
         r_{x_3} > \frac{1}{2} \sup_{x \in E_3} r_x.
     $$
     $$ \cdots $$
-    若上述过程在有限次结束, 引理证毕 (两两不交的证明见后面).
-    否则, 断言 $ \{ B(x_i, r_{x_i}) \}_{i \in \mathbb{N}} $ 
-    两两不交且 
-    \begin{equation} \label{r}
-        \lim_{i \to \infty} r_{x_i} = 0.
-    \end{equation} 
-    
-    下证断言, 先证两两不交. 
+    这样构造的球列两两不交.
     事实上, 如果存在 $ i $, $ j \in \mathbb{N} $, $ (i < j) $ 使得
     $ B(x_i, r_{x_i}) $ 和 $ B(x_j, r_{x_j}) $ 相交, 
     由于 $ 2 r_{x_i} > r_{x_j} $, 故
     $$
         d(x_i, x_j) < A_0 ( r_{x_i} + r_{x_j} ) < 3 A_0 r_{x_i}
     $$
-    从而 $ x_j \in B(x_i, 4 A_0 r_{x_i}) $, 与 $ x_j \in E_j $ 矛盾.
+    从而 $ x_j \in B(x_i, 3 A_0 r_{x_i}) $, 与 $ x_j \in E_j $ 矛盾.
     因此球族两两不交. 
-    再证 \eqref{r}. 
+    
+    若上述过程在有限次结束, 则 \eqref{5} 成立, 从而引理证毕.
+    否则, 断言 $ \{ B(x_i, r_{x_i}) \}_{i \in \mathbb{N}} $ 
+    \begin{equation} \label{r}
+        \lim_{i \to \infty} r_{x_i} = 0.
+    \end{equation}  
     事实上, 对任意 $ \varepsilon \in (0, \infty) $,
     由几何双倍性质知, 存在 $ N_{(\varepsilon)} \in \mathbb{N} $ 使得,
     半径大于 $ \varepsilon / 2 $ 的两两不交子球族个数小于 $ N_{(\varepsilon)} $.
@@ -301,7 +301,7 @@ Coifman 和 Weiss 给出了以下的变形
     故对任意 $ i > N_{(\varepsilon)} $, $ r_{{x_i}} < \varepsilon $.
     \eqref{r} 证毕. 综上, 断言证毕.
     
-    最后证 $ E \subset \bigcup_{i \in \mathbb{N}} B(x_i, 4 A_0 r_{x_i}) $.
+    最后证 \eqref{4}.
     假设 $ E \setminus \bigcup_{i \in \mathbb{N}} B(x_i, 4 A_0 r_{x_i}) $ 非空.
     取 $ x_0 \in E \setminus \bigcup_{i \in \mathbb{N}} B(x_i, 4 A_0 r_{x_i}) $.
     由断言知, 存在 $ i \in \mathbb{N} $ 使得 $ r_{x_i} < \frac{1}{2} r_{x_0} $.

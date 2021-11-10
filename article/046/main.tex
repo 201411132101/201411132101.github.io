@@ -1,0 +1,247 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{ctex}
+\usepackage{pgfplots}  
+\usepackage{scalefnt}
+\usepackage{hyperref} 
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+\def \argmin {\mathop\mathrm{\,arg\,min\,}}
+\def \rank {\mathop\mathrm{\,rank\,}}
+
+
+% 基本信息
+\title{最小二乘解}
+
+\begin{document}
+
+\maketitle
+
+\section{$ Ax = b $ 的最小二乘解}
+
+本文的目标是求方程 $ Ax = b $ 的最小二乘解, 
+即找到使得 $ \| Ax - b \|_2 $ 最小的 $ x $.
+
+\begin{definition} \label{MP}
+    设 $ A \in M_{N \times p} (\mathbb{C}) $. 
+    若 $ A^\dagger \in M_{p \times N} (\mathbb{C}) $ 满足
+    \begin{enumerate}[{\rm(i)}]
+        \item $ A A^\dagger $ 和 $ A^\dagger A $ 均为 Hermite 矩阵(共轭转置等于本身); 
+        \item $ A A^\dagger A = A $;
+        \item $ A^\dagger A A^\dagger = A^\dagger $.
+    \end{enumerate}
+    则称 $ A^\dagger $ 是 $ A $ 的 Moore--Penrose 广义逆.
+\end{definition}
+
+先交代一些记号.
+对任意函数 $ f : \mathcal{X} \to \mathbb{R} $, 定义
+$$
+    \argmin_x f(x) := \{ x \in \mathcal{X} :\ f(x) = \min_{t} f(t) \}.
+$$ 
+对 $ \forall \, n \in \mathbb{N} $, 
+$ \forall \, x := (x_1, \ldots, x_n) \in \mathbb{C}_{n, 1} $,
+$ \| x \|_2 := [\sum_{i = 1}^n (x_i)^2 ]^{1/2} $.
+
+{\color{red} 下面是本文的主要结论.}
+
+\begin{theorem} \label{1}
+    设 $ A \in M_{N \times p} (\mathbb{C}) $, $ b \in M_{N \times 1} (\mathbb{C}) $.
+    则
+    $$
+        \argmin_x \| Ax - b \|_2 
+            = \{ A^\dagger b + (I_p - A^\dagger A) y :\ 
+                y \in  M_{p \times 1} (\mathbb{C}) \},
+    $$
+    其中 $ A^\dagger $ 是 $ A $ 的 Moore--Penrose 广义逆.
+    此外, $ A^\dagger b $ 是最小二乘解中 $ 2 $ 范数最小的.
+\end{theorem}
+
+\begin{remark} \label{15}
+    在 $ A $ 比较特殊时, $ Ax = b $ 有唯一解.
+    \begin{enumerate}[{\rm(i)}]
+        \item 当 $ A $ 可逆时, $ Ax = b $ 有唯一解 $ \hat{x} = A^{-1} x $; 
+        \item 当 $ N > p $ 且 $ \rank A = p $ 时, 
+            $ Ax = b $ 有唯一解 $ \hat{x} = (A^* A)^{-1} A^* b $; 
+        \item 当 $ N < p $ 且 $ \rank A = N $ 时, 
+            $ Ax = b $ 有唯一解 $ \hat{x} = A^* (A A^*)^{-1} b $.
+    \end{enumerate}
+\end{remark}
+
+\section{正交投影算子}
+
+\begin{definition}
+    设 $ \mathcal{X} $ 是 Banach 空间. 线性映射 $ P :\ \mathcal{X} \to \mathcal{X} $ 若满足
+    $$
+        P^2 = P,
+    $$
+    则称 $ P $ 是 $ \mathcal{X} $ 上的投影算子. 记 
+    $$
+        \mathcal{R}(P) := \{ P x :\ x \in \mathcal{X}\} 
+        \quad \text{且} \quad
+        \mathcal{N}(P) := \{x \in \mathcal{X} :\ Px = \theta \}.
+    $$
+\end{definition}
+
+\begin{proposition} \label{5}
+    设 $ \mathcal{H} $ 是 Hilbert 空间, $ P $ 是 $ \mathcal{H} $ 上的有界投影算子. 
+    则 $ \mathcal{R}(P) = [\mathcal{N}(P)]^\bot $ 当且仅当 $ P $ 是对称算子.
+\end{proposition}
+
+\begin{proof}
+    先证 $ "\Rightarrow" $. 设 $ \mathcal{R}(P) = [\mathcal{N}(P)]^\bot $, 则
+    \begin{align*}
+        (P x, y) &= (Px, Py + (I - P)y) 
+                 = (Px, Py)  \\
+                 &= (Px + (I - P)x, Py)
+                 = (x, Py).
+    \end{align*}
+    
+    再证 $ "\Leftarrow" $. 设 $ P $ 是对称算子, 则对 $ \forall x \in \mathcal{R}(P) $, $ \forall y \in \mathcal{N}(P) $,
+    存在 $ z \in \mathcal{H} $ 使得 $ x = Pz $, 因此
+    $$
+        (x, y) = (Pz, y) = (z, Py) = 0.
+    $$
+    故 $ \mathcal{R}(P) \subset [\mathcal{N}(P)]^\bot $.
+    又因为由正交分解有
+    $$
+        \mathcal{N}(P) \oplus [\mathcal{N}(P)]^\bot = \mathcal{H} = \mathcal{N}(P) \oplus \mathcal{R}(P),
+    $$
+    因此 $ \mathcal{R}(P) = [\mathcal{N}(P)]^\bot $.
+\end{proof}
+
+\begin{definition}
+    有界对称投影算子被称为正交投影算子(orthogonal projection).
+\end{definition}
+
+\begin{lemma} \label{7}
+    设 $ \mathcal{X} $ 是 Banach 空间且 $ P $ 是 $ \mathcal{X} $ 上的投影算子.
+    则 $ \mathcal{N} (P) = \mathcal{R} (I - P) $.
+\end{lemma}
+
+\section{Moore--Penrose 广义逆的一些性质}
+
+\begin{lemma} \label{well}
+    Moore--Penrose 广义逆存在且唯一.
+\end{lemma}
+
+\begin{proof}
+    先证存在性. 用 SVD 分解构造. 严格证明待补.
+    
+    再证唯一性. 设 $ P,\ Q \in M_{p \times N} (\mathbb{C}) $ 
+    满足 Definition \ref{MP} 中条件, 则
+    $$
+        A P = A Q A P = (A Q)^* (A P)^* = Q^* (A P A)^* = Q^* A^* = A Q,
+    $$
+    从而
+    $$
+        P = A P A = A Q A = Q.
+    $$
+    Lemma \ref{well} 证毕.
+\end{proof}
+
+\begin{proposition} \label{10}
+    设 $ A \in M_{N \times p} (\mathbb{C}) $ 且
+    $ A^\dagger \in M_{p \times N} (\mathbb{C}) $ 是
+    $ A $ 的 Moore--Penrose 广义逆. 则
+    \begin{enumerate}[{\rm(i)}]
+        \item $ (A^*)^\dagger = (A^\dagger)^* $;
+        \item $ \mathcal{N} (A) = \mathcal{N} (A^\dagger A) $;
+        \item $ A A^\dagger $ 是正交投影算子且 
+            $ \mathcal{R}(A A^\dagger) = \mathcal{R}(A) $; 
+        \item $ A^\dagger A $ 是正交投影算子且 
+            $ \mathcal{R}(A^\dagger A) = \mathcal{R}(A^*) $.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    (i) 和 (ii) 是显然的. 下证 (iii). 容易得到 $ A A^\dagger $ 是正交投影算子且
+    $ \mathcal{R}(A A^\dagger) \subset \mathcal{R}(A) $,
+    故只需证 $ \mathcal{R}(A) \subset \mathcal{R}(A A^\dagger) $.
+    事实上, 对任意 $ y \in \mathcal{R}(A) $, 
+    存在 $ x \in M_{p \times 1} (\mathbb{C}) $ 使得 $ y = A x $, 故
+    $$
+        y = Ax = A A^\dagger A x = A A^\dagger y \in \mathcal{R}(A A^\dagger).
+    $$
+    因此 $ \mathcal{R}(A) \subset \mathcal{R}(A A^\dagger) $, (iv) 证毕.
+    
+    再证 (iv). 显然 $ A^\dagger A $ 是正交投影算子, 
+    且由 Definition \ref{MP}(i) 和本命题的 (iii)知
+    $$
+        \mathcal{R}(A^\dagger A)
+            = \mathcal{R}(A^* (A^\dagger)^*)
+            = \mathcal{R}(A^* (A^*)^\dagger)
+            = \mathcal{R}(A^*),
+    $$
+    (v) 证毕.
+\end{proof}
+
+\begin{lemma} \label{16}
+    设 $ A \in M_{N \times p} (\mathbb{C}) $ 且
+    $ A^\dagger \in M_{p \times N} (\mathbb{C}) $ 是
+    $ A $ 的 Moore--Penrose 广义逆. 则
+    \begin{enumerate}[{\rm(i)}]
+        \item 当 $ A $ 可逆时, $ A^\dagger = A^{-1} $;
+        \item 当 $ N > p $ 且 $ \rank A = p $ 时, $ A^\dagger = (A^* A)^{-1} A^* $; 
+        \item 当 $ N < p $ 且 $ \rank A = N $ 时, $ A^\dagger = A^* (A A^*)^{-1} $.
+    \end{enumerate}
+\end{lemma}
+
+\section{Theorem \ref{1} 的证明}
+
+\begin{proof}[Theorem \ref{1} 的证明]
+    对任意 $ x \in M_{p \times 1} (\mathbb{C}) $,
+    由 Proposition \ref{10}(iii) 知
+    $$
+        \| A x - b \|_2
+            = \| A x - A A^\dagger b \|_2 + \| A A^\dagger b - b \|_2.
+    $$
+    因此 $ A x = b $ 的最小二乘解是 $ A x = A A^\dagger b $ 的解.
+    注意到 $ A^\dagger b $ 是 $ A x = A A^\dagger b $ 的一个解, 故
+    $ A^\dagger b + \mathcal{N}(A) $ 是 $ A x = A A^\dagger b $ 的全部解.
+    又由 Proposition \ref{10}(ii)(iii) 和 Lemma \ref{7} 知,
+    $$
+        \mathcal{N}(A) 
+            = \mathcal{N} (A^\dagger A)
+            = \mathcal{R} (I - A^\dagger A)
+            = \{ (I_p - A^\dagger A) y :\ y \in  M_{p \times 1} (\mathbb{C}) \}.
+    $$ 
+    Theorem \ref{1} 证毕.
+\end{proof}
+
+\begin{proof} [Remark \ref{15} 的证明]
+    由 Lemma \ref{16} 可直接得到.
+\end{proof}
+
+\end{document} 
+
+
+
+
+
+
+
+
+
