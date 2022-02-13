@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="keywords" content="latex,cite">
+    <meta name="keywords" content="投影算子,projection">
 
     <title> bufan 的博客 </title>
 
@@ -19,7 +19,7 @@
     <!-- javascript -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
 </head>
 
@@ -47,27 +47,19 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# 解决定理注释中 cite 命令出错的问题
+# Schwartz 函数和傅里叶变换
 
 <div style="text-align: center;">
-    <p>发布时间: 2020-08-11</p>
+    <p>发布时间: 2022-02-13</p>
 </div>
 
 ---
 
-直接用 [Stein, \cite[Theorem 1.2]{s97}] 的话, 无法编译, 需要加上一层大括号.
+Schwartz 函数和傅里叶变换的基本性质总结.
 
-### 代码
-<pre><code>\begin{lemma} [Stein, {\cite[Theorem 1.2]{s97}}]
-	巴拉巴拉
-\end{lemma}
-</code></pre>
-
-### 效果
-![效果图](033/pic1.png)
-
-### 原理
-猜测: 没有那层大括号的话, 外层的中括号和内部的中括号会引起混淆.
+[PDF](049/main.pdf)
+<span style="margin-right:24px;"></span>
+[TEX](049/main.tex)
 
         </div>
 

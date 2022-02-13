@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  22 JAN 2022 21:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  13 FEB 2022 11:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1505,6 +1505,12 @@ LaTeX Info: Redefining \nameref on input line 39.
 \openout4 = `main.out'.
 
 Package hyperref Info: Option `CJKbookmarks' set `false' on input line 39.
+LaTeX Font Info:    Try loading font information for C19+rm on input line 42.
+
+(c:/texlive/2018/texmf-dist/tex/latex/ctex/fd/c19rm.fd
+File: c19rm.fd 2018/01/28 v2.4.12 Chinese font definition (CTEX)
+)<<c1943.cmap>><<c1955.cmap>><<c1942.cmap>><<c1948.cmap>><<c1961.cmap>><<c1937.
+cmap>><<c1944.cmap>>
 LaTeX Font Info:    Try loading font information for U+msa on input line 42.
 
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1520,72 +1526,83 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 42.
 (c:/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for C19+rm on input line 42.
-
-(c:/texlive/2018/texmf-dist/tex/latex/ctex/fd/c19rm.fd
-File: c19rm.fd 2018/01/28 v2.4.12 Chinese font definition (CTEX)
-)<<c1940.cmap>><<c1945.cmap>><<c1943.cmap>><<c1956.cmap>><<c1937.cmap>><<c1958.
-cmap>><<c1955.cmap>>
 
 LaTeX Warning: No \author given.
 
-<<c1951.cmap>><<c1963.cmap>><<c1954.cmap>>
-(c:/texlive/2018/texmf-dist/tex/generic/ctex/zhwindowsfonts.tex
+<<c1951.cmap>><<c1963.cmap>><<c1954.cmap>><<c1959.cmap>><<c1950.cmap>><<c1938.c
+map>><<c1940.cmap>><<c1941.cmap>><<c1962.cmap>><<c1945.cmap>><<c1964.cmap>><<c1
+953.cmap>> (c:/texlive/2018/texmf-dist/tex/generic/ctex/zhwindowsfonts.tex
 File: zhwindowsfonts.tex 2018/01/28 v2.4.12 Windows font map loader for pdfTeX 
 and DVIPDFMx (CTEX)
-) [1
+)
+[1
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 47.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 47.
+]<<c1952.cmap>><<c1956.cmap>><<c1947.cmap>><<c1960.cmap>><<c1958.cmap>><<c1946.
+cmap>>
+Overfull \hbox (1.37064pt too wide) in paragraph at lines 122--126
+[]\C19/rm/m/n/10.95/59 k \C19/rm/m/n/10.95/64 y \OT1/cmr/m/n/10.95 (i). \C19/rm
+/m/n/10.95/54 N \C19/rm/m/n/10.95/61 ´ \C19/rm/m/n/10.95/47 w \C19/rm/m/n/10.95
+/38 Ñ $\OML/cmm/m/it/10.95 C[]\OT1/cmr/m/n/10.95 (\U/msb/m/n/10.95 R[]\OT1/cmr/
+m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^Z S\OT1/cmr/m/n/10.95 (\U/msb/m/n/10.95 R[]\O
+T1/cmr/m/n/10.95 )$, \C19/rm/m/n/10.95/62 q $\OML/cmm/m/it/10.95 e[] \OMS/cmsy/
+m/n/10.95 2 S\OT1/cmr/m/n/10.95 (\U/msb/m/n/10.95 R[]\OT1/cmr/m/n/10.95 )$ \C19
+/rm/m/n/10.95/40 ^^B \C19/rm/m/n/10.95/58 Ã \C19/rm/m/n/10.95/46 ; \C19/rm/m/n/
+10.95/64 | \C19/rm/m/n/10.95/45 8\OT1/cmr/m/n/10.95 , \C19/rm/m/n/10.95/43 ^^Y 
+$\OML/cmm/m/it/10.95 C[]\OT1/cmr/m/n/10.95 (\U/msb/m/n/10.95 R[]\OT1/cmr/m/n/10
+.95 ) \U/msb/m/n/10.95 $
+ []
+
+<<c1939.cmap>><<c1949.cmap>><<c1957.cmap>> [2]<<c1965.cmap>> [3] [4] [5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 351.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 351.
 
 (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 47.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 47.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: EA154999A8C50880556E56C213737C4A;548
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 47.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 351.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 351.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: E68EFD87A090782A2A96B2BEA096EC19;214.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 351.
  ) 
 Here is how much of TeX's memory you used:
- 41693 strings out of 492649
- 918258 string characters out of 6133383
- 1255038 words of memory out of 5000000
- 44916 multiletter control sequences out of 15000+600000
- 541408 words of font info for 67 fonts, out of 8000000 for 9000
+ 41991 strings out of 492649
+ 923276 string characters out of 6133383
+ 1263963 words of memory out of 5000000
+ 45123 multiletter control sequences out of 15000+600000
+ 553666 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,6n,96p,10431b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section.4} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.3} has been referenced but does not exist, 
-replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2} has been referenced but does not exist, 
-replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1} has been referenced but does not exist, 
-replaced by a fixed one
-
+ 62i,13n,96p,10431b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/s
+imsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows
+/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:
+/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun
+.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Font
+s/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Wind
+ows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc>
 <c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sim
-sun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/F
-onts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/W
-indows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/texlive/2018/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/
-msbm10.pfb>
-Output written on main.pdf (1 page, 98730 bytes).
+sun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/F
+onts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/W
+indows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.t
+tc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/
+simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/texliv
+e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2018/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2018/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi6.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
+fb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2018/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2018/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msa
+m10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb>
+Output written on main.pdf (5 pages, 369424 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
- 7 named destinations out of 1000 (max. 500000)
- 85 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 306 PDF objects out of 1000 (max. 8388607)
+ 216 compressed objects within 3 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 

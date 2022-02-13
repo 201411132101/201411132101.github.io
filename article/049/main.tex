@@ -1,0 +1,360 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{geometry}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{ctex}
+\usepackage{pgfplots}  
+\usepackage{scalefnt}
+\usepackage{hyperref} 
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+\def \argmin {\mathop\mathrm{\,arg\,min\,}}
+\def \rank {\mathop\mathrm{\,rank\,}}
+
+
+% 基本信息
+\title{Schwartz 函数和傅里叶变换}
+
+\begin{document}
+
+\maketitle
+
+\section{Schwartz 函数}
+
+下面给出 Schwartz 函数的定义.
+
+\begin{definition}
+    A $ C^\infty(\mathbb{R}^n) $ complex-valued function $ f $ on $ \mathbb{R}^n $ 
+    is called a Schwartz function if for every pair of multi-indices 
+    $ \alpha $, $ \beta \in \mathbb{Z}_+^n $,
+    $$
+        \rho_{\alpha, \beta}(f)
+            := \sup_{x \in \mathbb{R}^n} \left| x^\alpha (\partial^\beta f) (x) \right|
+            < \infty.
+    $$
+    The set of all Schwartz functions on $ \mathbb{R}^n $ 
+    is denoted by $ \mathcal{S}(\mathbb{R}^n) $.
+\end{definition}
+
+下面给出 Schwartz 函数的一个非常有用的等价定义.
+
+\begin{theorem} \label{1}
+    Let $ f \in C^\infty(\mathbb{R}^n) $.
+    Then $ f \in \mathcal{S}(\mathbb{R}^n) $ if and only if
+    for any $ \alpha \in \mathbb{Z}_+^n $ and $ N \in \mathbb{N} $,
+    there exists a positive constant $ C $ such that
+    $$
+        |(\partial^\alpha f) (x)| \leq C \frac{1}{(1 + |x|)^N}.
+    $$
+\end{theorem}
+
+\begin{proof}
+    先证 $ "\Longleftarrow" $. 对任意 $ \alpha $, $ \beta \in \mathbb{Z}_+^n $,
+    \begin{align*}
+        \rho_{\alpha, \beta}(f)
+            &= \sup_{x \in \mathbb{R}^n} \left| x^\alpha (\partial^\beta f) (x) \right|
+            \lesssim \sup_{x \in \mathbb{R}^n} |x|^{|\alpha|} 
+                \left| (\partial^\beta f) (x) \right| \\
+            &\lesssim \sup_{x \in \mathbb{R}^n} (1 + |x|)^{|\alpha|} 
+                \left| (\partial^\beta f) (x) \right|
+            < \infty,
+    \end{align*}
+    故 $ f \in \mathcal{S}(\mathbb{R}^n) $.
+    
+    再证 $ "\Longrightarrow" $. 对任意 $ \beta \in \mathbb{Z}_+^n $
+    和 $ N \in \mathbb{N} $,
+    $$
+        \sup_{x \in B(0, 1)} (1 + |x|)^N |(\partial^\alpha f) (x)| < \infty
+    $$
+    且
+    \begin{align*}
+        &\sup_{x \in \mathbb{R}^n \setminus B(0, 1)} 
+        (1 + |x|)^N |(\partial^\alpha f) (x)| \\
+            &\quad\lesssim \sup_{x \in \mathbb{R}^n \setminus B(0, 1)}
+                |x|^N |(\partial^\beta f) (x)| \\
+            &\quad\lesssim \sup_{x \in \mathbb{R}^n \setminus B(0, 1)}
+                \left( \sum_{\alpha \in \mathbb{Z}_+^n,\, |\alpha| = N}
+                |x^\alpha| \right) |(\partial^\beta f) (x)| \\
+            &\quad\lesssim \sum_{\alpha \in \mathbb{Z}_+^n,\, |\alpha| = N} 
+                \rho_{\alpha, \beta}(f) 
+            < \infty,
+    \end{align*}
+    故
+    $$
+        \sup_{x \in \mathbb{R}^n} (1 + |x|)^N |(\partial^\alpha f) (x)| < \infty,
+    $$
+    定理 \ref{1} 证毕.
+\end{proof}
+
+下面给出 $ \mathcal{S}(\mathbb{R}^n) $ 和其它空间的关系.
+
+\begin{proposition}
+    设 $ p \in [1, \infty) $. 则有以下性质:
+    \begin{enumerate}[(i)]
+        \item $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) \subsetneqq
+            \mathcal{S}(\mathbb{R}^n) \subsetneqq L^p(\mathbb{R}^n) $;
+        \item $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) $ 在 $ L^p(\mathbb{R}^n) $ 中稠.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    先证 (i).
+    容易看出 $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) \subset \mathcal{S}(\mathbb{R}^n) $,
+    又 $ e^{-|x|^2} \in \mathcal{S}(\mathbb{R}^n) $ 但无紧支集, 
+    故 $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) \subsetneqq \mathcal{S}(\mathbb{R}^n) $.
+    
+    又由定理 \ref{1} 知, 对任意 $ f \in \mathcal{S}(\mathbb{R}^n) $ 和 $ x \in \mathbb{R}^n $,
+    $$
+        |f(x)| \lesssim \frac{1}{(1 + |x|)^{n + 1}},
+    $$
+    因此
+    \begin{align*}
+        \| f \|_{L^p(\mathbb{R}^n)}^p 
+            &= \int_{\mathbb{R}^n} |f(x)|^p \, dx
+            = \int_{\mathbb{R}^n} \frac{1}{(1 + |x|)^{n + 1}} \, dx \\
+            &\lesssim 1 + \int_{|x| > 1} \frac{1}{|x|^{n + 1}} \, dx
+            \sim 1 + \int_1^\infty \frac{1}{r^2} \, dx
+            \sim 1.
+    \end{align*}
+    故 $ \mathcal{S}(\mathbb{R}^n) \subset L^p(\mathbb{R}^n) $.
+    又显然 $ \mathcal{S}(\mathbb{R}^n) \neq L^p(\mathbb{R}^n) $,
+    从而 $ \mathcal{S}(\mathbb{R}^n) \subsetneqq L^p(\mathbb{R}^n) $.
+    (i) 证毕. 
+    
+    (ii) 是经典结论, 用卷积去逼近即可.
+\end{proof}
+
+下面给出 Schwartz 函数意义下的收敛.
+
+\begin{definition}
+    设 $ \{f_k\}_{k \in \mathbb{N}} \subset \mathcal{S}(\mathbb{R}^n) $ 
+    且 $ f \in \mathcal{S}(\mathbb{R}^n) $.
+    称 $ f_k $ 收敛到 $ f $ in $ \mathcal{S}(\mathbb{R}^n) $, as $ k \to \infty $,
+    若对任意 $ \alpha $, $ \beta \in \mathbb{Z}_+^n $,
+    $$
+        \rho_{\alpha, \beta}(f_k - f) \to 0, \quad \text{as } k \to \infty. 
+    $$
+\end{definition}
+
+通过收敛可以定义闭集, 从而有了拓扑.
+在此拓扑意义下, Schwartz 空间可赋度量:
+$$  
+    d :\ \mathcal{S}(\mathbb{R}^n) \times \mathcal{S}(\mathbb{R}^n) \to [0, \infty),\
+        (f, g) \mapsto \sum_{\alpha,\, \beta \in \mathbb{Z}_+^n} 
+            \frac{\rho_{\alpha, \beta}(f - g)}{1 + \rho_{\alpha, \beta}(f - g)};
+$$
+但是不能赋予范数.
+
+下面给出 Schwartz 函数傅里叶变换的定义.
+
+\begin{definition}
+    Let $ f \in L^1(\mathbb{R}^n) $. 
+    For any $ \xi \in \mathbb{R}^n $, define
+    \begin{align*}
+        \widehat{f} (\xi)   &:= \int_{\mathbb{R}^n} f(x) e^{-2 \pi i x \cdot \xi} \, dx; \\
+        \widetilde{f} (\xi) &:= f(-\xi); \\
+        (\tau^y f) (\xi)    &:= f(\xi - y), \quad\text{where } y \in \mathbb{R}^n.
+    \end{align*}
+\end{definition}
+
+\begin{remark}
+    傅里叶变换限制在 $ \mathcal{S}(\mathbb{R}^n) $ 上, 是到自身的同胚.
+\end{remark}
+
+\begin{proposition}
+    Let $ f \in \mathcal{S}(\mathbb{R}^n) $, then
+    \begin{enumerate}[(i)]
+        \item $ f^{\wedge\wedge} (\cdot) = f(- \cdot) $;
+        \item 对任意 $ y \in \mathbb{R}^n $, 
+            $ \widehat{\tau^y f}(\xi) = e^{-2 \pi i y \cdot \xi} \widehat{f}(\xi) $;
+        \item 对任意 $ y \in \mathbb{R}^n $, 
+            $ \tau^y (\widehat{f}) (\xi) = [e^{-2 \pi i x \cdot y} f(x)]^\wedge (\xi) $;
+        \item 平移变换不改变傅里叶变换的支集. 即对任意 $ y \in \mathbb{R}^n $, 
+            $ \supp \widehat{\tau^y f} = \supp \widehat{f} $.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    现在证 (ii). 对任意 $ \xi \in \mathbb{R}^n $,
+    \begin{align*}
+        \widehat{\tau^y f} (\xi) 
+            &= \int_{\mathbb{R}^n} (\tau^y f) (x) e^{-2 \pi i x \cdot \xi} \, dx \\
+            &= \int_{\mathbb{R}^n} f(x - y) e^{-2 \pi i x \cdot \xi} \, dx \\
+            &= e^{-2 \pi i y \cdot \xi} \int_{\mathbb{R}^n} f(x) e^{-2 \pi i x \cdot \xi} \, dx \\
+            &= e^{-2 \pi i y \cdot \xi} \widehat{f}(\xi),
+    \end{align*}
+    (ii) 得证.
+    
+    (iv) 是 (ii) 的直接推论.
+\end{proof}
+
+\section{Schwartz 分布}
+
+下面给出 Schwartz 分布傅里叶变换的定义.
+
+\begin{definition} \label{2}
+    Let $ f \in \mathcal{S}'(\mathbb{R}^n) $, define
+    \begin{align*}
+        \widehat{f} &:\ \mathcal{S}'(\mathbb{R}^n) \to \mathcal{S}'(\mathbb{R}^n),\  
+            \forall \, \varphi \in \mathcal{S}(\mathbb{R}^n),
+                \langle \widehat{f}, \varphi \rangle 
+                := \langle f, \widehat{\varphi} \rangle; \\
+        \widetilde{f} &:\ \mathcal{S}'(\mathbb{R}^n) \to \mathcal{S}'(\mathbb{R}^n),\  
+            \forall \, \varphi \in \mathcal{S}(\mathbb{R}^n),
+                \langle \widetilde{f}, \varphi \rangle 
+                := \langle f, \widetilde{\varphi} \rangle; \\
+        \tau^y f &:\ \mathcal{S}'(\mathbb{R}^n) \to \mathcal{S}'(\mathbb{R}^n),\  
+            \forall \, \varphi \in \mathcal{S}(\mathbb{R}^n),
+                \langle \tau^y f, \varphi \rangle 
+                := \langle f,  \tau^{-y} \varphi \rangle,
+                \quad\text{where } y \in \mathbb{R}^n.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    Let $ f \in \mathcal{S}'(\mathbb{R}^n) $ and $ u : \mathbb{R}^n \to \mathbb{C} $.
+    We say that $ f $ coincides with the function $ u $ if, 
+    for any $ \varphi \in \mathcal{S}(\mathbb{R}^n) $,
+    $$
+        \langle f, \varphi \rangle
+            = \int_{\mathbb{R}^n} u(x) \varphi(x) \, dx.
+    $$
+\end{definition}
+
+For any complex-valued function $ u $, let
+$$
+    \supp u := \{ x \in \mathbb{R}^n :\ u(x) \neq 0 \}.
+$$
+For any $ f \in \mathcal{S}'(\mathbb{R}^n) $, let
+\begin{align*}
+    \supp f &:= \bigcap \{ \text{closed set } K \subset \mathbb{R}^n : \\
+        &\qquad\qquad \langle f, \varphi \rangle = 0 
+        \text{ for any } \varphi \in \mathcal{S}(\mathbb{R}^n)
+        \text{ with } \supp \varphi \subset \mathbb{R}^n \setminus K \}.
+\end{align*}
+
+\begin{remark} \label{4}
+    If $ f \in \mathcal{S}'(\mathbb{R}^n) $ coincides with the function $ u $, then
+    $$
+        \widehat{f} = \widehat{u}, \quad
+        \widetilde{f} = \widetilde{u}, \quad
+        \tau^y f = \tau^y u,
+    $$
+    where the $ "=" $ means "coincides with".
+    在我看来, 这也是 Definition \ref{2} 的由来.
+    
+    若 $ u $ 是连续函数, 则 
+    $$ 
+        \supp f = \supp u, 
+    $$ 
+    其中 $ \supp u $ 是函数意义下的支集.
+\end{remark}
+
+\begin{proof}
+    由定义可直接得到
+    $$
+        \widehat{f} = \widehat{u}, \quad
+        \widetilde{f} = \widetilde{u}, \quad
+        \tau^y f = \tau^y u,
+    $$
+    下面只证 $ \supp f = \supp u $.
+    
+    事实上, $ \supp u $ 是闭集且对任意 $ \varphi \in \mathcal{S}(\mathbb{R}^n) $
+    with $ \supp \varphi \subset \mathbb{R}^n \setminus \supp u $,
+    $$
+        \langle f, \varphi \rangle
+            = \int_{\mathbb{R}^n} u(x) \varphi(x) \, dx
+            = 0,
+    $$
+    因此由分布支集定义知 $ \supp f \subset \supp u $.
+    再证 $ \supp u \subset \supp f $.
+    对任意 $ x \in \supp u $, 有 $ u(x) \neq 0 $, 不妨设 $ u(x) > 0 $. 
+    因为 $ u $ 连续, 故存在 $ r_x \in (0, \infty) $ 使得 
+    $ u $ 在 $ B(x, r_x) $ 上恒大于 $ u(x) / 2 $. 
+    假设存在
+    \begin{align} \label{3}
+        K_x &\in \{ \text{closed set } K \subset \mathbb{R}^n : \\
+            &\qquad\qquad \langle f, \varphi \rangle = 0 
+            \text{ for any } \varphi \in \mathcal{S}(\mathbb{R}^n)
+            \text{ with } \supp \varphi \subset \mathbb{R}^n \setminus K \} \notag
+    \end{align}
+    使得 $ x \notin K_x $, 则存在 $ \delta \in (0, r_x) $ 使得 $ B(x, \delta) \cap K_x = \emptyset $.
+    令 $ \varphi_x \in \mathcal{S}(\mathbb{R}^n) $ 满足
+    \begin{equation*}
+        \varphi_x(t) := \left\{\begin{aligned}
+            &1,                        && t \in B(x, \delta/2), \\
+            &\text{取值为 $ [0,1] $},  && t \in B(x, \delta) \setminus B(x, \delta/2), \\
+            &0,                       && t \in \mathbb{R}^n \setminus B(x, \delta).
+        \end{aligned}\right.
+    \end{equation*} 
+    则
+    $$
+        \langle f, \varphi_x \rangle 
+            = \int_{\mathbb{R}^n} u(t) \varphi_x(t) \, dt
+            = \int_{B(x, \delta)} u(t) \varphi_x(t) \, dt
+            \geq \frac{u(x)}{2} \int_{B(x, \delta)} \varphi_x(t) \, dt
+            > 0,
+    $$
+    这与 \eqref{3} 相矛盾. 故
+    \begin{align*} 
+        x &\in \bigcap\{ \text{closed set } K \subset \mathbb{R}^n : \\
+            &\qquad\qquad \langle f, \varphi \rangle = 0 
+            \text{ for any } \varphi \in \mathcal{S}(\mathbb{R}^n)
+            \text{ with } \supp \varphi \subset \mathbb{R}^n \setminus K \} \\
+           &= \supp f.
+    \end{align*}
+    因此 $ \supp u \subset \supp f $, Remark \ref{4} 证毕.
+\end{proof}
+
+\begin{proposition}
+    Let $ f \in \mathcal{S}'(\mathbb{R}^n) $, then
+    \begin{enumerate}[(i)]
+        \item $ f^{\wedge\wedge} (\cdot) = \widetilde{f} $;
+        \item 平移变换不改变傅里叶变换的支集. 即对任意 $ y \in \mathbb{R}^n $, 
+            $ \supp \widehat{\tau^y f} = \supp \widehat{f} $.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    现在证 (ii). 对任意 $ \varphi \in \mathcal{S}(\mathbb{R}^n) $,
+    $$
+        \left\langle \widehat{\tau^y f}, \varphi \right\rangle
+            = \left\langle \tau^y f, \widehat{\varphi} \right\rangle 
+            = \left\langle f, \tau^{-y} \widehat{\varphi} \right\rangle
+            = \left\langle f, [e^{-2 \pi i x \cdot y} \varphi(x)]^\wedge \right\rangle
+            = \left\langle \widehat{f}, e^{-2 \pi i x \cdot y} \varphi(x) \right\rangle,
+    $$
+    故 $ \supp \widehat{\tau^y f} = \supp \widehat{f} $, (ii) 得证.
+\end{proof}
+
+\end{document} 
+
+
+
+
+
+
+
+
+
