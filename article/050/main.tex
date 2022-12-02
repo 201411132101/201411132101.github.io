@@ -1,0 +1,130 @@
+\documentclass[11pt, leqno]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{ctex}
+\usepackage{hyperref} 
+\usepackage{titletoc}
+\usepackage[notref,notcite]{showkeys}
+\usepackage{citeref}
+\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{txfonts}
+\usepackage{verbatim}
+\usepackage{geometry}
+
+\geometry{a4paper,left=3cm,right=3cm,top=3cm,bottom=3cm}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+
+
+\def \supp {\mathop\mathrm{\,supp\,}}
+\def \argmin {\mathop\mathrm{\,arg\,min\,}}
+\def \rank {\mathop\mathrm{\,rank\,}}
+
+\allowdisplaybreaks
+
+% 基本信息
+\title{一些反例}
+
+\begin{document}
+
+\maketitle
+
+\section{$ C_{\mathrm{c}}(\mathbb{R}^n) \subsetneqq \mathcal{S}(\mathbb{R}^n) $}
+
+\begin{example}
+    Let $ f(x) := e^{|x|^2} $ for any $ x \in \mathbb{R}^n $.
+    Then $ f \in \mathcal{S}(\mathbb{R}^n) $
+    but $ f \notin C_c(\mathbb{R}^n) $.
+\end{example}
+
+\section{极大函数不是强 $ (1, 1) $ 的}
+
+\begin{proposition}
+    Let $ f \in L^1(\mathbb{R}^n) \setminus \{ 0 \} $.
+    Then $ M f \notin L^1(\mathbb{R}^n) $.
+\end{proposition}
+
+下面定理来自 Stein \cite[Theorem 1]{s69}.
+
+\begin{theorem} \label{1}
+    Let $ B $ be a bounded subset of $ \mathbb{R}^n $.
+    Then $ M f \in L^1(B) $ if and only if $ f \in L\log L(B) $,
+    where $ \log^+ t := \max\{ \log t, 0 \} $ and
+    $$
+        L\log L(B) :=
+            \left\{ f \text{ is a measurable function on } B
+                :\ \int_B |f(x)| \log^+ |f(x)| \, dx < \infty \right\}.
+    $$
+\end{theorem}
+
+{\color{red} $ L\log L(B) \subsetneqq L^1(B) $ 应该是对的, 但反例还没找到.}
+\cite[Example 1.9]{cf09} 给出了一个有点关系的反例, 但我们需要的是它们的临界情形.
+
+\begin{example}
+    Let $ B := B(\mathbf{0}, 1) \subset \mathbb{R}^n $, $ \delta \in (0, \infty) $,
+    and $ f(x) := ? $ for any $ x \in B $.
+    Then $ f \in L^1(B) $ but $ f \notin L\log L(B) $.
+\end{example}
+
+\begin{remark}
+    由上面例子及 Theorem \ref{1} 知
+    $ f \in L^1(B) $ 但 $ M f \notin L^1(B) $.
+\end{remark}
+
+\section{Hilbert 变换}
+
+\begin{theorem}
+    Let $ f \in \mathcal{S}(\mathbb{R}^n) $.
+    Then $ H f \in L^1(\mathbb{R}^n) $ if and only if $ f \in L^1(\mathbb{R}^n) $ 
+    and $ \int_{\mathbb{R}^n} f(x) = 0 $.
+\end{theorem}
+
+\begin{theorem}
+    Let $ f \in L^1(\mathbb{R}^n) $.
+    If $ H f \in L^1(\mathbb{R}^n) $, then $ \int_{\mathbb{R}^n} f(x) = 0 $.
+\end{theorem}
+
+一个自然的问题是, 上述定理反过来成立么?
+答案是否定的.
+
+\begin{example}
+    待补.
+\end{example}
+
+\begin{thebibliography}{99}
+
+\bibitem{cf09}
+D. Cruz-Uribe and A. Fiorenza, A,
+$L\log L$ results for the maximal operator in variable $L^p$ spaces.
+Trans. Amer. Math. Soc. 361 (2009), 2631-2647.
+
+\bibitem{s69}
+E. M. Stein,
+Note on the class $L$ ${\rm log}$ $L$.
+Studia Math. 32 (1969), 305-310.
+
+\end{thebibliography}
+
+\end{document} 
+
+
+
+
+
+
+
+
+

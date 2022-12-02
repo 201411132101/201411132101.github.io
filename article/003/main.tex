@@ -1,17 +1,12 @@
 \documentclass[a4paper,12pt]{article}
-\usepackage{graphicx}
-\usepackage{subfigure}
-\usepackage{geometry}
-\usepackage{framed}
-\usepackage{lipsum}
-\usepackage{color}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{multirow}
 \usepackage{titlesec}
 \usepackage{enumerate}
 \usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{ctex}
 
 
 \newtheorem{theorem}{Theorem}
@@ -19,9 +14,9 @@
 \newtheorem{definition}{Definition}
 \newtheorem{case}{Case}
 \newtheorem{corollary}{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
 
 
-% 鍩烘湰淇℃伅
 \title{Equidistributed}
 \author{}
 
@@ -55,15 +50,71 @@ where the $ \# A $ denotes the cardinality of the finite set $ A $.
 
 From Weyl's criterion, we have following corollaries.
 
-\begin{corollary}
+\begin{corollary} \label{1}
     Let $ P(x) : \mathbb{R} \to \mathbb{R}, x \mapsto c_m x^m + \cdots + c_0 $, 
     where $ \{c_0, \ldots, c_m\} \subset \mathbb{R} $ and one of them is irrational number. 
     Then $ \{ \langle P(n) \rangle \}_{n \in \mathbb{N}} \subset [0, 1) $ is equidistributed.
 \end{corollary}
 
+\begin{proposition}
+    设 $ \alpha \in \mathbb{R} \setminus \mathbb{Q} $.
+    则 $ \{ \langle n \alpha \rangle \}_{n \in \mathbb{N}} $ 在 $ [0, 1] $ 中稠密.
+\end{proposition}
+
+\begin{proof}[证法1]
+    By Corollary \ref{1} with $ m = 1 $, $ c_0 = 0 $, $ c_1 = \alpha $,
+    we find that 
+    $$ 
+        \{ \langle n \alpha \rangle \}_{n \in \mathbb{N}}
+            = \{ \langle P(n) \rangle \}_{n \in \mathbb{N}} 
+            \subset [0, 1) 
+    $$ 
+    is equidistributed, and hence 
+    $ \{ \langle n \alpha \rangle \}_{n \in \mathbb{N}} $ 在 $ [0, 1] $ 中稠密.
+\end{proof}
+
+\begin{proof}[证法2(来自 lzc)]
+    欲证 $ \{ \langle n \alpha \rangle \}_{n \in \mathbb{N}} $ 在 $ [0, 1] $ 中稠密,
+    即证对任意 $ \varepsilon \in (0, 1) $ 和 $ x \in [0, 1] $,
+    存在 $ n \in \mathbb{N} $ 使得 $ |\langle n \alpha \rangle - x| < \varepsilon $.
+    固定 $ k \in \mathbb{N} $ 和 $ x \in [0, 1] $, 下面来构造 $ n $.
+    因为 $ \alpha \in \mathbb{R} \setminus \mathbb{Q} $, 
+    故 $ \{ \langle n \alpha \rangle \}_{n \in \mathbb{N}} $ 两两不等,
+    从而存在 $ n $, $ m \in \mathbb{N} $ 使得
+    $$
+        \langle n \alpha \rangle - \langle m \alpha \rangle
+            \in (0, \varepsilon).
+    $$
+    注意到
+    \begin{align*}
+        n a &= [n \alpha] + \langle n \alpha \rangle \\
+        m a &= [m \alpha] + \langle m \alpha \rangle
+    \end{align*}
+    故
+    $$
+        \langle (n - m) a \rangle 
+            = \langle n \alpha \rangle - \langle m \alpha \rangle 
+            \in (0, \varepsilon).
+    $$
+    取 $ p := [x / \langle (n - m) a \rangle] $, 则
+    $$
+        \langle p(n - m) a \rangle 
+            = p \langle (n - m) a \rangle 
+            \in (x - \langle (n - m) a \rangle, x]
+    $$
+    故
+    $$
+        \langle p(n - m) a \rangle - x 
+            \in (- \langle (n - m) a \rangle, 0]
+            \subset (-\varepsilon, 0]
+    $$
+\end{proof}
+
 \begin{corollary}
     $ \{ \sin n \}_{n \in \mathbb{N}} $ is dense in $ [0, 1] $.
 \end{corollary}
+
+
 
 \begin{thebibliography}{99}
 
