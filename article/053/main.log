@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  31 JUL 2022 10:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.11.11)  1 AUG 2022 00:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1173,9 +1173,10 @@ Package hyperref Info: Option `CJKbookmarks' set `false' on input line 41.
 LaTeX Font Info:    Try loading font information for C19+rm on input line 44.
 (c:/texlive/2018/texmf-dist/tex/latex/ctex/fd/c19rm.fd
 File: c19rm.fd 2018/01/28 v2.4.12 Chinese font definition (CTEX)
-)<<c1960.cmap>><<c1937.cmap>>
+)<<c1956.cmap>><<c1965.cmap>><<c1960.cmap>><<c1957.cmap>>
 LaTeX Font Info:    Try loading font information for U+txsya on input line 44.
- (c:/texlive/2018/texmf-dist/tex/latex/txfonts/utxsya.fd
+
+(c:/texlive/2018/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Try loading font information for U+txsyb on input line 44.
@@ -1201,82 +1202,58 @@ File: utxsyc.fd 2000/12/15 v3.1
 
 LaTeX Warning: No \author given.
 
-<<c1951.cmap>><<c1963.cmap>><<c1954.cmap>><<c1944.cmap>><<c1939.cmap>><<c1942.c
-map>><<c1940.cmap>><<c1943.cmap>><<c1962.cmap>><<c1947.cmap>><<c1945.cmap>><<c1
-948.cmap>><<c1956.cmap>><<c1961.cmap>><<c1938.cmap>><<c1964.cmap>><<c1946.cmap>
-><<c1955.cmap>><<c1953.cmap>><<c1958.cmap>><<c1950.cmap>><<c1959.cmap>><<c1957.
-cmap>><<c1965.cmap>><<c1952.cmap>><<c1941.cmap>><<c1949.cmap>>
+<<c1951.cmap>><<c1963.cmap>><<c1954.cmap>><<c1961.cmap>><<c1940.cmap>><<c1943.c
+map>><<c1946.cmap>><<c1955.cmap>><<c1938.cmap>><<c1947.cmap>><<c1945.cmap>><<c1
+953.cmap>><<c1952.cmap>><<c1964.cmap>><<c1962.cmap>><<c1959.cmap>><<c1942.cmap>
+><<c1941.cmap>><<c1949.cmap>><<c1937.cmap>><<c1958.cmap>>
+CiteRef Warning: Never cited from `\kf61 '.
+CiteRef Warning: Never cited from `\m92 '.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
 (c:/texlive/2018/texmf-dist/tex/generic/ctex/zhwindowsfonts.tex
 File: zhwindowsfonts.tex 2018/01/28 v2.4.12 Windows font map loader for pdfTeX 
 and DVIPDFMx (CTEX)
 ) [1
 
-] [2]
-CiteRef Warning: Citation `d' on page 3 undefined.
-[3]<<c1936.cmap>> [4]
-Overfull \hbox (4.72572pt too wide) in paragraph at lines 342--346
-\C19/rm/m/n/10.95/55 ´ \C19/rm/m/n/10.95/57 Ï \C19/rm/m/n/10.95/43 L\OT1/txr/m/
-n/10.95 ``multiresolution anal-y-sis''\C19/rm/m/n/10.95/63 ù \C19/rm/m/n/10.95/
-61 ˜ \C19/rm/m/n/10.95/47 µ \C19/rm/m/n/10.95/45 e \C19/rm/m/n/10.95/48 5 \C19/
-rm/m/n/10.95/43 ^^H \C19/rm/m/n/10.95/63 E \C19/rm/m/n/10.95/60 ^^B \C19/rm/m/n
-/10.95/37 Å\OT1/txr/m/n/10.95 . \C19/rm/m/n/10.95/37 ^^] \C19/rm/m/n/10.95/46 !
- \C19/rm/m/n/10.95/58 · \C19/rm/m/n/10.95/50 ‚ \C19/rm/m/n/10.95/59 k \C19/rm/m
-/n/10.95/44 £ \C19/rm/m/n/10.95/43 ^^Z \C19/rm/m/n/10.95/55 Ÿ \C19/rm/m/n/10.95
-/50 o \C19/rm/m/n/10.95/55 ´\OT1/txr/m/n/10.95 ``multiresolution
- []
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
 
-[5] [6] [7] [8] [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 615.
- [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 615.
- (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 615.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 615.
+(./main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 74.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 74.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 03886F0550684801B62B4D39FE86041A;493.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 615.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
  ) 
 Here is how much of TeX's memory you used:
- 22498 strings out of 492649
- 383061 string characters out of 6133383
- 552052 words of memory out of 5000000
- 25932 multiletter control sequences out of 15000+600000
- 576865 words of font info for 152 fonts, out of 8000000 for 9000
+ 22059 strings out of 492649
+ 376160 string characters out of 6133383
+ 542534 words of memory out of 5000000
+ 25604 multiletter control sequences out of 15000+600000
+ 562816 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,13n,48p,10442b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/s
-imhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows
-/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:
-/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun
-.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Font
-s/simsun.ttc><c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simkai.ttf><c:/Wind
-ows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc>
-<c:/Windows/Fonts/simsun.ttc>{c:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8
-r.enc}<c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fon
+ 40i,6n,48p,10442b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Windows/Fonts/sim
+hei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/F
+onts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/W
+indows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.t
+tc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/
+simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Window
+s/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c
+:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsu
+n.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fon
 ts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Win
-dows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc
-><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/si
-msun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/
-Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/
-Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.
-ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts
-/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/texli
-ve/2018/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><c:/texlive/2018/texmf-di
-st/fonts/type1/public/txfonts/rtxmi.pfb><c:/texlive/2018/texmf-dist/fonts/type1
-/public/txfonts/rtxr.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/txfonts
-/txex.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/txfonts/txsy.pfb><c:/t
-exlive/2018/texmf-dist/fonts/type1/public/txfonts/txsya.pfb><c:/texlive/2018/te
-xmf-dist/fonts/type1/public/txfonts/txsyb.pfb><c:/texlive/2018/texmf-dist/fonts
-/type1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/u
-tmr8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (10 pages, 339624 bytes).
+dows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/texlive/2018/texmf-dist/
+fonts/type1/public/txfonts/rtxmi.pfb><c:/texlive/2018/texmf-dist/fonts/type1/pu
+blic/txfonts/rtxr.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/txfonts/tx
+ex.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/txfonts/txsy.pfb><c:/texl
+ive/2018/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb><c:/texlive/2018/texmf
+-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/
+urw/times/utmr8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.
+pfb>
+Output written on main.pdf (1 page, 179708 bytes).
 PDF statistics:
- 402 PDF objects out of 1000 (max. 8388607)
- 302 compressed objects within 4 object streams
- 60 named destinations out of 1000 (max. 500000)
- 153 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 182 PDF objects out of 1000 (max. 8388607)
+ 117 compressed objects within 2 object streams
+ 4 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

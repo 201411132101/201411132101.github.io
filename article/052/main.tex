@@ -36,24 +36,565 @@
 \allowdisplaybreaks
 
 % 基本信息
-\title{算子沿拓}
+\title{小波}
 
 \begin{document}
 
 \maketitle
 
-注意到, $ M_1 := \operatorname{span} \{ 1, x^2, x^4, x^6, \ldots \} $ 和
-$ M_2 := \operatorname{span} \{ 1, x^1, x^3, x^5, \ldots \} $ 均是 $ C([0,1]) $ 的稠子空间.
+\section{基础概念的回顾}
 
-定义 
+对于 Hilbert 空间来说, 由它的内积可以诱导出正交补的概念.
+
+\begin{definition}
+设 $ \mathscr{H} $ 是 Hilbert 空间, 
+$ x,y \in \mathscr{H} $ 且 $ N, M \subset \mathscr{H} $.
+\begin{enumerate}[\rm(i)]
+\item 我们称 $ x \bot y $, 若 $ (x,y) = 0 $.
+
+\item 我们称 $ x \bot M $, 若 $ (x,y) = 0 $ 对任意 $ y \in M $.
+
+\item 我们称 $ N \bot M $, 若 $ (x,y) = 0 $ 对任意 $ x \in N $ 和 $ y \in M $.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}\label{8}
+设 $ \mathscr{H} $ 是 Hilbert 空间, $ \{M_j\}_{j \in \mathbb{Z}} \subset \mathscr{H} $. 则 
 $$
-T_1 : M_1 \to C([0,1]),\ f \mapsto f.
+\bigcap_{j \in \mathbb{Z}} (M_j)^\bot
+= \left( \bigcup_{j \in \mathbb{Z}} M_j \right)^\bot.
 $$
+\end{proposition}
+
+\begin{proof}
+\begin{align*}
+x \in \bigcap_{j \in \mathbb{Z}} (M_j)^\bot
+&\Longleftrightarrow x \bot M_j \qquad \text{for any} \ j \in \mathbb{Z} \\
+&\Longleftrightarrow x \bot \left( \bigcup_{j \in \mathbb{Z}} M_j \right) 
+\Longleftrightarrow x \in \left( \bigcup_{j \in \mathbb{Z}} M_j \right)^\bot.
+\end{align*}
+Proposition \ref{8} 证毕.
+\end{proof}
+
+小波背景下直和的定义与代数中定义的有一定区别, 这是因为此处要推广到无穷维直和.
+\begin{definition}[{\cite[p.\,124]{kf61}}]
+设 $ \mathscr{H} $ 是 Hilbert 空间, $ \{ W_j \}_{j \in \mathbb{Z}} $ 是 $ \mathscr{H} $ 的线性子空间.
+我们称 $ \mathscr{H} $ 是 $ \{ W_j \}_{j \in \mathbb{Z}} $ 的正交直和, 记为
+$$
+\mathscr{H} := \bigoplus_{j \in \mathbb{Z}} W_j,
+$$
+若对任意 $ j, j' \in \mathbb{Z} $, $ W_j \bot W_{j'} $, 
+且对任意 $ x \in \mathscr{H} $, 它可以表示为
+$$
+x = \sum_{j \in \mathbb{Z}} y_j
+$$
+in $ \mathscr{H} $, 其中 $ y_j \in W_j $ 对任意 $ j \in \mathbb{Z} $.
+\end{definition}
+
+数分的一个简单结论.
+\begin{lemma} \label{3}
+设 $ \mathscr{H} $ 是 Hilbert 空间, 单减闭集列 $ \{M_j\}_{j = 1}^\infty \subset \mathscr{H} $ 满足
+$$
+M_1 \supset M_2 \supset \cdots
+$$
+若 $ \{ x_j \in M_j \}_{j = 1}^\infty $ 的极限存在, 
+$ x_\infty := \lim_{j \to \infty} x_j $, 则
+$$
+x_\infty \in \bigcap_{j = 1}^\infty M_j.
+$$
+\end{lemma}
+
+\begin{proof}
+对任意 $ j \in \mathbb{N} $, 由单减性知 $ \{x_i\}_{i = j}^\infty \subset M_j $.
+又因为 $ M_j $ 闭, 故
+$$
+x_\infty = \lim_{j \to \infty} x_j \in M_j.
+$$
+从而
+$$
+x_\infty \in \bigcap_{j = 1}^\infty M_j.
+$$
+引理证毕.
+\end{proof}
+
+现在回顾 Riesz 基的定义.
+\begin{definition}
+设 $ \mathscr{H} $是 Hilbert 空间.
+称 $ \{e_k\}_{k \in \mathbb{Z}} \subset \mathscr{H} $ 是该空间的 Riesz 基, 若
+\begin{enumerate}[\rm(i)]
+\item 对任意 $ \{\alpha_k\}_{k \in \mathbb{Z}} \in \ell^2(\mathbb{Z}) $,
+$$
+\left\| \sum_{k \in \mathbb{Z}} \alpha_k e_k \right\|_{\mathscr{H}}
+\sim \left( \sum_{k \in \mathbb{Z}} |\alpha_j|^2 \right)^{1/2};
+$$
+\item 
+$$
+\left\{ \sum_{k \text{ finite}} \alpha_k e_k :\ \{\alpha_k\}_{k \in \mathbb{Z}} \subset \mathbb{C} \right\}
+$$
+在 $ \mathscr{H} $ 中稠.
+\end{enumerate}
+\end{definition}
+
+对任意 $ f \in L^1(\mathbb{R}) $ 和 $ \xi \in \mathbb{R} $, 令
+$$
+\widehat{f}(\xi) := \int_{\mathbb{R}} f(x) e^{- i x \xi} \, dx.
+$$
+此时 Plancherel 定理变为, 对任意 $ f \in L^2(\mathbb{R}) $,
+$$
+(2\pi)^{-1/2} \left\| \widehat f \right\|_{L^2(\mathbb{R})} = \| f \|_{L^2(\mathbb{R})}.
+$$
+
+在研究 Fourier 级数的时候, 有两个经典的核, 这里给出它们的定义, 但不深入研究.
+对任意 $ N \in \mathbb{Z}_+ $ 和 $ t \in \mathbb{R} \setminus \{k\pi\}_{k \in \mathbb{Z}} $,
+$$
+D_N(t) 
+:= \frac{1}{2\pi} \sum_{k = -N}^N e^{ikt} 
+= \frac{1}{2\pi} \frac{\sin ((N+1/2)t)}{\sin(t/2)}
+$$
+被称为 Dirichlet 核;
+$$
+F_N(t) 
+:= \frac{1}{N+1} \sum_{k = 0}^N D_k(t) 
+= \frac{1}{2\pi(N+1)} \left[ \frac{\sin ((N/2+1/2)t)}{\sin(t/2)} \right]^2
+$$
+被称为 Fej\'er 核. 容易看出, 对任意 $ N \in \mathbb{Z}_+ $,
+$ D_N $ 和 $ F_N $ 都是 $ \{ e^{ikt} \}_{k \in \mathbb{Z}} $ 的有限线性组合且
+$$
+\int_0^{2\pi} D_N(t) \, dt 
+= (2\pi)^{-1} \sum_{k = -N}^N \int_0^{2\pi} e^{ikt} \, dt 
+= 1,
+$$
+$$
+\int_0^{2\pi} F_N(t) \, dt 
+= \frac{1}{N+1} \sum_{k = 0}^N \int_0^{2\pi} D_k(t) \, dt 
+= 1.
+$$
+
+\begin{lemma} \label{16}
+设 $ p \in [1, \infty) $ 且 $ f \in L^p([0, 2\pi]) $. 则
+\begin{enumerate}[\rm(i)]
+\item 对任意 $ N \in \mathbb{Z}_+ $, $ F_N * f \in L^p([0, 2\pi]) $.
+\item 对几乎处处 $ x \in [0, 2\pi] $, 
+$$
+\lim_{N \to \infty} (F_N * f)(x) = f(x).
+$$
+\item 若 $ f $ 还是连续函数, 则 (ii) 的收敛是一致的, 
+这给出了 Weierstrass theorem 的一个证明.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) 由 Young's convolution inequality 直接得到. 其余待补.
+\end{proof}
+
+下面这个结论来自 Meyer 的 \cite[p.\,26, Theorem 1]{m92},
+也可以参看 Daubechies 的 \cite[p.\,139]{d}.
+
+\begin{lemma} \label{12}
+设 $ \varphi \in L^2(\mathbb{R}) $, $ C_1, C_2 \in (0, \infty) $. 
+则下面两条等价,
+\begin{enumerate}[\rm(i)]
+\item 对任意 $ \{\alpha_k\}_{k \in \mathbb{Z}} \in \ell^2(\mathbb{Z}) $,
+$$
+C_1 \sum_{k \in \mathbb{Z}} |\alpha_k|^2
+\leq \left\| \sum_{k \in \mathbb{Z}} \alpha_k \varphi(\cdot - k) \right\|_{L^2(\mathbb{R})}^2
+\leq C_2 \sum_{k \in \mathbb{Z}} |\alpha_k|^2;
+$$
+\item 对几乎处处 $ \xi \in \mathbb{R} $,
+$$
+C_1 
+\leq \sum_{l \in \mathbb{Z}} |\widehat\varphi(\xi + 2\pi l)|^2 
+\leq C_2.
+$$
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+先来一些准备工作. 由 Plancherel 定理知,
+对任意 $ \{\alpha_k\}_{k \in \mathbb{Z}} \in \ell^2(\mathbb{Z}) $,
+\begin{align} \label{20x}
+\left\| \sum_{k \text{ finite}} \alpha_k \varphi(\cdot - k) \right\|_{L^2(\mathbb{R})}^2
+&= \frac{1}{2\pi} \left\| \ \left[ \sum_{k \text{ finite}} \alpha_k \varphi(\cdot - k) \right]^\wedge \right\|_{L^2(\mathbb{R})}^2
+= \frac{1}{2\pi} \left\| \sum_{k \text{ finite}} \alpha_k [\varphi(\cdot - k)]^\wedge \right\|_{L^2(\mathbb{R})}^2 \\
+&= \frac{1}{2\pi} \int_{\mathbb{R}} \left| \sum_{k \text{ finite}} 
+\alpha_k e^{-ik\xi} \widehat\varphi(\xi) \right|^2 \, d\xi 
+= \frac{1}{2\pi} \int_0^{2\pi} |m(\xi)|^2 \omega(\xi) \, d\xi, \notag
+\end{align}
+其中
+$$
+m(\xi) := \sum_{k \text{ finite}} \alpha_k e^{-ik\xi}, \qquad
+\omega(\xi) := \sum_{l \in \mathbb{Z}} |\widehat\varphi(\xi + 2\pi l)|^2.
+$$
+又由 $ \{e^{-ik\xi}\}_{k \in \mathbb{Z}} $ 的正交性知,
+\begin{equation} \label{20y}
+\sum_{k \text{ finite}} |\alpha_k|^2
+= \frac{1}{2\pi} \langle m, m \rangle_{L^2([0, 2\pi])}
+= \frac{1}{2\pi} \int_0^{2\pi} |m(\xi)|^2 \, d\xi,
+\end{equation}
+有了这两估计, 可以开始等价性的证明了.
+
+先证 (i) 推 (ii). 
+对任意 $ \{\alpha_k\}_{k \in \mathbb{Z}} \in \ell^2(\mathbb{Z}) $, 
+由 \eqref{20x} 和 \eqref{20y} 知
+\begin{equation} \label{15}
+C_1 \int_0^{2\pi} |m(\xi)|^2 \, d\xi
+\leq \int_0^{2\pi} |m(\xi)|^2 \omega(\xi) \, d\xi 
+\leq C_2 \int_0^{2\pi} |m(\xi)|^2 \, d\xi.
+\end{equation}
+对任意 $ \xi_0 \in \mathbb{R} $, 
+取 $ m (\cdot) := (\frac{2\pi}{2N+1})^{1/2} D_N (\cdot - \xi_0) $, 
+则对任意 $ \xi \in \mathbb{R} \setminus \{\xi_0 + k \pi\}_{k \in \mathbb{Z}} $,
+$$
+[m(\xi)]^2 
+= \frac{2\pi}{2N+1} \left[ D_N(\xi- \xi_0) \right]^2 
+= \frac{1}{2\pi(2N+1)} \left[ \frac{\sin ((N+1/2)(\xi- \xi_0))}{\sin((\xi- \xi_0)/2)} \right]^2
+= F_{2N}(\xi_0 - \xi),
+$$
+因此 \eqref{15} 变为
+$$
+C_1 \leq (F_{2N} * \omega)(\xi_0) := \int_0^{2\pi} F_{2N}(\xi_0 - \xi) \omega(\xi) \, d\xi \leq C_2.
+$$
+注意到
+$$
+\| \omega \|_{L^2([0, 2\pi])}
+= (2\pi)^{-1} \int_0^{2\pi} \sum_{l \in \mathbb{Z}} |\widehat\varphi(\xi + 2\pi l)|^2 \, d\xi
+= (2\pi)^{-1} \int_{\mathbb{R}} |\widehat\varphi(\xi)|^2 \, d\xi
+= \| \varphi \|_{L^2(\mathbb{R})},
+$$
+故对几乎处处 $ \xi_0 \in \mathbb{R} $,
+$$
+\lim_{N \to \infty} (F_{2N} * \omega)(\xi_0) = \omega(\xi_0),
+$$
+故
+$$
+C_1 \leq \omega(\xi_0) \leq C_2.
+$$
+这样就推出了 (ii).
+
+再证 (ii) 推 (i). 
+取定 $ \{\alpha_k\}_{k \in \mathbb{Z}} \in \ell^2(\mathbb{Z}) $.
+由 \eqref{20x} 和 \eqref{20y} 知, 对任意 $ N, M \in \mathbb{Z} $ 且 $ N \leq M $, 
+\begin{align*}
+\left\| \sum_{k = N}^M \alpha_k \varphi(\cdot - k) \right\|_{L^2(\mathbb{R})}^2
+&= \left\| \sum_{k = N}^M \alpha_k \varphi(\cdot - k) \right\|_{L^2(\mathbb{R})}^2 \\
+&= \int_0^{2\pi} \left| \sum_{k = N}^M \alpha_k e^{-ik\xi} \right|^2 \omega(\xi) \, d\xi \\
+&\leq C_2 \int_0^{2\pi} \left| \sum_{k = N}^M \alpha_k e^{-ik\xi} \right|^2 \, d\xi \\
+&= C_2 \sum_{k = N}^M |\alpha_k|^2 \to 0
+\end{align*}
+当 $ N, M \to \infty $ 或 $ N, M \to -\infty $, 
+故 $ \sum_{k \in \mathbb{Z}} \alpha_k \varphi(\cdot - k) $ 
+在 $ L^2(\mathbb{R}) $ 中收敛. 
+对任意 $ M \in \mathbb{N} $, 取 $ N := -M $ 有
+$$
+\left\| \sum_{k = -M}^M \alpha_k \varphi(\cdot - k) \right\|_{L^2(\mathbb{R})}^2
+\leq C_2 \sum_{k = M}^M |\alpha_k|^2,
+$$
+令 $ M \to \infty $ 得
+$$
+\left\| \sum_{k \in \mathbb{Z}} \alpha_k \varphi(\cdot - k) \right\|_{L^2(\mathbb{R})}^2
+\leq C_2 \sum_{k \in \mathbb{Z}} |\alpha_k|^2.
+$$
+另一半不等式类似可证. Lemma \ref{12} 证毕.
+\end{proof}
+
+\begin{remark}
+(i) 推 (ii) 可能有另一个证明思路, 不一定对, 感觉也很麻烦.
+由于多项式在 $ L^2([0,2\pi]) $ 中稠, 故 \eqref{15} 可转变为对任意 $ f \in L^2([0,2\pi]) $,
+$$
+C_1 \int_0^{2\pi} f(\xi) \, d\xi
+\leq \int_0^{2\pi} f(\xi) \omega(\xi) \, d\xi 
+\leq C_2 \int_0^{2\pi} f(\xi) \, d\xi.
+$$
+化简得, 对任意 $ f \in L^2([0,2\pi]) $ 且 $ \| f \|_{L^2([0,2\pi])} = 1 $,
+$$
+C_1 \leq \int_0^{2\pi} f(\xi) \omega(\xi) \, d\xi \leq C_2.
+$$
+故对几乎处处 $ \xi \in \mathbb{R} $,
+$$
+C_1 \leq \omega(\xi) \leq C_2.
+$$
+\end{remark}
+
+\section{小波的构造}
+
+\begin{definition}
+称函数 $ \theta \in L^2(\mathbb{R}) $ 是小波, 若
+$$
+\theta_{j,k}(x) := 2^{j/2} \theta(2^j x - k) 
+\qquad\text{for any} \ j \in \mathbb{Z},\ k \in \mathbb{Z}
+$$
+构成 $ L^2(\mathbb{R}) $ 的一组标准正交基.
+\end{definition}
+
+\begin{example}
+Haar 小波
+$$
+\theta(x) :=
+\begin{cases}
+1, & x \in [0, \frac12), \\
+-1, & x \in [\frac12, 1), \\
+0, & \text{otherwise}
+\end{cases}
+$$
+是一个经典小波.
+\end{example}
+
+一个很自然的问题是, 有没有什么方法来方便的构造想要的小波呢?
+一个经典的方法是通过``multiresolution analysis''这一框架来构造小波.
+本节我们先回顾什么是``multiresolution analysis'', 
+再给出 Meyer 小波和 Daubechies 小波的构造.
+
+\subsection{Multiresolution analysis}
+
+
+\begin{definition}[Meyer, {\cite[p.\,21]{m92}}] \label{10}
+一列 $ L^2(\mathbb{R}) $ 的闭线性子空间 $ \{V_j\}_{j \in\mathbb{Z}} $ 
+被称为 $ L^2(\mathbb{R}) $ 的多尺度逼近, 若它满足以下条件:
+\begin{enumerate}[\rm(i)]
+\item 对任意 $ j \in \mathbb{Z} $, $ V_j \subset V_{j + 1} $;
+\item $ \overline{\bigcup_{j \in \mathbb{Z}} V_j} = L^2(\mathbb{R}) $,
+这个闭包是 $ L^2(\mathbb{R}) $ 空间意义下的闭包;
+\item $ \bigcap_{j \in \mathbb{Z}} V_j = \{\theta\} $,
+此处的 $ \theta $ 是 $ L^2(\mathbb{R}) $ 空间中的零元;
+\item 对任意 $ f \in L^2(\mathbb{R}) $ 和 $ j \in \mathbb{Z} $,
+$$
+f(\cdot) \in V_j \Longleftrightarrow f(2\cdot) \in V_{j + 1};
+$$
+\item 对任意 $ f \in L^2(\mathbb{R}) $ 和 $ k \in \mathbb{Z} $,
+$$
+f(\cdot) \in V_0 \Longleftrightarrow f(\cdot-k) \in V_0;
+$$
+\item 存在 $ \varphi \in V_0 $ 使得 $ \{ \varphi(\cdot - k) \}_{k \in \mathbb{Z}} $ 
+构成 $ V_0 $ 的标准正交基.
+\end{enumerate}
+\end{definition}
+
+这样的 $ \varphi $ 被称为 scaling function (或 father wavelet).
+事实上, Definition \eqref{10}(vi) 可以减弱. 
+
+\begin{remark} \label{11}
+Definition \eqref{10}(vi) 可减弱为
+存在 $ \varphi \in V_0 $ 使得 $ \{ \varphi(\cdot - k) \}_{k \in \mathbb{Z}} $ 构成 $ V_0 $ 的 Riesz 基. 
+这是因为该条件可以推出存在 $ \varphi^{\#} \in V_0 $ 使得 $ \{ \varphi^{\#} (\cdot - k) \}_{k \in \mathbb{Z}} $ 构成 $ V_0 $ 的标准正交基. 
+\end{remark}
+
+\begin{proof}
+由 Lemma \ref{12} 知, 对几乎处处 $ \xi \in \mathbb{R} $,
+$$
+\sum_{l \in \mathbb{Z}} |\widehat\varphi(\xi + 2\pi l)|^2 \sim 1.
+$$
+令 $ \varphi^{\#} \in L^2(\mathbb{R}) $ 满足对几乎处处 $ \xi \in \mathbb{R} $,
+$$
+\widehat{\varphi^{\#}}(\xi) = \widehat \varphi (\xi)
+\left[ \sum_{l \in \mathbb{Z}} |\widehat\varphi(\xi + 2\pi l)|^2 \right]^{-1/2}.
+$$
+则 $ \varphi^{\#} \in V_0 $ 且 $ \{ \varphi^{\#} (\cdot - k) \}_{k \in \mathbb{Z}} $ 构成 $ V_0 $ 的标准正交基. 证明待补.
+\end{proof}
+
+\begin{proposition} \label{5}
+设 $ \{V_j\}_{j \in\mathbb{Z}} $ 是 $ L^2(\mathbb{R}) $ 的多尺度逼近.
+对任意 $ j \in \mathbb{Z} $, 令 $ W_j $ 为 $ V_j $ 在 $ V_{j-1} $ 中的正交补, 即
+$$
+W_j := \{ x \in V_{j-1} :\ x \bot V_j \}.
+$$
+则关于 $ \{W_j\}_{j \in \mathbb{Z}} $, 我们有如下性质.
+\begin{enumerate}[\rm(i)]
+\item 对任意 $ j \in \mathbb{Z} $, 
+$$
+V_{j + 1} = V_j \oplus W_j.
+$$
+\item 对任意 $ j \in \mathbb{Z} $, 
+\begin{equation} \label{1}
+V_{j + 1} = \bigoplus_{j' = -\infty}^j W_{j'}.
+\end{equation}
+\begin{equation} \label{4}
+(V_j)^\bot = \bigoplus_{j' = j}^\infty W_{j'}.
+\end{equation}
+\item  
+$$
+L^2(\mathbb{R}) 
+= \bigoplus_{j' \in \mathbb{Z}} W_{j'}
+= V_0 \oplus \left( \bigoplus_{j' = 0}^\infty W_{j'} \right).
+$$
+\end{enumerate}
+\end{proposition}
+
+直观上来说, 不断迭代 (i) 就能得到 (ii), 但其实严格证明挺麻烦的.
+
+\begin{proof}
+(i) 就是正交分解定理, (iii) 可以直接由 (ii) 得到. 故只需证 (ii).
+集合两两正交繁琐且平凡, 证明略去, 只考虑直和中的分解.
+
+先证 \eqref{1}. 取定 $ j \in \mathbb{Z} $ 和 $ x_{j+1} \in V_{j+1} $.
+对任意 $ J \in \mathbb{Z} $ 且 $ J < j $, 由 (i) 知
+$$
+V_{j + 1} = V_J \oplus \left( \bigoplus_{j' = J}^j W_{j'} \right),
+$$
+从而存在 $ x_J \in V_J $ 和 $ \{y_{j'} \in W_{j'} \}_{j' = J}^j $
+(此处的 $ y_{j'} $ 与 $ J $ 无关), 使得
+\begin{equation} \label{2}
+x_{j+1} = x_J + \sum_{j' = J}^j y_{j'}.
+\end{equation}
+由此及正交性知
+$$
+\|x_{j+1}\|^2 = \|x_J\|^2 + \sum_{j' = J}^j \|y_{j'}\|^2.
+$$
+因此
+$$
+\sum_{j' = -\infty}^j \|y_{j'}\|^2 < \|x_{j+1}\|^2 < \infty,
+$$
+再一次利用正交性知, 对任意 $ N \in \mathbb{Z} $ 且 $ -N \leq j $ 和 $ p \in \mathbb{N} $,
+$$
+\left\| \sum_{j' = -N}^j y_{j'} - \sum_{j' = -(N+p)}^j y_{j'} \right\|
+= \left\| \sum_{j' = -(N+p)}^{-(N+1)} y_{j'} \right\|
+= \sum_{j' = -(N+p)}^{-(N + 1)} \|y_{j'}\|^2 \to 0,
+\qquad\text{当}\quad N \to \infty.
+$$
+故
+$$
+\sum_{j' = -\infty}^j y_{j'} \quad\text{收敛}.
+$$
+由此及 \eqref{2} 知,
+$$
+x_\infty 
+:= \lim_{J \to -\infty} x_J 
+= \lim_{J \to -\infty} \left( x_{j+1} - \sum_{j' = J}^j y_{j'} \right) 
+= x_{j+1} - \sum_{j' = -\infty}^j y_{j'}.
+$$
+注意到
+$$ 
+x_{j+1} - \sum_{j' = J}^j y_{j'} = x_J \in W_J \subset V_J, 
+$$
+由 Lemma \ref{3} 知,
+$$
+x_\infty 
+= x_{j+1} - \sum_{j' = -\infty}^j y_{j'}
+\in \bigcap_{J \in \mathbb{Z}} V_J
+= \{\theta\},
+$$
+最后一个等号是定义. 故
+$$
+x_{j+1} = \sum_{j' = -\infty}^j y_{j'},
+$$
+分解证毕. 从而 \eqref{1} 证毕.
+
+再证 \eqref{4}. 固定 $ j \in \mathbb{Z} $.
+注意到, 由正交分解和 (i) 知
+\begin{align*}
+L^2(\mathbb{R}) = V_j \oplus (V_j)^\bot
+\end{align*}
 且
 $$
-T_2 : M_2 \to C([0,1]),\ f := a_0 + \sum_{k = 1} a_{2k-1} x^{2k-1} \mapsto a_0 + \sum_{k = 1} 2a_{2k-1} x^{2k-1},
+L^2(\mathbb{R}) 
+= V_{j+1} \oplus (V_{j+1})^\bot 
+= V_j \oplus W_j \oplus (V_{j+1})^\bot.
 $$
-其中 $ \{a_{2k-1}\}_{k \in \mathbb{N}} $ 有限个非零.
+故
+$$
+(V_j)^\bot = W_j \oplus (V_{j+1})^\bot.
+$$
+有限次迭代可得, 对任意 $ J \in \mathbb{N} $ 且 $ J > j $,
+\begin{equation} \label{6}
+(V_j)^\bot = \left( \bigoplus_{j' = j}^{J-1} W_j \right) \oplus (V_J)^\bot.
+\end{equation}
+类似 (ii) 的证明知
+$$
+(V_j)^\bot = \bigoplus_{j' = j}^\infty W_{j'}.
+$$
+故 \eqref{4} 证毕. 从而 Proposition \ref{5} 证毕.
+\end{proof}
+
+\begin{remark}
+为了读者的便利, 此处还是给出 \eqref{4} 的完整证明.
+注意到
+$$
+\cdots \subset V_{-1} \subset V_0 \subset V_1 \subset \cdots,
+$$
+故
+$$
+\cdots \subset (V_1)^\bot \subset (V_0)^\bot \subset (V_{-1})^\bot \subset \cdots.
+$$
+取定 $ j \in \mathbb{Z} $ 和 $ x_j \in (V_j)^\bot $.
+对任意 $ J \in \mathbb{Z} $ 且 $ J > j $, 由 \eqref{6} 知
+$$
+(V_j)^\bot = \left( \bigoplus_{j' = j}^{J-1} W_j \right) \oplus (V_J)^\bot.
+$$
+从而存在 $ \{y_{j'} \in W_{j'} \}_{j' = j}^{J - 1} $ (此处的 $ y_{j'} $ 与 $ J $ 无关) 
+和 $ x_J \in (V_J)^\bot $, 使得
+\begin{equation} \label{7}
+x_j = \sum_{j' = j}^{J-1} y_{j'} + x_J.
+\end{equation}
+由此及正交性知
+$$
+\|x_j\|^2 = \sum_{j' = j}^{J-1} \|y_{j'}\|^2 + \|x_J\|^2.
+$$
+因此
+$$
+\sum_{j' = j}^{J-1} \|y_{j'}\|^2 < \|x_{j+1}\|^2 < \infty,
+$$
+再一次利用正交性知, 对任意 $ N \in \mathbb{Z} $ 且 $ -N \leq j $ 和 $ p \in \mathbb{N} $,
+$$
+\left\| \sum_{j' = j}^{N} y_{j'} - \sum_{j' = j}^{N+p} y_{j'} \right\|
+= \left\| \sum_{j' = N+1}^{N + p} y_{j'} \right\|
+= \sum_{j' = N+1}^{N + p} \|y_{j'}\|^2 \to 0,
+\qquad\text{当}\quad N \to \infty.
+$$
+故
+$$
+\sum_{j' = j}^\infty y_{j'} \quad\text{收敛}.
+$$
+由此及 \eqref{7} 知
+$$
+x_\infty 
+:= \lim_{J \to -\infty} x_J 
+= \lim_{J \to -\infty} \left( x_j - \sum_{j' = j}^{J-1} y_{j'} \right) 
+= x_j - \sum_{j' = j}^\infty y_{j'}.
+$$
+注意到
+$$
+x_j - \sum_{j' = j}^{J-1} y_{j'} = x_J \in W_J \subset (V_J)^\bot.
+$$
+由 Lemma \ref{3} 和 Proposition \ref{8} 知,
+$$
+x_\infty 
+= x_j - \sum_{j' = j}^\infty y_{j'}
+\in \bigcap_{j \in \mathbb{Z}} (V_j)^\bot
+= \left( \bigcup_{j \in \mathbb{Z}} V_j \right)^\bot
+= \{\theta\},
+$$
+最后一个等号是定义. 故
+$$
+x_j = \sum_{j' = j}^\infty y_{j'},
+$$
+分解证毕. 从而 \eqref{1} 证毕.
+\end{remark}
+
+\begin{lemma}
+设 $ \{V_j\}_{j \in\mathbb{Z}} $ 是 $ L^2(\mathbb{R}) $ 的多尺度逼近.
+若存在 $ \psi \in W_0 $ 使得 $ \{ \psi(\cdot - k) \}_{k \in \mathbb{Z}} $ 构成 $ W_0 $ 的标准正交基, 
+则$ \{ \psi_{j,k} \}_{j,k \in \mathbb{Z}} $ 构成 $ L^2(\mathbb{R}) $ 的标准正交基.
+这样的 $ \psi $ 被称为 wavelet function (或 mother wavelet).
+\end{lemma}
+
+对于高维小波, 可以用 father wavelet 和 mother wavelet 的张量积来生成.
+
+\begin{lemma}
+设 $ \varphi $ 和 $ \psi $ 分别是 $ L^2(\mathbb{R}) $ 对应的 father wavelet 和 mother wavelet,
+对任意 $ \lambda := (\lambda_1, \ldots, \lambda_n) \in E := \{0,1\}^n \setminus \{0,\ldots,0\} $ 和二进方体 $ Q := Q_{jk} = \prod_{i=1}^n 2^{-j}[k_i, k_i+1) $, 令
+$$
+\theta^{(\lambda)}_Q := 2^{jn/2} \psi^{(\lambda_1)}(2^j x_1 - k_1) \cdots \psi^{(\lambda_n)}(2^j x_n - k_n),
+$$
+其中 $ \psi^{(0)} := \varphi $, $ \psi^{(1)} := \psi $.
+则 $ \{ \theta^{(\lambda)}_Q :\ Q \in \mathcal{D}(\mathbb{R}^n),\ \lambda \in E \} $
+是 $ L^2(\mathbb{R}^n) $ 的正交规范基.
+\end{lemma}
+
+\subsection{Daubechies 小波}
+
+Daubechies 小波是具有紧支集的小波, 它具有很好的性质, 目前只关注与它的基本构造, 
+一些它的相关性质以后再补.
+
+
 
 \begin{thebibliography}{99}
 
