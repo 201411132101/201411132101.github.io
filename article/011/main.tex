@@ -71,5 +71,26 @@
         \draw[dashed] (4, 2) -- (4, 0) node[below] {$1$};
         \draw[dashed] (-4, -2) -- (-4, 0) node[above] {$-1$};
     \end{tikzpicture} 
+    
+    % 零点存在定理
+    \begin{tikzpicture}[line width=1.2pt, scale = 0.5]          
+        % 画坐标系
+        \draw[->] (-2,0) -- (8,0) node[right] {$x$};
+        \draw[->] (0,-3) -- (0,5) node[above] {$y$};
+        \draw (0, 0) node[below left] {O};
+        
+        % f = sin x
+        \draw[domain=1:7] plot (\x, {(-2.5- sin((\x - 1) r) + (\x - 1))/1.2});
+        
+        % 辅助线及各种记号
+        \draw[dashed] (1, -2.08) -- (1, 0) node[above] {$a$};
+        \draw[dashed] (1, -2.08) -- (0, -2.08) node[left] {$f(a)$};
+        \draw[dashed] (7, 3.1) -- (7, 0) node[below] {$b$};
+        \draw[dashed] (7, 3.2) -- (0, 3.2) node[left] {$f(b)$};
+        \draw (4, 2.3) node[right] {$f$};
+        
+        \draw[fill=white] (3.8,0) circle (3pt);
+        \draw (3.5, 0) node[above] {$x_0$};
+    \end{tikzpicture} 
 }          
 \end{document}    
