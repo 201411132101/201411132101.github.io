@@ -47,89 +47,89 @@
 下面给出 Schwartz 函数的定义.
 
 \begin{definition}
-    A $ C^\infty(\mathbb{R}^n) $ complex-valued function $ f $ on $ \mathbb{R}^n $ 
-    is called a Schwartz function if for every pair of multi-indices 
-    $ \alpha $, $ \beta \in \mathbb{Z}_+^n $,
-    $$
-        \rho_{\alpha, \beta}(f)
-            := \sup_{x \in \mathbb{R}^n} 
-            \left| x^\alpha \left( \partial^\beta f \right)  (x) \right|
-            < \infty.
-    $$
-    The set of all Schwartz functions on $ \mathbb{R}^n $ 
-    is denoted by $ \mathcal{S}(\mathbb{R}^n) $.
+A $ C^\infty(\mathbb{R}^n) $ complex-valued function $ f $ on $ \mathbb{R}^n $ 
+is called a Schwartz function if for every pair of multi-indices 
+$ \alpha $, $ \beta \in \mathbb{Z}_+^n $,
+$$
+\rho_{\alpha, \beta}(f)
+:= \sup_{x \in \mathbb{R}^n} 
+\left| x^\alpha \left( \partial^\beta f \right)  (x) \right|
+< \infty.
+$$
+The set of all Schwartz functions on $ \mathbb{R}^n $ 
+is denoted by $ \mathcal{S}(\mathbb{R}^n) $.
 \end{definition}
 
 为了给出 Schwartz 函数的一个等价定义,
 首先介绍来自 \cite[(2.2.1),(2.2.2)]{g14} 的两个估计.
 \begin{lemma}
-    存在仅依赖于 $ n $ 和 $ k $ 的常数 $ C $ 使得,
-    对任意的 $ x \in \mathbb{R}^n $,
-    \begin{equation} \label{6}
-        |x|^k \leq C \sum_{|\beta| = k} |x^\beta|
-    \end{equation}
-    且
-    \begin{equation} \label{7}
-        (1 + |x|)^k \leq 2^k (1 + C) \sum_{|\beta| \leq k} |x^\beta|.
-    \end{equation}
+存在仅依赖于 $ n $ 和 $ k $ 的常数 $ C $ 使得,
+对任意的 $ x \in \mathbb{R}^n $,
+\begin{equation} \label{6}
+|x|^k \leq C \sum_{|\beta| = k} |x^\beta|
+\end{equation}
+且
+\begin{equation} \label{7}
+(1 + |x|)^k \leq 2^k (1 + C) \sum_{|\beta| \leq k} |x^\beta|.
+\end{equation}
 \end{lemma}
 
 下面介绍 Schwartz 函数的一个非常有用的等价定义.
 
 \begin{theorem} \label{1}
-    Let $ f \in C^\infty(\mathbb{R}^n) $.
-    Then $ f \in \mathcal{S}(\mathbb{R}^n) $ if and only if
-    for any $ \beta \in \mathbb{Z}_+^n $ and $ N \in \mathbb{N} $,
-    there exists a positive constant $ C $ such that
-    $$
-        |(\partial^\alpha f) (x)| \leq C \frac{1}{(1 + |x|)^N}.
-    $$
+Let $ f \in C^\infty(\mathbb{R}^n) $.
+Then $ f \in \mathcal{S}(\mathbb{R}^n) $ if and only if
+for any $ \beta \in \mathbb{Z}_+^n $ and $ N \in \mathbb{N} $,
+there exists a positive constant $ C $ such that
+$$
+|(\partial^\alpha f) (x)| \leq C \frac{1}{(1 + |x|)^N}.
+$$
 \end{theorem}
 
 在证明该结论前, 
 
 \begin{proof}
-    先证 $ "\Longleftarrow" $. 对任意 $ \alpha $, $ \beta \in \mathbb{Z}_+^n $,
-    \begin{align*}
-        \rho_{\alpha, \beta}(f)
-            &= \sup_{x \in \mathbb{R}^n} \left| x^\alpha (\partial^\beta f) (x) \right|
-            \lesssim \sup_{x \in \mathbb{R}^n} |x|^{|\alpha|} 
-                \left| (\partial^\beta f) (x) \right| \\
-            &\lesssim \sup_{x \in \mathbb{R}^n} (1 + |x|)^{|\alpha|} 
-                \left| (\partial^\beta f) (x) \right|
-            < \infty,
-    \end{align*}
-    故 $ f \in \mathcal{S}(\mathbb{R}^n) $.
-    
-    再证 $ "\Longrightarrow" $. 对任意 
-    $ N \in \mathbb{N} $ 和 $ \beta \in \mathbb{Z}_+^n $,
-    $$
-        \sup_{x \in B(0, 1)} (1 + |x|)^N |(\partial^\beta f) (x)| < \infty
-    $$
-    且
-    \begin{align*}
-        &\sup_{x \in \mathbb{R}^n \setminus B(0, 1)} 
-        (1 + |x|)^N |(\partial^\beta f) (x)| \\
-            &\quad\lesssim \sup_{x \in \mathbb{R}^n \setminus B(0, 1)}
-                |x|^N |(\partial^\beta f) (x)| \\
-            &\quad\lesssim \sup_{x \in \mathbb{R}^n \setminus B(0, 1)}
-                \left( \sum_{\alpha \in \mathbb{Z}_+^n,\, |\alpha| = N}
-                |x^\alpha| \right) |(\partial^\beta f) (x)| \\
-            &\quad\lesssim \sum_{\alpha \in \mathbb{Z}_+^n,\, |\alpha| = N} 
-                \rho_{\alpha, \beta}(f) 
-            < \infty,
-    \end{align*}
-    故
-    $$
-        \sup_{x \in \mathbb{R}^n} (1 + |x|)^N |(\partial^\beta f) (x)| < \infty,
-    $$
-    定理 \ref{1} 证毕.
+先证 $ "\Longleftarrow" $. 对任意 $ \alpha $, $ \beta \in \mathbb{Z}_+^n $,
+\begin{align*}
+\rho_{\alpha, \beta}(f)
+&= \sup_{x \in \mathbb{R}^n} \left| x^\alpha (\partial^\beta f) (x) \right|
+\lesssim \sup_{x \in \mathbb{R}^n} |x|^{|\alpha|} 
+\left| (\partial^\beta f) (x) \right| \\
+&\lesssim \sup_{x \in \mathbb{R}^n} (1 + |x|)^{|\alpha|} 
+\left| (\partial^\beta f) (x) \right|
+< \infty,
+\end{align*}
+故 $ f \in \mathcal{S}(\mathbb{R}^n) $.
+
+再证 $ "\Longrightarrow" $. 对任意 
+$ N \in \mathbb{N} $ 和 $ \beta \in \mathbb{Z}_+^n $,
+$$
+\sup_{x \in B(0, 1)} (1 + |x|)^N |(\partial^\beta f) (x)| < \infty
+$$
+且
+\begin{align*}
+&\sup_{x \in \mathbb{R}^n \setminus B(0, 1)} 
+(1 + |x|)^N |(\partial^\beta f) (x)| \\
+&\quad\lesssim \sup_{x \in \mathbb{R}^n \setminus B(0, 1)}
+|x|^N |(\partial^\beta f) (x)| \\
+&\quad\lesssim \sup_{x \in \mathbb{R}^n \setminus B(0, 1)}
+\left( \sum_{\alpha \in \mathbb{Z}_+^n,\, |\alpha| = N}
+|x^\alpha| \right) |(\partial^\beta f) (x)| \\
+&\quad\lesssim \sum_{\alpha \in \mathbb{Z}_+^n,\, |\alpha| = N} 
+\rho_{\alpha, \beta}(f) 
+< \infty,
+\end{align*}
+故
+$$
+\sup_{x \in \mathbb{R}^n} (1 + |x|)^N |(\partial^\beta f) (x)| < \infty,
+$$
+定理 \ref{1} 证毕.
 \end{proof}
 
 \begin{remark}
 注意到对任意 $ p \in (1, \infty) $ 和 $ N \in (p/n, \infty) $,
 $$
-    \frac{1}{(1 + |x|)^N} \in L^p(\mathbb{R}^n),
+\frac{1}{(1 + |x|)^N} \in L^p(\mathbb{R}^n),
 $$
 故对任意 $ f \in \mathcal{S}(\mathbb{R}^n) $ 和 $ \beta \in \mathbb{Z}_+^n $,
 $ \partial^\beta f \in L^p(\mathbb{R}^n) $.
@@ -138,103 +138,103 @@ $ \partial^\beta f \in L^p(\mathbb{R}^n) $.
 下面给出 $ \mathcal{S}(\mathbb{R}^n) $ 和其它空间的关系.
 
 \begin{proposition} \label{5}
-    设 $ p \in [1, \infty) $. 则有以下性质:
-    \begin{enumerate}[(i)]
-        \item $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) \subsetneqq
-            \mathcal{S}(\mathbb{R}^n) \subsetneqq L^p(\mathbb{R}^n) $;
-        \item $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) $ 在 $ L^p(\mathbb{R}^n) $ 中稠.
-    \end{enumerate}
+设 $ p \in [1, \infty) $. 则有以下性质:
+\begin{enumerate}[(i)]
+\item $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) \subsetneqq
+\mathcal{S}(\mathbb{R}^n) \subsetneqq L^p(\mathbb{R}^n) $;
+\item $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) $ 在 $ L^p(\mathbb{R}^n) $ 中稠.
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-    先证 (i).
-    容易看出 $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) \subset \mathcal{S}(\mathbb{R}^n) $,
-    又 $ e^{-|x|^2} \in \mathcal{S}(\mathbb{R}^n) $ 但无紧支集, 
-    故 $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) \subsetneqq \mathcal{S}(\mathbb{R}^n) $.
-    
-    又由定理 \ref{1} 知, 对任意 $ f \in \mathcal{S}(\mathbb{R}^n) $ 和 $ x \in \mathbb{R}^n $,
-    $$
-        |f(x)| \lesssim \frac{1}{(1 + |x|)^{n + 1}},
-    $$
-    因此
-    \begin{align*}
-        \| f \|_{L^p(\mathbb{R}^n)}^p 
-            &= \int_{\mathbb{R}^n} |f(x)|^p \, dx
-            = \int_{\mathbb{R}^n} \frac{1}{(1 + |x|)^{n + 1}} \, dx \\
-            &\lesssim 1 + \int_{|x| > 1} \frac{1}{|x|^{n + 1}} \, dx
-            \sim 1 + \int_1^\infty \frac{1}{r^2} \, dx
-            \sim 1.
-    \end{align*}
-    故 $ \mathcal{S}(\mathbb{R}^n) \subset L^p(\mathbb{R}^n) $.
-    又显然 $ \mathcal{S}(\mathbb{R}^n) \neq L^p(\mathbb{R}^n) $,
-    从而 $ \mathcal{S}(\mathbb{R}^n) \subsetneqq L^p(\mathbb{R}^n) $.
-    (i) 证毕. 
-    
-    (ii) 是经典结论, 用卷积去逼近即可.
+先证 (i).
+容易看出 $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) \subset \mathcal{S}(\mathbb{R}^n) $,
+又 $ e^{-|x|^2} \in \mathcal{S}(\mathbb{R}^n) $ 但无紧支集, 
+故 $ C_{\mathrm{c}}^\infty(\mathbb{R}^n) \subsetneqq \mathcal{S}(\mathbb{R}^n) $.
+
+又由定理 \ref{1} 知, 对任意 $ f \in \mathcal{S}(\mathbb{R}^n) $ 和 $ x \in \mathbb{R}^n $,
+$$
+|f(x)| \lesssim \frac{1}{(1 + |x|)^{n + 1}},
+$$
+因此
+\begin{align*}
+\| f \|_{L^p(\mathbb{R}^n)}^p 
+&= \int_{\mathbb{R}^n} |f(x)|^p \, dx
+= \int_{\mathbb{R}^n} \frac{1}{(1 + |x|)^{n + 1}} \, dx \\
+&\lesssim 1 + \int_{|x| > 1} \frac{1}{|x|^{n + 1}} \, dx
+\sim 1 + \int_1^\infty \frac{1}{r^2} \, dx
+\sim 1.
+\end{align*}
+故 $ \mathcal{S}(\mathbb{R}^n) \subset L^p(\mathbb{R}^n) $.
+又显然 $ \mathcal{S}(\mathbb{R}^n) \neq L^p(\mathbb{R}^n) $,
+从而 $ \mathcal{S}(\mathbb{R}^n) \subsetneqq L^p(\mathbb{R}^n) $.
+(i) 证毕. 
+
+(ii) 是经典结论, 用卷积去逼近即可.
 \end{proof}
 
 下面给出 Schwartz 函数意义下的收敛.
 
 \begin{definition}
-    设 $ \{f_k\}_{k \in \mathbb{N}} \subset \mathcal{S}(\mathbb{R}^n) $ 
-    且 $ f \in \mathcal{S}(\mathbb{R}^n) $.
-    称 $ f_k $ 收敛到 $ f $ in $ \mathcal{S}(\mathbb{R}^n) $, as $ k \to \infty $,
-    若对任意 $ \alpha $, $ \beta \in \mathbb{Z}_+^n $,
-    $$
-        \rho_{\alpha, \beta}(f_k - f) \to 0, \quad \text{as } k \to \infty. 
-    $$
+设 $ \{f_k\}_{k \in \mathbb{N}} \subset \mathcal{S}(\mathbb{R}^n) $ 
+且 $ f \in \mathcal{S}(\mathbb{R}^n) $.
+称 $ f_k $ 收敛到 $ f $ in $ \mathcal{S}(\mathbb{R}^n) $, as $ k \to \infty $,
+若对任意 $ \alpha $, $ \beta \in \mathbb{Z}_+^n $,
+$$
+\rho_{\alpha, \beta}(f_k - f) \to 0, \quad \text{as } k \to \infty. 
+$$
 \end{definition}
 
 通过收敛可以定义闭集, 从而有了拓扑.
 在此拓扑意义下, Schwartz 空间可赋度量:
 $$  
-    d :\ \mathcal{S}(\mathbb{R}^n) \times \mathcal{S}(\mathbb{R}^n) \to [0, \infty),\
-        (f, g) \mapsto \sum_{\alpha,\, \beta \in \mathbb{Z}_+^n} 
-            \frac{\rho_{\alpha, \beta}(f - g)}{1 + \rho_{\alpha, \beta}(f - g)};
+d :\ \mathcal{S}(\mathbb{R}^n) \times \mathcal{S}(\mathbb{R}^n) \to [0, \infty),\
+(f, g) \mapsto \sum_{\alpha,\, \beta \in \mathbb{Z}_+^n} 
+\frac{\rho_{\alpha, \beta}(f - g)}{1 + \rho_{\alpha, \beta}(f - g)};
 $$
 但是不能赋予范数.
 
 下面给出 Schwartz 函数傅里叶变换的定义.
 
 \begin{definition}
-    Let $ f \in L^1(\mathbb{R}^n) $. 
-    For any $ \xi \in \mathbb{R}^n $, define
-    \begin{align*}
-        \widehat{f} (\xi)   &:= \int_{\mathbb{R}^n} f(x) e^{-2 \pi i x \cdot \xi} \, dx; \\
-        \widetilde{f} (\xi) &:= f(-\xi); \\
-        (\tau^y f) (\xi)    &:= f(\xi - y), \quad\text{where } y \in \mathbb{R}^n.
-    \end{align*}
+Let $ f \in L^1(\mathbb{R}^n) $. 
+For any $ \xi \in \mathbb{R}^n $, define
+\begin{align*}
+\widehat{f} (\xi)   &:= \int_{\mathbb{R}^n} f(x) e^{-2 \pi i x \cdot \xi} \, dx; \\
+\widetilde{f} (\xi) &:= f(-\xi); \\
+(\tau^y f) (\xi)    &:= f(\xi - y), \quad\text{where } y \in \mathbb{R}^n.
+\end{align*}
 \end{definition}
 
 \begin{remark}
-    傅里叶变换限制在 $ \mathcal{S}(\mathbb{R}^n) $ 上, 是到自身的同胚.
+傅里叶变换限制在 $ \mathcal{S}(\mathbb{R}^n) $ 上, 是到自身的同胚.
 \end{remark}
 
 \begin{proposition}
-    Let $ f \in \mathcal{S}(\mathbb{R}^n) $, then
-    \begin{enumerate}[(i)]
-        \item $ f^{\wedge\wedge} (\cdot) = f(- \cdot) $;
-        \item 对任意 $ y \in \mathbb{R}^n $, 
-            $ \widehat{\tau^y f}(\xi) = e^{-2 \pi i y \cdot \xi} \widehat{f}(\xi) $;
-        \item 对任意 $ y \in \mathbb{R}^n $, 
-            $ \tau^y (\widehat{f}) (\xi) = [e^{-2 \pi i x \cdot y} f(x)]^\wedge (\xi) $;
-        \item 平移变换不改变傅里叶变换的支集. 即对任意 $ y \in \mathbb{R}^n $, 
-            $ \supp \widehat{\tau^y f} = \supp \widehat{f} $.
-    \end{enumerate}
+Let $ f \in \mathcal{S}(\mathbb{R}^n) $, then
+\begin{enumerate}[(i)]
+\item $ f^{\wedge\wedge} (\cdot) = f(- \cdot) $;
+\item 对任意 $ y \in \mathbb{R}^n $, 
+$ \widehat{\tau^y f}(\xi) = e^{-2 \pi i y \cdot \xi} \widehat{f}(\xi) $;
+\item 对任意 $ y \in \mathbb{R}^n $, 
+$ \tau^y (\widehat{f}) (\xi) = [e^{-2 \pi i x \cdot y} f(x)]^\wedge (\xi) $;
+\item 平移变换不改变傅里叶变换的支集. 即对任意 $ y \in \mathbb{R}^n $, 
+$ \supp \widehat{\tau^y f} = \supp \widehat{f} $.
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-    现在证 (ii). 对任意 $ \xi \in \mathbb{R}^n $,
-    \begin{align*}
-        \widehat{\tau^y f} (\xi) 
-            &= \int_{\mathbb{R}^n} (\tau^y f) (x) e^{-2 \pi i x \cdot \xi} \, dx \\
-            &= \int_{\mathbb{R}^n} f(x - y) e^{-2 \pi i x \cdot \xi} \, dx \\
-            &= e^{-2 \pi i y \cdot \xi} \int_{\mathbb{R}^n} f(x) e^{-2 \pi i x \cdot \xi} \, dx \\
-            &= e^{-2 \pi i y \cdot \xi} \widehat{f}(\xi),
-    \end{align*}
-    (ii) 得证.
-    
-    (iv) 是 (ii) 的直接推论.
+现在证 (ii). 对任意 $ \xi \in \mathbb{R}^n $,
+\begin{align*}
+\widehat{\tau^y f} (\xi) 
+&= \int_{\mathbb{R}^n} (\tau^y f) (x) e^{-2 \pi i x \cdot \xi} \, dx \\
+&= \int_{\mathbb{R}^n} f(x - y) e^{-2 \pi i x \cdot \xi} \, dx \\
+&= e^{-2 \pi i y \cdot \xi} \int_{\mathbb{R}^n} f(x) e^{-2 \pi i x \cdot \xi} \, dx \\
+&= e^{-2 \pi i y \cdot \xi} \widehat{f}(\xi),
+\end{align*}
+(ii) 得证.
+
+(iv) 是 (ii) 的直接推论.
 \end{proof}
 
 \section{Schwartz 分布}
@@ -242,137 +242,137 @@ $$
 下面给出 Schwartz 分布傅里叶变换的定义.
 
 \begin{definition} \label{2}
-    Let $ f \in \mathcal{S}'(\mathbb{R}^n) $, define
-    \begin{align*}
-        \widehat{f} &:\ \mathcal{S}'(\mathbb{R}^n) \to \mathcal{S}'(\mathbb{R}^n),\  
-            \forall \, \varphi \in \mathcal{S}(\mathbb{R}^n),
-                \langle \widehat{f}, \varphi \rangle 
-                := \langle f, \widehat{\varphi} \rangle; \\
-        \widetilde{f} &:\ \mathcal{S}'(\mathbb{R}^n) \to \mathcal{S}'(\mathbb{R}^n),\  
-            \forall \, \varphi \in \mathcal{S}(\mathbb{R}^n),
-                \langle \widetilde{f}, \varphi \rangle 
-                := \langle f, \widetilde{\varphi} \rangle; \\
-        \tau^y f &:\ \mathcal{S}'(\mathbb{R}^n) \to \mathcal{S}'(\mathbb{R}^n),\  
-            \forall \, \varphi \in \mathcal{S}(\mathbb{R}^n),
-                \langle \tau^y f, \varphi \rangle 
-                := \langle f,  \tau^{-y} \varphi \rangle,
-                \quad\text{where } y \in \mathbb{R}^n.
-    \end{align*}
+Let $ f \in \mathcal{S}'(\mathbb{R}^n) $, define
+\begin{align*}
+\widehat{f} &:\ \mathcal{S}'(\mathbb{R}^n) \to \mathcal{S}'(\mathbb{R}^n),\  
+\forall \, \varphi \in \mathcal{S}(\mathbb{R}^n),
+\langle \widehat{f}, \varphi \rangle 
+:= \langle f, \widehat{\varphi} \rangle; \\
+\widetilde{f} &:\ \mathcal{S}'(\mathbb{R}^n) \to \mathcal{S}'(\mathbb{R}^n),\  
+\forall \, \varphi \in \mathcal{S}(\mathbb{R}^n),
+\langle \widetilde{f}, \varphi \rangle 
+:= \langle f, \widetilde{\varphi} \rangle; \\
+\tau^y f &:\ \mathcal{S}'(\mathbb{R}^n) \to \mathcal{S}'(\mathbb{R}^n),\  
+\forall \, \varphi \in \mathcal{S}(\mathbb{R}^n),
+\langle \tau^y f, \varphi \rangle 
+:= \langle f,  \tau^{-y} \varphi \rangle,
+\quad\text{where } y \in \mathbb{R}^n.
+\end{align*}
 \end{definition}
 
 \begin{definition}
-    Let $ f \in \mathcal{S}'(\mathbb{R}^n) $ and $ u : \mathbb{R}^n \to \mathbb{C} $.
-    We say that $ f $ coincides with the function $ u $ if, 
-    for any $ \varphi \in \mathcal{S}(\mathbb{R}^n) $,
-    $$
-        \langle f, \varphi \rangle
-            = \int_{\mathbb{R}^n} u(x) \varphi(x) \, dx.
-    $$
+Let $ f \in \mathcal{S}'(\mathbb{R}^n) $ and $ u : \mathbb{R}^n \to \mathbb{C} $.
+We say that $ f $ coincides with the function $ u $ if, 
+for any $ \varphi \in \mathcal{S}(\mathbb{R}^n) $,
+$$
+\langle f, \varphi \rangle
+= \int_{\mathbb{R}^n} u(x) \varphi(x) \, dx.
+$$
 \end{definition}
 
 For any complex-valued function $ u $, let
 $$
-    \supp u := \{ x \in \mathbb{R}^n :\ u(x) \neq 0 \}.
+\supp u := \{ x \in \mathbb{R}^n :\ u(x) \neq 0 \}.
 $$
 For any $ f \in \mathcal{S}'(\mathbb{R}^n) $, let
 \begin{align*}
-    \supp f &:= \bigcap \{ \text{closed set } K \subset \mathbb{R}^n : \\
-        &\qquad\qquad \langle f, \varphi \rangle = 0 
-        \text{ for any } \varphi \in \mathcal{S}(\mathbb{R}^n)
-        \text{ with } \supp \varphi \subset \mathbb{R}^n \setminus K \}.
+\supp f &:= \bigcap \{ \text{closed set } K \subset \mathbb{R}^n : \\
+&\qquad\qquad \langle f, \varphi \rangle = 0 
+\text{ for any } \varphi \in \mathcal{S}(\mathbb{R}^n)
+\text{ with } \supp \varphi \subset \mathbb{R}^n \setminus K \}.
 \end{align*}
 由定义知, $ \supp f $ 是闭集.
 
 \begin{remark} \label{4}
-    Let $ f \in \mathcal{S}'(\mathbb{R}^n) $ coincides with the function $ u $, then
-    \begin{enumerate}[\rm (i)]
-    \item $$
-            \widehat{f} = \widehat{u}, \quad
-            \widetilde{f} = \widetilde{u}, \quad
-            \tau^y f = \tau^y u,
-        $$
-        where the `$ = $' means `coincides with'
-        (这应该是 Definition \ref{2} 的由来);
-    \item $ \supp f \subset \overline{\supp u} $;
-    \item 若 $ u $ 是连续函数, 则 
-        $$ 
-            \supp f = \supp u, 
-        $$ 
-        其中 $ \supp u $ 是函数意义下的支集.
-    \end{enumerate}
+Let $ f \in \mathcal{S}'(\mathbb{R}^n) $ coincides with the function $ u $, then
+\begin{enumerate}[\rm (i)]
+\item $$
+\widehat{f} = \widehat{u}, \quad
+\widetilde{f} = \widetilde{u}, \quad
+\tau^y f = \tau^y u,
+$$
+where the `$ = $' means `coincides with'
+(这应该是 Definition \ref{2} 的由来);
+\item $ \supp f \subset \overline{\supp u} $;
+\item 若 $ u $ 是连续函数, 则 
+$$ 
+\supp f = \supp u, 
+$$ 
+其中 $ \supp u $ 是函数意义下的支集.
+\end{enumerate}
 \end{remark}
 
 \begin{proof}
-    由定义可直接得到 (i).
-    下证 (ii) . $ \overline{\supp u} $ 是闭集
-    且对任意 $ \varphi \in \mathcal{S}(\mathbb{R}^n) $
-    with $ \supp \varphi \subset \mathbb{R}^n \setminus \overline{\supp u} $,
-    $$
-        \langle f, \varphi \rangle
-            = \int_{\mathbb{R}^n} u(x) \varphi(x) \, dx
-            = 0,
-    $$
-    因此由分布支集定义知 $ \supp f \subset \overline{\supp u} $.
-    
-    再证 (iii). 由 (ii) 和 $ u $ 连续知 $ \supp f \subset \supp u $.
-    故只需证 $ \supp u \subset \supp f $.
-    对任意 $ x \in \supp u $, 有 $ u(x) \neq 0 $, 不妨设 $ u(x) > 0 $. 
-    因为 $ u $ 连续, 故存在 $ r_x \in (0, \infty) $ 使得 
-    $ u $ 在 $ B(x, r_x) $ 上恒大于 $ u(x) / 2 $. 
-    假设存在
-    \begin{align} \label{3}
-        K_x &\in \{ \text{closed set } K \subset \mathbb{R}^n : \\
-            &\qquad\qquad \langle f, \varphi \rangle = 0 
-            \text{ for any } \varphi \in \mathcal{S}(\mathbb{R}^n)
-            \text{ with } \supp \varphi \subset \mathbb{R}^n \setminus K \} \notag
-    \end{align}
-    使得 $ x \notin K_x $, 则存在 $ \delta \in (0, r_x) $ 使得 $ B(x, \delta) \cap K_x = \emptyset $.
-    令 $ \varphi_x \in \mathcal{S}(\mathbb{R}^n) $ 满足
-    \begin{equation*}
-        \varphi_x(t) := \left\{\begin{aligned}
-            &1,                        && t \in B(x, \delta/2), \\
-            &\text{取值为 $ [0,1] $},  && t \in B(x, \delta) \setminus B(x, \delta/2), \\
-            &0,                       && t \in \mathbb{R}^n \setminus B(x, \delta).
-        \end{aligned}\right.
-    \end{equation*} 
-    则
-    $$
-        \langle f, \varphi_x \rangle 
-            = \int_{\mathbb{R}^n} u(t) \varphi_x(t) \, dt
-            = \int_{B(x, \delta)} u(t) \varphi_x(t) \, dt
-            \geq \frac{u(x)}{2} \int_{B(x, \delta)} \varphi_x(t) \, dt
-            > 0,
-    $$
-    这与 \eqref{3} 相矛盾. 故
-    \begin{align*} 
-        x &\in \bigcap\{ \text{closed set } K \subset \mathbb{R}^n : \\
-            &\qquad\qquad \langle f, \varphi \rangle = 0 
-            \text{ for any } \varphi \in \mathcal{S}(\mathbb{R}^n)
-            \text{ with } \supp \varphi \subset \mathbb{R}^n \setminus K \} \\
-           &= \supp f.
-    \end{align*}
-    因此 $ \supp u \subset \supp f $, Remark \ref{4} 证毕.
+由定义可直接得到 (i).
+下证 (ii) . $ \overline{\supp u} $ 是闭集
+且对任意 $ \varphi \in \mathcal{S}(\mathbb{R}^n) $
+with $ \supp \varphi \subset \mathbb{R}^n \setminus \overline{\supp u} $,
+$$
+\langle f, \varphi \rangle
+= \int_{\mathbb{R}^n} u(x) \varphi(x) \, dx
+= 0,
+$$
+因此由分布支集定义知 $ \supp f \subset \overline{\supp u} $.
+
+再证 (iii). 由 (ii) 和 $ u $ 连续知 $ \supp f \subset \supp u $.
+故只需证 $ \supp u \subset \supp f $.
+对任意 $ x \in \supp u $, 有 $ u(x) \neq 0 $, 不妨设 $ u(x) > 0 $. 
+因为 $ u $ 连续, 故存在 $ r_x \in (0, \infty) $ 使得 
+$ u $ 在 $ B(x, r_x) $ 上恒大于 $ u(x) / 2 $. 
+假设存在
+\begin{align} \label{3}
+K_x &\in \{ \text{closed set } K \subset \mathbb{R}^n : \\
+&\qquad\qquad \langle f, \varphi \rangle = 0 
+\text{ for any } \varphi \in \mathcal{S}(\mathbb{R}^n)
+\text{ with } \supp \varphi \subset \mathbb{R}^n \setminus K \} \notag
+\end{align}
+使得 $ x \notin K_x $, 则存在 $ \delta \in (0, r_x) $ 使得 $ B(x, \delta) \cap K_x = \emptyset $.
+令 $ \varphi_x \in \mathcal{S}(\mathbb{R}^n) $ 满足
+\begin{equation*}
+\varphi_x(t) := \left\{\begin{aligned}
+&1,                        && t \in B(x, \delta/2), \\
+&\text{取值为 $ [0,1] $},  && t \in B(x, \delta) \setminus B(x, \delta/2), \\
+&0,                       && t \in \mathbb{R}^n \setminus B(x, \delta).
+\end{aligned}\right.
+\end{equation*} 
+则
+$$
+\langle f, \varphi_x \rangle 
+= \int_{\mathbb{R}^n} u(t) \varphi_x(t) \, dt
+= \int_{B(x, \delta)} u(t) \varphi_x(t) \, dt
+\geq \frac{u(x)}{2} \int_{B(x, \delta)} \varphi_x(t) \, dt
+> 0,
+$$
+这与 \eqref{3} 相矛盾. 故
+\begin{align*} 
+x &\in \bigcap\{ \text{closed set } K \subset \mathbb{R}^n : \\
+&\qquad\qquad \langle f, \varphi \rangle = 0 
+\text{ for any } \varphi \in \mathcal{S}(\mathbb{R}^n)
+\text{ with } \supp \varphi \subset \mathbb{R}^n \setminus K \} \\
+&= \supp f.
+\end{align*}
+因此 $ \supp u \subset \supp f $, Remark \ref{4} 证毕.
 \end{proof}
 
 \begin{proposition}
-    Let $ f \in \mathcal{S}'(\mathbb{R}^n) $, then
-    \begin{enumerate}[(i)]
-        \item $ f^{\wedge\wedge} (\cdot) = \widetilde{f} $;
-        \item 平移变换不改变傅里叶变换的支集. 即对任意 $ y \in \mathbb{R}^n $, 
-            $ \supp \widehat{\tau^y f} = \supp \widehat{f} $.
-    \end{enumerate}
+Let $ f \in \mathcal{S}'(\mathbb{R}^n) $, then
+\begin{enumerate}[(i)]
+\item $ f^{\wedge\wedge} (\cdot) = \widetilde{f} $;
+\item 平移变换不改变傅里叶变换的支集. 即对任意 $ y \in \mathbb{R}^n $, 
+$ \supp \widehat{\tau^y f} = \supp \widehat{f} $.
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-    现在证 (ii). 对任意 $ \varphi \in \mathcal{S}(\mathbb{R}^n) $,
-    $$
-        \left\langle \widehat{\tau^y f}, \varphi \right\rangle
-            = \left\langle \tau^y f, \widehat{\varphi} \right\rangle 
-            = \left\langle f, \tau^{-y} \widehat{\varphi} \right\rangle
-            = \left\langle f, [e^{-2 \pi i x \cdot y} \varphi(x)]^\wedge \right\rangle
-            = \left\langle \widehat{f}, e^{-2 \pi i x \cdot y} \varphi(x) \right\rangle,
-    $$
-    故 $ \supp \widehat{\tau^y f} = \supp \widehat{f} $, (ii) 得证.
+现在证 (ii). 对任意 $ \varphi \in \mathcal{S}(\mathbb{R}^n) $,
+$$
+\left\langle \widehat{\tau^y f}, \varphi \right\rangle
+= \left\langle \tau^y f, \widehat{\varphi} \right\rangle 
+= \left\langle f, \tau^{-y} \widehat{\varphi} \right\rangle
+= \left\langle f, [e^{-2 \pi i x \cdot y} \varphi(x)]^\wedge \right\rangle
+= \left\langle \widehat{f}, e^{-2 \pi i x \cdot y} \varphi(x) \right\rangle,
+$$
+故 $ \supp \widehat{\tau^y f} = \supp \widehat{f} $, (ii) 得证.
 \end{proof}
 
 \section{再生公式}
@@ -380,17 +380,17 @@ For any $ f \in \mathcal{S}'(\mathbb{R}^n) $, let
 \section{Schwartz 函数模多项式, $ \mathcal{S}_\infty (\mathbb{R}^n) $}
 
 $$
-    \mathcal{S}_\infty (\mathbb{R}^n) 
-        := \left\{ f \in \mathcal{S}(\mathbb{R}^n) :\ 
-            \int_{\mathbb{R}^n} x^\alpha f(x) = 0 \quad
-            \text{ for any } \alpha \in \mathbb{Z}_+^n \right\}.
+\mathcal{S}_\infty (\mathbb{R}^n) 
+:= \left\{ f \in \mathcal{S}(\mathbb{R}^n) :\ 
+\int_{\mathbb{R}^n} x^\alpha f(x) = 0 \quad
+\text{ for any } \alpha \in \mathbb{Z}_+^n \right\}.
 $$
 
 \begin{theorem}
-    $$  
-        \mathcal{S} (\mathbb{R}^n) / \mathcal{P} (\mathbb{R}^n) 
-            = \mathcal{S}_\infty (\mathbb{R}^n).
-    $$
+$$  
+\mathcal{S} (\mathbb{R}^n) / \mathcal{P} (\mathbb{R}^n) 
+= \mathcal{S}_\infty (\mathbb{R}^n).
+$$
 \end{theorem}
 
 这个空间上的拓扑怎么构造?
@@ -398,87 +398,87 @@ $$
 下面给出判断函数属于 $ \mathcal{S}_\infty (\mathbb{R}^n) $ 的一个方法.
 
 \begin{proposition} 
-    Let $ f \in \mathcal{S} (\mathbb{R}^n) $.
-    If $ 0 \notin \overline{\supp \widehat{f}} $, 
-    then $ f \in \mathcal{S}_\infty (\mathbb{R}^n) $.
+Let $ f \in \mathcal{S} (\mathbb{R}^n) $.
+If $ 0 \notin \overline{\supp \widehat{f}} $, 
+then $ f \in \mathcal{S}_\infty (\mathbb{R}^n) $.
 \end{proposition}
 
 \begin{proof}
-    关键是利用傅里叶变换的性质: 
-    对任意 $ \alpha \in \mathbb{Z}_+^n $ 和 $ \xi \in \mathbb{R}^n $,
-    $$
-        \left( \partial^\alpha \widehat{f} \right) (\xi)
-            = [(-2\pi i x)^\alpha f(x)]^{\wedge} (\xi),
-    $$
-    又因为 $ \mathbf{0} \notin \overline{\supp \widehat{f}} $, 故
-    $ (\partial^\alpha \widehat{f}) (\mathbf{0}) = 0 $,
-    从而
-    $$
-        0 = [(-2\pi i x)^\alpha \partial^\alpha f(x)]^{\wedge} (\mathbf{0})
-          = \int_{\mathbb{R}^n} (-2\pi i x)^\alpha f(x) \, dx,
-    $$
-    即
-    $$
-        \int_{\mathbb{R}^n} x^\alpha f(x) \, dx = 0.
-    $$
+关键是利用傅里叶变换的性质: 
+对任意 $ \alpha \in \mathbb{Z}_+^n $ 和 $ \xi \in \mathbb{R}^n $,
+$$
+\left( \partial^\alpha \widehat{f} \right) (\xi)
+= [(-2\pi i x)^\alpha f(x)]^{\wedge} (\xi),
+$$
+又因为 $ \mathbf{0} \notin \overline{\supp \widehat{f}} $, 故
+$ (\partial^\alpha \widehat{f}) (\mathbf{0}) = 0 $,
+从而
+$$
+0 = [(-2\pi i x)^\alpha \partial^\alpha f(x)]^{\wedge} (\mathbf{0})
+= \int_{\mathbb{R}^n} (-2\pi i x)^\alpha f(x) \, dx,
+$$
+即
+$$
+\int_{\mathbb{R}^n} x^\alpha f(x) \, dx = 0.
+$$
 \end{proof}
 
 \subsection{离散再生公式}
 
 \begin{lemma}
-    设 $ \varphi $, $ \psi \in \mathcal{S}(\mathbb{R}^n) $ 满足 
-    $$
-        \sum_{j \in \mathbb{Z}} \overline{\widehat{\varphi}(2^j \xi)} \widehat{\psi}(2^j \xi) = 1
-        \quad \text{if } \xi \neq 0 
-    $$
-    且 $ \widehat{\varphi} $ 和 $ \widehat{\psi} $ 支在一个环上, 即
-    $$
-        \supp \widehat{\varphi},\ \supp \widehat{\psi}
-            \subset \{ \xi \in \mathbb{R}^n :\ a \leq |\xi| \leq b \}.
-    $$
-    则
-    \begin{enumerate}[{\rm (i)}]
-    \item 对任意 $ f \in \mathcal{S}_\infty(\mathbb{R}^n) $,
-        \begin{equation} \label{9}
-            f = \sum_{Q \in \mathcal{D}} 
-                \langle f, \varphi_Q \rangle \psi_Q
-        \end{equation}
-        in $ \mathcal{S}_\infty(\mathbb{R}^n) $;
-    \item 对任意 $ f \in \mathcal{S}_\infty'(\mathbb{R}^n) $,
-        \eqref{9} 在 $ \mathcal{S}_\infty' (\mathbb{R}^n) $ 意义下收敛.
-    \end{enumerate}
+设 $ \varphi $, $ \psi \in \mathcal{S}(\mathbb{R}^n) $ 满足 
+$$
+\sum_{j \in \mathbb{Z}} \overline{\widehat{\varphi}(2^j \xi)} \widehat{\psi}(2^j \xi) = 1
+\quad \text{if } \xi \neq 0 
+$$
+且 $ \widehat{\varphi} $ 和 $ \widehat{\psi} $ 支在一个环上, 即
+$$
+\supp \widehat{\varphi},\ \supp \widehat{\psi}
+\subset \{ \xi \in \mathbb{R}^n :\ a \leq |\xi| \leq b \}.
+$$
+则
+\begin{enumerate}[{\rm (i)}]
+\item 对任意 $ f \in \mathcal{S}_\infty(\mathbb{R}^n) $,
+\begin{equation} \label{9}
+f = \sum_{Q \in \mathcal{D}} 
+\langle f, \varphi_Q \rangle \psi_Q
+\end{equation}
+in $ \mathcal{S}_\infty(\mathbb{R}^n) $;
+\item 对任意 $ f \in \mathcal{S}_\infty'(\mathbb{R}^n) $,
+\eqref{9} 在 $ \mathcal{S}_\infty' (\mathbb{R}^n) $ 意义下收敛.
+\end{enumerate}
 \end{lemma}
 
 \subsection{小波再生公式}
 
 \begin{proposition}
-    设 $ \{ e_Q^{(i)} \}_{Q \in \mathcal{D}} $ 是 $ L^2(\mathbb{R}^n) $ 的
-    一组正交小波基. 则
-    \begin{enumerate}[{\rm (i)}]
-    \item 对任意 $ f \in L^2(\mathbb{R}^n) $
-        \begin{equation} \label{8}
-            f = \sum_{Q \in \mathcal{D}} 
-                \left\langle f, e_Q \right\rangle e_Q
-        \end{equation}
-        in $ L^2(\mathbb{R}^n) $;
-    \item 对任意 $ f \in \mathcal{S}_\infty(\mathbb{R}^n) $,
-        \eqref{8} 在 $ \mathcal{S}(\mathbb{R}^n) $ 意义下收敛;
-    \item 对任意 $ f \in \mathcal{S}_\infty' (\mathbb{R}^n) $,
-        \eqref{8} 在 $ \mathcal{S}_\infty' (\mathbb{R}^n) $ 意义下收敛.
-    \end{enumerate}
+设 $ \{ e_Q^{(i)} \}_{Q \in \mathcal{D}} $ 是 $ L^2(\mathbb{R}^n) $ 的
+一组正交小波基. 则
+\begin{enumerate}[{\rm (i)}]
+\item 对任意 $ f \in L^2(\mathbb{R}^n) $
+\begin{equation} \label{8}
+f = \sum_{Q \in \mathcal{D}} 
+\left\langle f, e_Q \right\rangle e_Q
+\end{equation}
+in $ L^2(\mathbb{R}^n) $;
+\item 对任意 $ f \in \mathcal{S}_\infty(\mathbb{R}^n) $,
+\eqref{8} 在 $ \mathcal{S}(\mathbb{R}^n) $ 意义下收敛;
+\item 对任意 $ f \in \mathcal{S}_\infty' (\mathbb{R}^n) $,
+\eqref{8} 在 $ \mathcal{S}_\infty' (\mathbb{R}^n) $ 意义下收敛.
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-    由基的定义和正交性, (i) 不难得到.
-    下证 (ii). 固定 $ f \in \mathcal{S}_\infty' (\mathbb{R}^n) $.
-    对任意 $ \varphi \in \mathcal{S}_\infty (\mathbb{R}^n) $,
-    由 (i) 知
-    $$
-        \varphi = \sum_{Q \in \mathcal{D}} 
-            \left\langle \varphi, e_Q \right\rangle e_Q
-    $$
-    
-    (ii) 要对小波加限制.
+由基的定义和正交性, (i) 不难得到.
+下证 (ii). 固定 $ f \in \mathcal{S}_\infty' (\mathbb{R}^n) $.
+对任意 $ \varphi \in \mathcal{S}_\infty (\mathbb{R}^n) $,
+由 (i) 知
+$$
+\varphi = \sum_{Q \in \mathcal{D}} 
+\left\langle \varphi, e_Q \right\rangle e_Q
+$$
+
+(ii) 要对小波加限制.
 \end{proof}
 
 \section{特殊 Schwartz 函数的构造}
@@ -491,52 +491,52 @@ $$
 需要用到 Calder\'on reproducing formulae 的特殊情况,
 即让
 $$
-    f = \sum_{Q} \langle f, \varphi_Q \rangle \psi_Q
+f = \sum_{Q} \langle f, \varphi_Q \rangle \psi_Q
 $$
 中的 $ \varphi = \psi $.
 
 参考 \cite[Lemma (6.9)]{fjw91} 的证明可以构造满足上述条件的 $ \varphi $.
 
 \begin{lemma}
-    There exists a $ \varphi \in \mathcal{S}(\mathbb{R}^n) $ 
-    such that $ 0 \notin \supp \widehat{\varphi} $
-    and, for any $ \xi \in \mathbb{R}^n \setminus \{ \mathbf{0} \} $,
-    $$ 
-        \sum_{j \in \mathbb{Z}} \left[ \widehat{\varphi} 
-            \left( 2^j \xi \right) \right]^2 = 1.
-    $$
+There exists a $ \varphi \in \mathcal{S}(\mathbb{R}^n) $ 
+such that $ 0 \notin \supp \widehat{\varphi} $
+and, for any $ \xi \in \mathbb{R}^n \setminus \{ \mathbf{0} \} $,
+$$ 
+\sum_{j \in \mathbb{Z}} \left| \widehat{\varphi} 
+\left( 2^j \xi \right) \right|^2 = 1.
+$$
 \end{lemma}
 
 \begin{proof}
-    令 $ h \in \mathcal{S}(\mathbb{R}^n) $ 满足 
-    \begin{align*}
-        & \supp \widehat{h} 
-            \subset \{ \xi \in \mathbb{R}^n :\ 1/2 \leq |\xi| \leq 2 \}, \\
-        &\ \widehat{h}(\xi) \geq c, 
-            \qquad \text{for any } \frac{3}{5} \leq |\xi| \leq \frac{5}{3}.
-    \end{align*}
-    对任意 $ \xi \in \mathbb{R}^n $, 令
-    $$
-        \psi(\xi) := \left\{ \sum_{j \in \mathbb{Z}} \left[ \widehat{h} 
-            \left( 2^j \xi \right) \right]^2 \right\}^{1/2},
-    $$
-    则对任意 $ i \in \mathbb{Z} $, $ \psi(2^i \xi) = \psi(\xi) $, 
-    对任意 $ \xi \in \mathbb{R}^n $, $ \psi(\xi) \geq c $, 
-    且 $ \psi \in C^\infty(\mathbb{R}^n) $.
-    注意到
-    $$ 
-        \widehat{h} / \psi 
-            \in C_{\mathrm{c}}^\infty(\mathbb{R}^n) 
-            \overset{\text{Proposition \ref{5}(i)}}{\subset} \mathcal{S}(\mathbb{R}^n),
-    $$
-    故可令 $ \varphi := (\widehat{h} / \psi)^{\vee} $. 
-    则 $ \varphi \in \mathcal{S}(\mathbb{R}^n) $ 且
-    $$
-        \sum_{j \in \mathbb{Z}} \left[ \widehat{\varphi} 
-        \left( 2^j \xi \right) \right]^2
-            = \frac{\sum_{j \in \mathbb{Z}} [\widehat{h} (2^j \xi)]^2}{[\psi(\xi)]^2}
-            = 1.
-    $$
+令 $ h \in \mathcal{S}(\mathbb{R}^n) $ 满足 
+\begin{align*}
+& \supp \widehat{h} 
+\subset \{ \xi \in \mathbb{R}^n :\ 1/2 \leq |\xi| \leq 2 \}, \\
+&\ \widehat{h}(\xi) \geq c, 
+\qquad \text{for any } \frac{3}{5} \leq |\xi| \leq \frac{5}{3}.
+\end{align*}
+对任意 $ \xi \in \mathbb{R}^n $, 令
+$$
+\psi(\xi) := \left\{ \sum_{j \in \mathbb{Z}} \left| \widehat{h} 
+\left( 2^j \xi \right) \right|^2 \right\}^{1/2},
+$$
+则对任意 $ i \in \mathbb{Z} $, $ \psi(2^i \xi) = \psi(\xi) $, 
+对任意 $ \xi \in \mathbb{R}^n $, $ \psi(\xi) \geq c $, 
+且 $ \psi \in C^\infty(\mathbb{R}^n) $.
+注意到
+$$ 
+\widehat{h} / \psi 
+\in C_{\mathrm{c}}^\infty(\mathbb{R}^n) 
+\overset{\text{Proposition \ref{5}(i)}}{\subset} \mathcal{S}(\mathbb{R}^n),
+$$
+故可令 $ \varphi := (\widehat{h} / \psi)^{\vee} $. 
+则 $ \varphi \in \mathcal{S}(\mathbb{R}^n) $ 且
+$$
+\sum_{j \in \mathbb{Z}} \left[ \widehat{\varphi} 
+\left( 2^j \xi \right) \right]^2
+= \frac{\sum_{j \in \mathbb{Z}} [\widehat{h} (2^j \xi)]^2}{[\psi(\xi)]^2}
+= 1.
+$$
 \end{proof}
 
 \begin{thebibliography}{99}

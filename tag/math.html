@@ -48,6 +48,16 @@
         <div id="article">
             <div id="page1">
                 <div class="article-list">
+                    <a href="../article/052.html">小波</a>
+                    <p>发布时间: 2023-01-20</p>
+                </div>
+
+                <div class="article-list">
+                    <a href="../article/050.html">一些有意思的反例</a>
+                    <p>发布时间: 2023-01-20</p>
+                </div>
+
+                <div class="article-list">
                     <a href="../article/049.html">Schwartz 函数和傅里叶变换</a>
                     <p>发布时间: 2022-02-13</p>
                 </div>
@@ -111,7 +121,9 @@
                     <a href="../article/035.html">范数和拟范数的连续性</a>
                     <p>发布时间: 2020-09-07</p>
                 </div>
+            </div>
 
+            <div id="page2" style="display: none">
                 <div class="article-list">
                     <a href="../article/032.html">Borel Algebra 的平移不变性和伸缩不变性</a>
                     <p>发布时间: 2020-05-05</p>
@@ -121,9 +133,7 @@
                     <a href="../article/031.html">笔记-J. Duoandikoetxea, Fourier Analysis</a>
                     <p>发布时间: 2020-03-31</p>
                 </div>
-            </div>
 
-            <div id="page2" style="display: none">
                 <div class="article-list">
                     <a href="../article/030.html">收敛和弱收敛的一个等价刻画</a>
                     <p>发布时间: 2020-03-19</p>
@@ -188,7 +198,9 @@
                     <a href="../article/006.html">Lebesgue's Number Lemma</a>
                     <p>发布时间: 2018-08-14</p>
                 </div>
+            </div>
 
+            <div id="page3" style="display: none">
                 <div class="article-list">
                     <a href="../article/004.html">Convergent, Cesàro Summable and Abel Summable</a>
                     <p>发布时间: 2018-06-09</p>
@@ -207,6 +219,9 @@
                 <div class="header-link">
                     <a href="?page=2">2</a>
                 </div>
+                <div class="header-link">
+                    <a href="?page=3">3</a>
+                </div>
             </div>
         </div>
 
@@ -216,7 +231,7 @@
                 <hr/>
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/tag/math.html"> 数学 </a></div>
-                    <div style="float:right;">30 篇</div>
+                    <div style="float:right;">32 篇</div>
                 </div>
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/tag/latex.html"> Latex </a></div>
@@ -236,7 +251,7 @@
                 </div>
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/tag/script.html"> 脚本 </a></div>
-                    <div style="float:right;">1 篇</div>
+                    <div style="float:right;">2 篇</div>
                 </div>
             </div>
 
@@ -255,6 +270,11 @@
             <div class="rightbar-list">
                 <h3> 归档 </h3>
                 <hr/>
+                <div class="clearfix">
+                    <div style="float:left;"><a href="https://bufan.xyz/time/2023.html"> 2023 </a></div>
+                    <div style="float:right;">3 篇</div>
+                </div>
+
                 <div class="clearfix">
                     <div style="float:left;"><a href="https://bufan.xyz/time/2022.html"> 2022 </a></div>
                     <div style="float:right;">2 篇</div>
@@ -300,10 +320,17 @@
         if (loc.substr(index+1) === "1") {
             document.getElementById("page1").style.display = "block";
             document.getElementById("page2").style.display = "none";
+            document.getElementById("page3").style.display = "none";
         }
         if (loc.substr(index+1) === "2") {
             document.getElementById("page1").style.display = "none";
             document.getElementById("page2").style.display = "block";
+            document.getElementById("page3").style.display = "none";
+        }
+        if (loc.substr(index+1) === "3") {
+            document.getElementById("page1").style.display = "none";
+            document.getElementById("page2").style.display = "none";
+            document.getElementById("page3").style.display = "block";
         }
     }
 </script>
