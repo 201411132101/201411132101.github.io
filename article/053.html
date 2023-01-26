@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="keywords" content="网站">
+    <meta name="keywords" content="python,脚本">
 
     <title> bufan 的博客 </title>
 
@@ -18,6 +18,9 @@
 
     <!-- javascript -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 
 <body>
@@ -44,96 +47,88 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-# 收藏的网站
+# 参考文献排序
+
 <div style="text-align: center;">
-    <p>发布时间: 2018-05-22</p>
+    <p>发布时间: 2023-01-26</p>
 </div>
 
 ---
 
-## [MathSciNet](http://mathscinet.ams.org)
+苦参考文献排序久已, 如今终于有时间写个脚本自动排序了
+(或许改用endnote才是更好的选择).
 
-数学领域最权威的检索工具.
+环境: Python 3.7.8rc1
 
-## [SCI-HUB](https://sci-hub.tw)
+# 一. 整体框架构思
 
-盗版论文下载, 一般都能下.
+用户将参考文件放入txt文件中, 读取参考文献后提取作者姓名等信息并排序, 最后将排序结果输出到txt中.
+对于我个人来说, 对于排序其实需求不大, 因为大概率只有个别参考文献的顺序不对,
+故添加了提示功能, 可以给出修改建议.
+总所周知, python 无法直接跨环境运行, 如果想在别人电脑上运行, 最好是打包一下.
 
-## [Library Genesis](https://libgen.fun)
+# 二. 具体实现
 
-盗版专业书下载, 资源很全.
+首先是信息的分离, 这并不简单, 我用到了正则表达式这一字符串处理利器.
+观察对我来说常用的参考文献格式, 有三种模式
 
-## [陶哲轩](https://terrytao.wordpress.com/)
+1. [1] A. Zhang, 文章名, ...
 
-陶哲轩的个人博客, 或许可以搜到一些有意思的玩意.
+2. [2] A. Zhang and Bo. Li, 文章名, ...
 
-## [CNKI翻译助手](http://dict.cnki.net/)
+3. [zlw] A. Zhang, Bo. Li and C. Wang, 文章名, ...
 
-知网专业名词翻译, 还不错.
+我们可以很容易的分离索引和参考文献内容.
 
-## [WolframAlpha](https://www.wolframalpha.com)
+    # 按 id 分割字符串, 只匹配括号内长度小于等于 8 的
+    list_id = re.findall(r'\[[0-9a-zA-Z]{1,8}]', s)
+    list_text = re.split(r'\[[0-9a-zA-Z]{1,8}]', s)
 
-在线计算网站, 可以求级数, 求积分等等.
+接下来是从参考文献中提取作者.
+对于情况2和3很简单, 识别 [and Bo. 姓氏,] 这种模式的字符串就行.
+此处不能直接识别 [and ... ,] 这种模式, 因为文章里面也会出现 and, 会导致识别错误.
 
-## [WolframAlpha](https://www.luyinzhushou.com)
+如果情况2和3没能匹配上, 那就是情况1了. 那么只需匹配 [...,] 这种模式就行.
 
-在线且免费的录音转文字工具, 英语课就靠它了.
+如果参考文献格式错误, 也会导致识别失败.
 
-## [Smallpdf](https://smallpdf.com)
+    # 先匹配多个作者的情况 (有and)
+    my_match = re.match(r'.+ and [A-Za-z]{1,2}\. .+?,', my_str)
+    # 再匹配1个作者的情况 (无and)
+    if my_match is None:
+    my_match = re.match(r'.+?,', my_str)
 
-可以对pdf进行简单的处理. 有数量限制, 界面做得比 ILovePDF 要好.
+代码中的?去掉的话就是贪婪匹配, 会匹配最长字符串, 这不是我们想要的.
 
-## [ILovePDF](https://ilovepdf.com)
+作者姓氏的提取我非常暴力, 利用re.sub把 'Bo.', ',', 和 'and' 这三种字符删掉,
+剩下的就是由姓氏和空格组成的string, 再把空格处理一下就搞定了.
 
-可以对pdf进行简单的处理. 无数量限制, 界面做得比 Smallpdf 要差.
+    name = re.sub(r'[A-Za-z\-]{1,2}\.|,|and', '', my_match.group())
+    new_name = name.replace('  ', ' ')
+    while len(new_name) != len(name):
+    name = new_name
+    new_name = name.replace('  ', ' ')
 
-## [Pandoc](https://pandoc.org/try)
+最后把信息组合一下, 按提取出来的作者姓名排序即可.
 
-不同语言之间的转换, 其实我就只是想把 latex 转 markdown 而已.
-转换效果毫无疑问不太行, 毕竟不同语言, 但总比全部自己手动操作要好.
+    # 组合后再排序
+    list_sorted = sorted(zip(list_id, list_text, list_short), key=lambda x: x[2])
 
----
+最后一些输出的东西就没啥好说的了, 想咋整就咋整.
 
-## [OEIS](https://oeis.org)
+# 三. 打包
 
-专攻数列的网站, 挺有意思的.
+首先用命令行跳转到程序所在目录: cd C:\Users\...
 
-## [Scribd](https://scribd.com)
+再运行打包程序: pyinstaller -F -i favicon.ico main.py
 
-里面有很多有意思的文档, 需要翻墙.
+打包看起来简单, 实际操作中会有很多问题的, 说多了都是泪,
+只能说与 bug 相伴是程序员的宿命.
 
-## [JaxEdit](https://zohooo.github.io/jaxedit)
+[源代码](053/main.py)
+<span style="margin-right:24px;"></span>
+[exe文件](053/main.zip)
 
-Latex 在线预览, 有点卡, 预览效果有些小问题.
-
-## [ShadowSocks](https://portal.shadowsocks.at)
-
-自己花钱买vpn, 比免费的好用100倍.
-
-## [TinyPNG](https://tinypng.com)
-
-图片压缩网站, 压缩效果很好.
-
-## [ACG调查小队](https://vcb-s.com)
-
-高清老番下载网站, 视频清晰度非常靠谱, 
-种子下载速度快到惊人, 补老番强烈推荐.
-
-## [我在CSDN上的博客](https://blog.csdn.net/qq_25884463)
-
-里面有些有意思的东西, 有空慢慢搬运部分文章到本博客上.
-
-## [我曾经的网站-v1](https://bufan.xyz/bufanOld)
-
-黑历史之一, 供自己回忆用.
-
-## [我曾经的网站-v2](https://bufan.xyz/My-website)
-
-黑历史之二, 供自己回忆用.
-
-## [我曾经的网站-v3](https://bufan.xyz/My-website-2)
-
-黑历史之三, 供自己回忆用.
         </div>
 
         <div id="rightbar">
@@ -214,7 +209,7 @@ Latex 在线预览, 有点卡, 预览效果有些小问题.
     <div id="footer">
         <p>
             联系方式: &nbsp; <a href="javascript:alert('291817591@qq.com')"> Email </a>
-            <span style="margin-right:50px;"></span>
+            <span style="margin-right:50px;"></span>&nbsp;&nbsp;
             数据存储: &nbsp; <a href="https://github.com/201411132101/201411132101.github.io"> GitHub </a>
         </p>
     </div>
