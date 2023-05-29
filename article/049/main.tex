@@ -377,14 +377,23 @@ $$
 
 \section{再生公式}
 
-\section{Schwartz 函数模多项式, $ \mathcal{S}_\infty (\mathbb{R}^n) $}
+本节主要参考\cite{bt17}.
 
+先回顾一下$\mathcal{S} (\mathbb{R}^n)/\mathcal{P}(\mathbb{R}^n)$
+和$\mathcal{S}_\infty(\mathbb{R}^n)$.
 $$
 \mathcal{S}_\infty (\mathbb{R}^n) 
 := \left\{ f \in \mathcal{S}(\mathbb{R}^n) :\ 
 \int_{\mathbb{R}^n} x^\alpha f(x) = 0 \quad
 \text{ for any } \alpha \in \mathbb{Z}_+^n \right\}.
 $$
+
+\begin{proposition}
+Let $\Delta$ be a 拉普拉斯算子. Then
+\begin{align*}
+\mathcal{S}=\bigcap_{k=0}^\infty\mathcal{S}(\Delta^k)
+\end{align*}
+\end{proposition}
 
 \begin{theorem}
 $$  
@@ -393,7 +402,7 @@ $$
 $$
 \end{theorem}
 
-这个空间上的拓扑怎么构造?
+这两个空间上的拓扑是什么?
 
 下面给出判断函数属于 $ \mathcal{S}_\infty (\mathbb{R}^n) $ 的一个方法.
 
@@ -423,7 +432,11 @@ $$
 $$
 \end{proof}
 
+\subsection{连续再生公式}
+
 \subsection{离散再生公式}
+
+\subsubsection{齐次}
 
 \begin{lemma}
 设 $ \varphi $, $ \psi \in \mathcal{S}(\mathbb{R}^n) $ 满足 
@@ -449,36 +462,54 @@ in $ \mathcal{S}_\infty(\mathbb{R}^n) $;
 \end{enumerate}
 \end{lemma}
 
-\subsection{小波再生公式}
+下面考虑小波再生公式, 为了形式的简洁, 只考虑1维的Meyer小波$\{\theta_Q\}_{Q\in\mathcal{D}}$.
 
 \begin{proposition}
-设 $ \{ e_Q^{(i)} \}_{Q \in \mathcal{D}} $ 是 $ L^2(\mathbb{R}^n) $ 的
-一组正交小波基. 则
+设 $\{\theta_Q\}_{Q\in\mathcal{D}}$ 是 $ L^2(\mathbb{R}) $ 的一组Meyer小波基. 则
 \begin{enumerate}[{\rm (i)}]
-\item 对任意 $ f \in L^2(\mathbb{R}^n) $
+\item 对任意 $ f \in L^2(\mathbb{R}^n) $,
 \begin{equation} \label{8}
 f = \sum_{Q \in \mathcal{D}} 
-\left\langle f, e_Q \right\rangle e_Q
+\left\langle f, \theta_Q \right\rangle \theta_Q
 \end{equation}
 in $ L^2(\mathbb{R}^n) $;
 \item 对任意 $ f \in \mathcal{S}_\infty(\mathbb{R}^n) $,
-\eqref{8} 在 $ \mathcal{S}(\mathbb{R}^n) $ 意义下收敛;
+\eqref{8} 在 $ \mathcal{S}_\infty(\mathbb{R}^n) $ 意义下收敛;
 \item 对任意 $ f \in \mathcal{S}_\infty' (\mathbb{R}^n) $,
 \eqref{8} 在 $ \mathcal{S}_\infty' (\mathbb{R}^n) $ 意义下收敛.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-由基的定义和正交性, (i) 不难得到.
-下证 (ii). 固定 $ f \in \mathcal{S}_\infty' (\mathbb{R}^n) $.
-对任意 $ \varphi \in \mathcal{S}_\infty (\mathbb{R}^n) $,
-由 (i) 知
-$$
-\varphi = \sum_{Q \in \mathcal{D}} 
-\left\langle \varphi, e_Q \right\rangle e_Q
-$$
+(i) 显然, (iii) 是 (ii) 的推论, 故只需证 (ii).
+\end{proof}
 
-(ii) 要对小波加限制.
+\subsubsection{非齐次}
+
+下面考虑小波再生公式, 为了形式的简洁, 只考虑1维的Meyer小波
+$\{\Theta_Q\}_{Q\in\mathcal{D}_0}\cup\{\theta_Q\}_{Q\in\mathcal{D}_+}$.
+
+\begin{proposition}
+设 $\{\Theta_Q\}_{Q\in\mathcal{D}_0}\cup\{\theta_Q\}_{Q\in\mathcal{D}_+}$ 
+是 $ L^2(\mathbb{R}) $ 的一组Meyer小波基. 则
+\begin{enumerate}[{\rm (i)}]
+\item 对任意 $ f \in L^2(\mathbb{R}^n) $,
+\begin{equation} \label{8in}
+f = \sum_{Q \in \mathcal{D}_0} 
+\left\langle f, \Theta_Q \right\rangle \Theta_Q
++\sum_{Q \in \mathcal{D}_+} 
+\left\langle f, \theta_Q \right\rangle \theta_Q
+\end{equation}
+in $ L^2(\mathbb{R}^n) $;
+\item 对任意 $ f \in \mathcal{S}(\mathbb{R}^n) $,
+\eqref{8in} 在 $ \mathcal{S}(\mathbb{R}^n) $ 意义下收敛;
+\item 对任意 $ f \in \mathcal{S}' (\mathbb{R}^n) $,
+\eqref{8in} 在 $ \mathcal{S}' (\mathbb{R}^n) $ 意义下收敛.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+待补
 \end{proof}
 
 \section{特殊 Schwartz 函数的构造}
@@ -553,6 +584,13 @@ Providence, RI, 1991.
 L. Grafakos, 
 Classical Fourier Analysis, Third edition, 
 Graduate Texts in Mathematics 249, Springer, New York, 2014.
+
+\bibitem{bt17}
+A. B\'enyi and R. Torres, 
+The discrete Calderón reproducing formula of Frazier and Jawerth,
+in: Functional analysis, harmonic analysis, and image processing: 
+a collection of papers in honor of Bj\"orn Jawerth, 
+79--107, Contemp. Math., 693, Amer. Math. Soc., Providence, RI, 2017.
 
 \end{thebibliography}
 

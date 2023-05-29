@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="keywords" content="Convergent,Ces&#224;ro Summable,Abel Summable">
+    <meta name="keywords" content="初心">
 
     <title> bufan 的博客 </title>
 
@@ -47,85 +47,72 @@
 
     <div id="middle" class="clearfix">
         <div id="article" class="markdown-body">
-#  Convergent, Ces&#224;ro Summable and Abel Summable
+# 朴素的价值观和功利的目的
 
 <div style="text-align: center;">
-    <p>发布时间: 2018-06-09</p>
+    <p>发布时间: 2023-05-29</p>
 </div>
 
 ---
 
-有空再调整内容.
+## 邦哥的朋友圈
 
-## 定义
+突然想到一些事, 记录一下.
 
-### \\( Ces\'{a}ro \ summable \\)
+无聊间, 打开了本科基友(下铺)的个人网站. 当年我亲眼看着他熬夜现学现用java自己写的动态页面.
+3, 4年过去了我以为早就废弃了, 但是竟发现最近还在更新数学学习笔记.
 
-级数 \\( \sum_{n = 1}^{\infty} c_n \\) 被称为 \\(  Ces\grave{a}ro \ summable \\) 是指 \\(  \sigma_n \\) 收敛, 其中
+“放弃计算机这件事无所谓对错, 我发现自己更喜欢数学, 于是选择了数学仅此而已...”他如是写道.
 
-$$ s_N := \sum_{n = 1}^N c_n, \hspace{0.5cm} \sigma_n := \frac{s_1 + s_2 + \cdots + s_n}{n}. $$
+瞬间种种往事涌上心头. 一言难尽.
+那时候什么都没有, 挤在6人间里乐在其中.
+我俩当时有一个共同点, 好奇数学, 随心所欲, 无所谓成绩. 却反倒是在一开始能在分析课上能拿到好成绩.
 
-### Abel summable
+其实那些课都可以自学. 成绩在我们看来不过是一张面皮. 这似乎和世上很多事情都一样.
 
-级数 \\( \sum_{n = 1}^{\infty} c_n \\) 被称为  \\(  Abel \ summable \\) 是指 \\(  lim_{r \to 1^-} A_r \\) 存在, 其中
+那时候的数学的事情, 美的那么纯洁.
 
-$$ A_r := \sum_{n = 1}^{\infty} c_n r^n. $$
+不过, 这种状态在大二之后, 结果就是他成绩极差, 他似乎只做他喜欢的事情, 搞了ACM, 数学课忘到脑后.
+同样那时的我排名连专业分流的选择权利都没有. 在决心出国后我又变到了另一极端, 功利至极的刷绩.
 
-## 定理
+可能从那时起我就把自己弄丢了.
 
-**定理 1**  $ convergent \Rightarrow Ces&#224;ro \ summable \Rightarrow Abel \ summable $, 且它们收敛到同一个数.
+当年的热情和朴素, 我似乎找都找不到了, 就像高度近视者丢了眼镜, 我可悲的趴在地上摸, 一手的灰.
+现在上课听seminar都要在乎那些概念对我有啥用, 没用就不学.
+而所谓“用”无非就是对paper或者找工作有没有用, 没用一分钟都不想看.
+如同当年问选课对刷绩点有啥用如出一辙.
 
-**定理 1 的证明** 下证 $ convergent \Rightarrow Ces\grave{a}ro \ summable $.
+想起这些, 才似乎让我找回眼镜, 看清了路.
 
-不妨设级数 $ \sum_{n = 1}^{\infty} c_n $收敛到 $ 0 $, 即 $ \lim_{n \to \infty} s_n = 0 $, 故
+这些年着实让我体会到一个道理:
 
-$$ \lim_{n \to \infty} \sigma_n = \lim_{n \to \infty} \frac{s_1 + s_2 + \cdots + s_n}{n} = 0. $$
+朴素的价值观和功利的目的之间矛盾吗?
 
-因此 $ \sum_{n = 1}^{\infty} c_n $ 是 $ Ces\grave{a}ro \ summable $ 的级数.
+他主页的题注几年没有变过:
 
-下证 $ Ces\grave{a}ro \ summable \Rightarrow Abel \ summable $.
+“一个普通的人, 做着普通的事, 过着普通的生活.”
 
-不妨设级数 $ \sum_{n = 1}^{\infty} c_n $ 满足 $ \sigma_n $ 收敛到 $ 0 $. $ \forall \ r \in (0, 1) $, 由 $ \sum_{n=1}^{\infty} n \sigma_n r^n $ 收敛可知
+恰反衬着他的名字, 卜凡.
 
-$$ A_r = (1 - r) \sum_{n=1}^{\infty} s_n r^n = (1 - r)^2 \sum_{n=1}^{\infty} n \sigma_n r^n. $$
+## 我的一点反思
 
-$ \forall \ \varepsilon > 0  $, 存在 $ N \in \mathbb{N} $ 使得 $ \forall \ n > N $, 有 $ |\sigma_n| < \varepsilon $, 因此 $ \forall \ r \in (0, 1) $, 有
+上面是邦哥20年发的朋友圈, 我偶然23年才看到, 感触颇深.
 
-$$
-\begin{align}
-|A_r|
-&\leq (1 - r)^2 \sum_{n=1}^N n |\sigma_n| r^n + (1 - r)^2 \sum_{n=N+1}^{\infty} n |\sigma_n| r^n \\\\
-&< (1 - r)^2 \sum_{n=1}^N n |\sigma_n| r^n + \varepsilon (1 - r)^2 \sum_{n=N+1}^{\infty} n  r^n \\\\
-&< (1 - r)^2 \sum_{n=1}^N n |\sigma_n| r^n + \varepsilon.
-\end{align}
-$$
+当初选择数学是因为最纯粹的热爱, 现在的我是否已经忘掉了部分初心呢?
 
-令 $ r \to 1^- $ 得
+以前是100%的纯粹, 现在或许已有50%的功利, 论文选题首先是看能不能发好杂志, 别人是否感兴趣, 而不是我自己喜不喜欢.
+如果不是看到邦哥的朋友圈, 我似乎已经开始接受这一做法了.
 
-$$ \limsup_{r \to 1^-} |A_r| < \varepsilon. $$
+功利无错, 但与我的本质有不可调和之矛盾, 也难怪我近来愈发迷茫.
+纯粹一点的数学, 念头通达后或许能产生更多的火花.
+说实话写到这里, 已然能看出有些许变质, 以前的我说不出这样的话.
+研究数学的过程就是美妙绝伦的, 探索本质, 发现真理的快乐, 这才是我学习数学的初心呀!
+为了有成果而纯粹, 和单纯的喜爱, 有本质不同的.
 
-由上式及 $ \varepsilon $ 的任意性可知
+不过说实话, 这或许也是人生的一部分, 看山是山, 看山不是山, 看山还是山.
+在这近而立之年, 有幸接近这最后境界, 甚是感激邦哥带给我的触动！
+是时候找回真正的自我了, 或许前路坎坷, 何妨吟啸且徐行.
 
-$$ \lim_{r \to 1^-} A_r = 0, $$
-
-因此 $ \sum_{k = 1}^{\infty} c_k $ 是 $ Ces\grave{a}ro \ summable $ 的级数.
-
-**定理 2**  $ convergent \nLeftarrow Ces\grave{a}ro \ summable \nLeftarrow Abel \ summable. $
-
-**定理 2 的证明** $ \sum_{k = 1}^{\infty} (-1)^n $ 是 $ Ces\grave{a}ro \ summable $ 的级数, 但它不收敛.
-
-$ \sum_{k = 1}^{\infty} (-1)^n n $ 是 $ Abel \ summable $ 的级数, 但它不是 $ Ces\grave{a}ro \ summable $ 的级数.
-
-**定理 3** 若 $ \lbrace n c_n \rbrace_{n=1}^{\infty} $ 有下界, 则 $ Abel \ summable \Rightarrow convergent $,
-且它们收敛到同一个数, 即
-$$ convergent \Leftrightarrow Ces\grave{a}ro \ summable \Leftrightarrow Abel \ summable. $$
-
-
-非常谢谢邦哥给我下载论文, 学校没买版权我也很无奈啊.
-
-<!-- [PDF](003.pdf)
-<span style="margin-right:24px;"></span>
-[TEX](003.tex) -->
         </div>
 
         <div id="rightbar">
@@ -206,7 +193,7 @@ $$ convergent \Leftrightarrow Ces\grave{a}ro \ summable \Leftrightarrow Abel \ s
     <div id="footer">
         <p>
             联系方式: &nbsp; <a href="javascript:alert('291817591@qq.com')"> Email </a>
-            <span style="margin-right:50px;"></span>
+            <span style="margin-right:50px;"></span>&nbsp;&nbsp;
             数据存储: &nbsp; <a href="https://github.com/201411132101/201411132101.github.io"> GitHub </a>
         </p>
     </div>

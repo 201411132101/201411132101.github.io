@@ -1,0 +1,9 @@
+[118] D. Yang and W. Yuan, A new class of function spaces connecting Triebel–Lizorkin spaces and Q spaces,J. Funct. Anal. 255 (2008), 2760-2809.
+[121] D. Yang, W. Yuan and C. Zhuo, Complex interpolation on Besov-type and Triebel–Lizorkin-type spaces,Anal. Appl. (Singap.) 11 (2013), 1350021, 45 pp.
+[122] W. Yuan, D. D. Haroske, S. D. Moura, L. Skrzypczak and D. Yang, Limiting embeddings in smoothnessMorrey spaces, continuity envelopes and applications, J. Approx. Theory 192 (2015), 306-335.
+[123] W. Yuan, W. Sickel and D. Yang, Morrey and Campanato Meet Besov, Lizorkin and Triebel, Lecture Notesin Mathematics 2005, Springer-Verlag, Berlin, 2010.
+[126] J. Zhang, Y. Yang and Q. Zhang, On the stability to Keller–Segel system coupled with Navier–Stokesequations in Besov–Morrey spaces, Nonlinear Anal. Real World Appl. 71 (2023), Paper No. 103828, 25pp.
+[127] C. Zhuo, D.-C. Chang and D. Yang, Ball average characterizations of variable Besov-type spaces, Tai-wanese J. Math. 23 (2019), 427-452.
+[128] C. Zhuo and D. Yang, Variable Besov spaces associated with heat kernels, Constr. Approx. 52 (2020),479-523.
+[129] C. Zhuo, D. Yang and W. Yuan, Hausdorff Besov-type and Triebel–Lizorkin-type spaces and their appli-cations, J. Math. Anal. Appl. 412 (2014), 998-1018.
+[130] A. Zygmund, Smooth functions, Duke Math. J. 12 (1945), 47-76.

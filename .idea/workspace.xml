@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17dfabad-7d72-4c0e-85b1-6f43a081e674" name="Default Changelist" comment="" />
+    <list default="true" id="17dfabad-7d72-4c0e-85b1-6f43a081e674" name="Default Changelist" comment="Default Changelist" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +32,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bufan/OneDrive/201411132101.github.io&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bufan/OneDrive/201411132101.github.io/article&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -41,9 +41,6 @@
   }
 }</component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bufan\OneDrive\博客" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bufan\OneDrive\201411132101.github.io\article" />
       <recent name="C:\Users\bufan\OneDrive\201411132101.github.io\time" />
@@ -51,6 +48,32 @@
       <recent name="C:\Users\bufan\OneDrive\201411132101.github.io\index" />
       <recent name="C:\Users\bufan\OneDrive\博客\article" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bufan\OneDrive\博客" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="博客" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/article/053" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/article/053/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -142,6 +165,8 @@
       <workItem from="1674727833793" duration="5386000" />
       <workItem from="1674735564231" duration="48000" />
       <workItem from="1676197668141" duration="359000" />
+      <workItem from="1685341647906" duration="2262000" />
+      <workItem from="1685368838835" duration="736000" />
     </task>
     <servers />
   </component>
