@@ -237,6 +237,27 @@ $ \supp \widehat{\tau^y f} = \supp \widehat{f} $.
 (iv) 是 (ii) 的直接推论.
 \end{proof}
 
+\begin{lemma}
+Let $f,g\in\mathcal{S}(\mathbb{R}^n)$.
+\begin{enumerate}[\rm(i)]
+\item $\operatorname{supp}f*g\subset\operatorname{supp}f+\operatorname{supp}g$;
+\item $\operatorname{supp}\widehat{fg}\subset\operatorname{supp}\widehat{f}+\operatorname{supp}\widehat{g}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) 由定义可以直接得到. 现证(ii).
+\begin{align*}
+\operatorname{supp}\widehat{fg}
+&=\operatorname{supp}\widetilde{\widehat{fg}}
+=\operatorname{supp}(fg)^{\vee}
+=\operatorname{supp}\check{f}*\check{g}\\
+&\subset\operatorname{supp}\check{f}+\operatorname{supp}\check{g}
+=\operatorname{supp}\widetilde{\widehat{f}}+\operatorname{supp}\widetilde{\widehat{g}}
+=\operatorname{supp}\widehat{f}+\operatorname{supp}\widehat{g}.
+\end{align*}
+\end{proof}
+
 \section{Schwartz 分布}
 
 下面给出 Schwartz 分布傅里叶变换的定义.
@@ -404,32 +425,35 @@ $$
 
 这两个空间上的拓扑是什么?
 
-下面给出判断函数属于 $ \mathcal{S}_\infty (\mathbb{R}^n) $ 的一个方法.
+下面给出 $ \mathcal{S}_\infty (\mathbb{R}^n) $ 的一个特征刻画.
 
 \begin{proposition} 
 Let $ f \in \mathcal{S} (\mathbb{R}^n) $.
-If $ 0 \notin \overline{\supp \widehat{f}} $, 
-then $ f \in \mathcal{S}_\infty (\mathbb{R}^n) $.
+Then $ f \in \mathcal{S}_\infty (\mathbb{R}^n) $
+if and only if $\partial^\alpha \widehat{f}(\mathbf{0})=0$ 
+for any $\alpha\in\mathbb Z_+^n$.
 \end{proposition}
 
-\begin{proof}
-关键是利用傅里叶变换的性质: 
+证明的关键在于利用傅里叶变换的性质: 
 对任意 $ \alpha \in \mathbb{Z}_+^n $ 和 $ \xi \in \mathbb{R}^n $,
 $$
 \left( \partial^\alpha \widehat{f} \right) (\xi)
 = [(-2\pi i x)^\alpha f(x)]^{\wedge} (\xi),
 $$
-又因为 $ \mathbf{0} \notin \overline{\supp \widehat{f}} $, 故
-$ (\partial^\alpha \widehat{f}) (\mathbf{0}) = 0 $,
-从而
+
+\begin{proof}
+For any $\alpha\in\mathbb Z_+^n$,
 $$
-0 = [(-2\pi i x)^\alpha \partial^\alpha f(x)]^{\wedge} (\mathbf{0})
+0 
+=(\partial^\alpha \widehat{f}) (\mathbf{0})
+= [(-2\pi i x)^\alpha f(x)]^{\wedge} (\mathbf{0})
 = \int_{\mathbb{R}^n} (-2\pi i x)^\alpha f(x) \, dx,
 $$
-即
+if and only if, for any $\alpha\in\mathbb Z_+^n$,
 $$
-\int_{\mathbb{R}^n} x^\alpha f(x) \, dx = 0.
+\int_{\mathbb{R}^n} x^\alpha f(x) \, dx = 0,
 $$
+i.e. $f\in\mathcal{S}_\infty$.
 \end{proof}
 
 \subsection{连续再生公式}

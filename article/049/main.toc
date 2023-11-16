@@ -1,9 +1,9 @@
 \contentsline {section}{\numberline {1}Schwartz 函数}{1}
-\contentsline {section}{\numberline {2}Schwartz 分布}{4}
-\contentsline {section}{\numberline {3}再生公式}{6}
+\contentsline {section}{\numberline {2}Schwartz 分布}{5}
+\contentsline {section}{\numberline {3}再生公式}{7}
 \contentsline {subsection}{\numberline {3.1}连续再生公式}{7}
 \contentsline {subsection}{\numberline {3.2}离散再生公式}{7}
 \contentsline {subsubsection}{\numberline {3.2.1}齐次}{7}
 \contentsline {subsubsection}{\numberline {3.2.2}非齐次}{8}
-\contentsline {section}{\numberline {4}特殊 Schwartz 函数的构造}{8}
+\contentsline {section}{\numberline {4}特殊 Schwartz 函数的构造}{9}
 \contentsline {subsection}{\numberline {4.1}Pseudo-differential 算子}{9}
