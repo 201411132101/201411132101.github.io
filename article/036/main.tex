@@ -15,7 +15,7 @@
 \usepackage{ctex}
 
 
-% ¶¨Òå¸÷ÖÖ»·¾³
+% å®šä¹‰å„ç§ç¯å¢ƒ
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -28,326 +28,385 @@
 
 \def \supp {\mathop\mathrm{\,supp\,}}
 
-% ÉèÖÃ proof µÄ¸ñÊ½
+% è®¾ç½® proof çš„æ ¼å¼
 % \renewcommand{\proofname}{\emph{Proof}}
 
-% »ù±¾ĞÅÏ¢
-\title{$ L^p(\mathbb{R}^n) $ ¶ÔÅ¼µÈÊ½µÄÍÆ¹ã}
+% åŸºæœ¬ä¿¡æ¯
+\title{$ L^p(\mathbb{R}^n) $ å¯¹å¶ç­‰å¼çš„æ¨å¹¿}
 
 \begin{document}
 
 
 \maketitle
 
-\section{$ L^p(\mathbb{R}^n),\ p \in (1, \infty] $ µÄ¶ÔÅ¼}
+\section{$ L^p(\mathbb{R}^n),\ p \in (1, \infty] $ çš„å¯¹å¶}
 
-½²µ½ $ L^p(\mathbb{R}^n) $ µÄ¶ÔÅ¼, ÄÇ¾Í»áÌáµ½ÈçÏÂµÈÊ½.
+è®²åˆ° $ L^p(\mathbb{R}^n) $ çš„å¯¹å¶, é‚£å°±ä¼šæåˆ°å¦‚ä¸‹ç­‰å¼.
 
 \begin{lemma}[Benedek and Panzone, The space $ L^p $, with mixed norm, Theorem 2]
-    Éè $ p \in [1, \infty) $, $ f $ ÊÇ $ \mathbb{R}^n $ ÉÏµÄ¿É²âº¯Êı. Ôò
-    $$
-        \| f \|_{L^p(\mathbb{R}^n)} 
-            = \max_{g \in L^{p'}(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} \, = 1} 
-            \int_{\mathbb{R}^n} f(x) g(x) \, dx.
-    $$
+è®¾ $ p \in [1, \infty) $, $ f $ æ˜¯ $ \mathbb{R}^n $ ä¸Šçš„å¯æµ‹å‡½æ•°. åˆ™
+$$
+\| f \|_{L^p(\mathbb{R}^n)}
+= \max_{g \in L^{p'}(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} \, = 1}
+\int_{\mathbb{R}^n} f(x) g(x) \, dx.
+$$
 \end{lemma}
 
 \begin{remark}
-    µ± $ \| f \|_{L^p(\mathbb{R}^n)} = \infty $ Ê±, ´æÔÚ $ g $ Ê¹µÃ 
-    $ \int_{\mathbb{R}^n} f(x) g(x) \, dx = \infty $ ÊÇÓÉ Brezis ÊéÖĞ½áÂÛ±£Ö¤µÄ.
-    
-    [H. Brezis, Functional Analysis, Exercise 4.7]:
-    Éè $ p \in [1, \infty) $, $ f $ ÊÇ $ \mathbb{R}^n $ ÉÏµÄ¿É²âº¯Êı.
-    Èô $ \forall g \in L^{p'}(\mathbb{R}^n) $, ÓĞ $ fg \in L^1(\mathbb{R}^n) $,
-    Ôò $ f \in L^p(\mathbb{R}^n) $.
+å½“ $ \| f \|_{L^p(\mathbb{R}^n)} = \infty $ æ—¶, å­˜åœ¨ $ g $ ä½¿å¾—
+$ \int_{\mathbb{R}^n} f(x) g(x) \, dx = \infty $ æ˜¯ç”± Brezis ä¹¦ä¸­ç»“è®ºä¿è¯çš„.
+
+[H. Brezis, Functional Analysis, Exercise 4.7]:
+è®¾ $ p \in [1, \infty) $, $ f $ æ˜¯ $ \mathbb{R}^n $ ä¸Šçš„å¯æµ‹å‡½æ•°.
+è‹¥ $ \forall g \in L^{p'}(\mathbb{R}^n) $, æœ‰ $ fg \in L^1(\mathbb{R}^n) $,
+åˆ™ $ f \in L^p(\mathbb{R}^n) $.
 \end{remark}
 
-¸Ã¶¨Àí¿É¼õÈõ $ g $ µÄ·¶Î§.
-
-¸ĞĞ» xs µÄ½¨Òé, Stein µÄÕâ¸ö½áÂÛ¸ú Theorem \ref{text} ÊÇÓĞËù²»Í¬µÄ, ÓĞ¼ÇÂ¼µÄ±ØÒª.
+Lemma 1ä¸­å¯ä»ä¸¤ä¸ªè§’åº¦æ¥å‡å¼± $ g $ çš„èŒƒå›´.
+ç¬¬ä¸€ç§æ˜¯å‡å¼±ä¸ºç®€å•å‡½æ•°, å¦ä¸€ç§æ˜¯å‡å¼±ä¸º$C_c^\infty(\mathbb{R}^n)$.
+æ„Ÿè°¢ xs çš„å»ºè®®, Stein çš„ç»“è®ºè·Ÿ Theorem \ref{text} æœ‰æ‰€ä¸åŒ, æœ‰è®°å½•çš„å¿…è¦.
 
 \begin{lemma} [E. M. Stein, Functional Analysis, Theorem 4.1 of Chapter 1] \label{123}
-    Éè $ p \in [1, \infty) $, $ f $ ÊÇ $ \mathbb{R}^n $ ÉÏµÄ¿É²âº¯Êı. Ôò
-    \begin{equation} 
-        \| f \|_{L^p(\mathbb{R}^n)} = \sup_{g \text{ is simple}, \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
-            \int_{\mathbb{R}^n} f(x) g(x) \, dx.
-    \end{equation}
+è®¾ $ p \in [1, \infty) $, $ f $ æ˜¯ $ \mathbb{R}^n $ ä¸Šçš„å¯æµ‹å‡½æ•°. åˆ™
+\begin{equation}
+\| f \|_{L^p(\mathbb{R}^n)} = \sup_{g \text{ is simple}, \| g \|_{L^{p'}(\mathbb{R}^n)} = 1}
+\int_{\mathbb{R}^n} f(x) g(x) \, dx.
+\end{equation}
 \end{lemma}
 
 \begin{theorem} \label{text}
-    Éè $ p \in [1, \infty) $, $ f $ ÊÇ $ \mathbb{R}^n $ ÉÏµÄ¿É²âº¯Êı. Ôò
-    \begin{equation} \label{haha}
-        \| f \|_{L^p(\mathbb{R}^n)} = \sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
-            \int_{\mathbb{R}^n} f(x) g(x) \, dx.
-    \end{equation}
+è®¾ $ p \in [1, \infty) $, $ f $ æ˜¯ $ \mathbb{R}^n $ ä¸Šçš„å¯æµ‹å‡½æ•°. åˆ™
+\begin{equation} \label{haha}
+\| f \|_{L^p(\mathbb{R}^n)} = \sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1}
+\int_{\mathbb{R}^n} f(x) g(x) \, dx.
+\end{equation}
 \end{theorem}
 
-\subsection{Êµ·ÖÎö½Ç¶ÈµÄÖ¤Ã÷}
+\subsection{å®åˆ†æè§’åº¦çš„è¯æ˜}
 
-Ö¤Ã÷Ë¼Â·: $ f \in L^p(\mathbb{R}^n) $ Ê±, ¸Ã¶¨Àí»Øµ½ÁË¾­µäÇé¿ö, 
-¹ÊÖ»ĞèÖ¤Ã÷ $ \| f \|_p = \infty $ Ê±, ÓÒ±ßÒ²µÈÓÚÎŞÇî. 
-¼´Ö¤ÓÒ±ßĞ¡ÓÚÎŞÇîÊ±, $ f \in L^p(\mathbb{R}^n) $.
-´ËÊ±ÏÈÖ¤
+è¯æ˜æ€è·¯: $ f \in L^p(\mathbb{R}^n) $ æ—¶, è¯¥å®šç†å›åˆ°äº†ç»å…¸æƒ…å†µ,
+æ•…åªéœ€è¯æ˜ $ \| f \|_p = \infty $ æ—¶, å³è¾¹ä¹Ÿç­‰äºæ— ç©·.
+å³è¯å³è¾¹å°äºæ— ç©·æ—¶, $ f \in L^p(\mathbb{R}^n) $.
+æ­¤æ—¶å…ˆè¯
 $$
-    \sup_{g \in L^\infty(\mathbb{R}^n), g \text{ÓĞ½ôÖ§¼¯}, \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
-        \int_{\mathbb{R}^n} f(x) g(x) \, dx < \infty.
+\sup_{g \in L^\infty(\mathbb{R}^n), g \text{æœ‰ç´§æ”¯é›†}, \| g \|_{L^{p'}(\mathbb{R}^n)} = 1}
+\int_{\mathbb{R}^n} f(x) g(x) \, dx < \infty.
 $$
-ÔÙÈ¡Ò»ÁĞ $ g_n $ Ê¹µÃ $ fg_n $ ±Æ½ü $ |f|^p $. ´Ó¶øÖ¤µÃ $ f \in L^p(\mathbb{R}^n) $.
+å†å–ä¸€åˆ— $ g_n $ ä½¿å¾— $ fg_n $ é€¼è¿‘ $ |f|^p $. ä»è€Œè¯å¾— $ f \in L^p(\mathbb{R}^n) $.
 
-Ê×ÏÈ¶¨Òå¾í»ıºË. ¶Ô $ \forall x \in \mathbb{R}^n $,
+é¦–å…ˆå®šä¹‰å·ç§¯æ ¸. å¯¹ $ \forall x \in \mathbb{R}^n $,
 $$
-    \rho(x) := \left\{ \begin{aligned}
-        &\exp\left( \frac{1}{|x|^2 - 1} \right), && |x| < 1, \\
-        &0,                             && |x| \geq 1,
-    \end{aligned}\right.
+\rho(x) := \left\{ \begin{aligned}
+&\exp\left( \frac{1}{|x|^2 - 1} \right), && |x| < 1, \\
+&0,                             && |x| \geq 1,
+\end{aligned}\right.
 $$
-Ôò $ \rho \in C_c^\infty(\mathbb{R}^n) $, $ \supp(\rho) = \overline{B(0, 1)} $ ÇÒ $ \rho \geq 0 $. 
-¶Ô $ \forall k \in \mathbb{N} $ ºÍ $ \forall x \in \mathbb{R}^n $, Áî
+åˆ™ $ \rho \in C_c^\infty(\mathbb{R}^n) $, $ \supp(\rho) = \overline{B(0, 1)} $ ä¸” $ \rho \geq 0 $.
+å¯¹ $ \forall k \in \mathbb{N} $ å’Œ $ \forall x \in \mathbb{R}^n $, ä»¤
 $$
-    \rho_k(x) := \frac{k^n}{\| \rho \|_{L^1(\mathbb{R}^n)}} \rho(kx)
-        = \left\{ \begin{aligned}
-        &\frac{k^n}{\| \rho \|_{L^1(\mathbb{R}^n)}} \exp\left( \frac{1}{|kx|^2 - 1} \right), && |kx| < 1, \\
-        &0,                             && |kx| \geq 1,
-    \end{aligned}\right.
+\rho_k(x) := \frac{k^n}{\| \rho \|_{L^1(\mathbb{R}^n)}} \rho(kx)
+= \left\{ \begin{aligned}
+&\frac{k^n}{\| \rho \|_{L^1(\mathbb{R}^n)}} \exp\left( \frac{1}{|kx|^2 - 1} \right), && |kx| < 1, \\
+&0,                             && |kx| \geq 1,
+\end{aligned}\right.
 $$
-Ôò $ \rho_k \in C_c^\infty(\mathbb{R}^n) $, $ \supp(\rho_k) = \overline{B(0, 1/k)} $, $ \rho_k \geq 0 $
-ÇÒ $ \| \rho_k \|_{L^1(\mathbb{R}^n)} = 1 $. 
+åˆ™ $ \rho_k \in C_c^\infty(\mathbb{R}^n) $, $ \supp(\rho_k) = \overline{B(0, 1/k)} $, $ \rho_k \geq 0 $
+ä¸” $ \| \rho_k \|_{L^1(\mathbb{R}^n)} = 1 $.
 
 
 \begin{lemma} \label{924}
-    Éè $ A \subset \mathbb{R}^n $ ÎªÓĞ½ç±Õ¼¯, $ A \subset \mathbb{R}^n $ Îª±Õ¼¯, Ôò $ A+B $ Îª±Õ¼¯.
+è®¾ $ A \subset \mathbb{R}^n $ ä¸ºæœ‰ç•Œé—­é›†, $ A \subset \mathbb{R}^n $ ä¸ºé—­é›†, åˆ™ $ A+B $ ä¸ºé—­é›†.
 \end{lemma}
 
 \begin{proof}
-    Éè $ \{x_k\}_{k \in \mathbb{N}} \subset A+B $ ÔÚ $ \mathbb{R}^n $ ÖĞÊÕÁ²µ½ $ x_0 $.
-    Ôò´æÔÚ $ \{y_k\}_{k \in \mathbb{N}} \subset A $ ºÍ $ \{z_k\}_{k \in \mathbb{N}} \subset B $
-    Ê¹µÃ, ¶Ô $ \forall k \in \mathbb{N} $,
-    $$
-        x_k = y_k + z_k.
-    $$
-    ÓÉÓÚ $ A $ ÎªÓĞ½ç±Õ¼¯, ¹Ê¿ÉÈ¡ $ \{y_{n_k}\}_{k \in \mathbb{N}} $ Îª $ \{y_k\}_{k \in \mathbb{N}} $ µÄÊÕÁ²×ÓÁĞ.
-    ¼Ç $ y_0 := \lim_{k \to \infty} y_{n_k} $, Ôò $ y_0 \in A $. ÓÖÓÉ $ B $ ÊÇ±Õ¼¯Öª
-    $$
-        \lim_{k \to \infty} z_{n_k} 
-            = \lim_{k \to \infty} x_{n_k} - \lim_{k \to \infty} y_{n_k} 
-            = x_0 - y_0
-            \in B.
-    $$
-    ¹Ê
-    $$
-        x_0 = y_0 + (x_0 - y_0) \in A + B.
-    $$
-    Òò´Ë $ A + B $ ÊÇ±Õ¼¯.
+è®¾ $ \{x_k\}_{k \in \mathbb{N}} \subset A+B $ åœ¨ $ \mathbb{R}^n $ ä¸­æ”¶æ•›åˆ° $ x_0 $.
+åˆ™å­˜åœ¨ $ \{y_k\}_{k \in \mathbb{N}} \subset A $ å’Œ $ \{z_k\}_{k \in \mathbb{N}} \subset B $
+ä½¿å¾—, å¯¹ $ \forall k \in \mathbb{N} $,
+$$
+x_k = y_k + z_k.
+$$
+ç”±äº $ A $ ä¸ºæœ‰ç•Œé—­é›†, æ•…å¯å– $ \{y_{n_k}\}_{k \in \mathbb{N}} $ ä¸º $ \{y_k\}_{k \in \mathbb{N}} $ çš„æ”¶æ•›å­åˆ—.
+è®° $ y_0 := \lim_{k \to \infty} y_{n_k} $, åˆ™ $ y_0 \in A $. åˆç”± $ B $ æ˜¯é—­é›†çŸ¥
+$$
+\lim_{k \to \infty} z_{n_k}
+= \lim_{k \to \infty} x_{n_k} - \lim_{k \to \infty} y_{n_k}
+= x_0 - y_0
+\in B.
+$$
+æ•…
+$$
+x_0 = y_0 + (x_0 - y_0) \in A + B.
+$$
+å› æ­¤ $ A + B $ æ˜¯é—­é›†.
 \end{proof}
 
 \begin{remark}
-    ×¢Òâ, Á½±Õ¼¯±ØĞëÓĞÆäÖĞÖ®Ò»ÊÇÓĞ½çµÄ, ·ñÔò½áÂÛ²»Ò»¶¨³ÉÁ¢.
-    È¡ 
-    $$ 
-        A := \left\{ k + \frac{1}{k} \right\}_{k \in \mathbb{N}}, 
-        \quad \text{and} \quad 
-        B := \mathbb{Z},
-    $$ 
-    Ôò
-    $$
-        A + B = \left\{ k + \frac{1}{m}:\ k \in \mathbb{Z},\ m \in \mathbb{N} \right\}
-    $$
-    ²»ÊÇ±Õ¼¯.
+æ³¨æ„, ä¸¤é—­é›†å¿…é¡»æœ‰å…¶ä¸­ä¹‹ä¸€æ˜¯æœ‰ç•Œçš„, å¦åˆ™ç»“è®ºä¸ä¸€å®šæˆç«‹.
+å–
+$$
+A := \left\{ k + \frac{1}{k} \right\}_{k \in \mathbb{N}},
+\quad \text{and} \quad
+B := \mathbb{Z},
+$$
+åˆ™
+$$
+A + B = \left\{ k + \frac{1}{m}:\ k \in \mathbb{Z},\ m \in \mathbb{N} \right\}
+$$
+ä¸æ˜¯é—­é›†.
 \end{remark}
 
-ÓĞÁËÕâĞ©×¼±¸¹¤×÷, ÏÖÔÚ¿ÉÒÔ¿ªÊ¼Ö¤Ã÷ Theorem \ref{text} ÁË.
+æœ‰äº†è¿™äº›å‡†å¤‡å·¥ä½œ, ç°åœ¨å¯ä»¥å¼€å§‹è¯æ˜ Theorem \ref{text} äº†.
 
 \begin{proof}[Proof of Theorem \ref{text}]
-    µ± $ f \in L^p(\mathbb{R}^n) $ Ê±, \eqref{haha} ÊÇ¾­µäµÄµÈÊ½, Ö¤Ã÷ÂÔ.
-    
-    ¶ÏÑÔ, Èô
-    $$
-        \sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
-            \int_{\mathbb{R}^n} f(x) g(x) \, dx =: M < \infty.
-    $$
-    Ôò $ f \in L^p(\mathbb{R}^n) $.
-    ÊÂÊµÉÏ, µ± $ M < \infty $ Ê±, $ f \in L_{loc}^1(\mathbb{R}) $ ÊÇ×Ô¶¯µÄ.
-    Áî $ g \in L^\infty(\mathbb{R}^n) $, ÓĞ½ôÖ§¼¯ÇÒ $ \| g \|_{L^{p'}(\mathbb{R}^n)} = 1 $.
-    ¶Ô $ \forall k \in \mathbb{N} $, Éè $ g_k := \rho_k * g $, Ôò $ g_k \in C_c^\infty(\mathbb{R}^n) $,
-    ´Ó¶ø
-    $$
-        \int_{\mathbb{R}^n} f(x) g_k(x) \, dx \leq M \| g_k \|_{L^{p'}(\mathbb{R}^n)}.
-    $$
-    ÒòÎª $ \lim_{k \to \infty} \| g_k - g \|_{L^1(\mathbb{R}^n)} = 0 $, ÓÉ Riesz ¶¨ÀíÖª, 
-    ´æÔÚ×ÓÁĞ $ g_{n_k} $ ¼¸ºõ´¦´¦ÊÕÁ²µ½ $ g $. ÓÖÓÉ $ g_k $ µÄ¶¨ÒåÖª, 
-    $ \|g_k\|_{L^\infty(\mathbb{R}^n)} \leq \|g\|_{L^\infty(\mathbb{R}^n)} $ 
-    ÇÒÓÉÒıÀí \ref{924} Öª,
-    \begin{align*}
-        \supp(g_k) &= \supp(\rho_k * g) 
-                   \subset \overline{\supp(\rho_k) + \supp(g)} \\
-                   &= \overline{\overline{B(0, 1/k)} + \supp(g)} 
-                   = \overline{B(0, 1/k)} + \supp(g)
-                   \subset \overline{B(0, 1)} + \supp(g), 
-    \end{align*}
-    ÓÉ´Ë¼° $ f \in L^1_{loc}(\mathbb{R}^n) $ Öª, 
-    ¶Ô $ \forall k \in \mathbb{N} $, ÔÚ¼¸ºõ´¦´¦ÒâÒåÏÂ
-    $$
-        |f g_k| \leq \|g_k\|_{L^\infty(\mathbb{R}^n)} |f \mathbf{1}_{\supp(g_k)}|
-                \leq \|g\|_{L^\infty(\mathbb{R}^n)} \left|f \mathbf{1}_{\overline{B(0, 1)} + \supp(g)}\right| 
-                \in L^1(\mathbb{R}^n).
-    $$
-    ¹ÊÓÉ¿ØÖÆÊÕÁ²¶¨Àí
-    \begin{align*}
-        \int_{\mathbb{R}^n} f(x) g(x) \, dx
-            &= \int_{\mathbb{R}^n} \lim_{k \to \infty} f(x) g_{n_k}(x) \, dx \\
-            &= \lim_{k \to \infty} \int_{\mathbb{R}^n} f(x) g_{n_k}(x) \, dx \\
-            &\leq \lim_{k \to \infty} M \| g_{n_k} \|_{L^{p'}(\mathbb{R}^n)}
-            = M.
-    \end{align*}
-    ´Ó¶ø
-    $$
-        \sup_{g \in L^\infty(\mathbb{R}^n), g \text{ÓĞ½ôÖ§¼¯}, \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
-            \int_{\mathbb{R}^n} f(x) g(x) \, dx \leq M.
-    $$
-    
-    Èô $ p = 1 $. ¶Ô $ \forall k \in \mathbb{N} $, Áî
-    $$
-        g_k := \mathrm{sign} (f) \mathbf{1}_{B(0, k)},
-    $$
-    Ôò $ g_k \in L^\infty(\mathbb{R}^n) $, $ g_k $ ÓĞ½ôÖ§¼¯ÇÒ $ \|g_k\|_{L^\infty(\mathbb{R}^n)} = 1 $, ´Ó¶ø
-    \begin{align*}
-        \int_{B(0, k)} |f(x)| \, dx
-            = \int_{\mathbb{R}^n} f(x) g_k(x) \, dx
-            \leq M.
-    \end{align*}
-    Áî $ k \to \infty $, ÓÉ Levi ¶¨ÀíÖª
-    $$
-        \| f \|_{L^1(\mathbb{R}^n)} \leq M.
-    $$
-    Èô $ p \in (1, \infty) $. ¶Ô $ \forall k \in \mathbb{N} $, Áî
-    $$
-        g_k := |f|^{p-1} \mathrm{sign}(f) \mathbf{1}_{\{|f| < k\}} \mathbf{1}_{B(0, k)},
-    $$
-    Ôò $ g_k \in L^\infty(\mathbb{R}^n) $ ÇÒ $ g_k $ ÓĞ½ôÖ§¼¯, ´Ó¶ø
-    \begin{align*}
-        \int_{B(0, k) \cap \{|f| < k\}} |f(x)|^p \, dx
-            &= \int_{\mathbb{R}^n} f(x) g_k(x) \, dx
-            \leq M \| g \|_{L^{p'}(\mathbb{R}^n)} \\
-            &= M \left[ \int_{B(0, k) \cap \{|f| < k\}} |f(x)|^p \, dx \right]^{1/p'},
-    \end{align*}
-    ¹Ê
-    $$
-        \left[ \int_{B(0, k) \cap \{|f| < k\}} |f(x)|^p \, dx \right]^{1/p} \leq M.
-    $$
-    Áî $ k \to \infty $, ÓÉ Levi ¶¨ÀíÖª
-    $$
-        \| f \|_{L^p(\mathbb{R}^n)} \leq M.
-    $$
-    ×ÛÉÏ, ¶ÏÑÔ³ÉÁ¢.
-    
-    Òò´Ë, µ± $ f \notin L^p(\mathbb{R}^n) $ Ê±,
-    $$
-        \sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
-            \int_{\mathbb{R}^n} f(x) g(x) \, dx = \infty
-    $$
-    \eqref{haha} ÈÔÈ»³ÉÁ¢. ÖÁ´Ë Theorem \ref{text} Ö¤±Ï.
+å½“ $ f \in L^p(\mathbb{R}^n) $ æ—¶, \eqref{haha} æ˜¯ç»å…¸çš„ç­‰å¼, è¯æ˜ç•¥.
+
+æ–­è¨€, è‹¥
+$$
+\sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1}
+\int_{\mathbb{R}^n} f(x) g(x) \, dx =: M < \infty.
+$$
+åˆ™ $ f \in L^p(\mathbb{R}^n) $.
+äº‹å®ä¸Š, å½“ $ M < \infty $ æ—¶, $ f \in L_{loc}^1(\mathbb{R}) $ æ˜¯è‡ªåŠ¨çš„.
+ä»¤ $ g \in L^\infty(\mathbb{R}^n) $, æœ‰ç´§æ”¯é›†ä¸” $ \| g \|_{L^{p'}(\mathbb{R}^n)} = 1 $.
+å¯¹ $ \forall k \in \mathbb{N} $, è®¾ $ g_k := \rho_k * g $, åˆ™ $ g_k \in C_c^\infty(\mathbb{R}^n) $,
+ä»è€Œ
+$$
+\int_{\mathbb{R}^n} f(x) g_k(x) \, dx \leq M \| g_k \|_{L^{p'}(\mathbb{R}^n)}.
+$$
+å› ä¸º $ \lim_{k \to \infty} \| g_k - g \|_{L^1(\mathbb{R}^n)} = 0 $, ç”± Riesz å®šç†çŸ¥,
+å­˜åœ¨å­åˆ— $ g_{n_k} $ å‡ ä¹å¤„å¤„æ”¶æ•›åˆ° $ g $. åˆç”± $ g_k $ çš„å®šä¹‰çŸ¥,
+$ \|g_k\|_{L^\infty(\mathbb{R}^n)} \leq \|g\|_{L^\infty(\mathbb{R}^n)} $
+ä¸”ç”±å¼•ç† \ref{924} çŸ¥,
+\begin{align*}
+\supp(g_k) &= \supp(\rho_k * g)
+\subset \overline{\supp(\rho_k) + \supp(g)} \\
+&= \overline{\overline{B(0, 1/k)} + \supp(g)}
+= \overline{B(0, 1/k)} + \supp(g)
+\subset \overline{B(0, 1)} + \supp(g),
+\end{align*}
+ç”±æ­¤åŠ $ f \in L^1_{loc}(\mathbb{R}^n) $ çŸ¥,
+å¯¹ $ \forall k \in \mathbb{N} $, åœ¨å‡ ä¹å¤„å¤„æ„ä¹‰ä¸‹
+$$
+|f g_k| \leq \|g_k\|_{L^\infty(\mathbb{R}^n)} |f \mathbf{1}_{\supp(g_k)}|
+\leq \|g\|_{L^\infty(\mathbb{R}^n)} \left|f \mathbf{1}_{\overline{B(0, 1)} + \supp(g)}\right|
+\in L^1(\mathbb{R}^n).
+$$
+æ•…ç”±æ§åˆ¶æ”¶æ•›å®šç†
+\begin{align*}
+\int_{\mathbb{R}^n} f(x) g(x) \, dx
+&= \int_{\mathbb{R}^n} \lim_{k \to \infty} f(x) g_{n_k}(x) \, dx \\
+&= \lim_{k \to \infty} \int_{\mathbb{R}^n} f(x) g_{n_k}(x) \, dx \\
+&\leq \lim_{k \to \infty} M \| g_{n_k} \|_{L^{p'}(\mathbb{R}^n)}
+= M.
+\end{align*}
+ä»è€Œ
+$$
+\sup_{g \in L^\infty(\mathbb{R}^n), g \text{æœ‰ç´§æ”¯é›†}, \| g \|_{L^{p'}(\mathbb{R}^n)} = 1}
+\int_{\mathbb{R}^n} f(x) g(x) \, dx \leq M.
+$$
+
+è‹¥ $ p = 1 $. å¯¹ $ \forall k \in \mathbb{N} $, ä»¤
+$$
+g_k := \mathrm{sign} (f) \mathbf{1}_{B(0, k)},
+$$
+åˆ™ $ g_k \in L^\infty(\mathbb{R}^n) $, $ g_k $ æœ‰ç´§æ”¯é›†ä¸” $ \|g_k\|_{L^\infty(\mathbb{R}^n)} = 1 $, ä»è€Œ
+\begin{align*}
+\int_{B(0, k)} |f(x)| \, dx
+= \int_{\mathbb{R}^n} f(x) g_k(x) \, dx
+\leq M.
+\end{align*}
+ä»¤ $ k \to \infty $, ç”± Levi å®šç†çŸ¥
+$$
+\| f \|_{L^1(\mathbb{R}^n)} \leq M.
+$$
+è‹¥ $ p \in (1, \infty) $. å¯¹ $ \forall k \in \mathbb{N} $, ä»¤
+$$
+g_k := |f|^{p-1} \mathrm{sign}(f) \mathbf{1}_{\{|f| < k\}} \mathbf{1}_{B(0, k)},
+$$
+åˆ™ $ g_k \in L^\infty(\mathbb{R}^n) $ ä¸” $ g_k $ æœ‰ç´§æ”¯é›†, ä»è€Œ
+\begin{align*}
+\int_{B(0, k) \cap \{|f| < k\}} |f(x)|^p \, dx
+&= \int_{\mathbb{R}^n} f(x) g_k(x) \, dx
+\leq M \| g \|_{L^{p'}(\mathbb{R}^n)} \\
+&= M \left[ \int_{B(0, k) \cap \{|f| < k\}} |f(x)|^p \, dx \right]^{1/p'},
+\end{align*}
+æ•…
+$$
+\left[ \int_{B(0, k) \cap \{|f| < k\}} |f(x)|^p \, dx \right]^{1/p} \leq M.
+$$
+ä»¤ $ k \to \infty $, ç”± Levi å®šç†çŸ¥
+$$
+\| f \|_{L^p(\mathbb{R}^n)} \leq M.
+$$
+ç»¼ä¸Š, æ–­è¨€æˆç«‹.
+
+å› æ­¤, å½“ $ f \notin L^p(\mathbb{R}^n) $ æ—¶,
+$$
+\sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1}
+\int_{\mathbb{R}^n} f(x) g(x) \, dx = \infty
+$$
+\eqref{haha} ä»ç„¶æˆç«‹. è‡³æ­¤ Theorem \ref{text} è¯æ¯•.
 \end{proof}
 
-\section{·ºº¯½Ç¶ÈµÄÖ¤Ã÷}
+\section{æ³›å‡½è§’åº¦çš„è¯æ˜}
 
-Theorem \ref{text} µÄµÚÒ»ÖÖÖ¤Ã÷Ë¼Â·À´Ô´ÓÚ Brezis ÊéÖĞ Corollary 4.24 µÄÖ¤Ã÷. Í¬ÑùµÄË¼Â·ÔÚÕÅ¹§ÇìµÄ·ºº¯·ÖÎöÖĞÒ²ÓĞÌáµ½.
-Êµ¼ÊÉÏÖ±½ÓÀûÓÃ´Ë½áÂÛ, ´Ó·ºº¯½Ç¶ÈÄÜ¿ìËÙÖ¤Ã÷ Theorem \ref{text}.
+Theorem \ref{text} çš„ç¬¬ä¸€ç§è¯æ˜æ€è·¯æ¥æºäº Brezis ä¹¦ä¸­ Corollary 4.24 çš„è¯æ˜. åŒæ ·çš„æ€è·¯åœ¨å¼ æ­åº†çš„æ³›å‡½åˆ†æä¸­ä¹Ÿæœ‰æåˆ°.
+å®é™…ä¸Šç›´æ¥åˆ©ç”¨æ­¤ç»“è®º, ä»æ³›å‡½è§’åº¦èƒ½å¿«é€Ÿè¯æ˜ Theorem \ref{text}.
 
 \begin{theorem}[H. Brezis, Functional Analysis, Corollary 4.24] \label{h}
-    Éè¿ª¼¯ $ \Omega \subset \mathbb{R}^n $ ÇÒ $ f \in L^1_{loc}(\Omega) $ Âú×ã
-    ¶Ô $ \forall g \in C_c^\infty(\Omega) $,
-    $$
-        \int_\Omega f(x) g(x) \, dx = 0.
-    $$
-    Ôò $ f $ ÔÚ $ \Omega $ ÉÏ¼¸ºõ´¦´¦Îª $ 0 $.
+è®¾å¼€é›† $ \Omega \subset \mathbb{R}^n $ ä¸” $ f \in L^1_{loc}(\Omega) $ æ»¡è¶³
+å¯¹ $ \forall g \in C_c^\infty(\Omega) $,
+$$
+\int_\Omega f(x) g(x) \, dx = 0.
+$$
+åˆ™ $ f $ åœ¨ $ \Omega $ ä¸Šå‡ ä¹å¤„å¤„ä¸º $ 0 $.
 \end{theorem}
 
 \begin{proof}
-    ÎªÁË·½±ã, Ö»Ö¤ $ \Omega = \mathbb{R}^n $ Ê±µÄÇé¿ö.
-    Áî $ g \in L^\infty(\mathbb{R}^n) $ ÇÒÓĞ½ôÖ§¼¯.
-    ¶Ô $ \forall k \in \mathbb{N} $, Éè $ g_k := \rho_k * g $, Ôò $ g_k \in C_c^\infty(\mathbb{R}^n) $,
-    ´Ó¶ø
-    $$
-        \int_{\mathbb{R}^n} f(x) g_k(x) \, dx = 0.
-    $$
-    ÒòÎª $ \lim_{k \to \infty} \| g_k - g \|_{L^1(\mathbb{R}^n)} = 0 $, ÓÉ Riesz ¶¨ÀíÖª, 
-    ´æÔÚ×ÓÁĞ $ g_{n_k} $ ¼¸ºõ´¦´¦ÊÕÁ²µ½ $ g $. ÓÖÓÉ $ g_k $ µÄ¶¨ÒåÖª, 
-    $ \|g_k\|_{L^\infty(\mathbb{R}^n)} \leq \|g\|_{L^\infty(\mathbb{R}^n)} $ 
-    ÇÒ 
-    \begin{align*}
-        \supp(g_k) &= \supp(\rho_k * g) 
-                   \subset \overline{\supp(\rho_k) + \supp(g)} \\
-                   &= \overline{\overline{B(0, 1/k)} + \supp(g)} 
-                   = \overline{B(0, 1/k)} + \supp(g)
-                   \subset \overline{B(0, 1)} + \supp(g), 
-    \end{align*}
-    ÓÉ´Ë¼° $ f \in L^1_{loc}(\mathbb{R}^n) $ Öª, 
-    ¶Ô $ \forall k \in \mathbb{N} $, ÔÚ¼¸ºõ´¦´¦ÒâÒåÏÂ
-    $$
-        |f g_k| \leq \|g_k\|_{L^\infty(\mathbb{R}^n)} |f \mathbf{1}_{\supp(g_k)}|
-                \leq \|g\|_{L^\infty(\mathbb{R}^n)} \left|f \mathbf{1}_{\overline{B(0, 1)} + \supp(g)}\right| 
-                \in L^1(\mathbb{R}^n).
-    $$
-    ¹ÊÓÉ¿ØÖÆÊÕÁ²¶¨Àí
-    \begin{align*}
-        \int_{\mathbb{R}^n} f(x) g(x) \, dx
-            &= \int_{\mathbb{R}^n} \lim_{k \to \infty} f(x) g_{n_k}(x) \, dx \\
-            &= \lim_{k \to \infty} \int_{\mathbb{R}^n} f(x) g_{n_k}(x) \, dx = 0.
-    \end{align*}
-    
-    ¶Ô $ \forall k \in \mathbb{N} $, Áî
-    $$
-        g_k := \mathrm{sign} (f) \mathbf{1}_{B(0, k)},
-    $$
-    Ôò $ g_k \in L^\infty(\mathbb{R}^n) $ ÇÒÓĞ½ôÖ§¼¯, ´Ó¶ø
-    $$
-        \int_{B(0, k)} |f(x)| \, dx
-            = \int_{\mathbb{R}^n} f(x) g_k(x) \, dx
-            = 0,
-    $$
-    ¹Ê¶Ô a.e. $ x \in B(0, k) $, $ f(x) = 0 $.
-    ÔÙÓÉ $ k $ µÄÈÎÒâĞÔÖª, ¶Ô a.e. $ x \in \mathbb{R}^n $, $ f(x) = 0 $.
+ä¸ºäº†æ–¹ä¾¿, åªè¯ $ \Omega = \mathbb{R}^n $ æ—¶çš„æƒ…å†µ.
+ä»¤ $ g \in L^\infty(\mathbb{R}^n) $ ä¸”æœ‰ç´§æ”¯é›†.
+å¯¹ $ \forall k \in \mathbb{N} $, è®¾ $ g_k := \rho_k * g $, åˆ™ $ g_k \in C_c^\infty(\mathbb{R}^n) $,
+ä»è€Œ
+$$
+\int_{\mathbb{R}^n} f(x) g_k(x) \, dx = 0.
+$$
+å› ä¸º $ \lim_{k \to \infty} \| g_k - g \|_{L^1(\mathbb{R}^n)} = 0 $, ç”± Riesz å®šç†çŸ¥,
+å­˜åœ¨å­åˆ— $ g_{n_k} $ å‡ ä¹å¤„å¤„æ”¶æ•›åˆ° $ g $. åˆç”± $ g_k $ çš„å®šä¹‰çŸ¥,
+$ \|g_k\|_{L^\infty(\mathbb{R}^n)} \leq \|g\|_{L^\infty(\mathbb{R}^n)} $
+ä¸”
+\begin{align*}
+\supp(g_k) &= \supp(\rho_k * g)
+\subset \overline{\supp(\rho_k) + \supp(g)} \\
+&= \overline{\overline{B(0, 1/k)} + \supp(g)}
+= \overline{B(0, 1/k)} + \supp(g)
+\subset \overline{B(0, 1)} + \supp(g),
+\end{align*}
+ç”±æ­¤åŠ $ f \in L^1_{loc}(\mathbb{R}^n) $ çŸ¥,
+å¯¹ $ \forall k \in \mathbb{N} $, åœ¨å‡ ä¹å¤„å¤„æ„ä¹‰ä¸‹
+$$
+|f g_k| \leq \|g_k\|_{L^\infty(\mathbb{R}^n)} |f \mathbf{1}_{\supp(g_k)}|
+\leq \|g\|_{L^\infty(\mathbb{R}^n)} \left|f \mathbf{1}_{\overline{B(0, 1)} + \supp(g)}\right|
+\in L^1(\mathbb{R}^n).
+$$
+æ•…ç”±æ§åˆ¶æ”¶æ•›å®šç†
+\begin{align*}
+\int_{\mathbb{R}^n} f(x) g(x) \, dx
+&= \int_{\mathbb{R}^n} \lim_{k \to \infty} f(x) g_{n_k}(x) \, dx \\
+&= \lim_{k \to \infty} \int_{\mathbb{R}^n} f(x) g_{n_k}(x) \, dx = 0.
+\end{align*}
+
+å¯¹ $ \forall k \in \mathbb{N} $, ä»¤
+$$
+g_k := \mathrm{sign} (f) \mathbf{1}_{B(0, k)},
+$$
+åˆ™ $ g_k \in L^\infty(\mathbb{R}^n) $ ä¸”æœ‰ç´§æ”¯é›†, ä»è€Œ
+$$
+\int_{B(0, k)} |f(x)| \, dx
+= \int_{\mathbb{R}^n} f(x) g_k(x) \, dx
+= 0,
+$$
+æ•…å¯¹ a.e. $ x \in B(0, k) $, $ f(x) = 0 $.
+å†ç”± $ k $ çš„ä»»æ„æ€§çŸ¥, å¯¹ a.e. $ x \in \mathbb{R}^n $, $ f(x) = 0 $.
 \end{proof}
 
-ÏÂÃæ¸ø³ö Theorem \ref{text} µÄÁíÒ»ÖÖÖ¤Ã÷.
+ä¸‹é¢ç»™å‡º Theorem \ref{text} çš„å¦ä¸€ç§è¯æ˜.
 
 \begin{proof}[Proof of Theorem \ref{text}]
-    µ± $ f \in L^p(\mathbb{R}^n) $ Ê±, \eqref{haha} ÊÇ¾­µäµÄµÈÊ½, Ö¤Ã÷ÂÔ.
-    
-    Èô
-    $$
-        \sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1} 
-            \int_{\mathbb{R}^n} f(x) g(x) \, dx =: M < \infty.
-    $$
-    Ôò¿É¶¨ÒåËã×Ó
-    $$
-        T :\ C_c^\infty(\mathbb{R}^n) \to \mathbb{R},\ g \mapsto \int_{\mathbb{R}^n} f(x) g(x) \, dx.
-    $$
-    ¸ÃËã×ÓÊÇÁ¬ĞøÏßĞÔ·ºº¯, ´Ó¶ø¿ÉÒÔÑØÍØÎª $ L^{p'}(\mathbb{R}^n) $ ÉÏµÄÁ¬Ğø·ºº¯ $ \widetilde{T} $.
-    ¶ÔÓÚ $ \widetilde{T} $, ´æÔÚ $ \tilde{f} \in L^p(\mathbb{R}^n) $ Ê¹µÃ 
-    $$
-        \widetilde{T}(g) = \int_{\mathbb{R}^n} \tilde{f}(x) g(x) \, dx, \quad \forall g \in L^{p'}(\mathbb{R}^n).
-    $$
-    ¶Ô $ \forall g \in C_c^\infty(\mathbb{R}^n) $,
-    $$
-        \int_{\mathbb{R}^n} f(x) g(x) \, dx = T(g) = \widetilde{T}(g) = \int_{\mathbb{R}^n} \tilde{f}(x) g(x) \, dx,
-    $$
-    ¼´
-    $$
-        \int_{\mathbb{R}^n} \left[f(x) - \tilde{f}(x)\right] g(x) \, dx = 0.
-    $$
-    ÓÉ´Ë¼° Theorem \ref{h} Öª, $ f $ ºÍ $ \tilde{f} $ ¼¸ºõ´¦´¦ÏàµÈ, ¹Ê $ f \in L^p(\mathbb{R}^n) $.
+å½“ $ f \in L^p(\mathbb{R}^n) $ æ—¶, \eqref{haha} æ˜¯ç»å…¸çš„ç­‰å¼, è¯æ˜ç•¥.
+
+è‹¥
+$$
+\sup_{g \in C_c^\infty(\mathbb{R}^n), \| g \|_{L^{p'}(\mathbb{R}^n)} = 1}
+\int_{\mathbb{R}^n} f(x) g(x) \, dx =: M < \infty.
+$$
+åˆ™å¯å®šä¹‰ç®—å­
+$$
+T :\ C_c^\infty(\mathbb{R}^n) \to \mathbb{R},\ g \mapsto \int_{\mathbb{R}^n} f(x) g(x) \, dx.
+$$
+è¯¥ç®—å­æ˜¯è¿ç»­çº¿æ€§æ³›å‡½, ä»è€Œå¯ä»¥æ²¿æ‹“ä¸º $ L^{p'}(\mathbb{R}^n) $ ä¸Šçš„è¿ç»­æ³›å‡½ $ \widetilde{T} $.
+å¯¹äº $ \widetilde{T} $, å­˜åœ¨ $ \tilde{f} \in L^p(\mathbb{R}^n) $ ä½¿å¾—
+$$
+\widetilde{T}(g) = \int_{\mathbb{R}^n} \tilde{f}(x) g(x) \, dx, \quad \forall g \in L^{p'}(\mathbb{R}^n).
+$$
+å¯¹ $ \forall g \in C_c^\infty(\mathbb{R}^n) $,
+$$
+\int_{\mathbb{R}^n} f(x) g(x) \, dx = T(g) = \widetilde{T}(g) = \int_{\mathbb{R}^n} \tilde{f}(x) g(x) \, dx,
+$$
+å³
+$$
+\int_{\mathbb{R}^n} \left[f(x) - \tilde{f}(x)\right] g(x) \, dx = 0.
+$$
+ç”±æ­¤åŠ Theorem \ref{h} çŸ¥, $ f $ å’Œ $ \tilde{f} $ å‡ ä¹å¤„å¤„ç›¸ç­‰, æ•… $ f \in L^p(\mathbb{R}^n) $.
 \end{proof}
 
-\section{$ L^1(\mathbb{R}^n),\ p \in (1, \infty] $ µÄ¶ÔÅ¼}
+\section{$ L^1(\mathbb{R}^n)$ çš„å¯¹å¶}
 
-ÏÂÃæÊÇ zcf ¸æËßÎÒµÄÒ»¸ö½áÂÛ.
+ä¸‹é¢æ˜¯ zcf å‘Šè¯‰æˆ‘çš„ä¸€ä¸ªç»“è®º.
 
 \begin{theorem}
-    $ (L^1(\mathbb{R}^n))' \subset L^\infty(\mathbb{R}^n) $.
+$ (L^1(\mathbb{R}^n))' \subset L^\infty(\mathbb{R}^n) $.
 \end{theorem}
 
-\end{document} 
+\newpage
+
+\section{Lemma 1çš„ç‰¹æ®Šæƒ…å†µ}
+
+\begin{lemma}\label{spe}
+è®¾$ p \in [1, \infty) $, $\frac1p+\frac1{p'}=1$ä¸”$ f\in L^p(\mathbb{R}^n)$.
+åˆ™å­˜åœ¨$g\in L^{p'}(\mathbb{R}^n)$æ»¡è¶³$\|g\|_{L^{p'}(\mathbb{R}^n)}=1$ä½¿å¾—
+$$
+\| f \|_{L^p(\mathbb{R}^n)}
+= \int_{\mathbb{R}^n} f(x) g(x) \, dx.
+$$
+\end{lemma}
+
+\begin{proof}
+If $f\equiv0$, then Lemma \ref{spe} is obviously true.
+Next, we will only consider the case where $f\not\equiv0$.
+
+Case 1) $p=1$. In this case, $p'=\infty$.
+Let $g:=\overline{\operatorname{sgn}(f(x))}$,
+where, for any $z\in\mathbb C$,
+$$
+\operatorname{sgn}(z)
+:=\begin{cases}
+z/|z|&\text{if } z\neq0\\
+0&\text{if } z=0.
+\end{cases}
+$$
+Then $\|g\|_{L^\infty(\mathbb{R}^n)}=1$ and
+$$
+\int_{\mathbb{R}^n} f(x) g(x) \, dx
+=\int_{\mathbb{R}^n} f(x) \, dx
+=\| f \|_{L^p(\mathbb{R}^n)}.
+$$
+This finishes the proof of Lemma \ref{spe} in this case.
+
+Case 2) $p\in(1,\infty)$. In this case, letting
+$$
+g:=\frac{|f(x)|^{p-1}\overline{\operatorname{sgn}(f(x))}}
+{\|f\|_{L^p(\mathbb{R}^n)}^{p-1}},
+$$
+then
+\begin{align*}
+\|g\|_{L^{p'}(\mathbb{R}^n)}
+&=\frac1{\|f\|_{L^p(\mathbb{R}^n)}^{p-1}}
+\left[\int_{\mathbb R^n}|f(x)|^{pp'-p'}\,dx\right]^{\frac1{p'}}\\
+&=\frac1{\|f\|_{L^p(\mathbb{R}^n)}^{p-1}}
+\left[\int_{\mathbb R^n}|f(x)|^p\,dx\right]^{\frac{1}{p}\frac{p}{p'}}
+=1
+\end{align*}
+and
+$$
+\int_{\mathbb{R}^n} f(x) g(x) \, dx
+=\frac1{\|f\|_{L^p(\mathbb{R}^n)}^{p-1}}
+\int_{\mathbb{R}^n} |f(x)|^p \, dx
+=\| f \|_{L^p(\mathbb{R}^n)}.
+$$
+This finishes the proof of Lemma \ref{spe} in this case and hence Lemma \ref{spe}.
+\end{proof}
+
+\end{document}
 
 
 
