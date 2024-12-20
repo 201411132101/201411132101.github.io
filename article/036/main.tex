@@ -349,7 +349,7 @@ $ (L^1(\mathbb{R}^n))' \subset L^\infty(\mathbb{R}^n) $.
 
 \newpage
 
-\section{Lemma 1的特殊情况}
+\section{Lemma 1.1的简化版本}
 
 \begin{lemma}\label{spe}
 设$ p \in [1, \infty) $, $\frac1p+\frac1{p'}=1$且$ f\in L^p(\mathbb{R}^n)$.
@@ -361,11 +361,13 @@ $$
 \end{lemma}
 
 \begin{proof}
-If $f\equiv0$, then Lemma \ref{spe} is obviously true.
-Next, we will only consider the case where $f\not\equiv0$.
+If $\|f\|_{L^p(\mathbb{R}^n)}=0$, then
+$f(x)=0$ for almost every $x\in\mathbb R^n$
+and hence Lemma \ref{spe} is obviously true.
+Next, we will only consider the case where $\|f\|_{L^p(\mathbb{R}^n)}\neq0$.
 
 Case 1) $p=1$. In this case, $p'=\infty$.
-Let $g:=\overline{\operatorname{sgn}(f(x))}$,
+Let $g(\cdot):=\overline{\operatorname{sgn}(f(\cdot))}$,
 where, for any $z\in\mathbb C$,
 $$
 \operatorname{sgn}(z)
@@ -377,14 +379,14 @@ $$
 Then $\|g\|_{L^\infty(\mathbb{R}^n)}=1$ and
 $$
 \int_{\mathbb{R}^n} f(x) g(x) \, dx
-=\int_{\mathbb{R}^n} f(x) \, dx
+=\int_{\mathbb{R}^n} |f(x)| \, dx
 =\| f \|_{L^p(\mathbb{R}^n)}.
 $$
 This finishes the proof of Lemma \ref{spe} in this case.
 
 Case 2) $p\in(1,\infty)$. In this case, letting
 $$
-g:=\frac{|f(x)|^{p-1}\overline{\operatorname{sgn}(f(x))}}
+g(\cdot):=\frac{|f(\cdot)|^{p-1}\overline{\operatorname{sgn}(f(\cdot))}}
 {\|f\|_{L^p(\mathbb{R}^n)}^{p-1}},
 $$
 then

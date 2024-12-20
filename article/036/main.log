@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.5)  17 JUN 2024 20:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.5)  15 JUL 2024 22:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -609,11 +609,11 @@ OMS/cmsy/m/n/10.95 k[] \OT1/cmr/m/n/10.95 =
 
 [7] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 8457 strings out of 476025
- 147462 string characters out of 5794016
+ 8459 strings out of 476025
+ 147493 string characters out of 5794016
  1866382 words of memory out of 5000000
- 28501 multiletter control sequences out of 15000+600000
- 559342 words of font info for 207 fonts, out of 8000000 for 9000
+ 28502 multiletter control sequences out of 15000+600000
+ 559612 words of font info for 208 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,10n,80p,689b,350s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Windows/Fonts/simkai.ttf><c:/Windows/Fonts/simhei.ttf><c:
@@ -666,7 +666,7 @@ st/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2023/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmti8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/publ
 ic/amsfonts/symbols/msbm10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msbm7.pfb>
-Output written on main.pdf (7 pages, 541833 bytes).
+Output written on main.pdf (7 pages, 541805 bytes).
 PDF statistics:
  533 PDF objects out of 1000 (max. 8388607)
  339 compressed objects within 4 object streams
